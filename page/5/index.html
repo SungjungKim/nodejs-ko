@@ -69,6 +69,190 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-npm-security-updates-v2.15.1-and-v3.8.3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/03/31/npm-security-updates-v2.15.1-and-v3.8.3/" class="article-date">
+    <time datetime="2016-03-30T15:00:00.000Z" itemprop="datePublished">2016-03-31</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/articles/2016/03/31/npm-security-updates-v2.15.1-and-v3.8.3/">npm 보안 업데이트 v2.15.1 과 v3.8.3</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Forrest Norvell</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/vulnerability/npm-tokens-leak-march-2016/" taret="_blank">
+        npm security updates v2.15.1 and v3.8.3
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+          <strong><a href="https://github.com/freenice12" target="_blank">freenice12</a></strong>
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+_This announcement is also covered on the npm blog: <http://blog.npmjs.org/post/142036323955/fixing-a-bearer-token-vulnerability>._
+-->
+<p><em>이 공지는 npm 블로그에도 다뤄졌습니다: <a href="http://blog.npmjs.org/post/142036323955/fixing-a-bearer-token-vulnerability" target="_blank" rel="external">http://blog.npmjs.org/post/142036323955/fixing-a-bearer-token-vulnerability</a>.</em></p>
+<!--
+The primary npm registry has, since late 2014, used HTTP bearer tokens to authenticate requests from the npm command-line interface. Due to a design flaw in the CLI, these bearer tokens were sent with every request made by the CLI for logged-in users, regardless of the destination of the request. They should instead only be included for requests made against the registry or registries used for the current install.
+-->
+<p>2014년 하반기 이후, 최초의 npm 저장소는 HTTP 베어러 토큰을 npm 커맨드-라인 인터페이스로부터의 인증 요청에 사용해왔습니다. CLI의 설계 결함 때문에 이 베어러 토큰들은 요청의 목적지와 관계없이 로그인한 사용자를 위해 CLI가 만들어낸 모든 요청과 함께 보내졌습니다. 그 토큰들은 반드시 현재의 설치를 위해 사용된 저장소나 저장소들에 의해 만들어진 요청들을 위해서만 포함되어야 했습니다.</p>
+<!--
+This flaw allows an attacker to set up an HTTP server that could collect authentication information they could use to impersonate the users whose tokens they collected. This impersonation would allow them to do anything the compromised users could do, including publishing new versions of packages.
+-->
+<p>이 결함은 공격자가 그들이 수집한 사용자의 토큰인 척 가장해 인증 정보를 수집할 수 있는 HTTP 서버를 조작할 수 있게 만들었습니다. 이 속임수는 공격자들에게 패키지의 새 버전 배포를 포함한 인증된 사용자가 할 수 있는 모든 것을 가능하게 했습니다.</p>
+<!--
+This flaw has been fixed in [npm@2.15.1](https://github.com/npm/npm/commit/fea8cc92cee02c720b58f95f14d315507ccad401) (npm LTS) and [npm@3.8.3](https://github.com/npm/npm/commit/f67ecad59e99a03e5aad8e93cd1a086ae087cb29). The npm CLI team believes that the fix won't break any existing registry setups, but due to the large number of registry software suites in the wild, it's possible that this change will be breaking in some cases. If so, please [file an issue](https://github.com/npm/npm/issues/new) describing the software you're using and how it broke, and the team will work with you to mitigate the breakage.
+-->
+<p>이 결함은 <a href="https://github.com/npm/npm/commit/fea8cc92cee02c720b58f95f14d315507ccad401" target="_blank" rel="external">npm@2.15.1</a>(npm LTS)과 <a href="https://github.com/npm/npm/commit/f67ecad59e99a03e5aad8e93cd1a086ae087cb29" target="_blank" rel="external">npm@3.8.3</a>에서 수정 되었습니다. npm CLI 팀은 npm 생태계의 수많은 소프트웨어 제품군 저장소가 있음에도 이 수정이 어떤 기존 저장소의 설정도 깨뜨리지 않을 것으로 믿지만, 어떤 경우에는 깨뜨리는 것도 가능하다고 생각하고 있습니다. 만약 그런 경우 <a href="https://github.com/npm/npm/issues/new" target="_blank" rel="external">이슈를 등록</a>해 사용하는 소프트웨어와 어떻게 작동하지 않는지를 설명해주면, 해당 팀이 당신을 도와 손실을 줄여줄 것입니다.</p>
+<!--
+If you believe that your bearer token may have been leaked, it should be sufficient to [invalidate your current npm bearer tokens](https://www.npmjs.com/settings/tokens) and to rerun npm login to generate new tokens. Keep in mind that this may cause continuous integration builds in services like Travis to break, in which case you'll need to update the tokens in your CI server's configuration.
+-->
+<p>만약 당신의 베어러 토큰이 유출되었다고 생각되면, <a href="https://www.npmjs.com/settings/tokens" target="_blank" rel="external">현재 사용 중인 npm 베어러 토큰을 폐기</a>할 수 있고, 새로운 토큰을 생성해 npm 로그인을 다시 실행해주시면 됩니다. 이 결함은 트비스(Travis) 같은 지속적 통합(CI) 빌드의 결함을 야기할 수 있음을 명심해야 하고, 이럴 경우 당신은 CI 서버의 환경 속 토큰들을 업데이트 해야 할 필요가 있습니다.</p>
+<!--
+Thanks to Mitar, Will White & the team at Mapbox, Max Motovilov, and James Taylor for reporting this vulnerability to npm.
+-->
+<p>npm의 이런 취약점을 제보해준 Mitar와 Will White와 Mapbox 팀, Max Motovilov James Taylor에게 감사의 말씀을 드립니다.</p>
+<!--
+As Node.js ships with npm, releases for the active lines will be made available shortly for your convenience. Please watch the [Node.js news feed](https://nodejs.org/en/blog/) for the following releases:
+-->
+<p>Node.js에 npm이 포함되어 배포되므로 편하게 사용할 수 있도록 곧 새로운 릴리가 이뤄질 예정입니다. 다음의 릴리즈에 대해서는 <a href="https://nodejs.org/en/blog/" target="_blank" rel="external">Node.js 뉴스 피드</a>를 봐주시길 바랍니다.</p>
+<!--
+* **v0.10 (Maintenance)**: [Node.js v0.10.44](http://nodejs.org/en/blog/release/v0.10.44/) includes npm LTS v2.15.1. This is a major upgrade of npm from v1 which has previously been deprecated. No fix is being made available for npm v1, please upgrade to npm v2 as soon as possible.
+* **v0.12 (LTS)**: [Node.js v0.12.13](http://nodejs.org/en/blog/release/v0.12.13/) includes npm LTS v2.15.1.
+* **v4 (LTS "Argon")**: [Node.js v4.4.2](http://nodejs.org/en/blog/release/v4.4.2/) includes npm LTS v2.15.1.
+* **v5 (Stable)**: [Node.js v5.10.0](http://nodejs.org/en/blog/release/v5.10.0/) includes npm v3.8.3.
+-->
+<ul>
+<li><strong>v0.10(유지보수 버전)</strong>: npm LTS v2.15.1을 포함한 <a href="https://nodejs.github.io/nodejs-ko/articles/2016/04/01/release-v0.10.44/">Node.js v0.10.44</a>. 이것은 v1 이전에 사용이 중지된 npm의 주요 업그레이드입니다. 수정 없이 npm v1을 사용할 수 있도록 했고, 가능한 빠른 시일 내에 npm v2로 업그레이드하시기 바랍니다.</li>
+<li><strong>v0.12(LTS)</strong>: npm LTS v2.15.1을 포함한 <a href="http://nodejs.org/en/blog/release/v0.12.13/" target="_blank" rel="external">Node.js v0.12.13</a>.</li>
+<li><strong>v4(LTS “Argon”)</strong>: npm LTS v2.15.1을 포함한 <a href="http://nodejs.org/en/blog/release/v4.4.2/" target="_blank" rel="external">Node.js v4.4.2</a>.</li>
+<li><strong>v5(안정)</strong>: npm v3.8.3을 포함한 <a href="http://nodejs.org/en/blog/release/v5.10.0/" target="_blank" rel="external">Node.js v5.10.0</a>.</li>
+</ul>
+<!--
+**Update:** Unfortunately the version of npm that was bundled with Node.js version v0.10.44, v0.12.13 and v4.4.2 did not include the correct version string, `npm -v` reports `2.15.0`, however the code is v2.15.1.
+-->
+<p><strong>업데이트:</strong> 불행하게도 Node.js 버전 v0.10.44, v0.12.13, v4.4.2와 함께 제공된 npm은 올바른 버전 문자열을 포함하지 않았었습니다. <code>npm -v</code>는 <code>2.15.0</code>으로 표시되었지만, 실제 코드는 v2.15.1입니다.</p>
+<!--
+**Note that you can upgrade your installed version of npm manually** without requiring a Node.js update by using the command `npm install npm@2 -g` for npm LTS v2.15.2 or `npm install npm@3 -g` for npm v3.8.5.
+-->
+<p><strong>당신이 설치한 npm 버전을 수동으로 업데이트할 수 있습니다.</strong> npm LTS v2.15.2을 위한 <code>npm install npm@2 -g</code> 명령어 혹은 npm v3.8.5를 위한 <code>npm install npm@3 -g</code> 명령어를 이용해 Node.js를 업데이트할 필요가 없습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/31/npm-security-updates-v2.15.1-and-v3.8.3/" data-id="cirltkrub006wqtm6vmctydwq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-welcome-google" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/03/29/welcome-google/" class="article-date">
+    <time datetime="2016-03-28T15:00:00.000Z" itemprop="datePublished">2016-03-29</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/articles/2016/03/29/welcome-google/">구글 클라우드 플랫폼, 환영합니다!</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Node.js Foundation</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/announcements/welcome-google/" taret="_blank">
+        Welcome Google Cloud Platform!
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+          <strong><a href="https://github.com/napiera" target="_blank">napier</a></strong>
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+Google Cloud Platform joined the Node.js Foundation today. This news comes on the heels of the Node.js runtime going into beta on [Google App Engine](https://cloudplatform.googleblog.com/2016/03/Node.js-on-Google-App-Engine-goes-beta.html), a platform that makes it easy to  build scalable web applications and mobile backends across a variety of programming languages.
+-->
+<p>이제 구글 클라우드 플랫폼이 Node.js 재단에 합류했습니다. <a href="https://cloudplatform.googleblog.com/2016/03/Node.js-on-Google-App-Engine-goes-beta.html" target="_blank" rel="external">Google App Engine</a>은 다양한 프로그래밍 언어를 아우르며 확장형(scalable) 웹 애플리케이션과 모바일 백엔드의 빌드를 쉽게 만드는 플랫폼으로써 Node.js 런타임 베타가 시작된다는 소식이 있습니다.</p>
+<!--
+In the industry, there’s been a lot of conversations around a third wave of cloud computing that focuses less on infrastructure and more on microservices and container architectures. Node.js, which is a cross-platform runtime environment that consists of open source modules, is a perfect platform for these types of environments. It’s incredibly resource-efficient, high performing and well-suited to scalability. This is one of the main reasons why Node.js is heavily used by IoT developers who are working with microservices environments. 
+-->
+<p>업계에서는 클라우드 컴퓨팅 서드 웨이브(third wave)들 간의 인프라스트럭처의 축소, 마이크로 서비스와 컨테이너 아키텍처의 확장에 초첨을 둔 많은 대화가 있었습니다. 오픈 소스 모듈로 구성되어 있는 실시간 환경의 크로스 플랫폼 Node.js는 이러한 환경을 위한 최적의 플랫폼입니다. 이것은 자원을 놀랍도록 효율적으로 사용하고 높은 성능을 가지고 있으며 확장성이 좋습니다. 마이크로서비스 환경에서 작업하는 IoT 개발자 대부분이 Node.js를 사용하는 주된 이유 중 하나이기도 합니다.</p>
+<!--
+“Node.js is emerging as the platform in the center of a broad full stack, consisting of front end, back end, devices and the cloud,” said Mikeal Rogers, community manager of the Node.js Foundation. “By joining the Node.js Foundation, Google is increasing its investment in Node.js and deepening its involvement in a vibrant community. Having more companies join the Node.js Foundation helps solidify Node.js as a leading universal development environment.”
+-->
+<p>“Node.js는 프론트엔드와 백엔드, 장치와 클라우드를 포함하여 광범위한 풀 스택의 핵심 플랫폼으로 떠오르고 있습니다”라고 Node.js 재단의 커뮤니티 매니저인 Mikeal Rogers는 말했습니다. “Node.js 재단에 가입한 구글은 Node.js에 대한 투자도 증가시키고, 관련성 있는 커뮤니티를 활성화시켰습니다. 많은 기업들의 Node.js 재단 참여는 Node.js의 세계적 개발 환경 선도를 굳건히 해줍니다.”</p>
+<!--
+Along with joining the Node.js Foundation, Google develops the V8 JavaScript engine which powers Chrome and Node.js. The V8 team is working on infrastructural changes to improve the Node.js development workflow, including making it easier to build and test Node.js on V8’s continuous integration system. Google V8 contributors are also involved in the Core Technical Committee.
+-->
+<p>또한 Node.js 재단에 가입한 구글은 크롬과 Node.js의 원동력인 V8 자바스크립트 엔진을 개발합니다. V8 팀은 V8의 지속적 통합 시스템에서, Node.js의 빌드와 테스트를 쉽게 만드는 것을 포함하여 Node.js 개발 작업흐름을 향상시키기 위한 구조 변경 작업을 하고 있습니다. 구글의 V8 기여자들은 또한 코어 기술 위원회에 소속되어 있습니다.</p>
+<!--
+The Node.js Foundation is very excited to have Google Cloud Platform join our community and look forward to helping developers continue to use Node.js everywhere.
+-->
+<p>Node.js 재단은 구글 클라우드 플랫폼이 우리의 커뮤니티에 가입하는데 매우 진취적이며, 개발자들이 언제 어디서나 Node.js를 사용할 수 있도록 도와줄 것을 고대하고 있습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/29/welcome-google/" data-id="cirltkrua006uqtm6q7cj5ks9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-release-v5.9.1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -202,7 +386,7 @@ Documentation: <a href="https://nodejs.org/docs/v5.9.1/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/23/release-v5.9.1/" data-id="cirjzsnu3006qx9m68mdzkmat" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/23/release-v5.9.1/" data-id="cirltkru8006sqtm6a94fgcm1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +619,7 @@ Documentation: <a href="https://nodejs.org/docs/v4.4.1/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/22/release-v4.4.1/" data-id="cirjzsnu5006sx9m6l97uviad" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/22/release-v4.4.1/" data-id="cirltkru7006qqtm6x9akzcvk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -618,7 +802,7 @@ Documentation: <a href="https://nodejs.org/docs/v5.9.0/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/16/release-v5.9.0/" data-id="cirjzsnu1006ox9m6xpo39vqu" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/16/release-v5.9.0/" data-id="cirltkru6006oqtm6z5qexulf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -745,7 +929,326 @@ Have an event about Node.js coming up? You can put your events here through the 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2016/03/14/weekly/" data-id="cirjzsnu0006mx9m6nmiwiy39" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2016/03/14/weekly/" data-id="cirltkru3006kqtm6u64qwy36" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-release-v5.8.0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/03/09/release-v5.8.0/" class="article-date">
+    <time datetime="2016-03-08T15:00:00.000Z" itemprop="datePublished">2016-03-09</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/articles/2016/03/09/release-v5.8.0/">Node v5.8.0(안정 버전)</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Jeremiah Senkpiel</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/release/v5.8.0/" taret="_blank">
+        Node v5.8.0 (Stable)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+          <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable changes
+
+* **child_process**: `send()` now accepts an options parameter (cjihrig) [#5283](https://github.com/nodejs/node/pull/5283).
+  - Currently the only option is `keepOpen`, which keeps the underlying socket open after the message is sent.
+* **constants**: `ENGINE_METHOD_RSA` is now correctly exposed (Sam Roberts) [#5463](https://github.com/nodejs/node/pull/5463).
+* Fixed two regressions which originated in v5.7.0:
+  - **http**: Errors inside of http client callbacks now propagate correctly (Trevor Norris) [#5591](https://github.com/nodejs/node/pull/5591).
+  - **path**: Fixed normalization of absolute paths (Evan Lucas) [#5589](https://github.com/nodejs/node/pull/5589).
+* **repl**: `start()` no longer requires an options parameter (cjihrig) [#5388](https://github.com/nodejs/node/pull/5388).
+* **util**: Improved `format()` performance 50-300% (Evan Lucas) [#5360](https://github.com/nodejs/node/pull/5360).
+-->
+<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><ul>
+<li><strong>child_process</strong>: <code>send()</code>에 옵션 파라미터가 추가됐습니다. (cjihrig) <a href="https://github.com/nodejs/node/pull/5283" target="_blank" rel="external">#5283</a><ul>
+<li>현재 지원하는 옵션은 <code>keepOpen</code>뿐인데, 이 옵션이 설정되어 있으면 메시지가 전송된 후에도 기본 소켓을 열어둔 채로 유지합니다.</li>
+</ul>
+</li>
+<li><strong>constants</strong>: 이제 <code>ENGINE_METHOD_RSA</code>가 올바르게 노출됩니다. (Sam Roberts) <a href="https://github.com/nodejs/node/pull/5463" target="_blank" rel="external">#5463</a></li>
+<li>v5.7.0에서 재발했던 문제 두 가지를 수정했습니다.<ul>
+<li><strong>http</strong>: 이제 HTTP 클라이언트 콜백 내부의 에러가 올바르게 전파됩니다. (Trevor Norris) <a href="https://github.com/nodejs/node/pull/5591" target="_blank" rel="external">#5591</a></li>
+<li><strong>path</strong>: 절대 경로의 정규화 코드를 수정했습니다. (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5589" target="_blank" rel="external">#5589</a></li>
+</ul>
+</li>
+<li><strong>repl</strong>: 이제 <code>start()</code>에 options 파라미터가 필요하지 않습니다. (cjihrig) <a href="https://github.com/nodejs/node/pull/5388" target="_blank" rel="external">#5388</a></li>
+<li><strong>util</strong>: <code>format()</code>의 성능이 50%에서 300%까지 개선되었습니다. (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
+</ul>
+<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
+<li>[<a href="https://github.com/nodejs/node/commit/12ca84fc7f" target="_blank" rel="external"><code>12ca84fc7f</code></a>] - <strong>benchmark</strong>: add util.format benchmark (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/b955d02266" target="_blank" rel="external"><code>b955d02266</code></a>] - <strong>benchmark</strong>: fix lint errors (Rich Trott) <a href="https://github.com/nodejs/node/pull/5517" target="_blank" rel="external">#5517</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/2abf866b6e" target="_blank" rel="external"><code>2abf866b6e</code></a>] - <strong>build</strong>: update Node.js logo on Win installer (Robert Jefe Lindstaedt) <a href="https://github.com/nodejs/node/pull/5531" target="_blank" rel="external">#5531</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/86900f8f2b" target="_blank" rel="external"><code>86900f8f2b</code></a>] - <strong>build</strong>: correctly detect clang version (Stefan Budeanu) <a href="https://github.com/nodejs/node/pull/5553" target="_blank" rel="external">#5553</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/a3017992e4" target="_blank" rel="external"><code>a3017992e4</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>child_process</strong>: add keepOpen option to send() (cjihrig) <a href="https://github.com/nodejs/node/pull/5283" target="_blank" rel="external">#5283</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/6d4887ccc2" target="_blank" rel="external"><code>6d4887ccc2</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>child_process</strong>: support options in send() (cjihrig) <a href="https://github.com/nodejs/node/pull/5283" target="_blank" rel="external">#5283</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9db827c7aa" target="_blank" rel="external"><code>9db827c7aa</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>constants</strong>: define ENGINE_METHOD_RSA (Sam Roberts) <a href="https://github.com/nodejs/node/pull/5463" target="_blank" rel="external">#5463</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/85013456cd" target="_blank" rel="external"><code>85013456cd</code></a>] - <strong>deps</strong>: upgrade to npm 3.7.3 (Kat Marchán) <a href="https://github.com/nodejs/node/pull/5369" target="_blank" rel="external">#5369</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/67e9f65958" target="_blank" rel="external"><code>67e9f65958</code></a>] - <strong>dgram</strong>: default send address to 127.0.0.1 or ::1 (Matteo Collina) <a href="https://github.com/nodejs/node/pull/5493" target="_blank" rel="external">#5493</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/3c92352c8c" target="_blank" rel="external"><code>3c92352c8c</code></a>] - <strong>doc</strong>: document directories in test directory (Michael Barrett) <a href="https://github.com/nodejs/node/pull/5557" target="_blank" rel="external">#5557</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/7be726f86a" target="_blank" rel="external"><code>7be726f86a</code></a>] - <strong>doc</strong>: add info to docs on how to submit docs patch (Sequoia McDowell) <a href="https://github.com/nodejs/node/pull/4591" target="_blank" rel="external">#4591</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/eb5a95e04a" target="_blank" rel="external"><code>eb5a95e04a</code></a>] - <strong>doc</strong>: fix typo in fs.symlink (Michaël Zasso) <a href="https://github.com/nodejs/node/pull/5560" target="_blank" rel="external">#5560</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9ad901ef44" target="_blank" rel="external"><code>9ad901ef44</code></a>] - <strong>doc</strong>: improve unhandledException doc copy (James M Snell) <a href="https://github.com/nodejs/node/pull/5287" target="_blank" rel="external">#5287</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/3bd96fdb0f" target="_blank" rel="external"><code>3bd96fdb0f</code></a>] - <strong>doc</strong>: update link green to match homepage (silverwind) <a href="https://github.com/nodejs/node/pull/5548" target="_blank" rel="external">#5548</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/cb7e4fbac9" target="_blank" rel="external"><code>cb7e4fbac9</code></a>] - <strong>doc</strong>: update V8 URL (Craig Akimoto) <a href="https://github.com/nodejs/node/pull/5530" target="_blank" rel="external">#5530</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/b54a26fa61" target="_blank" rel="external"><code>b54a26fa61</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>doc</strong>: correct name of engine methods (Sam Roberts) <a href="https://github.com/nodejs/node/pull/5463" target="_blank" rel="external">#5463</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/f3971f5817" target="_blank" rel="external"><code>f3971f5817</code></a>] - <strong>path</strong>: fix normalize for absolutes (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5589" target="_blank" rel="external">#5589</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/e572e421b4" target="_blank" rel="external"><code>e572e421b4</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>repl</strong>: accept no arguments to start() (cjihrig) <a href="https://github.com/nodejs/node/pull/5388" target="_blank" rel="external">#5388</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/5e6d706758" target="_blank" rel="external"><code>5e6d706758</code></a>] - <strong>src,http</strong>: fix uncaughtException miss in http (Trevor Norris) <a href="https://github.com/nodejs/node/pull/5591" target="_blank" rel="external">#5591</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9dc94d7b09" target="_blank" rel="external"><code>9dc94d7b09</code></a>] - <strong>test</strong>: add test-npm-install to parallel tests suite (Myles Borins) <a href="https://github.com/nodejs/node/pull/5166" target="_blank" rel="external">#5166</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/4f20f31b3e" target="_blank" rel="external"><code>4f20f31b3e</code></a>] - <strong>test</strong>: remove broken debugger scenarios (Rich Trott) <a href="https://github.com/nodejs/node/pull/5532" target="_blank" rel="external">#5532</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/29e26b38c5" target="_blank" rel="external"><code>29e26b38c5</code></a>] - <strong>test</strong>: bug repro for vm function redefinition (cjihrig) <a href="https://github.com/nodejs/node/pull/5528" target="_blank" rel="external">#5528</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/e6210d5f50" target="_blank" rel="external"><code>e6210d5f50</code></a>] - <strong>test</strong>: prevent flakey test on pi2 (Trevor Norris) <a href="https://github.com/nodejs/node/pull/5537" target="_blank" rel="external">#5537</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/40b36baa2f" target="_blank" rel="external"><code>40b36baa2f</code></a>] - <strong>test</strong>: check memoryUsage properties (Wyatt Preul) <a href="https://github.com/nodejs/node/pull/5546" target="_blank" rel="external">#5546</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/048c0f4738" target="_blank" rel="external"><code>048c0f4738</code></a>] - <strong>tools</strong>: reduce verbosity of cpplint (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/5578" target="_blank" rel="external">#5578</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/7965c897e0" target="_blank" rel="external"><code>7965c897e0</code></a>] - <strong>tools</strong>: enable no-self-assign ESLint rule (Rich Trott) <a href="https://github.com/nodejs/node/pull/5552" target="_blank" rel="external">#5552</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/5aa17dc136" target="_blank" rel="external"><code>5aa17dc136</code></a>] - <strong>tools</strong>: support testing known issues (cjihrig) <a href="https://github.com/nodejs/node/pull/5528" target="_blank" rel="external">#5528</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9a3e87e9a8" target="_blank" rel="external"><code>9a3e87e9a8</code></a>] - <strong>tools</strong>: enable linting for benchmarks (Rich Trott) <a href="https://github.com/nodejs/node/pull/5517" target="_blank" rel="external">#5517</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/c4fa2a6715" target="_blank" rel="external"><code>c4fa2a6715</code></a>] - <strong>tools</strong>: enable no-extra-parens in ESLint (Rich Trott) <a href="https://github.com/nodejs/node/pull/5512" target="_blank" rel="external">#5512</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/971edde0cb" target="_blank" rel="external"><code>971edde0cb</code></a>] - <strong>util</strong>: improve format() performance further (Brian White) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/c32d460747" target="_blank" rel="external"><code>c32d460747</code></a>] - <strong>util</strong>: improve util.format performance (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-x86.msi</a><br>
+Windows 64-bit Installer: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-x64.msi</a><br>
+Windows 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/win-x86/node.exe</a><br>
+Windows 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/win-x64/node.exe</a><br>
+Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0.pkg" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0.pkg</a><br>
+Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-darwin-x64.tar.gz</a><br>
+Linux 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x86.tar.xz</a><br>
+Linux 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x64.tar.xz</a><br>
+Linux PPC LE 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-ppc64le.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-ppc64le.tar.xz</a><br>
+SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x86.tar.xz</a><br>
+SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x64.tar.xz</a><br>
+ARMv6 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv6l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv6l.tar.xz</a><br>
+ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv7l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv7l.tar.xz</a><br>
+ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-arm64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-arm64.tar.xz</a><br>
+Source Code: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0.tar.gz</a><br>
+Other release files: <a href="https://nodejs.org/dist/v5.8.0/" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/</a><br>
+Documentation: <a href="https://nodejs.org/docs/v5.8.0/api/" target="_blank" rel="external">https://nodejs.org/docs/v5.8.0/api/</a></p>
+<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA512</div><div class="line"></div><div class="line">8c16f21a1c8882ba5875d0da617c817aa5005e514bd460dbf32aaeb3ffa477fe  node-v5.8.0-darwin-x64.tar.gz</div><div class="line">c44e84f6d38e4e71f5d47da29a89ee1501e3006198fa44e1f6ebef37fa69ed74  node-v5.8.0-darwin-x64.tar.xz</div><div class="line">1f8501149f7160d30341df82a9634e0e65256d096f092c68ad820bcd435000eb  node-v5.8.0-headers.tar.gz</div><div class="line">828d525ca284a7a49f02486775173c6b19f2a12587acef4175a7a327ac05732d  node-v5.8.0-headers.tar.xz</div><div class="line">0c2c0fa859c5be13cd1404f3fb14d37e38a67fb2fc075c7a37d4ae70374544bf  node-v5.8.0-linux-arm64.tar.gz</div><div class="line">7fb3085dcd68da5b272452254e2284d53aa9b42fe4b92ec867448b8c4e66278a  node-v5.8.0-linux-arm64.tar.xz</div><div class="line">54c362af9bc80b9e283bee7807fb2b1e9207ac77e61207b13fcf9f9acecd293f  node-v5.8.0-linux-armv6l.tar.gz</div><div class="line">814f7589b932cb88081226ee02212e3593e016945f18940cfdc576c9b15a0575  node-v5.8.0-linux-armv6l.tar.xz</div><div class="line">cdb0355fc41ac7010926f1a35f07f0dfe94020572d70296f91e60d18ab4873f5  node-v5.8.0-linux-armv7l.tar.gz</div><div class="line">fe40ba09733fd754dee864daee4cda9007d4ee8c48c1eb0343dd72ea007e8e8b  node-v5.8.0-linux-armv7l.tar.xz</div><div class="line">59f4745346786fdad8d58022b5eefc7cd5ec143d5cce03c66c1243e531fd10e8  node-v5.8.0-linux-ppc64le.tar.gz</div><div class="line">39f651f94be359f759d8a0634ef1a8afef8b86316d6d86518a7a898bd4536c8b  node-v5.8.0-linux-ppc64le.tar.xz</div><div class="line">3d33efa2421ed0769cc23ac172203b7db9fe4914a186009ddbac28c9aadb0896  node-v5.8.0-linux-x64.tar.gz</div><div class="line">503255baf9517344dc277e6ca4a495defeb4c52e2b5628e67b3522ec6eb5e318  node-v5.8.0-linux-x64.tar.xz</div><div class="line">b302ce9d5d156857576d892cfe8108363b30c20bd3133011fb2050d56bb238e8  node-v5.8.0-linux-x86.tar.gz</div><div class="line">6b324b7568d01ef273223d36d11e1323cbdb43f7fea89a945c132a4163f9fdf6  node-v5.8.0-linux-x86.tar.xz</div><div class="line">e407dd96cfee06f1a79eaa2d26c1745afd7224edb9fe62076a15622798df8479  node-v5.8.0.pkg</div><div class="line">235783950678e3f343c5ce8e567a4600141ff9ad87aca0364bea659a82563f6c  node-v5.8.0-sunos-x64.tar.gz</div><div class="line">736cfacd40a64d2c0036a9a8ddd705978c39059635584f1fd196d2cf8e6b6726  node-v5.8.0-sunos-x64.tar.xz</div><div class="line">5edb23172d0a2b064dddb090ed5dae06a12db50dcc71f652748076d994f607ba  node-v5.8.0-sunos-x86.tar.gz</div><div class="line">76a12b6141b89460fc752a7a726fea50526df6ae70341f6cfad5d48acdf575e7  node-v5.8.0-sunos-x86.tar.xz</div><div class="line">e8cd580cec1c62053e6357633b9e46d49df1fd5b9fc5c804ca59ba80d722b898  node-v5.8.0.tar.gz</div><div class="line">c1246d473d6650ca02ab168eaf840e9edda82a4190ff08165fc44a7b381a9361  node-v5.8.0.tar.xz</div><div class="line">be2d055f593c080f2c48e8b9e3a7f864b34bc8763d8903d4b1470bb153bdaec0  node-v5.8.0-x64.msi</div><div class="line">10a9c0445926e2a2544d426954c6810ef25fdb9f3f16a4a9921e5ba66b5dbb48  node-v5.8.0-x86.msi</div><div class="line">638dc7e840206d03855d940d18e4ed92855034683290ef30ef505a3d1395b88e  win-x64/node.exe</div><div class="line">5cfc85c3ea25fec18abfe3f74d6fc89956a8cce6c6cb1c2a54808cc1213d5b03  win-x64/node.lib</div><div class="line">3b94153c8601764b8ca5b8836270123257c17f1f02c2850540540c3151089d84  win-x86/node.exe</div><div class="line">f274baee290a22510a591595572a4fa7f465a50a4fa94ade3cab72a934558aac  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Comment: GPGTools - https://gpgtools.org</div><div class="line"></div><div class="line">iQIcBAEBCgAGBQJW4EN5AAoJEEX17r2BPa6OzqEP/jqXzIjGG+4RWjvnZrsjOUrP</div><div class="line">fWhr3ppECdrHRw20J5aXbUSF8k2mLrDfx8pNvRXbS+aQkkgXCXWnlSnP8uysoEMr</div><div class="line">fgdecsh+gxqEQ9xoC+ZX7r1h3Uog/6xA8iXUiB8R7r1SFQf27UNt0y0EFOjHls3M</div><div class="line">EfblKJ87dK0qRef9adtLqXrRh6Nymwbp4XIf2TtsZwpgwffv72igh96XdptaeDs8</div><div class="line">Bdp7VaeYFfWl/I8cxlbLY4gMNbMkrp3OZAus1hcTFG4pz9X3PD+EPTuMVnOAmSnK</div><div class="line">s23hExZ6HFlR2qi40f/e7wFXRlkbBrvNFvK5/8AV9KdEEB9KWCzjZVIn/SCPpvxE</div><div class="line">OKeStQqai5j2pB+w2nTv/yR/kMz6zagnycqsn3N6Di+r5E1rlE1P6fV41QGBqJZK</div><div class="line">M6gG9Eol+AUSy7r8kW2/DFA96I7LlOGAb4EgPS17/EG9weeLTQqIuAwqGDTnF5HZ</div><div class="line">X8g4nynrHqHwfVNW7t74pbZSVUGYPklI/87J419HPUKpMNhNSQVuwfXdk1r0PbGP</div><div class="line">jpE/SiK29/vah7i4vDqIuCjTSmOsaSvqst1NOEUye9sgos+D91o19cSB8hF5QxDw</div><div class="line">lzBmadMQq7i+uc3L7RVXOZ8jTPHlPySuwvOQOQvOH8veL4tITKWnyACYIlr+ED5I</div><div class="line">5DyqJwkBGgB5A3gWOpu7</div><div class="line">=Giqy</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/09/release-v5.8.0/" data-id="cirltkru2006iqtm6ra55z4mq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-announcements-appdynamics-newrelic-opbeat-sphinx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/03/09/announcements-appdynamics-newrelic-opbeat-sphinx/" class="article-date">
+    <time datetime="2016-03-08T15:00:00.000Z" itemprop="datePublished">2016-03-09</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/articles/2016/03/09/announcements-appdynamics-newrelic-opbeat-sphinx/">AppDynamics, New Relic, Opbeat, Sphinx가 Node.js 재단의 실버회원사로 참여했습니다.</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Node</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/announcements/appdynamics-newrelic-opbeat-sphinx/" taret="_blank">
+        AppDynamics, New Relic, Opbeat and Sphinx Join the Node.js Foundation as Silver Members
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+> Foundation Announces Dates for Node.js Interactive Conferences in Amsterdam and Austin, Texas
+-->
+<blockquote>
+<p>재단에서 암스테르담과 미국 텍사스 오스틴에서 열리는 Node.js Interactive 콘퍼런스의 날짜를 발표했습니다.</p>
+</blockquote>
+<!--
+SAN FRANCISCO, Mar. 9, 2016 — The [Node.js Foundation](https://nodejs.org/en/foundation/), a community-led and industry-backed consortium to advance the development of the Node.js platform, today announced AppDynamics, New Relic, Opbeat and Sphinx are joining the Foundation as Silver Members to continue to sustain and grow the Node.js platform.
+-->
+<p>샌프란시스코, 2016년 3월 9일 - Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든
+<a href="https://nodejs.org/en/foundation/" target="_blank" rel="external">Node.js 재단</a>에서 AppDynamics, New Relic,
+Opbeat, Sphinx가 Node.js 플랫폼을 유지하고 성장시키는 재단의 실버 회원사로 참여했다고 발표했습니다.</p>
+<!--
+Many of the new members are within the application performance management industry, both established and up-and-coming vendors. Application performance management is an essential part of any infrastructure and there is a need across public, private and hybrid clouds to ensure that current and future products offer next-generation application performance with Node.js as a core component to the stability and potential of these offerings.
+-->
+<p>새 회원사 중 대부분은 이미 설립되었거나 유망한 회사로 애플리케이션 성능 관리 산업 분야에 있습니다.
+애플리케이션 성능 관리는 모든 인프라스트럭처에서 핵심적인 부분이고 공개 또는 비공개 클라우드, 하이브리드
+클라우드 모두에서 Node.js를 핵심 컴포넌트로 사용하는 현재나 차후의 제품에서 차세대 애플리케이션
+성능을 제공하거나 이러한 잠재력을 제공하고자 하는 요구사항이 있습니다.</p>
+<!--
+The new members have the opportunity to support a range of Foundation activities such as new training programs and user-focused events like the new, ongoing [Node.js Live](http://live.nodejs.org/) series and Node.js Interactive events. Expanding to Europe this year, Node.js Interactive will take place September 15-16 in Amsterdam, Netherlands; while the North America event will be held November 29-30, 2016, in Austin, Texas. More information on the conference to come.
+-->
+<p>새 회원사는 새로운 교육 프로그램이나 <a href="http://live.nodejs.org/" target="_blank" rel="external">Node.js Live</a> 시리즈와
+Node.js Interactive 행사에서 이뤄질 사용자에 집중된 이벤트에서 재단이 주최하는 활동을 지원할 기회를
+가집니다. 올해는 유럽까지 확장한 Node.js Interactive 콘퍼런스는 9월 15~16일에 네덜란드
+암스테르담에서 열릴 예정입니다. 북미 Node.js Interactive 콘퍼런스는 텍사스 오스틴에서 11월
+29~30일에 열릴 것입니다. 콘퍼런스에 대한 자세한 내용을 곧 공지할 것입니다.</p>
+<!--
+Node.js has grown tremendously in the last year with a total of [3.5 million](https://www.npmjs.com/) users and 100 percent year-over-year growth. It is becoming ubiquitous across numerous industries from financial services to media companies, and is heavily used by frontend, backend and IoT developers.
+-->
+<p>Node.js는 작년에 엄청나게 성장해서 <a href="https://www.npmjs.com/" target="_blank" rel="external">350만 명의 사용자</a>와 매해
+100%의 성장을 이루고 있습니다. 금융서비스부터 미디어 회사까지 다수의 산업에서 사용되고 있으며
+프론트엔드, 백엔드, 사물인터넷(IoT) 개발자들이 많이 사용하고 있습니다.</p>
+<!--
+“While the popularity of Node.js has dramatically increased in recent years, the Foundation is committed to maintaining a stable, neutral and transparent ground to support continuation of the technology’s growth,” said Danese Cooper, Chairperson of the Node.js Foundation Board. “We are pleased to have AppDynamics, New Relic, Opbeat and Sphinx join the Foundation to help support both continued expansion for the technology and stability needs of the community.”
+-->
+<p>“최근 몇 년 동안 Node.js의 인기가 엄청나게 증가하면서 재단은 이 기술의 성장을 지속하려고 안정적이고
+중립적이면서 투명한 토대를 유지하려고 노력했습니다”라고 Node.js 재단 이사회의 의장인
+Danese Cooper가 얘기했습니다. “지속해서 기술을 확장하고 안정성에 대한 커뮤니티의 요구사항을
+지원하려고 AppDynamics, New Relic, Opbeat, Sphinx가 재단에 합류해서 기쁘게 생각하고 있습니다.”</p>
+<!--
+More About the New Members:
+
+[AppDynamics](http://www.appdynamics.com/) is the application intelligence company that provides real-time insights into application performance, user experience, and business outcomes with cloud, on-premises, and hybrid deployment flexibility. Seeing the growing popularity of Node.js as a platform for building fast and scalable web and mobile applications, AppDynamics created a Node.js monitoring solution built on their core APM platform. The solution helps customers monitor Node.js applications in real-time and diagnose performance bottlenecks while running in live production or development environments.
+-->
+<p>새로운 회원사에 대한 추가 정보:</p>
+<p><a href="http://www.appdynamics.com/" target="_blank" rel="external">AppDynamics</a>은 애플리케이션 정보 회사로 클라우드, 내부 서버,
+혹은 하이브리드 개발에서 애플리케이션 성능, 사용자 경험, 사업 성과에 대한 인사이트를 실시간으로 제공하고
+있습니다. 빠르고 확장성 있는 웹과 모바일 애플리케이션을 만드는 플랫폼으로 Node.js의 인기가 높아짐에 따라
+AppDynamics은 자사의 핵심 APM 플랫폼에 Node.js 모니터링 솔루션을 추가했습니다. 이 솔루션으로
+고객들은 프로덕션이나 개발환경에서 Node.js 애플리케이션을 실시간으로 모니터링하고 성능 병목 구간을
+진단할 수 있습니다.</p>
+<!--
+“Node.js is clearly taking off, and we’ve seen significant adoption of the platform in production for quite some time now, especially within the enterprise. We have participated in multiple Node.js events in the past, and look forward to continuing to support the longevity of this project, which is important to the developers that we serve,” said AppDynamics Chief Technology Officer and Senior Vice President of Product Management, Bhaskar Sunkara.
+-->
+<p>“Node.js는 확실히 자리 잡았고 꽤 오랜 시간 동안 특히 기업분야에서 프로덕션 플랫폼으로 Node.js가
+도입되는 것을 충분히 보았습니다. 과거에 다수의 Node.js 행사에 참여했고 우리가 지원하는 개발자에게
+중요한 이 프로젝트가 오래갈 수 있도록 계속 지원하기를 기대합니다.”라고 AppDynamics의 CTO이자
+제품관리의 시니어 책임자인 Bhaskar Sunkara가 얘기했습니다.</p>
+<!--
+[New Relic](https://newrelic.com/) is a software analytics company that delivers real-time insights and helps companies securely monitor their production software in virtually any environment, without having to build or maintain dedicated infrastructure. New Relic’s agent helps pinpoint Node.js application performance issues across private, public or hybrid cloud environments.
+-->
+<p><a href="https://newrelic.com/" target="_blank" rel="external">New Relic</a>는 소프트웨어 분석 회사로 전용 인프라스트럭처를 만들거나
+관리하지 않고 어떤 가상환경에서라도 회사가 프로덕션 소프트웨어를 안전하게 모니터링하고 실시간으로
+인사이트를 볼 수 있도록 합니다. New Relic의 에이전트로 내부, 공개, 하이브리드 클라우드 환경에서
+Node.js 애플리케이션의 성능 문제를 정확하게 집어낼 수 있습니다.</p>
+<!--
+“We're seeing huge growth in our Node.js application counts on a daily basis, from customers of all sizes - there's just as much interest from the Fortune 100 as there is from new startups. New Relic's engineers have been contributing to Node.js's core development for years, and we're excited to help accelerate its advancement and success even further by supporting the Node.js Foundation," said Tim Krajcar, Engineering Manager, Node.js Agent, New Relic.
+-->
+<p>“우리는 모든 영역의 고객들로부터 매일 Node.js 애플리케이션의 수가 매우 증가하는 것을 보았습니다.
+여기에는 포춘 100 기업에서부터 새로운 스타트업까지 있다는 것이 흥미로운 부분입니다. New Relic의
+엔지니어는 수년 동안 Node.js 핵심 개발에 이바지해왔고 Node.js 재단을 지원함으로서 그 성과에 더 이바지할
+수 있게 되어 기쁘게 생각합니다.”라고 New Relic의 Node.js 에이전트 엔지니어링
+관리자인 Tim Krajcar가 얘기했습니다.</p>
+<!--
+[Opbeat](https://opbeat.com/) provides next-generation performance insights, specifically built for JavaScript developers. Opbeat maps production issues to the developers that write the code, leading to faster debugging and more coding. The young company recently launched [full support for Node.js](https://opbeat.com/nodejs/).
+-->
+<p><a href="https://opbeat.com/" target="_blank" rel="external">Opbeat</a>는 JavaScript 개발자에게 최적화된 차세대 분석 도구를 제공합니다.
+Opbeat는 코드를 작성하는 개발자에게 프로덕션의 문제를 알려주어 디버깅을 더 빨리할 수 있게 하여 더 많은
+코드를 작성할 수 있게 합니다.
+이 새로운 회사는 최근에 <a href="https://opbeat.com/nodejs/" target="_blank" rel="external">Node.js 지원</a>을 발표했습니다.</p>
+<!--
+“We’re seeing massive interest in Opbeat within the Node community - from larger organizations to smaller start-ups - so we’re excited to join the Foundation to help support the community. At the end of the day, our customers are developers and we want to contribute to the increased popularity of Node amongst developers and CTOs,” said Rasmus Makwarth, Co-Founder and CEO of Opbeat.
+-->
+<p>“Node.js 커뮤니티에서 Opbeat에 대한 많은 관심이 있는 것을 보았습니다. 여기에는 큰 조직부터 작은
+스타트업까지 포함되어 있습니다. 그래서 커뮤니티를 돕기 위해 재단에 합류하기로 했습니다. 결국, 우리의 고객이
+개발자이므로 개발자와 CTO들에게 인기 있는 Node에 이바지하기를 원했습니다.”라고 Opbeat의 공동창업자이자
+CEO인 Rasmus Makwarth가 얘기했습니다.</p>
+<!--
+[Sphinx](http://sphinx.sg/) was established in 2014 by experience Vietnamese developers from Silicon Valley with the aim to become the leading company on Node.js and the MEAN stack — the group has co-founded the Vietnamese Node.js and Angular.js communities. The consulting team helps take large-scale applications from the concept phase to production for some of the largest global enterprises and government departments.
+-->
+<p><a href="http://sphinx.sg/" target="_blank" rel="external">Sphinx</a>는 실리콘밸리의 베트남 개발자들이 2014년에 만들었고 Node.js와
+MEAN 스택에서 선두회사가 되는 것을 목표로 하고 있습니다. 이 그룹은 베트남 Node.js, Angular.js
+커뮤니티를 같이 만들었습니다. 컨설팅 팀은 기획단계부터 세계적으로 가장 큰 규모의 기업과 정부 기관의
+실제 대규모의 애플리케이션을 지원하고 있습니다.</p>
+<!--
+“Becoming a silver member is a breakthrough for us, and gives us the opportunity to establish long-lasting relationships with companies that also share a common interest in the rapidly growing Node.js technology. We look forward to collaborating with other Foundation members and continuing to develop and support the open source community,” said Hai Luong, CEO and Co-Founder of Sphinx.
+-->
+<p>“실버 회원사가 된다는 것은 우리에게는 돌파구로 빠르게 성장하는 Node.js 기술에 대한 공통 관심사를
+공유하는 회사들과 좋은 관계를 만들 기회를 줍니다. 우리는 재단의 다른 회원사와 협업하고 오픈 소스
+커뮤니티를 만들고 지원하기를 기대하고 있습니다.”라고 Sphinx의 CEO이자 공동 창업자인 Hai Luong가
+얘기했습니다.</p>
+<!--
+About Node.js Foundation
+Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 3.5 million active users per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites.
+-->
+<h3 id="Node-js-재단에-대해"><a href="#Node-js-재단에-대해" class="headerlink" title="Node.js 재단에 대해"></a>Node.js 재단에 대해</h3><p>Node.js는 200여 개국의 수만 개의 회사에서 사용되고 있으며 매달 350만 명 이상의 활성사용자가 존재하고
+있고 엔터프라이즈 애플리케이션부터 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트까지 전부 운영하는
+고성능, 저지연 애플리케이션의 런타임입니다.</p>
+<!--
+The Foundation is made up of a diverse group of companies including Platinum members Famous, IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy, NodeSource and Modulus/Progress Software, and Silver members include Apigee, AppDynamics, Codefresh, DigitalOcean, Fidelity, Groupon, nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP, StrongLoop (an IBM company), Sphinx, YLD!, and Yahoo!. Get involved here: [http://nodejs.org](http://nodejs.org/).
+-->
+<p>재단은 플래티넘 회원사인 Famous, IBM, Intel, Joyent, Microsoft, PayPal, Red Hat과
+골드 회원사인 GoDaddy, NodeSource, Modulus/Progress Software,
+실버 회원사인 Apigee, AppDynamics, Codefresh, DigitalOcean, Fidelity, Groupon,
+nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP,
+StrongLoop (IBM 소속), Sphinx, YLD!, Yahoo!를 포함한 다양한 기업으로 구성되었습니다.
+참여하려면 <a href="http://nodejs.org" target="_blank" rel="external">http://nodejs.org</a>를 방문하세요.</p>
+<!--
+The Node.js Foundation is a Linux Foundation Project, which are independently funded software projects that harness the power of collaborative development to fuel innovation across industries and ecosystems. [www.linuxfoundation.org](http://www.linuxfoundation.org/)
+-->
+<p>Node.js 재단은 Linux 재단 프로젝트로 협업 개발을 이용해 업계와 생태계에 혁신을 촉진하는 독립 재정
+소프트웨어 프로젝트입니다. <a href="http://www.linuxfoundation.org/" target="_blank" rel="external">www.linuxfoundation.org</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/09/announcements-appdynamics-newrelic-opbeat-sphinx/" data-id="cirltkru1006gqtm6nperypmm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1135,326 +1638,7 @@ Documentation: <a href="https://nodejs.org/docs/v4.4.0/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/09/release-v4.4.0/" data-id="cirjzsntv006ix9m6x87q9f68" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-release-v5.8.0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2016/03/09/release-v5.8.0/" class="article-date">
-    <time datetime="2016-03-08T15:00:00.000Z" itemprop="datePublished">2016-03-09</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/03/09/release-v5.8.0/">Node v5.8.0(안정 버전)</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Jeremiah Senkpiel</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/release/v5.8.0/" taret="_blank">
-        Node v5.8.0 (Stable)
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-          <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-### Notable changes
-
-* **child_process**: `send()` now accepts an options parameter (cjihrig) [#5283](https://github.com/nodejs/node/pull/5283).
-  - Currently the only option is `keepOpen`, which keeps the underlying socket open after the message is sent.
-* **constants**: `ENGINE_METHOD_RSA` is now correctly exposed (Sam Roberts) [#5463](https://github.com/nodejs/node/pull/5463).
-* Fixed two regressions which originated in v5.7.0:
-  - **http**: Errors inside of http client callbacks now propagate correctly (Trevor Norris) [#5591](https://github.com/nodejs/node/pull/5591).
-  - **path**: Fixed normalization of absolute paths (Evan Lucas) [#5589](https://github.com/nodejs/node/pull/5589).
-* **repl**: `start()` no longer requires an options parameter (cjihrig) [#5388](https://github.com/nodejs/node/pull/5388).
-* **util**: Improved `format()` performance 50-300% (Evan Lucas) [#5360](https://github.com/nodejs/node/pull/5360).
--->
-<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><ul>
-<li><strong>child_process</strong>: <code>send()</code>에 옵션 파라미터가 추가됐습니다. (cjihrig) <a href="https://github.com/nodejs/node/pull/5283" target="_blank" rel="external">#5283</a><ul>
-<li>현재 지원하는 옵션은 <code>keepOpen</code>뿐인데, 이 옵션이 설정되어 있으면 메시지가 전송된 후에도 기본 소켓을 열어둔 채로 유지합니다.</li>
-</ul>
-</li>
-<li><strong>constants</strong>: 이제 <code>ENGINE_METHOD_RSA</code>가 올바르게 노출됩니다. (Sam Roberts) <a href="https://github.com/nodejs/node/pull/5463" target="_blank" rel="external">#5463</a></li>
-<li>v5.7.0에서 재발했던 문제 두 가지를 수정했습니다.<ul>
-<li><strong>http</strong>: 이제 HTTP 클라이언트 콜백 내부의 에러가 올바르게 전파됩니다. (Trevor Norris) <a href="https://github.com/nodejs/node/pull/5591" target="_blank" rel="external">#5591</a></li>
-<li><strong>path</strong>: 절대 경로의 정규화 코드를 수정했습니다. (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5589" target="_blank" rel="external">#5589</a></li>
-</ul>
-</li>
-<li><strong>repl</strong>: 이제 <code>start()</code>에 options 파라미터가 필요하지 않습니다. (cjihrig) <a href="https://github.com/nodejs/node/pull/5388" target="_blank" rel="external">#5388</a></li>
-<li><strong>util</strong>: <code>format()</code>의 성능이 50%에서 300%까지 개선되었습니다. (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
-</ul>
-<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
-<li>[<a href="https://github.com/nodejs/node/commit/12ca84fc7f" target="_blank" rel="external"><code>12ca84fc7f</code></a>] - <strong>benchmark</strong>: add util.format benchmark (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/b955d02266" target="_blank" rel="external"><code>b955d02266</code></a>] - <strong>benchmark</strong>: fix lint errors (Rich Trott) <a href="https://github.com/nodejs/node/pull/5517" target="_blank" rel="external">#5517</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2abf866b6e" target="_blank" rel="external"><code>2abf866b6e</code></a>] - <strong>build</strong>: update Node.js logo on Win installer (Robert Jefe Lindstaedt) <a href="https://github.com/nodejs/node/pull/5531" target="_blank" rel="external">#5531</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/86900f8f2b" target="_blank" rel="external"><code>86900f8f2b</code></a>] - <strong>build</strong>: correctly detect clang version (Stefan Budeanu) <a href="https://github.com/nodejs/node/pull/5553" target="_blank" rel="external">#5553</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a3017992e4" target="_blank" rel="external"><code>a3017992e4</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>child_process</strong>: add keepOpen option to send() (cjihrig) <a href="https://github.com/nodejs/node/pull/5283" target="_blank" rel="external">#5283</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/6d4887ccc2" target="_blank" rel="external"><code>6d4887ccc2</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>child_process</strong>: support options in send() (cjihrig) <a href="https://github.com/nodejs/node/pull/5283" target="_blank" rel="external">#5283</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/9db827c7aa" target="_blank" rel="external"><code>9db827c7aa</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>constants</strong>: define ENGINE_METHOD_RSA (Sam Roberts) <a href="https://github.com/nodejs/node/pull/5463" target="_blank" rel="external">#5463</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/85013456cd" target="_blank" rel="external"><code>85013456cd</code></a>] - <strong>deps</strong>: upgrade to npm 3.7.3 (Kat Marchán) <a href="https://github.com/nodejs/node/pull/5369" target="_blank" rel="external">#5369</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/67e9f65958" target="_blank" rel="external"><code>67e9f65958</code></a>] - <strong>dgram</strong>: default send address to 127.0.0.1 or ::1 (Matteo Collina) <a href="https://github.com/nodejs/node/pull/5493" target="_blank" rel="external">#5493</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3c92352c8c" target="_blank" rel="external"><code>3c92352c8c</code></a>] - <strong>doc</strong>: document directories in test directory (Michael Barrett) <a href="https://github.com/nodejs/node/pull/5557" target="_blank" rel="external">#5557</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/7be726f86a" target="_blank" rel="external"><code>7be726f86a</code></a>] - <strong>doc</strong>: add info to docs on how to submit docs patch (Sequoia McDowell) <a href="https://github.com/nodejs/node/pull/4591" target="_blank" rel="external">#4591</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/eb5a95e04a" target="_blank" rel="external"><code>eb5a95e04a</code></a>] - <strong>doc</strong>: fix typo in fs.symlink (Michaël Zasso) <a href="https://github.com/nodejs/node/pull/5560" target="_blank" rel="external">#5560</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/9ad901ef44" target="_blank" rel="external"><code>9ad901ef44</code></a>] - <strong>doc</strong>: improve unhandledException doc copy (James M Snell) <a href="https://github.com/nodejs/node/pull/5287" target="_blank" rel="external">#5287</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3bd96fdb0f" target="_blank" rel="external"><code>3bd96fdb0f</code></a>] - <strong>doc</strong>: update link green to match homepage (silverwind) <a href="https://github.com/nodejs/node/pull/5548" target="_blank" rel="external">#5548</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/cb7e4fbac9" target="_blank" rel="external"><code>cb7e4fbac9</code></a>] - <strong>doc</strong>: update V8 URL (Craig Akimoto) <a href="https://github.com/nodejs/node/pull/5530" target="_blank" rel="external">#5530</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/b54a26fa61" target="_blank" rel="external"><code>b54a26fa61</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>doc</strong>: correct name of engine methods (Sam Roberts) <a href="https://github.com/nodejs/node/pull/5463" target="_blank" rel="external">#5463</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f3971f5817" target="_blank" rel="external"><code>f3971f5817</code></a>] - <strong>path</strong>: fix normalize for absolutes (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5589" target="_blank" rel="external">#5589</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e572e421b4" target="_blank" rel="external"><code>e572e421b4</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>repl</strong>: accept no arguments to start() (cjihrig) <a href="https://github.com/nodejs/node/pull/5388" target="_blank" rel="external">#5388</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/5e6d706758" target="_blank" rel="external"><code>5e6d706758</code></a>] - <strong>src,http</strong>: fix uncaughtException miss in http (Trevor Norris) <a href="https://github.com/nodejs/node/pull/5591" target="_blank" rel="external">#5591</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/9dc94d7b09" target="_blank" rel="external"><code>9dc94d7b09</code></a>] - <strong>test</strong>: add test-npm-install to parallel tests suite (Myles Borins) <a href="https://github.com/nodejs/node/pull/5166" target="_blank" rel="external">#5166</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/4f20f31b3e" target="_blank" rel="external"><code>4f20f31b3e</code></a>] - <strong>test</strong>: remove broken debugger scenarios (Rich Trott) <a href="https://github.com/nodejs/node/pull/5532" target="_blank" rel="external">#5532</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/29e26b38c5" target="_blank" rel="external"><code>29e26b38c5</code></a>] - <strong>test</strong>: bug repro for vm function redefinition (cjihrig) <a href="https://github.com/nodejs/node/pull/5528" target="_blank" rel="external">#5528</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e6210d5f50" target="_blank" rel="external"><code>e6210d5f50</code></a>] - <strong>test</strong>: prevent flakey test on pi2 (Trevor Norris) <a href="https://github.com/nodejs/node/pull/5537" target="_blank" rel="external">#5537</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/40b36baa2f" target="_blank" rel="external"><code>40b36baa2f</code></a>] - <strong>test</strong>: check memoryUsage properties (Wyatt Preul) <a href="https://github.com/nodejs/node/pull/5546" target="_blank" rel="external">#5546</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/048c0f4738" target="_blank" rel="external"><code>048c0f4738</code></a>] - <strong>tools</strong>: reduce verbosity of cpplint (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/5578" target="_blank" rel="external">#5578</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/7965c897e0" target="_blank" rel="external"><code>7965c897e0</code></a>] - <strong>tools</strong>: enable no-self-assign ESLint rule (Rich Trott) <a href="https://github.com/nodejs/node/pull/5552" target="_blank" rel="external">#5552</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/5aa17dc136" target="_blank" rel="external"><code>5aa17dc136</code></a>] - <strong>tools</strong>: support testing known issues (cjihrig) <a href="https://github.com/nodejs/node/pull/5528" target="_blank" rel="external">#5528</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/9a3e87e9a8" target="_blank" rel="external"><code>9a3e87e9a8</code></a>] - <strong>tools</strong>: enable linting for benchmarks (Rich Trott) <a href="https://github.com/nodejs/node/pull/5517" target="_blank" rel="external">#5517</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c4fa2a6715" target="_blank" rel="external"><code>c4fa2a6715</code></a>] - <strong>tools</strong>: enable no-extra-parens in ESLint (Rich Trott) <a href="https://github.com/nodejs/node/pull/5512" target="_blank" rel="external">#5512</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/971edde0cb" target="_blank" rel="external"><code>971edde0cb</code></a>] - <strong>util</strong>: improve format() performance further (Brian White) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c32d460747" target="_blank" rel="external"><code>c32d460747</code></a>] - <strong>util</strong>: improve util.format performance (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5360" target="_blank" rel="external">#5360</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/win-x86/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/win-x64/node.exe</a><br>
-Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0.pkg" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-darwin-x64.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x86.tar.xz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-x64.tar.xz</a><br>
-Linux PPC LE 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-ppc64le.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-ppc64le.tar.xz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x86.tar.xz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-sunos-x64.tar.xz</a><br>
-ARMv6 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv6l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv6l.tar.xz</a><br>
-ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv7l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-armv7l.tar.xz</a><br>
-ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-arm64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0-linux-arm64.tar.xz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v5.8.0/node-v5.8.0.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/node-v5.8.0.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v5.8.0/" target="_blank" rel="external">https://nodejs.org/dist/v5.8.0/</a><br>
-Documentation: <a href="https://nodejs.org/docs/v5.8.0/api/" target="_blank" rel="external">https://nodejs.org/docs/v5.8.0/api/</a></p>
-<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA512</div><div class="line"></div><div class="line">8c16f21a1c8882ba5875d0da617c817aa5005e514bd460dbf32aaeb3ffa477fe  node-v5.8.0-darwin-x64.tar.gz</div><div class="line">c44e84f6d38e4e71f5d47da29a89ee1501e3006198fa44e1f6ebef37fa69ed74  node-v5.8.0-darwin-x64.tar.xz</div><div class="line">1f8501149f7160d30341df82a9634e0e65256d096f092c68ad820bcd435000eb  node-v5.8.0-headers.tar.gz</div><div class="line">828d525ca284a7a49f02486775173c6b19f2a12587acef4175a7a327ac05732d  node-v5.8.0-headers.tar.xz</div><div class="line">0c2c0fa859c5be13cd1404f3fb14d37e38a67fb2fc075c7a37d4ae70374544bf  node-v5.8.0-linux-arm64.tar.gz</div><div class="line">7fb3085dcd68da5b272452254e2284d53aa9b42fe4b92ec867448b8c4e66278a  node-v5.8.0-linux-arm64.tar.xz</div><div class="line">54c362af9bc80b9e283bee7807fb2b1e9207ac77e61207b13fcf9f9acecd293f  node-v5.8.0-linux-armv6l.tar.gz</div><div class="line">814f7589b932cb88081226ee02212e3593e016945f18940cfdc576c9b15a0575  node-v5.8.0-linux-armv6l.tar.xz</div><div class="line">cdb0355fc41ac7010926f1a35f07f0dfe94020572d70296f91e60d18ab4873f5  node-v5.8.0-linux-armv7l.tar.gz</div><div class="line">fe40ba09733fd754dee864daee4cda9007d4ee8c48c1eb0343dd72ea007e8e8b  node-v5.8.0-linux-armv7l.tar.xz</div><div class="line">59f4745346786fdad8d58022b5eefc7cd5ec143d5cce03c66c1243e531fd10e8  node-v5.8.0-linux-ppc64le.tar.gz</div><div class="line">39f651f94be359f759d8a0634ef1a8afef8b86316d6d86518a7a898bd4536c8b  node-v5.8.0-linux-ppc64le.tar.xz</div><div class="line">3d33efa2421ed0769cc23ac172203b7db9fe4914a186009ddbac28c9aadb0896  node-v5.8.0-linux-x64.tar.gz</div><div class="line">503255baf9517344dc277e6ca4a495defeb4c52e2b5628e67b3522ec6eb5e318  node-v5.8.0-linux-x64.tar.xz</div><div class="line">b302ce9d5d156857576d892cfe8108363b30c20bd3133011fb2050d56bb238e8  node-v5.8.0-linux-x86.tar.gz</div><div class="line">6b324b7568d01ef273223d36d11e1323cbdb43f7fea89a945c132a4163f9fdf6  node-v5.8.0-linux-x86.tar.xz</div><div class="line">e407dd96cfee06f1a79eaa2d26c1745afd7224edb9fe62076a15622798df8479  node-v5.8.0.pkg</div><div class="line">235783950678e3f343c5ce8e567a4600141ff9ad87aca0364bea659a82563f6c  node-v5.8.0-sunos-x64.tar.gz</div><div class="line">736cfacd40a64d2c0036a9a8ddd705978c39059635584f1fd196d2cf8e6b6726  node-v5.8.0-sunos-x64.tar.xz</div><div class="line">5edb23172d0a2b064dddb090ed5dae06a12db50dcc71f652748076d994f607ba  node-v5.8.0-sunos-x86.tar.gz</div><div class="line">76a12b6141b89460fc752a7a726fea50526df6ae70341f6cfad5d48acdf575e7  node-v5.8.0-sunos-x86.tar.xz</div><div class="line">e8cd580cec1c62053e6357633b9e46d49df1fd5b9fc5c804ca59ba80d722b898  node-v5.8.0.tar.gz</div><div class="line">c1246d473d6650ca02ab168eaf840e9edda82a4190ff08165fc44a7b381a9361  node-v5.8.0.tar.xz</div><div class="line">be2d055f593c080f2c48e8b9e3a7f864b34bc8763d8903d4b1470bb153bdaec0  node-v5.8.0-x64.msi</div><div class="line">10a9c0445926e2a2544d426954c6810ef25fdb9f3f16a4a9921e5ba66b5dbb48  node-v5.8.0-x86.msi</div><div class="line">638dc7e840206d03855d940d18e4ed92855034683290ef30ef505a3d1395b88e  win-x64/node.exe</div><div class="line">5cfc85c3ea25fec18abfe3f74d6fc89956a8cce6c6cb1c2a54808cc1213d5b03  win-x64/node.lib</div><div class="line">3b94153c8601764b8ca5b8836270123257c17f1f02c2850540540c3151089d84  win-x86/node.exe</div><div class="line">f274baee290a22510a591595572a4fa7f465a50a4fa94ade3cab72a934558aac  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Comment: GPGTools - https://gpgtools.org</div><div class="line"></div><div class="line">iQIcBAEBCgAGBQJW4EN5AAoJEEX17r2BPa6OzqEP/jqXzIjGG+4RWjvnZrsjOUrP</div><div class="line">fWhr3ppECdrHRw20J5aXbUSF8k2mLrDfx8pNvRXbS+aQkkgXCXWnlSnP8uysoEMr</div><div class="line">fgdecsh+gxqEQ9xoC+ZX7r1h3Uog/6xA8iXUiB8R7r1SFQf27UNt0y0EFOjHls3M</div><div class="line">EfblKJ87dK0qRef9adtLqXrRh6Nymwbp4XIf2TtsZwpgwffv72igh96XdptaeDs8</div><div class="line">Bdp7VaeYFfWl/I8cxlbLY4gMNbMkrp3OZAus1hcTFG4pz9X3PD+EPTuMVnOAmSnK</div><div class="line">s23hExZ6HFlR2qi40f/e7wFXRlkbBrvNFvK5/8AV9KdEEB9KWCzjZVIn/SCPpvxE</div><div class="line">OKeStQqai5j2pB+w2nTv/yR/kMz6zagnycqsn3N6Di+r5E1rlE1P6fV41QGBqJZK</div><div class="line">M6gG9Eol+AUSy7r8kW2/DFA96I7LlOGAb4EgPS17/EG9weeLTQqIuAwqGDTnF5HZ</div><div class="line">X8g4nynrHqHwfVNW7t74pbZSVUGYPklI/87J419HPUKpMNhNSQVuwfXdk1r0PbGP</div><div class="line">jpE/SiK29/vah7i4vDqIuCjTSmOsaSvqst1NOEUye9sgos+D91o19cSB8hF5QxDw</div><div class="line">lzBmadMQq7i+uc3L7RVXOZ8jTPHlPySuwvOQOQvOH8veL4tITKWnyACYIlr+ED5I</div><div class="line">5DyqJwkBGgB5A3gWOpu7</div><div class="line">=Giqy</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/09/release-v5.8.0/" data-id="cirjzsnty006kx9m61wpp4vj7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-announcements-appdynamics-newrelic-opbeat-sphinx" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2016/03/09/announcements-appdynamics-newrelic-opbeat-sphinx/" class="article-date">
-    <time datetime="2016-03-08T15:00:00.000Z" itemprop="datePublished">2016-03-09</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/03/09/announcements-appdynamics-newrelic-opbeat-sphinx/">AppDynamics, New Relic, Opbeat, Sphinx가 Node.js 재단의 실버회원사로 참여했습니다.</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Node</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/announcements/appdynamics-newrelic-opbeat-sphinx/" taret="_blank">
-        AppDynamics, New Relic, Opbeat and Sphinx Join the Node.js Foundation as Silver Members
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-> Foundation Announces Dates for Node.js Interactive Conferences in Amsterdam and Austin, Texas
--->
-<blockquote>
-<p>재단에서 암스테르담과 미국 텍사스 오스틴에서 열리는 Node.js Interactive 콘퍼런스의 날짜를 발표했습니다.</p>
-</blockquote>
-<!--
-SAN FRANCISCO, Mar. 9, 2016 — The [Node.js Foundation](https://nodejs.org/en/foundation/), a community-led and industry-backed consortium to advance the development of the Node.js platform, today announced AppDynamics, New Relic, Opbeat and Sphinx are joining the Foundation as Silver Members to continue to sustain and grow the Node.js platform.
--->
-<p>샌프란시스코, 2016년 3월 9일 - Node.js 플랫폼의 개발을 개선하려고 커뮤니티와 기업이 함께 만든
-<a href="https://nodejs.org/en/foundation/" target="_blank" rel="external">Node.js 재단</a>에서 AppDynamics, New Relic,
-Opbeat, Sphinx가 Node.js 플랫폼을 유지하고 성장시키는 재단의 실버 회원사로 참여했다고 발표했습니다.</p>
-<!--
-Many of the new members are within the application performance management industry, both established and up-and-coming vendors. Application performance management is an essential part of any infrastructure and there is a need across public, private and hybrid clouds to ensure that current and future products offer next-generation application performance with Node.js as a core component to the stability and potential of these offerings.
--->
-<p>새 회원사 중 대부분은 이미 설립되었거나 유망한 회사로 애플리케이션 성능 관리 산업 분야에 있습니다.
-애플리케이션 성능 관리는 모든 인프라스트럭처에서 핵심적인 부분이고 공개 또는 비공개 클라우드, 하이브리드
-클라우드 모두에서 Node.js를 핵심 컴포넌트로 사용하는 현재나 차후의 제품에서 차세대 애플리케이션
-성능을 제공하거나 이러한 잠재력을 제공하고자 하는 요구사항이 있습니다.</p>
-<!--
-The new members have the opportunity to support a range of Foundation activities such as new training programs and user-focused events like the new, ongoing [Node.js Live](http://live.nodejs.org/) series and Node.js Interactive events. Expanding to Europe this year, Node.js Interactive will take place September 15-16 in Amsterdam, Netherlands; while the North America event will be held November 29-30, 2016, in Austin, Texas. More information on the conference to come.
--->
-<p>새 회원사는 새로운 교육 프로그램이나 <a href="http://live.nodejs.org/" target="_blank" rel="external">Node.js Live</a> 시리즈와
-Node.js Interactive 행사에서 이뤄질 사용자에 집중된 이벤트에서 재단이 주최하는 활동을 지원할 기회를
-가집니다. 올해는 유럽까지 확장한 Node.js Interactive 콘퍼런스는 9월 15~16일에 네덜란드
-암스테르담에서 열릴 예정입니다. 북미 Node.js Interactive 콘퍼런스는 텍사스 오스틴에서 11월
-29~30일에 열릴 것입니다. 콘퍼런스에 대한 자세한 내용을 곧 공지할 것입니다.</p>
-<!--
-Node.js has grown tremendously in the last year with a total of [3.5 million](https://www.npmjs.com/) users and 100 percent year-over-year growth. It is becoming ubiquitous across numerous industries from financial services to media companies, and is heavily used by frontend, backend and IoT developers.
--->
-<p>Node.js는 작년에 엄청나게 성장해서 <a href="https://www.npmjs.com/" target="_blank" rel="external">350만 명의 사용자</a>와 매해
-100%의 성장을 이루고 있습니다. 금융서비스부터 미디어 회사까지 다수의 산업에서 사용되고 있으며
-프론트엔드, 백엔드, 사물인터넷(IoT) 개발자들이 많이 사용하고 있습니다.</p>
-<!--
-“While the popularity of Node.js has dramatically increased in recent years, the Foundation is committed to maintaining a stable, neutral and transparent ground to support continuation of the technology’s growth,” said Danese Cooper, Chairperson of the Node.js Foundation Board. “We are pleased to have AppDynamics, New Relic, Opbeat and Sphinx join the Foundation to help support both continued expansion for the technology and stability needs of the community.”
--->
-<p>“최근 몇 년 동안 Node.js의 인기가 엄청나게 증가하면서 재단은 이 기술의 성장을 지속하려고 안정적이고
-중립적이면서 투명한 토대를 유지하려고 노력했습니다”라고 Node.js 재단 이사회의 의장인
-Danese Cooper가 얘기했습니다. “지속해서 기술을 확장하고 안정성에 대한 커뮤니티의 요구사항을
-지원하려고 AppDynamics, New Relic, Opbeat, Sphinx가 재단에 합류해서 기쁘게 생각하고 있습니다.”</p>
-<!--
-More About the New Members:
-
-[AppDynamics](http://www.appdynamics.com/) is the application intelligence company that provides real-time insights into application performance, user experience, and business outcomes with cloud, on-premises, and hybrid deployment flexibility. Seeing the growing popularity of Node.js as a platform for building fast and scalable web and mobile applications, AppDynamics created a Node.js monitoring solution built on their core APM platform. The solution helps customers monitor Node.js applications in real-time and diagnose performance bottlenecks while running in live production or development environments.
--->
-<p>새로운 회원사에 대한 추가 정보:</p>
-<p><a href="http://www.appdynamics.com/" target="_blank" rel="external">AppDynamics</a>은 애플리케이션 정보 회사로 클라우드, 내부 서버,
-혹은 하이브리드 개발에서 애플리케이션 성능, 사용자 경험, 사업 성과에 대한 인사이트를 실시간으로 제공하고
-있습니다. 빠르고 확장성 있는 웹과 모바일 애플리케이션을 만드는 플랫폼으로 Node.js의 인기가 높아짐에 따라
-AppDynamics은 자사의 핵심 APM 플랫폼에 Node.js 모니터링 솔루션을 추가했습니다. 이 솔루션으로
-고객들은 프로덕션이나 개발환경에서 Node.js 애플리케이션을 실시간으로 모니터링하고 성능 병목 구간을
-진단할 수 있습니다.</p>
-<!--
-“Node.js is clearly taking off, and we’ve seen significant adoption of the platform in production for quite some time now, especially within the enterprise. We have participated in multiple Node.js events in the past, and look forward to continuing to support the longevity of this project, which is important to the developers that we serve,” said AppDynamics Chief Technology Officer and Senior Vice President of Product Management, Bhaskar Sunkara.
--->
-<p>“Node.js는 확실히 자리 잡았고 꽤 오랜 시간 동안 특히 기업분야에서 프로덕션 플랫폼으로 Node.js가
-도입되는 것을 충분히 보았습니다. 과거에 다수의 Node.js 행사에 참여했고 우리가 지원하는 개발자에게
-중요한 이 프로젝트가 오래갈 수 있도록 계속 지원하기를 기대합니다.”라고 AppDynamics의 CTO이자
-제품관리의 시니어 책임자인 Bhaskar Sunkara가 얘기했습니다.</p>
-<!--
-[New Relic](https://newrelic.com/) is a software analytics company that delivers real-time insights and helps companies securely monitor their production software in virtually any environment, without having to build or maintain dedicated infrastructure. New Relic’s agent helps pinpoint Node.js application performance issues across private, public or hybrid cloud environments.
--->
-<p><a href="https://newrelic.com/" target="_blank" rel="external">New Relic</a>는 소프트웨어 분석 회사로 전용 인프라스트럭처를 만들거나
-관리하지 않고 어떤 가상환경에서라도 회사가 프로덕션 소프트웨어를 안전하게 모니터링하고 실시간으로
-인사이트를 볼 수 있도록 합니다. New Relic의 에이전트로 내부, 공개, 하이브리드 클라우드 환경에서
-Node.js 애플리케이션의 성능 문제를 정확하게 집어낼 수 있습니다.</p>
-<!--
-“We're seeing huge growth in our Node.js application counts on a daily basis, from customers of all sizes - there's just as much interest from the Fortune 100 as there is from new startups. New Relic's engineers have been contributing to Node.js's core development for years, and we're excited to help accelerate its advancement and success even further by supporting the Node.js Foundation," said Tim Krajcar, Engineering Manager, Node.js Agent, New Relic.
--->
-<p>“우리는 모든 영역의 고객들로부터 매일 Node.js 애플리케이션의 수가 매우 증가하는 것을 보았습니다.
-여기에는 포춘 100 기업에서부터 새로운 스타트업까지 있다는 것이 흥미로운 부분입니다. New Relic의
-엔지니어는 수년 동안 Node.js 핵심 개발에 이바지해왔고 Node.js 재단을 지원함으로서 그 성과에 더 이바지할
-수 있게 되어 기쁘게 생각합니다.”라고 New Relic의 Node.js 에이전트 엔지니어링
-관리자인 Tim Krajcar가 얘기했습니다.</p>
-<!--
-[Opbeat](https://opbeat.com/) provides next-generation performance insights, specifically built for JavaScript developers. Opbeat maps production issues to the developers that write the code, leading to faster debugging and more coding. The young company recently launched [full support for Node.js](https://opbeat.com/nodejs/).
--->
-<p><a href="https://opbeat.com/" target="_blank" rel="external">Opbeat</a>는 JavaScript 개발자에게 최적화된 차세대 분석 도구를 제공합니다.
-Opbeat는 코드를 작성하는 개발자에게 프로덕션의 문제를 알려주어 디버깅을 더 빨리할 수 있게 하여 더 많은
-코드를 작성할 수 있게 합니다.
-이 새로운 회사는 최근에 <a href="https://opbeat.com/nodejs/" target="_blank" rel="external">Node.js 지원</a>을 발표했습니다.</p>
-<!--
-“We’re seeing massive interest in Opbeat within the Node community - from larger organizations to smaller start-ups - so we’re excited to join the Foundation to help support the community. At the end of the day, our customers are developers and we want to contribute to the increased popularity of Node amongst developers and CTOs,” said Rasmus Makwarth, Co-Founder and CEO of Opbeat.
--->
-<p>“Node.js 커뮤니티에서 Opbeat에 대한 많은 관심이 있는 것을 보았습니다. 여기에는 큰 조직부터 작은
-스타트업까지 포함되어 있습니다. 그래서 커뮤니티를 돕기 위해 재단에 합류하기로 했습니다. 결국, 우리의 고객이
-개발자이므로 개발자와 CTO들에게 인기 있는 Node에 이바지하기를 원했습니다.”라고 Opbeat의 공동창업자이자
-CEO인 Rasmus Makwarth가 얘기했습니다.</p>
-<!--
-[Sphinx](http://sphinx.sg/) was established in 2014 by experience Vietnamese developers from Silicon Valley with the aim to become the leading company on Node.js and the MEAN stack — the group has co-founded the Vietnamese Node.js and Angular.js communities. The consulting team helps take large-scale applications from the concept phase to production for some of the largest global enterprises and government departments.
--->
-<p><a href="http://sphinx.sg/" target="_blank" rel="external">Sphinx</a>는 실리콘밸리의 베트남 개발자들이 2014년에 만들었고 Node.js와
-MEAN 스택에서 선두회사가 되는 것을 목표로 하고 있습니다. 이 그룹은 베트남 Node.js, Angular.js
-커뮤니티를 같이 만들었습니다. 컨설팅 팀은 기획단계부터 세계적으로 가장 큰 규모의 기업과 정부 기관의
-실제 대규모의 애플리케이션을 지원하고 있습니다.</p>
-<!--
-“Becoming a silver member is a breakthrough for us, and gives us the opportunity to establish long-lasting relationships with companies that also share a common interest in the rapidly growing Node.js technology. We look forward to collaborating with other Foundation members and continuing to develop and support the open source community,” said Hai Luong, CEO and Co-Founder of Sphinx.
--->
-<p>“실버 회원사가 된다는 것은 우리에게는 돌파구로 빠르게 성장하는 Node.js 기술에 대한 공통 관심사를
-공유하는 회사들과 좋은 관계를 만들 기회를 줍니다. 우리는 재단의 다른 회원사와 협업하고 오픈 소스
-커뮤니티를 만들고 지원하기를 기대하고 있습니다.”라고 Sphinx의 CEO이자 공동 창업자인 Hai Luong가
-얘기했습니다.</p>
-<!--
-About Node.js Foundation
-Node.js is used by tens of thousands of organizations in more than 200 countries and amasses more than 3.5 million active users per month. It is the runtime of choice for high-performance, low latency applications, powering everything from enterprise applications, robots, API engines, cloud stacks and mobile websites.
--->
-<h3 id="Node-js-재단에-대해"><a href="#Node-js-재단에-대해" class="headerlink" title="Node.js 재단에 대해"></a>Node.js 재단에 대해</h3><p>Node.js는 200여 개국의 수만 개의 회사에서 사용되고 있으며 매달 350만 명 이상의 활성사용자가 존재하고
-있고 엔터프라이즈 애플리케이션부터 로봇, API 엔진, 클라우드 스택, 모바일 웹사이트까지 전부 운영하는
-고성능, 저지연 애플리케이션의 런타임입니다.</p>
-<!--
-The Foundation is made up of a diverse group of companies including Platinum members Famous, IBM, Intel, Joyent, Microsoft, PayPal and Red Hat. Gold members include GoDaddy, NodeSource and Modulus/Progress Software, and Silver members include Apigee, AppDynamics, Codefresh, DigitalOcean, Fidelity, Groupon, nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP, StrongLoop (an IBM company), Sphinx, YLD!, and Yahoo!. Get involved here: [http://nodejs.org](http://nodejs.org/).
--->
-<p>재단은 플래티넘 회원사인 Famous, IBM, Intel, Joyent, Microsoft, PayPal, Red Hat과
-골드 회원사인 GoDaddy, NodeSource, Modulus/Progress Software,
-실버 회원사인 Apigee, AppDynamics, Codefresh, DigitalOcean, Fidelity, Groupon,
-nearForm, New Relic, npm, Opbeat, RisingStack, Sauce Labs, SAP,
-StrongLoop (IBM 소속), Sphinx, YLD!, Yahoo!를 포함한 다양한 기업으로 구성되었습니다.
-참여하려면 <a href="http://nodejs.org" target="_blank" rel="external">http://nodejs.org</a>를 방문하세요.</p>
-<!--
-The Node.js Foundation is a Linux Foundation Project, which are independently funded software projects that harness the power of collaborative development to fuel innovation across industries and ecosystems. [www.linuxfoundation.org](http://www.linuxfoundation.org/)
--->
-<p>Node.js 재단은 Linux 재단 프로젝트로 협업 개발을 이용해 업계와 생태계에 혁신을 촉진하는 독립 재정
-소프트웨어 프로젝트입니다. <a href="http://www.linuxfoundation.org/" target="_blank" rel="external">www.linuxfoundation.org</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/09/announcements-appdynamics-newrelic-opbeat-sphinx/" data-id="cirjzsntt006gx9m6ga2efiax" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/09/release-v4.4.0/" data-id="cirltkru5006mqtm624glqs2u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1564,248 +1748,7 @@ Have an event about Node.js coming up? You can put your events here through the 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2016/03/07/weekly/" data-id="cirjzsnts006ex9m6obj9f498" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-release-0.10.43" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2016/03/04/release-0.10.43/" class="article-date">
-    <time datetime="2016-03-03T15:00:00.000Z" itemprop="datePublished">2016-03-04</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/03/04/release-0.10.43/">Node v0.10.43(유지보수 버전)</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Rod Vagg</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/release/v0.10.43/" taret="_blank">
-        Node v0.10.43 (Maintenence)
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-          <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-This release contains security updates. OpenSSL 1.0.1s fixes some low-severity defects that impact Node.js. See our [impact assessment](http://nodejs.org/en/blog/vulnerability/openssl-and-low-severity-fixes-jan-2016/#_-update-29-jan-2016-_-openssl-impact-assessment) for full details.
--->
-<p>이 릴리스는 보안 업데이트를 포함하고 있습니다. OpenSSL 1.0.1s는 Node.js에 영향을 미치는 심각도가 낮은(low-severity) 몇 가지 결함을 수정합니다. 자세한 내용은 <a href="http://nodejs.org/en/blog/vulnerability/openssl-and-low-severity-fixes-jan-2016/#_-update-29-jan-2016-_-openssl-impact-assessment" target="_blank" rel="external">영향 평가</a>를 참고하세요.</p>
-<!--
-### Notable changes:
--->
-<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><!--
-* **http_parser**: Update to http-parser 1.2 to fix an unintentionally strict limitation of allowable header characters. (James M Snell) [nodejs/node#5242](https://github.com/nodejs/node/pull/5242)
-* **domains**:
-  - Prevent an exit due to an exception being thrown rather than emitting an `'uncaughtException'` event on the `process` object when no error handler is set on the domain within which an error is thrown and an `'uncaughtException'` event listener is set on `process`. (Julien Gilli) [nodejs/node#3887](https://github.com/nodejs/node/pull/3887)
-  - Fix an issue where the process would not abort in the proper function call if an error is thrown within a domain with no error handler and `--abort-on-uncaught-exception` is used. (Julien Gilli) [nodejs/node#3887](https://github.com/nodejs/node/pull/3887)
-
-* **openssl**: Upgrade from 1.0.1r to 1.0.1s (Ben Noordhuis) [nodejs/node#5508](https://github.com/nodejs/node/pull/5508)
-  - Fix a double-free defect in parsing malformed DSA keys that may potentially be used for DoS or memory corruption attacks. It is likely to be very difficult to use this defect for a practical attack and is therefore considered low severity for Node.js users. More info is available at https://www.openssl.org/news/vulnerabilities.html#2016-0705
-  - Fix a defect that can cause memory corruption in certain very rare cases relating to the internal `BN_hex2bn()` and `BN_dec2bn()` functions. It is believed that Node.js is not invoking the code paths that use these functions so practical attacks via Node.js using this defect are _unlikely_ to be possible. More info is available at https://www.openssl.org/news/vulnerabilities.html#2016-0797
-  - Fix a defect that makes the CacheBleed Attack (https://ssrg.nicta.com.au/projects/TS/cachebleed/) possible. This defect enables attackers to execute side-channel attacks leading to the potential recovery of entire RSA private keys. It only affects the Intel Sandy Bridge (and possibly older) microarchitecture when using hyper-threading. Newer microarchitectures, including Haswell, are unaffected. More info is available at https://www.openssl.org/news/vulnerabilities.html#2016-0702
-  - Remove SSLv2 support, the `--enable-ssl2` command line argument will now produce an error. The DROWN Attack (https://drownattack.com/) creates a vulnerability where SSLv2 is enabled by a server, even if a client connection is not using SSLv2. The SSLv2 protocol is widely considered unacceptably broken and should not be supported. More information is available at https://www.openssl.org/news/vulnerabilities.html#2016-0800
--->
-<ul>
-<li><strong>http_parser</strong>: http-parser를 1.2로 업데이트하여 허용 가능한 헤더 문자에 의도치 않게 제한이 생기던 문제를 수정했습니다. (James M Snell) <a href="https://github.com/nodejs/node/pull/5242" target="_blank" rel="external">nodejs/node#5242</a></li>
-<li><strong>domains</strong>:<ul>
-<li>에러가 발생한 도메인에 에러 핸들러가 설정되어 있지 않고 <code>process</code>에 <code>uncaughtException</code> 이벤트 리스너가 설정되었을 때 <code>process</code> 객체에 <code>uncaughtException</code> 이벤트가 발생하는 대신 예외가 던져지는(throw) 것 때문에 프로세스가 종료되던 문제를 수정했습니다. (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3887" target="_blank" rel="external">nodejs/node#3887</a></li>
-<li>에러 핸들러가 없는 도메인에서 에러가 발생하고 <code>--abort-on-uncaught-exception</code>이 사용됐을 때 적절한 함수 호출에서 프로세스가 종료되지 않던 이슈가 수정됐습니다. (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3887" target="_blank" rel="external">nodejs/node#3887</a></li>
-</ul>
-</li>
-<li><strong>openssl</strong>: 1.0.1r에서 1.0.1s로 업그레이드 했습니다. (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5508" target="_blank" rel="external">nodejs/node#5508</a><ul>
-<li>DoS나 메모리 변조(memory corruption) 공격에 사용될 수 있는 형식이 올바르지 않은(malformed) DSA 키를 파싱할 때 발생하는 이중 해제(double free) 문제를 수정합니다. 실제 공격에 이 결함이 악용되기는 매우 어려울 것이므로 이 결함은 Node.js 사용자에게 낮은 심각도로 판단됩니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0705" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0705</a>에서 볼 수 있습니다.</li>
-<li>내부의 <code>BN_hex2bn()</code>와 <code>BN_dec2bn()</code> 함수와 관련 있는 매우 드문 사례에서 메모리 변조를 일으킬 수 있는 결함을 수정했습니다. Node.js는 이 함수를 사용하는 코드를 호출하지 않으므로 이 결함을 사용한 실제적인 Node.js 공격은 불가능할 것으로 보입니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0797" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0797</a>에서 볼 수 있습니다.</li>
-<li>CacheBleed 공격(<a href="https://ssrg.nicta.com.au/projects/TS/cachebleed/" target="_blank" rel="external">https://ssrg.nicta.com.au/projects/TS/cachebleed/</a>)을 가능하게 할 수 있는 결함을 수정했습니다. 이 결함은 공격자에게 전체 RSA 비공개 키를 복구할 수 있는 부채널 공격(side-channel attacks)을 허용합니다. 이 결함은 인텔 샌디 브리지(혹은 그 이전 버전) 마이크로아키텍처에서 하이퍼 스레딩을 사용할 때만 영향을 미칩니다. 하스웰을 비롯한 새로운 아키텍처에서는 영향이 없습니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0702" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0702</a>에서 볼 수 있습니다.</li>
-<li>SSLv2를 더 이상 지원하지 않습니다. 따라서 <code>--enable-ssl2</code> 명령행 옵션을 사용하면 에러가 발생합니다. SSLv2를 사용할 수 있는 서버는 클라이언트가 SSLv2를 사용하지 않을 때도 DROWN 공격(<a href="https://drownattack.com/" target="_blank" rel="external">https://drownattack.com/</a>)에 의해 취약점이 발생합니다. 널리 알려진 사실에 따르면 SSLv2 프로토콜은 허용할 수 없는 문제가 있어서 지원을 중단해야 합니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0800" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0800</a>에서 볼 수 있습니다.</li>
-</ul>
-</li>
-</ul>
-<p>Commits:</p>
-<ul>
-<li>[<a href="https://github.com/nodejs/node/commit/3123e9a6df" target="_blank" rel="external"><code>3123e9a6df</code></a>] - 2016-03-04 Version 0.10.43 (Maintenance) Release (Rod Vagg) <a href="https://github.com/nodejs/node/pull/5404" target="_blank" rel="external">#5404</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/164157abbb" target="_blank" rel="external"><code>164157abbb</code></a>] - <strong>build</strong>: update Node.js logo on OSX installer (Rod Vagg) <a href="https://github.com/nodejs/node/pull/5401" target="_blank" rel="external">#5401</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f8cb0dcf67" target="_blank" rel="external"><code>f8cb0dcf67</code></a>] - <strong>crypto,tls</strong>: remove SSLv2 support (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5529" target="_blank" rel="external">#5529</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/42ded2a590" target="_blank" rel="external"><code>42ded2a590</code></a>] - <strong>deps</strong>: upgrade openssl to 1.0.1s (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5508" target="_blank" rel="external">#5508</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1e45a6111c" target="_blank" rel="external"><code>1e45a6111c</code></a>] - <strong>deps</strong>: update http-parser to version 1.2 (James M Snell) <a href="https://github.com/nodejs/node/pull/5242" target="_blank" rel="external">#5242</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/6db377b2f4" target="_blank" rel="external"><code>6db377b2f4</code></a>] - <strong>doc</strong>: remove SSLv2 descriptions (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/5541" target="_blank" rel="external">#5541</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/563c359f5c" target="_blank" rel="external"><code>563c359f5c</code></a>] - <strong>domains</strong>: fix handling of uncaught exceptions (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3887" target="_blank" rel="external">#3887</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e483f3fd26" target="_blank" rel="external"><code>e483f3fd26</code></a>] - <strong>test</strong>: fix hanging http obstext test (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5511" target="_blank" rel="external">#5511</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v0.10.43/x64/node-v0.10.43-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/x64/node-v0.10.43-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/x64/node.exe</a><br>
-Mac OS X Universal Installer: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43.pkg" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-darwin-x64.tar.gz</a><br>
-Mac OS X 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-darwin-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-darwin-x86.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-linux-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-linux-x86.tar.gz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-linux-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-linux-x64.tar.gz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-sunos-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-sunos-x86.tar.gz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43-sunos-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43-sunos-x64.tar.gz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v0.10.43/node-v0.10.43.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/node-v0.10.43.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v0.10.43/" target="_blank" rel="external">https://nodejs.org/dist/v0.10.43/</a><br>
-Documentation: <a href="https://nodejs.org/docs/v0.10.43/api/" target="_blank" rel="external">https://nodejs.org/docs/v0.10.43/api/</a></p>
-<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA1</div><div class="line"></div><div class="line">d08256e94e7f0006495f48f04bfde0f08fe57bb3d6f881ffd5d3e7382a437379  node.exe</div><div class="line">89582528585db5cd105165d2bd839fa2475a651ef9deafc540cfdea4044e83d1  node.exp</div><div class="line">3485a706ccc62694872f7cb78101cc62ce29ab1128281b9942da6b166edd51a5  node.lib</div><div class="line">7aefcedfb06e629decc774cf7a9b1c4684d59f58fbab8f95a746b674add99901  node.pdb</div><div class="line">c7fb30129206fa2d74d72d3c1a86fa5cb768a1165c41be9f7c724e35c3b53ca9  node-v0.10.43-darwin-x64.tar.gz</div><div class="line">00457f6102e70c696baf375a48a4299d5d065a2e2f78c08545a1983ba674c398  node-v0.10.43-darwin-x64.tar.xz</div><div class="line">a62a819832db4d6a1e9c10d286faa74c2917288a011dc7aca0476725b85cc0ae  node-v0.10.43-darwin-x86.tar.gz</div><div class="line">fd1ccdce22c88ac673eec684a9aab1ffafb75873b52591913f9dc8262488a329  node-v0.10.43-darwin-x86.tar.xz</div><div class="line">5c6f56f2230e9ef64a443d45dd66526e2614fce4d11a711a5bc89ecc31be05f2  node-v0.10.43-headers.tar.gz</div><div class="line">4fbe1416a85e5bf0685eb8c4dadd3c8fa222d987eaf312861b74fa35a039ed6a  node-v0.10.43-headers.tar.xz</div><div class="line">8a439e17af1971432798ec79a70abf8fa21e03e2aa994bb7150bc088bfa482f2  node-v0.10.43-linux-x64.tar.gz</div><div class="line">1f704fd493a4b8747227f5e1966d4a56192a07036357e1165bd1140760ca919e  node-v0.10.43-linux-x64.tar.xz</div><div class="line">142bdf1cb8793bd7c7da7974c73bd2d466933f8d5b496d9a28d3b1e343b62bd0  node-v0.10.43-linux-x86.tar.gz</div><div class="line">75b33151e4ad29aff26d210d772d683d4ef69a83a1a1b38cdbe8856a0a2ebfc6  node-v0.10.43-linux-x86.tar.xz</div><div class="line">cd16c330369500c9f3225f20bf8a5d2a644d059c407804067bd52b6d91a6cc49  node-v0.10.43.pkg</div><div class="line">f6cf66e77e1def7fa854ddb83a176d89f9a5b349fbb1e0bcdb742778c31e1510  node-v0.10.43-sunos-x64.tar.gz</div><div class="line">5feaa499d5a5ff6ed5922d9ce02809151115a2ec3c06e23d1544e8c62badbd8b  node-v0.10.43-sunos-x64.tar.xz</div><div class="line">b3badbc35d085723a2ad30847c5109398363b13649e199db6d22fe5f56e74c52  node-v0.10.43-sunos-x86.tar.gz</div><div class="line">94bdc514b30d32cfb362186bc89a9b818c616f540a9b28556e15f0819d3257eb  node-v0.10.43-sunos-x86.tar.xz</div><div class="line">c672452a61dd37cf2779bc158b65a5a22af343da19fec1cddf9bced382a2595a  node-v0.10.43.tar.gz</div><div class="line">6c5185cbfad3538484c9d97eec0110b5cd5826126f15b776015dfee1f51cd32a  node-v0.10.43.tar.xz</div><div class="line">d961a479d01f0fb145b77a6abf62f66e33b75383dc99ac7bed94c8bd75d854fd  node-v0.10.43-x86.msi</div><div class="line">77755d041c76dd2c8bc277916dea5ee269efaa784671aa068c15164a30d9f351  openssl-cli.exe</div><div class="line">04235831f2699980489a760063754adc54acb0eace4cafc2e552a6f2efe62c3e  openssl-cli.pdb</div><div class="line">4648414b546844ddf329d497ca10e7bce3abd63bf6b4995c1318cb2a4c33229d  x64/node.exe</div><div class="line">73d9783523050e8e450220568743da6300cfa0f5f45fb04501b77dfa1c1f8360  x64/node.exp</div><div class="line">5ef4d9d80f2e79d94ad69386e72d027a75c727f8736ac6221cb5702b09e4ae6b  x64/node.lib</div><div class="line">6acf585f3d1cb1116649c3bc18e2764b3d05cb8e21f349cd2704e5d21536e46c  x64/node.pdb</div><div class="line">e9216efaf78d63ed9eaf6eb31ae166845847886717dc5d3ef98e647032290b8f  x64/node-v0.10.43-x64.msi</div><div class="line">d042372ccedff1b5a20847f535d0835b520c08dd3cbc9505752cc3b7122b168d  x64/openssl-cli.exe</div><div class="line">fd5aeebfb38888f3e0d1d85fd2cc2bddca47be1c5f721d33edc876e9315f6ffc  x64/openssl-cli.pdb</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Version: GnuPG v1</div><div class="line"></div><div class="line">iQEcBAEBAgAGBQJW2OiLAAoJEMJzeS99g1RdjM4H/1VPMHeLCmkUupVP3s0FKtEs</div><div class="line">bmoIPabUlRXW0JZRL9q1LRk7AhAc9SQjVwpYYCnjYEQhDzsYC4RKs8R19YEcIC/E</div><div class="line">N8r7r6hZ7k9Tqh6gA67Mh9Hc6CswfjYp46yAMtC7C6aYHYPDPJPU4/KML+Rsg4WI</div><div class="line">sBfsAWcDxWVtbh+Ef00PAadWeHEXzFd4hXdk2DNVonvTQZFW9JrN6/qEp3u75rz1</div><div class="line">Z6ilBto4Wr80IFrCKfvUCO7ChKx4SXHxkMtJYzDUo0F0mVTEL6f9n9PdiDd8Pwrf</div><div class="line">3NTlOdnFUoLTVKQFKRlkQyjx5Ud+0ve0+5capSZ6jMDSXHS/enfY8BUvNZUqWAU=</div><div class="line">=Dong</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/04/release-0.10.43/" data-id="cirjzsntr006cx9m65cacd2w7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-release-0.12.11" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2016/03/03/release-0.12.11/" class="article-date">
-    <time datetime="2016-03-02T15:00:00.000Z" itemprop="datePublished">2016-03-03</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/03/03/release-0.12.11/">Node v0.12.11(LTS)</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Rod Vagg</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/release/v0.12.11/" taret="_blank">
-        Node v0.12.11 (LTS)
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-          <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-This release contains security updates. OpenSSL 1.0.1s fixes some low-severity defects that impact Node.js. See our [impact assessment](http://nodejs.org/en/blog/vulnerability/openssl-and-low-severity-fixes-jan-2016/#_-update-29-jan-2016-_-openssl-impact-assessment) for full details.
--->
-<p>이 릴리스는 보안 업데이트를 포함하고 있습니다. OpenSSL 1.0.1s는 Node.js에 영향을 미치는 심각도가 낮은(low-severity) 몇 가지 결함을 수정합니다. 자세한 내용은 <a href="http://nodejs.org/en/blog/vulnerability/openssl-and-low-severity-fixes-jan-2016/#_-update-29-jan-2016-_-openssl-impact-assessment" target="_blank" rel="external">영향 평가</a>를 참고하세요.</p>
-<!--
-### Notable changes:
--->
-<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><!--
-* **http_parser**: Update to http-parser 2.3.2 to fix an unintentionally strict limitation of allowable header characters. (James M Snell) [nodejs/node#5241](https://github.com/nodejs/node/pull/5241)
-* **domains**:
-  - Prevent an exit due to an exception being thrown rather than emitting an 'uncaughtException' event on the `process` object when no error handler is set on the domain within which an error is thrown and an 'uncaughtException' event listener is set on `process`. (Julien Gilli) [nodejs/node#3885](https://github.com/nodejs/node/pull/3885)
-  - Fix an issue where the process would not abort in the proper function call if an error is thrown within a domain with no error handler and `--abort-on-uncaught-exception` is used. (Julien Gilli) [nodejs/node#3885](https://github.com/nodejs/node/pull/3885)
-* **openssl**: Upgrade from 1.0.1r to 1.0.1s (Ben Noordhuis) [nodejs/node#5509](https://github.com/nodejs/node/pull/5509)
-  - Fix a double-free defect in parsing malformed DSA keys that may potentially be used for DoS or memory corruption attacks. It is likely to be very difficult to use this defect for a practical attack and is therefore considered low severity for Node.js users. More info is available at https://www.openssl.org/news/vulnerabilities.html#2016-0705
-  - Fix a defect that can cause memory corruption in certain very rare cases relating to the internal `BN_hex2bn()` and `BN_dec2bn()` functions. It is believed that Node.js is not invoking the code paths that use these functions so practical attacks via Node.js using this defect are _unlikely_ to be possible. More info is available at https://www.openssl.org/news/vulnerabilities.html#2016-0797
-  - Fix a defect that makes the CacheBleed Attack (https://ssrg.nicta.com.au/projects/TS/cachebleed/) possible. This defect enables attackers to execute side-channel attacks leading to the potential recovery of entire RSA private keys. It only affects the Intel Sandy Bridge (and possibly older) microarchitecture when using hyper-threading. Newer microarchitectures, including Haswell, are unaffected. More info is available at https://www.openssl.org/news/vulnerabilities.html#2016-0702
--->
-<ul>
-<li><strong>http_parser</strong>: http-parser를 2.3.2로 업데이트하여 허용 가능한 헤더 문자에 의도치 않게 제한이 생기던 문제를 수정했습니다. (James M Snell) <a href="https://github.com/nodejs/node/pull/5241" target="_blank" rel="external">nodejs/node#5241</a></li>
-<li><strong>domains</strong>:<ul>
-<li>에러가 발생한 도메인에 에러 핸들러가 설정되어 있지 않고 <code>process</code>에 <code>uncaughtException</code> 이벤트 리스너가 설정되었을 때 <code>process</code> 객체에 <code>uncaughtException</code> 이벤트가 발생하는 대신 예외가 던져지는(throw) 것 때문에 프로세스가 종료되던 문제를 수정했습니다. (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3885" target="_blank" rel="external">nodejs/node#3885</a></li>
-<li>에러 핸들러가 없는 도메인에서 에러가 발생하고 <code>--abort-on-uncaught-exception</code>이 사용됐을 때 적절한 함수 호출에서 프로세스가 종료되지 않던 이슈가 수정됐습니다. (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3885" target="_blank" rel="external">nodejs/node#3885</a></li>
-</ul>
-</li>
-<li><strong>openssl</strong>: 1.0.1r에서 1.0.1s로 업그레이드 했습니다. (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5509" target="_blank" rel="external">nodejs/node#5509</a><ul>
-<li>DoS나 메모리 변조(memory corruption) 공격에 사용될 수 있는 형식이 올바르지 않은(malformed) DSA 키를 파싱할 때 발생하는 이중 해제(double free) 문제를 수정합니다. 실제 공격에 이 결함이 악용되기는 매우 어려울 것이므로 이 결함은 Node.js 사용자에게 낮은 심각도로 판단됩니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0705" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0705</a>에서 볼 수 있습니다.</li>
-<li>내부의 <code>BN_hex2bn()</code>와 <code>BN_dec2bn()</code> 함수와 관련 있는 매우 드문 사례에서 메모리 변조를 일으킬 수 있는 결함을 수정했습니다. Node.js는 이 함수를 사용하는 코드를 호출하지 않으므로 이 결함을 사용한 실제적인 Node.js 공격은 불가능할 것으로 보입니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0797" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0797</a>에서 볼 수 있습니다.</li>
-<li>CacheBleed 공격(<a href="https://ssrg.nicta.com.au/projects/TS/cachebleed/" target="_blank" rel="external">https://ssrg.nicta.com.au/projects/TS/cachebleed/</a>)을 가능하게 할 수 있는 결함을 수정했습니다. 이 결함은 공격자에게 전체 RSA 비공개 키를 복구할 수 있는 부채널 공격(side-channel attacks)을 허용합니다. 이 결함은 인텔 샌디 브리지(혹은 그 이전 버전) 마이크로아키텍처에서 하이퍼 스레딩(hyper-threading)을 사용할 때만 영향을 미칩니다. 하스웰을 비롯한 새로운 아키텍처에서는 영향이 없습니다. 더 자세한 정보는 <a href="https://www.openssl.org/news/vulnerabilities.html#2016-0702" target="_blank" rel="external">https://www.openssl.org/news/vulnerabilities.html#2016-0702</a>에서 볼 수 있습니다.</li>
-</ul>
-</li>
-</ul>
-<p>Commits:</p>
-<ul>
-<li>[<a href="https://github.com/nodejs/node/commit/1ab6653db9" target="_blank" rel="external"><code>1ab6653db9</code></a>] - <strong>build</strong>: update Node.js logo on OSX installer (Rod Vagg) <a href="https://github.com/nodejs/node/pull/5401" target="_blank" rel="external">#5401</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/fcc64792ae" target="_blank" rel="external"><code>fcc64792ae</code></a>] - <strong>child_process</strong>: guard against race condition (Rich Trott) <a href="https://github.com/nodejs/node/pull/5153" target="_blank" rel="external">#5153</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/6c468df9af" target="_blank" rel="external"><code>6c468df9af</code></a>] - <strong>child_process</strong>: fix data loss with readable event (Brian White) <a href="https://github.com/nodejs/node/pull/5037" target="_blank" rel="external">#5037</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/61a22019c2" target="_blank" rel="external"><code>61a22019c2</code></a>] - <strong>deps</strong>: upgrade openssl to 1.0.1s (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5509" target="_blank" rel="external">#5509</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/fa26b13df7" target="_blank" rel="external"><code>fa26b13df7</code></a>] - <strong>deps</strong>: update to http-parser 2.3.2 (James M Snell) <a href="https://github.com/nodejs/node/pull/5241" target="_blank" rel="external">#5241</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/46c8e2165f" target="_blank" rel="external"><code>46c8e2165f</code></a>] - <strong>deps</strong>: backport 1f8555 from v8’s upstream (Trevor Norris) <a href="https://github.com/nodejs/node/pull/3945" target="_blank" rel="external">#3945</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ce58c2c31a" target="_blank" rel="external"><code>ce58c2c31a</code></a>] - <strong>doc</strong>: remove SSLv2 descriptions (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/5541" target="_blank" rel="external">#5541</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/018e4e0b1a" target="_blank" rel="external"><code>018e4e0b1a</code></a>] - <strong>domains</strong>: fix handling of uncaught exceptions (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3885" target="_blank" rel="external">#3885</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d421e85dc9" target="_blank" rel="external"><code>d421e85dc9</code></a>] - <strong>lib</strong>: fix cluster handle leak (Rich Trott) <a href="https://github.com/nodejs/node/pull/5152" target="_blank" rel="external">#5152</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3a48f0022f" target="_blank" rel="external"><code>3a48f0022f</code></a>] - <strong>node</strong>: fix leaking Context handle (Trevor Norris) <a href="https://github.com/nodejs/node/pull/3945" target="_blank" rel="external">#3945</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/28dddabf6a" target="_blank" rel="external"><code>28dddabf6a</code></a>] - <strong>src</strong>: fix build error without OpenSSL support (Jörg Krause) <a href="https://github.com/nodejs/node/pull/4201" target="_blank" rel="external">#4201</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a79baf03cd" target="_blank" rel="external"><code>a79baf03cd</code></a>] - <strong>src</strong>: use global SealHandleScope (Trevor Norris) <a href="https://github.com/nodejs/node/pull/3945" target="_blank" rel="external">#3945</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/be39f30447" target="_blank" rel="external"><code>be39f30447</code></a>] - <strong>test</strong>: add test-domain-exit-dispose-again back (Julien Gilli) <a href="https://github.com/nodejs/node/pull/4278" target="_blank" rel="external">#4278</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/da66166b9a" target="_blank" rel="external"><code>da66166b9a</code></a>] - <strong>test</strong>: fix test-domain-exit-dispose-again (Julien Gilli) <a href="https://github.com/nodejs/node/pull/3991" target="_blank" rel="external">#3991</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v0.12.11/x64/node-v0.12.11-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/x64/node-v0.12.11-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/x64/node.exe</a><br>
-Mac OS X Universal Installer: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11.pkg" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-darwin-x64.tar.gz</a><br>
-Mac OS X 32-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-darwin-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-darwin-x86.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-linux-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-linux-x86.tar.gz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-linux-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-linux-x64.tar.gz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-sunos-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-sunos-x86.tar.gz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11-sunos-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11-sunos-x64.tar.gz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v0.12.11/node-v0.12.11.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/node-v0.12.11.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v0.12.11/" target="_blank" rel="external">https://nodejs.org/dist/v0.12.11/</a><br>
-Documentation: <a href="https://nodejs.org/docs/v0.12.11/api/" target="_blank" rel="external">https://nodejs.org/docs/v0.12.11/api/</a></p>
-<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA1</div><div class="line"></div><div class="line">17c2d6926976279707d5576a82eb59c4dadc5b8adaef562744fc14fa19e3ab5a  node.exe</div><div class="line">f6a93ff89cdd8532a63f81d1e97a8394c6da6353ab0cdbf6ce83d69bfdbecc13  node.exp</div><div class="line">6524b6acf14f93ad15fa26a938ae13867cab17f8d031f03d5cad12c6b752244e  node.lib</div><div class="line">8fc934c37296fb639b080d0ba474ba5d6521cc32f0fd01e1514880f45a7e5b1b  node.pdb</div><div class="line">68b949f6c308eb1ad28e96926fca68e3ac0dfb7ec997945f4e26db99fe3ad711  node-v0.12.11-darwin-x64.tar.gz</div><div class="line">4011d2c1c24f19c8f6ec8c93616ed0259b5c8f56b32f9f043b0706a4891065ee  node-v0.12.11-darwin-x64.tar.xz</div><div class="line">057f701678c0fe0c596eaa517e8b7ba771bdca89d99a7ace8df8e1064784727b  node-v0.12.11-darwin-x86.tar.gz</div><div class="line">64181afbb0e9bf4087582b24f8332ae60a92d65fbf03f2ae4064c27e0df8ad09  node-v0.12.11-darwin-x86.tar.xz</div><div class="line">4d3985bddfbdc867eb1f226e74c3a507db01410f95aaa566da18ada9bfd51d02  node-v0.12.11-headers.tar.gz</div><div class="line">0d6c113200170e80e1fa7aac4830f513ff93269d96c7a32e9f5c30ac6c45ac0b  node-v0.12.11-headers.tar.xz</div><div class="line">d98b76b7721a60471801e07e1f90af4fd479e8e42a632d419ede0a7b3c603cc0  node-v0.12.11-linux-x64.tar.gz</div><div class="line">6122af4237461982e80111583c1b845ec8276c95dfd241f1e96c1cbcda671586  node-v0.12.11-linux-x64.tar.xz</div><div class="line">ecf627bf67bfd231e549869c6e2963acd5551d15d5cf1116b0649d3d14ddde19  node-v0.12.11-linux-x86.tar.gz</div><div class="line">5f376924c3e70a0b8283a0bcda15f2b32ff63adaa195a26a77bf309f04122d65  node-v0.12.11-linux-x86.tar.xz</div><div class="line">f6c2b066b9d75ed9b352849ff5044819bd527fceada669210999310aada9a280  node-v0.12.11.pkg</div><div class="line">6a68d6ad04c9b73ed72e88e39002bbaa95ffc423c6cf47e3c3da5edd0abbc701  node-v0.12.11-sunos-x64.tar.gz</div><div class="line">688f63d22fa8b2094225ffe049e5b7b584b899e5ede565b6f001d019c0e9c0da  node-v0.12.11-sunos-x64.tar.xz</div><div class="line">9e61254d7437c2498817225c62dc6cfc065bd3b2404a213d8d305419bca07a6c  node-v0.12.11-sunos-x86.tar.gz</div><div class="line">a0b32c1e606ce31d61faf4eb340aeecd0fc973a7c6fb4b45dd6a9aa1fac48ba5  node-v0.12.11-sunos-x86.tar.xz</div><div class="line">e49049d82f2a11fa164549d907d4739fe1293d53c07f48bd70e1df237b238a68  node-v0.12.11.tar.gz</div><div class="line">ad36d2fee86171582b7a3c7470a0c565bd816dc02518e1b64aa5f21a0fdf86ce  node-v0.12.11.tar.xz</div><div class="line">fbc814fe197618421015807e487ee5b30eeaca5224511680342e9eb178afd252  node-v0.12.11-x86.msi</div><div class="line">df06cd0f64660802d20cbff3655ce89dc1f302fa9fce05140ee00663d8a54c50  openssl-cli.exe</div><div class="line">f5386b0f3bd3591b5d65a0f7c8167f50c3a8c9dc8dab08fd8abcdd2b001ea1b7  openssl-cli.pdb</div><div class="line">46893f15c3ef27631646f47f380ad1e2ad344c2b337a85d228aa94ae58349f8a  x64/node.exe</div><div class="line">c9e771b9eddb0f7b0da929a3c3f27bdc8836da6e436e3980f97854e09c496f38  x64/node.exp</div><div class="line">e25a49dbaa616bd4cf9e7bb46ea3ec06e8cc68b255e2893772d40182896ec7bb  x64/node.lib</div><div class="line">965a585155a296f81c82b77c4df2d17680660aca3f074cd3c0a0b34adc339c4c  x64/node.pdb</div><div class="line">b9496d61e09ae852f27d7571c3be39a834befa7587607ae229d41f0e3bd56f59  x64/node-v0.12.11-x64.msi</div><div class="line">2e22479b9681caedfa271b9b414d5e4e6fc8b185ce560c57be10a61c98388e39  x64/openssl-cli.exe</div><div class="line">32ebc22dec65750c3e43ba944dd3fdd6fffefc303c6142a0f131d215b86b613d  x64/openssl-cli.pdb</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Version: GnuPG v1</div><div class="line"></div><div class="line">iQEcBAEBAgAGBQJW2HuxAAoJEMJzeS99g1Rd6MUH/jMQgOKWaO1+70aTA3g8/3yX</div><div class="line">S4Gj05FZiDTF8HO6Svrbka5hpU8BkuJAsL3sp+E4+cIwGdYyA73hzq8qN4Gwm0X8</div><div class="line">nmRpMfY1T+Goeox2m7D2rcrM88yeTRxtD7mM2sg32lDGUGwI0CiIEpYcA3BFF6tj</div><div class="line">Km7NlZahyiXaGEh6hUWcbkwHuoMEHKrACiMRb9RNOE0pdpdeXvoSYli7KBn8JZAl</div><div class="line">cQaK/KJxxUWeywnDzPcsg+gN4CQlnnKm6Tawtu++v6FWLcS8WTktd81Jue4knbks</div><div class="line">JoC+Bb4h2rvDR1/8o+Jjc95MnGvIx/MB5tFyY1tDEDjQxsC1oZXcUz4P5pjlnqE=</div><div class="line">=KKkY</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/03/03/release-0.12.11/" data-id="cirjzsntp006ax9m6qj5zxxi4" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2016/03/07/weekly/" data-id="cirltkru0006eqtm6ng7d2kic" class="article-share-link">Share</a>
       
       
     </footer>

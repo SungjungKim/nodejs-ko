@@ -69,6 +69,279 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/07/17/weekly/" class="article-date">
+    <time datetime="2015-07-16T15:00:00.000Z" itemprop="datePublished">2015-07-17</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/weekly/2015/07/17/weekly/">io.js 주간 뉴스 2015년 7월 17일</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>iojs</strong></li>
+    <li>
+      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-and-node-js-week-of-july-17th-6e23e8a33863" taret="_blank">
+        io.js Week of July 17th
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/yous" target="_blank">yous</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### io.js and Node.js News — July 17th
+io.js 2.4.0 is released, Apigee joined our foundation and Intl WG start.
+-->
+<p>io.js 2.4.0 릴리스, Apigee의 재단 합류와 국제 워킹 그룹 발족.</p>
+<!--
+### io.js 2.4 Releases
+
+This week we have one io.js releases: [v2.4.0](https://iojs.org/dist/v2.4.0/), complete changelog from previous releases can be found [on GitHub](https://github.com/nodejs/io.js/blob/master/CHANGELOG.md).
+-->
+<h3 id="io-js-2-4-릴리스"><a href="#io-js-2-4-릴리스" class="headerlink" title="io.js 2.4 릴리스"></a>io.js 2.4 릴리스</h3><p>이번 주에 io.js <a href="https://iojs.org/dist/v2.4.0/" target="_blank" rel="external">v2.4.0</a> 릴리스가 있었습니다.
+전체 변경사항은 <a href="https://github.com/nodejs/io.js/blob/master/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 확인할 수 있습니다.</p>
+<!--
+### Notable Changes
+
+#### 2.4.0
+
+* **src**: Added a new `--track-heap-objects` flag to track heap object allocations for heap snapshots (Bradley Meck) [#2135](https://github.com/nodejs/io.js/pull/2135).
+* **readline**: Fixed a freeze that affected the repl if the keypress event handler threw (Alex Kocharin) [#2107](https://github.com/nodejs/io.js/pull/2107).
+* **npm**: Upgraded to v2.13.0, release notes can be found in <https://github.com/npm/npm/releases/tag/v2.13.0> (Forrest L Norvell) [#2152](https://github.com/nodejs/io.js/pull/2152).
+-->
+<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><h4 id="2-4-0"><a href="#2-4-0" class="headerlink" title="2.4.0"></a>2.4.0</h4><ul>
+<li><strong>src</strong>: 힙 스냅샷에 사용될 힙 오브젝트 할당을 추적하기 위한 <code>--track-heap-objects</code> 플래그가 추가되었습니다. (Bradley Meck) <a href="https://github.com/nodejs/io.js/pull/2135" target="_blank" rel="external">#2135</a></li>
+<li><strong>readline</strong>: keypress 이벤트 핸들러가 에러를 발생시킬 때 repl이 멈추던 문제를 해결했습니다. (Alex Kocharin) <a href="https://github.com/nodejs/io.js/pull/2107" target="_blank" rel="external">#2107</a></li>
+<li><strong>npm</strong>: v2.13.0으로 업그레이드 했습니다. 릴리스 노트는 <a href="https://github.com/npm/npm/releases/tag/v2.13.0" target="_blank" rel="external">https://github.com/npm/npm/releases/tag/v2.13.0</a>에서 찾을 수 있습니다. (Forrest L Norvell) <a href="https://github.com/nodejs/io.js/pull/2152" target="_blank" rel="external">#2152</a></li>
+</ul>
+<!--
+### Known issues
+
+See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and current list of known issues.
+
+* Some problems with unreferenced timers running during `beforeExit` are still to be resolved. See [#1264](https://github.com/nodejs/io.js/issues/1264).
+* Surrogate pair in REPL can freeze terminal. [#690](https://github.com/nodejs/io.js/issues/690)
+* `process.send()` is not synchronous as the docs suggest, a regression introduced in 1.0.2, see [#760](https://github.com/nodejs/io.js/issues/760).
+* Calling `dns.setServers()` while a DNS query is in progress can cause the process to crash on a failed assertion. [#894](https://github.com/nodejs/io.js/issues/894)
+* `url.resolve` may transfer the auth portion of the url when resolving between two full hosts, see [#1435](https://github.com/nodejs/io.js/issues/1435).
+-->
+<h3 id="알려진-이슈"><a href="#알려진-이슈" class="headerlink" title="알려진 이슈"></a>알려진 이슈</h3><p>현재 알려진 이슈의 전체 목록은
+<a href="https://github.com/nodejs/io.js/labels/confirmed-bug" target="_blank" rel="external">https://github.com/nodejs/io.js/labels/confirmed-bug</a>에서 보실 수 있습니다.</p>
+<ul>
+<li><code>beforeExit</code> 중에 참조 해제된 타이머에 대한 문제가 아직 남아 있습니다. <a href="https://github.com/nodejs/io.js/issues/1264" target="_blank" rel="external">#1264</a></li>
+<li>REPL에 입력된 서로게이트 페어가 터미널을 얼릴 수 있습니다. <a href="https://github.com/nodejs/io.js/issues/690" target="_blank" rel="external">#690</a></li>
+<li><code>process.send()</code>가 문서에 쓰인 것처럼 동기적이지 않으며, 이 문제는 1.0.2에서 발생했습니다. <a href="https://github.com/nodejs/io.js/issues/760" target="_blank" rel="external">#760</a></li>
+<li>DNS 질의 진행 중에 호출된 <code>dns.setServers()</code>가 실패한 단언문으로 프로세스를 크래시시킬 수 있습니다. <a href="https://github.com/nodejs/io.js/issues/894" target="_blank" rel="external">#894</a></li>
+<li><code>url.resolve</code>가 다른 두 호스트 사이를 해석하는 중 URL의 인증 정보 부분을 교환할 수 있습니다. <a href="https://github.com/nodejs/io.js/issues/1435" target="_blank" rel="external">#1435</a></li>
+</ul>
+<!--
+### Community Updates
+
+* NodeSource announces N|Support on [their blog post](https://nodesource.com/blog/nodesource-announces-nsupport). N|Support is a premium support offering for Node.js developers, DevOps and IT operations teams. To learn more about N|Support offerings, check out [the solution page](https://nodesource.com/products/nsupport).
+* [Apigee](https://apigee.com/) is [added to the Node Foundation](https://github.com/nodejs/nodejs.org/pull/151)
+* [joyent/docker-node](https://github.com/joyent/docker-node) team is moved to [nodejs/docker](https://github.com/nodejs/docker-iojs) team. As a result, [@chorrell](https://github.com/chorrell) and [@dcrudgington](https://github.com/dcrudgington) joined [@nodejs/docker](https://github.com/orgs/nodejs/teams/docker) team.
+* [Intl](https://github.com/nodejs/intl) WG is launched. They are dedicated to support and improvement of Internationalization and Localization in Node. Intl WG calls for participants in [their issue](https://github.com/nodejs/Intl/issues/5).
+-->
+<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><ul>
+<li>NodeSource가 <a href="https://nodesource.com/blog/nodesource-announces-nsupport" target="_blank" rel="external">블로그 포스트</a>에서 N|Support를 발표했습니다. N|Support는 Node.js 개발자, DevOps, IT 운영 팀을 위한 프리미엄 지원입니다. N|Support에 대해 더 알고 싶다면 <a href="https://nodesource.com/products/nsupport" target="_blank" rel="external">솔루션 페이지</a>를 방문하세요.</li>
+<li><a href="https://apigee.com/" target="_blank" rel="external">Apigee</a>가 <a href="https://github.com/nodejs/nodejs.org/pull/151" target="_blank" rel="external">Node 재단에 합류</a>합니다.</li>
+<li><a href="https://github.com/joyent/docker-node" target="_blank" rel="external">joyent/docker-node</a> 팀이 <a href="https://github.com/nodejs/docker-iojs" target="_blank" rel="external">nodejs/docker</a> 팀으로 이동합니다. 그 결과, <a href="https://github.com/chorrell" target="_blank" rel="external">@chorrell</a>, <a href="https://github.com/dcrudgington" target="_blank" rel="external">@dcrudgington</a>이 <a href="https://github.com/orgs/nodejs/teams/docker" target="_blank" rel="external">@nodejs/docker</a> 팀에 합류했습니다.</li>
+<li><a href="https://github.com/nodejs/intl" target="_blank" rel="external">국제</a> 워킹 그룹을 발족했습니다. 이들은 Node의 국제화와 지역화 지원과 개선에 힘쓰게 됩니다. 국제 워킹 그룹은 <a href="https://github.com/nodejs/Intl/issues/5" target="_blank" rel="external">이슈</a>에서 참여자를 찾고 있습니다.</li>
+</ul>
+<!--
+### Upcoming Events
+
+* [BrazilJS Conf](http://braziljs.com.br/) tickets are on sale, August 21st - 22nd at Shopping Center BarraShoppingSul
+* [NodeConf EU](http://nodeconf.eu/) tickets are on sale, September 6th - 9th at Waterford, Ireland
+* [Node.js Italian Conference](http://nodejsconf.it/) tickets are on sale, October 10th at Desenzano - Brescia, Italy
+* [JSConf CO](http://www.jsconf.co/), October 16th - 17th at Ruta N, Medellin
+-->
+<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><ul>
+<li><a href="http://braziljs.com.br/" target="_blank" rel="external">BrazilJS Conf</a> 입장권을 판매하고 있습니다. 8월 21일과 22일 BarraShoppingSul 쇼핑 센터에서 열립니다.</li>
+<li><a href="http://nodeconf.eu/" target="_blank" rel="external">NodeConf EU</a> 입장권을 판매하고 있습니다. 9월 6일부터 9일까지 아일랜드 워터포드에서 열립니다.</li>
+<li><a href="http://nodejsconf.it/" target="_blank" rel="external">Node.js Italian Conference</a> 입장권을 판매하고 있습니다. 10월 10일 이탈리아 Brescia의 Desenzano에서 열립니다.</li>
+<li><a href="http://www.jsconf.co/" target="_blank" rel="external">JSConf CO</a>가 10월 16일부터 17일까지 Medellin의 Ruta N에서 열립니다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/07/17/weekly/" data-id="cirltkrqf001wqtm60bo884xa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/07/10/weekly/" class="article-date">
+    <time datetime="2015-07-09T15:00:00.000Z" itemprop="datePublished">2015-07-10</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/weekly/2015/07/10/weekly/">io.js 주간 뉴스 2015년 7월 10일</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>iojs</strong></li>
+    <li>
+      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-july-10th-8cf31af78d60" taret="_blank">
+        io.js Week of July 10th - Node &amp;amp; JavaScript
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/marocchino" target="_blank">marocchino</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### io.js and Node.js News — July 10th
+Security patches for io.js 1.8 and 2.3 and upcoming events.
+-->
+<p>io.js 1.8, 2.3의 보안 패치와 다가오는 이벤트</p>
+<!--
+### io.js 1.8 and 2.3 Releases
+
+This week we have two io.js releases: [v2.3.4](https://iojs.org/dist/v2.3.4/) and [v1.8.4](https://iojs.org/dist/v1.8.4/), complete changelog from previous releases can be found [on GitHub](https://github.com/nodejs/io.js/blob/master/CHANGELOG.md) with the [v1.x changelog here](https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md).
+-->
+<h3 id="io-js-1-8-2-3-릴리스"><a href="#io-js-1-8-2-3-릴리스" class="headerlink" title="io.js 1.8, 2.3 릴리스"></a>io.js 1.8, 2.3 릴리스</h3><p>이번 주에는 <a href="https://iojs.org/dist/v2.3.4/" target="_blank" rel="external">v2.3.4</a>, <a href="https://iojs.org/dist/v1.8.4/" target="_blank" rel="external">v1.8.4</a> 릴리스가 있었습니다. 전체 변경사항은 <a href="https://github.com/nodejs/io.js/blob/master/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 확인할 수 있습니다. v1.x의 변경사항은 <a href="https://github.com/nodejs/io.js/blob/v1.x/CHANGELOG.md" target="_blank" rel="external">여기</a>서 확인하세요.</p>
+<!--
+### Notable Changes
+
+#### 1.8.4
+
+**Maintenance release**
+
+* **openssl**: Upgrade to 1.0.2d, fixes CVE-2015-1793 (Alternate Chains Certificate Forgery) [#2141](https://github.com/nodejs/io.js/pull/2141).
+
+
+#### 2.3.4
+
+* **openssl**: Upgrade to 1.0.2d, fixes CVE-2015-1793 (Alternate Chains Certificate Forgery) (Shigeki Ohtsu) [#2141](https://github.com/nodejs/io.js/pull/2141).
+* **npm**: Upgraded to v2.12.1, release notes can be found in <https://github.com/npm/npm/releases/tag/v2.12.0> and <https://github.com/npm/npm/releases/tag/v2.12.1> (Kat Marchán) [#2112](https://github.com/nodejs/io.js/pull/2112).
+-->
+<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><h4 id="1-8-4"><a href="#1-8-4" class="headerlink" title="1.8.4"></a>1.8.4</h4><p><strong>유지보수 릴리스</strong></p>
+<ul>
+<li><strong>openssl</strong>: 1.0.2d로 업그레이드 했습니다. CVE-2015-1793를 수정했습니다. (Alternate Chains Certificate Forgery) <a href="https://github.com/nodejs/io.js/pull/2141" target="_blank" rel="external">#2141</a>.</li>
+</ul>
+<h4 id="2-3-4"><a href="#2-3-4" class="headerlink" title="2.3.4"></a>2.3.4</h4><ul>
+<li><strong>openssl</strong>: 1.0.2d로 업그레이드 했습니다. CVE-2015-1793를 수정했습니다. (Alternate Chains Certificate Forgery) (Shigeki Ohtsu) <a href="https://github.com/nodejs/io.js/pull/2141" target="_blank" rel="external">#2141</a>.</li>
+<li><strong>npm</strong>: v2.12.1로 업그레이드 했습니다. 릴리스 노트는 <a href="https://github.com/npm/npm/releases/tag/v2.12.0" target="_blank" rel="external">https://github.com/npm/npm/releases/tag/v2.12.0</a>, <a href="https://github.com/npm/npm/releases/tag/v2.12.1" target="_blank" rel="external">https://github.com/npm/npm/releases/tag/v2.12.1</a>에서 찾을 수 있습니다. (Kat Marchán) <a href="https://github.com/nodejs/io.js/pull/2112" target="_blank" rel="external">#2112</a>.</li>
+</ul>
+<!--
+### Known issues
+
+See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and current list of known issues.
+
+* Some problems with unreferenced timers running during `beforeExit` are still to be resolved. See [#1264](https://github.com/nodejs/io.js/issues/1264).
+* Surrogate pair in REPL can freeze terminal. [#690](https://github.com/nodejs/io.js/issues/690)
+* `process.send()` is not synchronous as the docs suggest, a regression introduced in 1.0.2, see [#760](https://github.com/nodejs/io.js/issues/760).
+* Calling `dns.setServers()` while a DNS query is in progress can cause the process to crash on a failed assertion. [#894](https://github.com/nodejs/io.js/issues/894)
+* `url.resolve` may transfer the auth portion of the url when resolving between two full hosts, see [#1435](https://github.com/nodejs/io.js/issues/1435).
+-->
+<h3 id="알려진-이슈"><a href="#알려진-이슈" class="headerlink" title="알려진 이슈"></a>알려진 이슈</h3><p>현재 알려진 이슈의 전체 목록은 <a href="https://github.com/nodejs/io.js/labels/confirmed-bug" target="_blank" rel="external">https://github.com/nodejs/io.js/labels/confirmed-bug</a>에서 보실 수 있습니다.</p>
+<ul>
+<li><code>beforeExit</code> 중에 참조 해제된 타이머에 대한 문제가 아직 남아 있습니다. <a href="https://github.com/nodejs/node/issues/1264" target="_blank" rel="external">#1264</a></li>
+<li>REPL에 입력된 서로게이트 페어가 터미널을 얼릴 수 있습니다. <a href="https://github.com/nodejs/node/issues/690" target="_blank" rel="external">#690</a></li>
+<li><code>process.send()</code>가 문서에 쓰인 것처럼 동기적이지 않으며, 이 문제는 1.0.2에서 발생했습니다. <a href="https://github.com/nodejs/node/issues/760" target="_blank" rel="external">#760</a></li>
+<li>DNS 질의 진행 중에 호출된 <code>dns.setServers()</code>가 실패한 단언문으로 프로세스를 크래시시킬 수 있습니다. <a href="https://github.com/nodejs/node/issues/894" target="_blank" rel="external">#894</a></li>
+<li><code>url.resolve</code>가 다른 두 호스트 사이를 해석하는 중 URL의 인증 정보 부분을 교환할 수 있습니다. <a href="https://github.com/nodejs/node/issues/1435" target="_blank" rel="external">#1435</a></li>
+</ul>
+<!--
+### Community Updates
+
+* OpenSSL published a [high severity security issue](https://mta.openssl.org/pipermail/openssl-announce/2015-July/000037.html), io.js and Node.js have upgraded OpenSSL version and fixed the problem on latest version.
+* Node.js LTS WG has updated [their proposed LTS plan](https://github.com/nodejs/LTS/blob/master/README.md#example). They need some feedbacks from Noders.
+* ReactNative required io.js as [their test platform](https://github.com/facebook/react-native/blob/master/.travis.yml#L24).
+-->
+<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><ul>
+<li>OpenSSL에서 <a href="https://mta.openssl.org/pipermail/openssl-announce/2015-July/000037.html" target="_blank" rel="external">높은 우선 순위의 심각한 보안 이슈</a> 공표했습니다. io.js, Node.js는 최신 버전에서 OpenSSL 버전을 업데이트해 이 문제를 수정했습니다.</li>
+<li>Node.js LTS WG에서 <a href="https://github.com/nodejs/LTS/blob/master/README.md#example" target="_blank" rel="external">their proposed LTS 계획 제안</a>을 업데이트 했습니다. 노드 사용자의 피드백이 필요합니다.</li>
+<li>ReactNative의 <a href="https://github.com/facebook/react-native/blob/master/.travis.yml#L24" target="_blank" rel="external">테스트 플랫폼</a>에서 io.js를 사용합니다.</li>
+</ul>
+<!--
+### Upcoming Events
+
+* [BrazilJS Conf](http://braziljs.com.br/) tickets are on sale, August 21st - 22nd at Shopping Center BarraShoppingSul
+* [NodeConf EU](http://nodeconf.eu/) tickets are on sale, September 6th - 9th at Waterford, Ireland
+* [Node.js Italian Conference](http://nodejsconf.it/) tickets are on sale, October 10th at Desenzano - Brescia, Italy
+* [JSConf CO](http://www.jsconf.co/), October 16th - 17th at Ruta N, Medellin
+-->
+<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><ul>
+<li><a href="http://braziljs.com.br/" target="_blank" rel="external">BrazilJS Conf</a> 입장권을 판매하고 있습니다. 8월 21일과 22일 BarraShoppingSul 쇼핑 센터에서 열립니다.</li>
+<li><a href="http://nodeconf.eu/" target="_blank" rel="external">NodeConf EU</a> 입장권을 판매하고 있습니다. 9월 6일부터 9일까지 아일랜드 워터포드에서 열립니다.</li>
+<li><a href="http://nodejsconf.it/" target="_blank" rel="external">Node.js Italian Conference</a> 입장권을 판매하고 있습니다. 10월 10일 이탈리아 Brescia의 Desenzano에서 열립니다.</li>
+<li><a href="http://www.jsconf.co/" target="_blank" rel="external">JSConf CO</a>가 10월 16일부터 17일까지 Medellin의 Ruta N에서 열립니다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/07/10/weekly/" data-id="cirltkrqe001uqtm6sktrwf4w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-important-security-upgrades-for-node-js-and-io-js" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -150,7 +423,7 @@ The initial ETA was midday PDT. Unfortunately, the patch wasn’t quite ready an
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/07/04/important-security-upgrades-for-node-js-and-io-js/" data-id="cirjzsnpg001sx9m6yjppkiu0" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/07/04/important-security-upgrades-for-node-js-and-io-js/" data-id="cirltkrqc001sqtm6y6fouxsg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -309,7 +582,7 @@ See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and curren
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/07/03/weekly/" data-id="cirjzsnpe001qx9m6u2kop6za" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/07/03/weekly/" data-id="cirltkrqb001qqtm68omgmz50" class="article-share-link">Share</a>
       
       
     </footer>
@@ -440,7 +713,7 @@ See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and curren
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/26/weekly/" data-id="cirjzsnp8001mx9m6r8ah2pff" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/26/weekly/" data-id="cirltkrq9001oqtm68f9cfbed" class="article-share-link">Share</a>
       
       
     </footer>
@@ -589,7 +862,7 @@ This week we didn't have io.js releases, complete changelog from previous releas
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/19/weekly/" data-id="cirjzsnpc001ox9m6tmydkvo5" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/19/weekly/" data-id="cirltkrq6001mqtm6gyntgubh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -746,7 +1019,7 @@ At NodeSource, we think that being able to visualize a problem is key to solving
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/06/17/npm-is-massive/" data-id="cirjzsnoz001ix9m6efqcfhse" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/06/17/npm-is-massive/" data-id="cirltkrq4001kqtm6dg26tnt9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -910,7 +1183,7 @@ See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and curren
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/12/weekly/" data-id="cirjzsnp6001kx9m6o4gc1uaz" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/12/weekly/" data-id="cirltkrq1001iqtm6fmv8u9gb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1003,7 +1276,7 @@ This week we hadn't io.js releases, complete changelog from previous releases ca
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/05/weekly/" data-id="cirjzsnoy001gx9m6r02wneuf" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/06/05/weekly/" data-id="cirltkrq0001gqtm6mpsgaxcp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1143,275 +1416,7 @@ See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and curren
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/05/29/weekly/" data-id="cirjzsnow001ex9m6gyrtth50" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/weekly/2015/05/22/weekly/" class="article-date">
-    <time datetime="2015-05-21T15:00:00.000Z" itemprop="datePublished">2015-05-22</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/weekly/2015/05/22/weekly/">io.js 주간 뉴스 2015년 5월 22일</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>iojs</strong></li>
-    <li>
-      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-may-22nd-27905fd0cf8c" taret="_blank">
-        io.js Week of May 22nd — Node &amp;amp; JavaScript
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/freenice12" target="_blank">freenice12</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="io-js-1-8-2-0-2-1-릴리스"><a href="#io-js-1-8-2-0-2-1-릴리스" class="headerlink" title="io.js 1.8, 2.0, 2.1 릴리스"></a>io.js 1.8, 2.0, 2.1 릴리스</h1><!--
-io.js 1.8, 2.0 and 2.1 releases, community updates and events
--->
-<p>io.js 1.8, 2.0, 2.1 릴리스, 커뮤니티 업데이트와 이벤트</p>
-<!--
-io.js 1.8, 2.0 and 2.1 releases
-This week we had three io.js releases v1.8.2, v2.0.2 and v2.1.0, complete changelog can be found on GitHub.
-1.8.2
-Maintenance release
-crypto: significantly reduced memory usage for TLS (Fedor Indutny & Сковорода Никита Андреевич) #1529
-npm: Upgrade npm to 2.9.0. See the v2.8.4 and v2.9.0 release notes for details.
-2.0.2
-win,node-gyp: the delay-load hook for windows addons has now been correctly enabled by default, it had wrongly defaulted to off in the release version of 2.0.0 (Bert Belder) #1433
-os: tmpdir()’s trailing slash stripping has been refined to fix an issue when the temp directory is at ‘/’. Also considers which slash is used by the operating system. (cjihrig) #1673
-tls: default ciphers have been updated to use gcm and aes128 (Mike MacCana) #1660
-build: v8 snapshots have been re-enabled by default as suggested by the v8 team, since prior security issues have been resolved. This should give some perf improvements to both startup and vm context creation. (Trevor Norris) #1663
-src: fixed preload modules not working when other flags were used before — require (Yosuke Furukawa) #1694
-dgram: fixed send()’s callback not being asynchronous (Yosuke Furukawa) #1313
-readline: emitKeys now keeps buffering data until it has enough to parse. This fixes an issue with parsing split escapes. (Alex Kocharin) #1601
-cluster: works now properly emit ‘disconnect’ to cluster.worker (Oleg Elifantiev) #1386
-events: uncaught errors now provide some context (Evan Lucas) #1654
-2.1.0
-crypto: Diffie-Hellman key exchange (DHE) parameters (‘dhparams’) must now be 1024 bits or longer or an error will be thrown. A warning will also be printed to the console if you supply less than 2048 bits. See https://weakdh.org/ for further context on this security concern (Shigeki Ohtsu) #1739.
-node: A new — trace-sync-io command line flag will print a warning and a stack trace whenever a synchronous API is used. This can be used to track down synchronous calls that may be slowing down an application (Trevor Norris) #1707.
-node: To allow for chaining of methods, the setTimeout(), setKeepAlive(), setNoDelay(), ref() and unref() methods used in ‘net’, ‘dgram’, ‘http’, ‘https’ and ‘tls’ now return the current instance instead of undefined (Roman Reiss & Evan Lucas) #1699 #1768 #1779.
-npm: Upgraded to v2.10.1, release notes can be found in https://github.com/npm/npm/releases/tag/v2.10.1 and https://github.com/npm/npm/releases/tag/v2.10.0.
-util: A significant speed-up (in the order of 35%) for the common-case of a single string argument to util.format(), used by console.log() (Сковорода Никита Андреевич) #1749.
--->
-<h3 id="io-js-1-8-2-0-그리고-2-1-릴리스"><a href="#io-js-1-8-2-0-그리고-2-1-릴리스" class="headerlink" title="io.js 1.8, 2.0 그리고 2.1 릴리스"></a>io.js 1.8, 2.0 그리고 2.1 릴리스</h3><p>이번 주 <a href="https://iojs.org/dist/v1.8.2/" target="_blank" rel="external">v1.8.2</a>, <a href="https://iojs.org/dist/v2.0.2/" target="_blank" rel="external">v2.0.2</a>, <a href="https://iojs.org/dist/v2.1.0/" target="_blank" rel="external">v2.1.0</a> 3개의 io.js를 릴리스했습니다. 전체 변경사항은 <a href="https://github.com/nodejs/io.js/blob/master/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 확인할 수 있습니다.</p>
-<h4 id="1-8-2"><a href="#1-8-2" class="headerlink" title="1.8.2"></a>1.8.2</h4><p><strong>유지 릴리스</strong></p>
-<ul>
-<li><p><strong>암호화</strong>: TLS의 메모리 사용을 상당히 줄임 (Fedor Indutny &amp; Сковорода Никита Андреевич) <a href="https://github.com/nodejs/io.js/pull/1529" target="_blank" rel="external">#1529</a></p>
-</li>
-<li><p><strong>npm</strong>: 2.9.0으로 업데이트. 자세한 사항은 <a href="https://github.com/npm/npm/releases/tag/v2.8.4" target="_blank" rel="external">v2.8.4</a>와 <a href="https://github.com/npm/npm/releases/tag/v2.9.0" target="_blank" rel="external">v2.9.0</a> 릴리스 노트를 확인하세요.</p>
-</li>
-</ul>
-<h4 id="2-0-2"><a href="#2-0-2" class="headerlink" title="2.0.2"></a>2.0.2</h4><ul>
-<li><strong>win,node-gyp</strong>: 기본값으로 윈도우 애드온의 딜레이-로드 훅이 이제 제대로 활성화 됩니다. 2.0.0에서는 실수로 비활성화되었습니다. (Bert Belder)<a href="https://github.com/nodejs/io.js/pull/1433" target="_blank" rel="external">#1433</a></li>
-<li><strong>os</strong>: 임시 디렉터리가 ‘/‘에 있을 때의 이슈를 고치려고 tmpdir()의 마지막 슬래시(/) 제거를 개선했습니다. 또한 어떤 슬래시가 운영체제에서 사용되는지 고려합니다. (cjihrig) <a href="https://github.com/nodejs/io.js/pull/1673" target="_blank" rel="external">#1673</a></li>
-<li><strong>tls</strong>: gcm과 aes128을 사용하려고 기본 암호화를 업데이트 했습니다. (Mike MacCana) <a href="https://github.com/nodejs/io.js/pull/1660" target="_blank" rel="external">#1660</a></li>
-<li><strong>build</strong>: 이전의 보안 이슈를 해결한 이후 v8 팀이 제안한 대로 v8 스냅샷을 기본적으로 다시 사용할 수 있게 했습니다. 이로써 구동과 vm 컨텍스트 생성 모두에 성능 향상이 약간 있을 것입니다. (Trevor Norris) <a href="https://github.com/nodejs/io.js/pull/1663" target="_blank" rel="external">#1663</a></li>
-<li><strong>src</strong>: <code>--require</code>옵션을 사용하기 전에 다른 플래그를 사용하면 프리로드 옵션이 동작하지 않던 문제를 수정했습니다. (Yosuke Furukawa) <a href="https://github.com/nodejs/io.js/pull/1694" target="_blank" rel="external">#1694</a></li>
-<li><strong>dgram</strong>: <code>send()</code>콜백이 비동기로 동작하지 않던 문제를 수정했습니다. (Yosuke Furukawa) <a href="https://github.com/nodejs/io.js/pull/1313" target="_blank" rel="external">#1313</a></li>
-<li><strong>readline</strong>: emitKey는 버퍼링 데이터를 충분히 파싱할 때까지 버퍼링 데이터를 가지고 있습니다. 이 수정으로 파싱 스플릿 이스케이프에 관한 문제도 해결됩니다. (Alex Kocharin) <a href="https://github.com/nodejs/io.js/pull/1601" target="_blank" rel="external">#1601</a></li>
-<li><strong>cluster</strong>: cluster.worker에게 ‘디스커넥트’를 올바르게 보냅니다. (Oleg Elifantiev) <a href="https://github.com/nodejs/io.js/pull/1386" target="_blank" rel="external">#1386</a></li>
-<li><strong>events</strong>: 잡히지 않은 에러(uncaught errors)도 이제 약간의 컨텍스트를 제공합니다. (Evan Lucas) <a href="https://github.com/nodejs/io.js/pull/1654" target="_blank" rel="external">#1654</a></li>
-</ul>
-<h4 id="2-1-0"><a href="#2-1-0" class="headerlink" title="2.1.0"></a>2.1.0</h4><ul>
-<li><strong>crypto</strong>: 디피-헬만 키 교환(DHE) 매개변수(‘dhparams’)는 1024비트 이거나 그 이상이어야 합니다. 그 외에는 에러를 던지게 됩니다. 2048비트 이하로 사용할 경우 경고 메시지를 콘솔에 출력하게 됩니다. 이 보안 문제에 대해서는 <a href="https://weakdh.org/" target="_blank" rel="external">https://weakdh.org/</a>에서 자세히 보실 수 있습니다. (Shigeki Ohtsu) <a href="https://github.com/nodejs/io.js/pull/1739" target="_blank" rel="external">#1739</a></li>
-<li><strong>node</strong>: 새로운 <code>--trace-sync-io</code> 커맨드 라인 플래그는 경고를 출력하고 동기 API가 사용될 때 스택을 추적합니다. 애플리케이션을 느리게 만드는 동기 호출을 추적할 때 사용할 수 있습니다. (Trevor Norris) <a href="https://github.com/nodejs/io.js/pull/1707" target="_blank" rel="external">#1707</a></li>
-<li><strong>node</strong>: 메소드 체이닝을 위해  ‘net’, ‘dgram’, ‘http’, ‘https’, ‘tls’에서 사용한 setTimeout(), setKeepAlive(), setNoDelay(), ref(), unref() 메소드는 undefined 대신 현재의 인스턴스를 반환합니다. (Roman Reiss &amp; Evan Lucas) <a href="https://github.com/nodejs/io.js/pull/1699" target="_blank" rel="external">#1699</a> <a href="https://github.com/nodejs/io.js/pull/1768" target="_blank" rel="external">#1768</a> <a href="https://github.com/nodejs/io.js/pull/1779" target="_blank" rel="external">#1779</a></li>
-<li><strong>npm</strong>: v2.10.1로 업그레이드 한 릴리스 노트를 <a href="https://github.com/npm/npm/releases/tag/v2.10.1" target="_blank" rel="external">https://github.com/npm/npm/releases/tag/v2.10.1</a>와  <a href="https://github.com/npm/npm/releases/tag/v2.10.0" target="_blank" rel="external">https://github.com/npm/npm/releases/tag/v2.10.0</a>에서 볼 수 있습니다</li>
-<li><strong>util</strong>: console.log()에서 사용되는 util.format()에 한 개의 문자열 인자를 넘기는 일반적인 경우를 위한 속도 향상(35% 정도)이 있었습니다. (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/io.js/pull/1749" target="_blank" rel="external">#1749</a></li>
-</ul>
-<h3 id="알려진-이슈"><a href="#알려진-이슈" class="headerlink" title="알려진 이슈"></a>알려진 이슈</h3><!--
-Known issues
-See https://github.com/nodejs/io.js/labels/confirmed-bug for complete and current list of known issues.
-Some problems with unreferenced timers running during beforeExit are still to be resolved. See #1264.
-Surrogate pair in REPL can freeze terminal #690
-process.send() is not synchronous as the docs suggest, a regression introduced in 1.0.2, see #760 and fix in #774
-Calling dns.setServers() while a DNS query is in progress can cause the process to crash on a failed assertion #894
-url.resolve may transfer the auth portion of the url when resolving between two full hosts, see #1435.
--->
-<p>현재 알려진 이슈의 전체 목록은 <a href="https://github.com/nodejs/io.js/labels/confirmed-bug" target="_blank" rel="external">https://github.com/nodejs/node/labels/confirmed-bug</a>에서 보실 수 있습니다.</p>
-<ul>
-<li><code>beforeExit</code> 중에 참조 해제된 타이머에 대한 문제가 아직 남아 있습니다. <a href="https://github.com/nodejs/node/issues/1264" target="_blank" rel="external">#1264</a></li>
-<li>REPL에 입력된 서로게이트 페어가 터미널을 얼릴 수 있습니다. <a href="https://github.com/nodejs/node/issues/690" target="_blank" rel="external">#690</a></li>
-<li><code>process.send()</code>가 문서에 쓰여진 것처럼 동기적이지 않으며, 이 문제는 1.0.2에서 발생했습니다. <a href="https://github.com/nodejs/node/issues/760" target="_blank" rel="external">#760</a> 그리고 <a href="https://github.com/nodejs/node/issues/774" target="_blank" rel="external">#774</a>에서 해결했습니다.</li>
-<li>DNS 질의 진행 중에 호출된 <code>dns.setServers()</code>가 실패한 단언문으로 프로세스를 크래시시킬 수 있습니다. <a href="https://github.com/nodejs/node/issues/894" target="_blank" rel="external">#894</a></li>
-<li><code>url.resolve</code>가 다른 두 호스트 사이를 해석하는 중 URL의 인증 정보 부분을 교환할 수 있습니다. <a href="https://github.com/nodejs/node/issues/1435" target="_blank" rel="external">#1435</a></li>
-</ul>
-<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><!--
-Mikeal Rogers post about Promise errors in io.js on Modulus.io
-NodeSchool International Day has been held for the first time. 40 cities joined.
-Logjam attack vulnerability detected on Diffie-Hellman Key exchange. io.js fixed the vulnerability on v2.1.0.
--->
-<ul>
-<li>Mikeal Rogers는 <a href="http://blog.modulus.io/promise-errors-in-iojs" target="_blank" rel="external">Modulus.io</a>에 <strong>io.js의 Promise 오류</strong>에 관한 글을 게시했습니다.</li>
-<li><a href="http://nodeschool.io/international-day/" target="_blank" rel="external">NodeSchool International Day</a> 행사가 처음으로 개최되었습니다. <a href="https://github.com/nodeschool/international-day/issues?q=label%3Arollcall-2015+is%3Aclosed" target="_blank" rel="external">40개의 도시</a>가 참여했습니다.</li>
-<li>디피-헬만 키 교환(DHE)에서 <a href="https://weakdh.org/" target="_blank" rel="external">Logjam</a> 공격의 취약점이 밝혀졌습니다. io.js는 <a href="https://github.com/nodejs/io.js/blob/master/CHANGELOG.md#2015-05-24-version-210-rvagg" target="_blank" rel="external">v2.1.0</a>에서 <a href="https://github.com/nodejs/io.js/pull/1739" target="_blank" rel="external">취약점을 수정</a>했습니다.</li>
-</ul>
-<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><!--
-* [NodeConf Adventure](http://nodeconf.com/) tickets are on sale, June 11th — 14th at Walker Creek Ranch, CA
-* [CascadiaJS](http://2015.cascadiajs.com/) tickets are on sale, July 8th — 10th at Washington State
-* [BrazilJS Conf](http://braziljs.com.br/) tickets are on sale, August 21st — 22nd at Shopping Center BarraShoppingSul
-* [NodeConf EU](http://nodeconf.eu/) tickets are on sale, September 6th — 9th at Waterford, Ireland
--->
-<ul>
-<li><a href="http://nodeconf.com/" target="_blank" rel="external">NodeConf Adventure</a> 입장권을 판매하고 있습니다. 6월 11일부터 14일까지 캘리포니아 Walker Creek Ranch에서 열립니다.</li>
-<li><a href="http://2015.cascadiajs.com/" target="_blank" rel="external">CascadiaJS</a> 입장권을 판매하고 있습니다. 7월 8일부터 10일까지 워싱턴 주에서 열립니다.</li>
-<li><a href="http://braziljs.com.br/" target="_blank" rel="external">BrazilJS Conf</a> 입장권을 판매하고 있습니다. 8월 21일과 22일 BarraShoppingSul 쇼핑 센터에서 열립니다.</li>
-<li><a href="http://nodeconf.eu/" target="_blank" rel="external">NodeConf EU</a> 입장권을 판매하고 있습니다. 9월 6일부터 9일까지 아일랜드 워터포드에서 열립니다.</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/05/22/weekly/" data-id="cirjzsnot001cx9m60ocj1qql" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Growing-Up" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2015/05/15/Growing-Up/" class="article-date">
-    <time datetime="2015-05-14T15:00:00.000Z" itemprop="datePublished">2015-05-15</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2015/05/15/Growing-Up/">Growing Up.</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>mikeal</strong></li>
-    <li>
-      원문: <strong><a href="https://medium.com/node-js-javascript/growing-up-27d6cc8b7c53" taret="_blank">
-        Growing-Up — Node &amp;amp; JavaScript
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/freenice12" target="_blank">freenice12</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-# Growing Up
-io.js needs a foundation.
-In 2012 things were going well for node.js. We had a thriving community, solid core contributions, and it was already clear that we were the fastest growing ecosystem in the world. Around this time a few people noted their concerns about the ownership of the project. Community had been driving the project quite successfully so when people raised these concerns myself and others considered them tin foil hat hand wavers and ignored them.
--->
-<h1 id="성장하기"><a href="#성장하기" class="headerlink" title="성장하기"></a>성장하기</h1><p>io.js는 재단이 필요합니다.</p>
-<p><img src="https://d262ilb51hltx0.cloudfront.net/max/1035/1*zlzhxvse_oNQwbGgLIzWlA.png" alt=""></p>
-<p>2012년 node.js는 잘 진행되었습니다. 우리는 일정한 핵심 기여와 활발한 커뮤니티를 가지고 있었고, 세계에서 가장 빠르게 자라고 있었다고 확신했습니다. 최근 몇몇 사람들은 프로젝트의 소유권에 대한 그들의 걱정을 알렸습니다. 커뮤니티는 프로젝트를 성공으로 이끌어 왔고 나와 여러 사람의 걱정은 커졌습니다.</p>
-<!--
-Cut to 2014. Nearly everyone close to core agrees that there is a big problem. We all have ideas about how to fix it but we can’t try them, because we don’t own it. Months later io.js is created to try out ideas that might bring more contributors and releases back to the project.
-Those ideas worked. Open governance, liberal contribution policy, and regular releases did wonders for getting more contributors and improvements flowing in to the project.
-We also created a project where the community contributed at every level. Working groups maintain the website, evangelism and even the streams implementation.
-We consider io.js to be owned by the community. However, without a legal entity to own property it means that various io.js assets are in reality owned by individuals and companies. The domain name is owned by Fedor, the billing contact for the GitHub org is Colin, the keys used for signing the releases are owned by NodeSource, etc. With all the current owners acting in good faith this ownership isn’t an immediate problem, just as it wasn’t a problem for node.js in 2012, but the more successful we are the worse it could be, so this is something that keeps me up at night.
-A number of companies support the io.js project and its community. Build resources are being donated by DigitalOcean, Rackspace, NodeSource, Linaro, Scaleway, Joyent and Voxer. As early as the first week of development members of the TC were paid to work on io.js fulltime by NodeSource, Strongloop, Voxer, and Walmart. The project is run by the community but we’ve always persisted on the good will of companies that stepped up to help out the project.
-We’ve done a great job running the project but there’s a number of things we don’t do because we don’t have direct financial resources. Traditional marketing, public/analyst relations, and legal are untouched. In the early stages of a project none of this matters too much but as we grow it becomes a barrier to our continued success. We don’t benefit from this not being done. In fact, if we wait too long to do this the commercial interest around the project will fill this void and try to become the voice of the project.
--->
-<p>2014년. 거의 모든 사람이 핵심(core)을 종료하는 것에 동의했고 여기에 큰 문제가 있었습니다. 우리는 모두 어떻게 이 문제를 해결할지에 대한 아이디어가 있었지만, 시도할 수 없었습니다. 왜냐하면, 우리의 소유가 아니었기 때문입니다. 몇 달 후 io.js는 문제 해결의 아이디어를 시도해보기 위해서 만들어졌고 더 많은 기여자를 참여시키고 프로젝트를 배포했습니다.</p>
-<p><img src="https://d262ilb51hltx0.cloudfront.net/max/1126/1*yyWL2UQGCo7BbzsmryzlTg.jpeg" alt=""></p>
-<p>이런 아이디어는 잘 먹혔습니다. 열린 참여, 자유로운 기여 정책 그리고 정기적 배포는 더 많은 기여자를 모으고 프로젝트를 개선하기 위한 것이었습니다.</p>
-<p>우리는 그 커뮤니티의 모든 레벨에 기여한 프로젝트도 만들었습니다. 실행 그룹은 웹 사이트를 유지하고 전파하는 그리고 흐름을 구현하는 그룹입니다.</p>
-<p>우리는 현실적으로 개인이나 회사가 소유한 io.js의 다양한 자산들을 커뮤니티 소유의 법인 없이 커뮤니티 소유가 되는 것을 고려하고 있습니다. 도메인 이름은 Fedor의 소유이고, GitHub org를 위한 결제 계약은 Colin, 배포를 결정하는 키를 가진 것은 NodeSource인 등의 이유 때문입니다. 이 문제들이 2012년의 node.js의 문제가 아니었던 것처럼 현재의 모든 소유자가 선의로 행동하는 이 소유권들은 급한 문제가 아닙니다. 더 좋은 결과를 얻고 싶지만, 이 문제는 더 나빠졌고, 나의 밤잠을 설치게 했습니다.</p>
-<p>커뮤니티와 많은 회사가 io.js 프로젝트를 지원했습니다. 빌드 자원은 DigitalOcean, Rackspace, NodeSource, Linaro, Scaleway, Joyent와 Voxer가 기부하고 있습니다. 일찍이 TC의 개발자들이 NodeSource, Strongloop, Voxer와 Walmart에서 io.js만을 위해 일하기 위해 고용되었습니다. 프로젝트는 커뮤니티에 의해 운영되지만 우리는 계속 회사의 도움으로 프로젝트를 진행해 나갔습니다.</p>
-<p>우리는 프로젝트 운영이라는 좋은 일을 마쳤지만, 우리가 하지 못한 많은 것들이 있습니다. 우리는 직접적인 재정자원을 가지지 못했기 때문입니다. 전통적 마케팅, 공개적/분석적 관계, 그리고 법적으로 모두 그대로입니다. 프로젝트 초기에 이런 문제들은 거의 없었지만 우리는 이 문제들을 우리의 계속된 성공의 장벽으로 키웠습니다. <strong>우리는 이 끝나지 않은 프로젝트에서 이익을 추구하지 않습니다.</strong> 사실 우리가 너무 오랫동안 이 문제에 대해 기다린다면 프로젝트를 둘러싼 상업적 관심들은 프로젝트의 주인이 되려고 하거나 무산될 수 있습니다.</p>
-<!--
-io.js needs a home. A neutral organization that can support a project still governed by its community.
-Last July I spent time looking at a variety of foundations with all kinds of structures and support. I brought what I found to the other core contributors and recommended that we go with the approach the Linux Foundation recommends for projects it sets up through the Collaborative Projects Initiative.
-The key is autonomy. The community runs the project, makes the technical decisions, runs the releases, etc. Everything io.js does now will continue to be handled by the community.
-We already know how powerful and important autonomy is, it’s the basis of the io.js working group model.
-It takes money to keep a foundation alive and that money will have an influence on the foundation, there’s no way around that. The question is: what will the scope of that influence be? If we try to ignore this influence and don’t create a structure around it we open ourselves up to informal influence that could be wide in scope. Instead, it’s better to have the donors to the foundation collaborate with each other through representation on the foundation’s Board of Directors.
-The board oversees the finances of the foundation. They also take a direct role in managing the marketing and legal. This means the marketing message won’t be exclusive to a single business interest in the foundation and also ensures that any legal barriers to adoption are widely understood and addressed.
-All technical decisions, including releases, are governed by the contributors with autonomy from the Board. A member of the technical side also sits on the Board to convey the needs of the project to the Board.
--->
-<p>io.js는 집이 필요합니다. 그 집은 여전히 커뮤니티에 의해 운영되는 프로젝트를 지원할 수 있는 중립적 기관입니다.</p>
-<p>작년 7월 나는 모든 종류의 structures 그리고 지지와 함께 다양한 재단을 찾기 위한 시간을 보냈습니다. 내가 얻은 것은 다른 핵심 기여자들과 Linux Foundation의 Collaborative Projects Initiative를 통해 프로젝트를 준비하라는 조언이었습니다.</p>
-<p><img src="https://d262ilb51hltx0.cloudfront.net/max/1056/1*KDEbsojgiovF6hhSPmwcww.png" alt=""></p>
-<p>핵심은 자치권입니다. 커뮤니티는 프로젝트를 운영하고 기술적인 결정을 내리고, 배포하는 등의 일을 합니다. io.js의 모든 것은 앞으로도 커뮤니티에 의해 관리 될 것입니다.</p>
-<p>우리는 자치권이 얼마나 강력하고 중요한지 이미 알고 있습니다. 이 자치권은 io.js <a href="https://github.com/nodejs/node/blob/master/WORKING_GROUPS.md" target="_blank" rel="external">실행 그룹 모델</a>의 근간입니다.</p>
-<p>재단을 유지하려면 돈이 필요하고, 돈은 재단에 영향을 줄 수 있습니다. 이 외에는 별다른 방법이 없습니다. 궁금한 점은, 그 영향력의 범위가 어느 정도일까 하는 것입니다. 만약 우리가 이 영향력을 무시하거나 이 영향력 주변에 구조물을 건설하지 않는다면, 더 넓은 영역에서의 비공식적인 영향을 받을 수 있습니다. 대신에, 재단에 협력하겠다는 표현을 한 재단 이사회의 이사를 기부자로 갖는 방법이 더 좋을 수 있습니다.</p>
-<p>이사회는 재단의 이사회를 관리합니다. 또한, 내규와 마케팅을 담당할 직접적인 역할을 하고 있습니다. 이 말은 재단이 관심 있는 단일 사업을 독점하겠다는 말도 아니고, 어떠한 법적 장벽도 이해하고 해결할 수 있도록 해야 한다는 말입니다.</p>
-<p>배포를 포함한 모든 기술적 결정은 이사회로부터 나온 자치권을 가진 기여자들에 의해서 관리됩니다. 이사회에서 기술을 담당하고 있는 구성원들은 프로젝트의 요구를 이사회로 전달하기도 합니다.</p>
-<!--
-In early February Joyent announced that they would be putting the node.js assets into a foundation. That foundation is nearly formed now with support from the Linux Foundation and has the structure I’ve detailed above.
-A little over a month ago the Linux Foundation, along with people from node.js and io.js, began working on a governance model and contribution policy that might bring the projects back together under the new foundation. The governance, working groups, development and convergence policies are now ready.
-The policies of the foundation are designed to preserve the progress we’ve made in io.js. They take the liberal collaborator models and open governance of io.js almost verbatim but also back it up with a neutral organization the can own the assets administered under those policies.
--->
-<hr>
-<p>2월 초, Joyent는 node.js 자산을 재단에 포함하겠다고 알렸습니다. 그 재단은 지금 Linux Foundation의 지원을 받고 위에 설명한 대로의 구조를 가지고 있는 형태입니다. </p>
-<p>얼마 전, node.js, io.js와 어울리던 Linux Foundation이 관리 모델과 새로운 재단으로 프로젝트들을 다시 가져오는 기여 정책위에서 움직이기 시작했습니다. <a href="https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/TSC-Charter-raft.md" target="_blank" rel="external">관리</a>, <a href="https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/TSC-Project-Lifecycle.md" target="_blank" rel="external">실행</a> <a href="https://github.com/joyent/nodejs-advisory-board/blob/master/governance-proposal/WG-Merger.md" target="_blank" rel="external">집단들</a>, <a href="https://github.com/jasnell/dev-policy/blob/master/README.md" target="_blank" rel="external">개발</a> <a href="https://github.com/jasnell/dev-policy/blob/master/convergence.md" target="_blank" rel="external">통합</a>정책들은 준비되어있습니다.</p>
-<p>이 재단의 정책들은 우리가 만든 io.js를 진행할 수 있게 보호하도록 설계되었습니다. 그들은 자유 기여 정책을 채택했고, 글자 그대로의 io.js의 열린 지배 구조를 채택했습니다. 그뿐만 아니라 이 재단은 위 정책 아래서 관리 자산을 소유할 수 있는 중립적인 기관과 함께 지원합니다.</p>
-<hr>
-<!--
-So, we need a foundation. One has been setup and wants us to join. It has, in my opinion, an ideal structure for io.js. As an added bonus we get to end the split and confusion in the community who are still torn between io.js and node.js. We get all of this and we get to keep our governance, release process, and working groups intact. If we choose to.
--->
-<p>그래서 우리는 조직되어 있고 우리가 참여하길 바라는 재단이 필요합니다. 개인적인 생각으로 io.js를 위한 이상적인 구조로 되어 있으면 좋겠습니다. 추가로 여전히 양분된 node.js와 io.js 커뮤니티의 분열과 혼란이 종식되기를 바랍니다. <a href="https://github.com/nodejs/io.js/issues/1664" target="_blank" rel="external">만약 선택할 수 있다면</a>, 우리는 이 모든 것을 얻고 싶고 관리 방법, 배포 과정, 그리고 실행 그룹을 온전히 지켜내고 싶습니다.</p>
-<p><img src="https://d262ilb51hltx0.cloudfront.net/max/880/1*TA2IVRqUhiouhitlS9fRLw.gif" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/05/15/Growing-Up/" data-id="cirjzsnor001ax9m6scmwe746" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/05/29/weekly/" data-id="cirltkrpy001eqtm6jxmj4wwa" class="article-share-link">Share</a>
       
       
     </footer>
