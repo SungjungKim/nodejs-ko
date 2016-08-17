@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
@@ -68,6 +68,122 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/04/10/weekly/" class="article-date">
+    <time datetime="2015-04-09T15:00:00.000Z" itemprop="datePublished">2015-04-10</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/weekly/2015/04/10/weekly/">io.js 주간 뉴스 2015년 4월 10일</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>iojs</strong></li>
+    <li>
+      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-april-10th-cbf6cf32409" taret="_blank">
+        io.js Week of April 10th — Node &amp;amp; JavaScript
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/marocchino" target="_blank">marocchino</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="io-js-1-6-4-릴리스"><a href="#io-js-1-6-4-릴리스" class="headerlink" title="io.js 1.6.4 릴리스"></a>io.js 1.6.4 릴리스</h1><!--
+This week we had one io.js release [v1.6.4](https://iojs.org/dist/v1.6.4/), complete changelog can be found [on GitHub](https://github.com/nodejs/node/blob/v1.x/CHANGELOG.md).
+-->
+<p>이번 주에는 <a href="https://iojs.org/dist/v1.6.4/" target="_blank" rel="external">v1.6.4</a> 릴리스가 있었습니다. <a href="https://github.com/nodejs/node/blob/v1.x/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 전체 변경사항을 볼 수 있습니다.</p>
+<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><!--
+* **npm**: upgrade npm to 2.7.5. See [npm CHANGELOG.md](https://github.com/npm/npm/blob/master/CHANGELOG.md#v275-2015-03-26) for details. Includes two important security fixes.
+* **openssl**: preliminary work has been done for an upcoming upgrade to OpenSSL 1.0.2a [#1325](https://github.com/nodejs/node/pull/1325) (Shigeki Ohtsu). See [#589](https://github.com/nodejs/node/issues/589) for additional details.
+* **timers**: a minor memory leak when timers are unreferenced was fixed, alongside some related timers issues [#1330](https://github.com/nodejs/node/pull/1330) (Fedor Indutny). This appears to have fixed the remaining leak reported in [#1075](https://github.com/nodejs/node/issues/1075).
+* **android**: it is now possible to compile io.js for Android and related devices [#1307](https://github.com/nodejs/node/pull/1307) (Giovanny Andres Gongora Granada).
+-->
+<ul>
+<li><strong>npm</strong>: npm을 2.7.5로 업그레이드했습니다. 자세한 내용은 <a href="https://github.com/npm/npm/blob/master/CHANGELOG.md#v275-2015-03-26" target="_blank" rel="external">npm CHANGELOG.md</a>를 참조하세요. 두 가지 중요한 보안 수정이 있었습니다.</li>
+<li><strong>openssl</strong>: OpenSSL 1.0.2a로 업그레이드 하기 위한 예비 작업이 완료되었습니다. <a href="https://github.com/nodejs/node/pull/1325" target="_blank" rel="external">#1325</a>(Shigeki Ohtsu) 자세한 사항은 <a href="https://github.com/nodejs/node/issues/589" target="_blank" rel="external">#589</a>를 참조하세요.</li>
+<li><strong>timers</strong>: 관련 타이머 이슈 <a href="https://github.com/nodejs/node/pull/1330" target="_blank" rel="external">#1330</a>와 함께, 타이머가 참조되었을 때의 자잘한 메모리 누수가 수정되었습니다.(Fedor Indutny) 이 이슈는 <a href="https://github.com/nodejs/node/issues/1075" target="_blank" rel="external">#1075</a>에 보고되었던 누수도 수정한 것으로 보입니다.</li>
+<li><strong>android</strong>: 이제 안드로이드와 관련 장비에서 io.js를 컴파일할 수 있습니다. <a href="https://github.com/nodejs/node/pull/1307" target="_blank" rel="external">#1307</a>(Giovanny Andres Gongora Granada)</li>
+</ul>
+<h3 id="알려진-이슈"><a href="#알려진-이슈" class="headerlink" title="알려진 이슈"></a>알려진 이슈</h3><!--
+* Some problems with unreferenced timers running during `beforeExit` are still to be resolved. See [#1264](https://github.com/nodejs/node/issues/1264).
+* Surrogate pair in REPL can freeze terminal [#690](https://github.com/nodejs/node/issues/690)
+* Not possible to build io.js as a static library [#686](https://github.com/nodejs/node/issues/686)
+* `process.send()` is not synchronous as the docs suggest, a regression introduced in 1.0.2, see [#760](https://github.com/nodejs/node/issues/760) and fix in [#774](https://github.com/nodejs/node/issues/774)
+* Calling `dns.setServers()` while a DNS query is in progress can cause the process to crash on a failed assertion [#894](https://github.com/nodejs/node/issues/894)
+-->
+<ul>
+<li>참조되지 않은 타이머가 <code>beforeExit</code>에서 실행될 때 발생하는 일부 문제는 여전히 처리되어야 합니다. <a href="https://github.com/nodejs/node/issues/1264" target="_blank" rel="external">#1264</a>를 참조하세요.</li>
+<li>대화형 셸에서 서러게이트 페어(Surrogate pair)가 터미널을 정지시킬 수 있습니다. <a href="https://github.com/nodejs/node/issues/690" target="_blank" rel="external">#690</a></li>
+<li>io.js를 정적 라이브러리로 빌드할 수 없습니다. <a href="https://github.com/nodejs/node/issues/686" target="_blank" rel="external">#686</a></li>
+<li><code>process.send()</code>는 문서에서 설명된 바와는 다르게 동기적이지 않습니다. 이 회귀는 1.0.2에서 발생했습니다. <a href="https://github.com/nodejs/node/issues/760" target="_blank" rel="external">#760</a>에서 확인 가능하며 <a href="https://github.com/nodejs/node/issues/774" target="_blank" rel="external">#774</a>에서 수정하고 있습니다.</li>
+<li>DNS 쿼리 중에 <code>dns.setServers()</code>를 호출하면 실패한 단언문 때문에 크래시가 발생할 수 있습니다. <a href="https://github.com/nodejs/node/issues/894" target="_blank" rel="external">#894</a></li>
+</ul>
+<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><!--
+* Node Foundation dev policy draft is [here](https://github.com/jasnell/dev-policy)
+* ARMv8 / ARM64 [support](https://twitter.com/rvagg/status/586050873349939201) on io.js
+* Continued work on a new dev policy for [node.js/io.js](https://github.com/jasnell/dev-policy)
+* TC call from [Wednesday](https://www.youtube.com/watch?v=OjlK8k10oyo)
+-->
+<ul>
+<li>Node 재단의 개발 방침 초안을 <a href="https://github.com/jasnell/dev-policy" target="_blank" rel="external">여기</a>에서 볼 수 있습니다.</li>
+<li>io.js에서 ARMv8 / ARM64를 <a href="https://twitter.com/rvagg/status/586050873349939201" target="_blank" rel="external">지원</a>합니다.</li>
+<li><a href="https://github.com/jasnell/dev-policy" target="_blank" rel="external">node.js/io.js</a>의 새로운 개발 방침을 작성 중입니다.</li>
+<li><a href="https://www.youtube.com/watch?v=OjlK8k10oyo" target="_blank" rel="external">수요일</a>에 TC 미팅이 있었습니다.</li>
+</ul>
+<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><!--
+* [JSConf Uruguay](http://jsconf.uy) tickets are on sale, April 24th & 25th at Montevideo, Uruguay
+* [NodeConf Adventure](http://nodeconf.com/) tickets are on sale, June 11th - 14th at Walker Creek Ranch, CA
+* [CascadiaJS](http://2015.cascadiajs.com/) tickets are on sale, July 8th - 10th at Washington State
+* [NodeConf EU](http://nodeconf.eu/) tickets are on sale, September 6th - 9th at Waterford, Ireland
+* [nodeSchool Tokyo](http://nodejs.connpass.com/event/13182/) will be held in April 12th at Tokyo, Japan
+-->
+<ul>
+<li><a href="http://jsconf.uy" target="_blank" rel="external">JSConf Uruguay</a> 입장권을 판매하고 있습니다. 4월 24일과 25일, 우르과이 몬테비데오에서 열립니다.</li>
+<li><a href="http://nodeconf.com/" target="_blank" rel="external">NodeConf</a> 입장권을 판매하고 있습니다. 6월 8일과 9일, 캘리포니아 오클랜드에서 열리며, NodeConf Adventure는 6월 11일~14일, 캘리포니아 Walker Creek Ranch에서 열립니다.</li>
+<li><a href="http://2015.cascadiajs.com/" target="_blank" rel="external">CascadiaJS</a> 입장권을 판매하고 있습니다. 7월 8일~10일, 워싱턴주에서 열립니다.</li>
+<li><a href="http://nodeconf.eu/" target="_blank" rel="external">NodeConf EU</a> 입장권을 판매하고 있습니다. 9월 6일~9일, 아일랜드 워터퍼드에서 열립니다.</li>
+<li><a href="http://nodejs.connpass.com/event/13182/" target="_blank" rel="external">nodeSchool tokyo</a>가 4월 12일 일본의 도쿄에서 개최될 예정입니다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/10/weekly/" data-id="cirzbcmck000ubum6ifs6wegg" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -208,7 +324,7 @@ This week we had one io.js release [v1.6.3](https://iojs.org/dist/v1.6.3/), comp
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/03/weekly/" data-id="ciro32pgm000sk2m6j5lpm50d" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/03/weekly/" data-id="cirzbcmci000sbum6juapd1e5" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -312,7 +428,7 @@ Certain matters are not left to the TSC (like legal issues) and are handled by t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/04/02/help-us-reconcile-node-js-and-io-js/" data-id="ciro32pgj000qk2m6uqy8cmju" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/04/02/help-us-reconcile-node-js-and-io-js/" data-id="cirzbcmcg000qbum6osbgfvyb" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -424,7 +540,7 @@ This week we had one io.js releases [v1.6.2](https://iojs.org/dist/v1.6.2/), com
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/27/weekly/" data-id="ciro32pgi000ok2m6utwca5xt" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/27/weekly/" data-id="cirzbcmc6000mbum63lcy9wrc" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -568,7 +684,7 @@ This week we had a two io.js releases [v1.6.1](https://iojs.org/dist/v1.6.1/) an
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/20/weekly/" data-id="ciro32pgb000mk2m61p0t0qxi" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/20/weekly/" data-id="cirzbcmcd000obum6n9ac0yja" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -700,7 +816,7 @@ On Monday, March 9th, [@rvagg](https://github.com/rvagg) released io.js [v1.5.1]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/13/weekly/" data-id="ciro32pg9000kk2m6e9oxzu04" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/13/weekly/" data-id="cirzbcmc5000kbum6ma0lrlnk" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -862,7 +978,7 @@ On Friday, March 6th, [@rvagg](https://github.com/rvagg) released io.js [**v1.5.
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/06/weekly/" data-id="ciro32pg5000hk2m6g98jo26o" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/06/weekly/" data-id="cirzbcmc2000hbum6mlb2ijh3" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1009,7 +1125,7 @@ The build team is in the process of being given access to the Linaro ARMv8 Serve
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/27/weekly/" data-id="ciro32pg3000fk2m6m6mdwjc7" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/27/weekly/" data-id="cirzbcmc1000fbum6028rs3of" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1363,7 +1479,7 @@ maintain and improve the build infrastructure and produce Node builds.
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/02/27/reconciliation-proposal/" data-id="ciro32pg0000ck2m69m73snh6" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/02/27/reconciliation-proposal/" data-id="cirzbcmbx000cbum6nz1rhp4v" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1498,229 +1614,7 @@ Notable changes include:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/20/weekly/" data-id="ciro32pfx000ak2m6m5c501n3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/weekly/2015/02/13/weekly/" class="article-date">
-    <time datetime="2015-02-12T15:00:00.000Z" itemprop="datePublished">2015-02-13</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/weekly/2015/02/13/weekly/">io.js 주간 뉴스 2015년 2월 13일</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>io.js</strong></li>
-    <li>
-      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-february-13th-2015-7846b94074a2" taret="_blank">
-        io.js Week of February 13th 2015
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/taggon" target="_blank">Taegon Kim</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-29 language localization effort, 1.2.0 release, and much more.
--->
-<p>29개 언어 지역화, 1.2.0 릴리스 등</p>
-<!--
-io.js support added by…
--->
-<h2 id="다음-프로젝트-서비스가-io-js를-지원합니다"><a href="#다음-프로젝트-서비스가-io-js를-지원합니다" class="headerlink" title="다음 프로젝트/서비스가 io.js를 지원합니다."></a>다음 프로젝트/서비스가 io.js를 지원합니다.</h2><ul>
-<li><a href="http://blog.postmarkapp.com/post/110829734198/its-official-were-getting-cozy-with-node-js" target="_blank" rel="external">Postmark</a></li>
-<li><a href="https://github.com/voodootikigod/node-serialport/issues/439" target="_blank" rel="external">node-serialport</a></li>
-<li><a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-iojs/" target="_blank" rel="external">Microsoft Azure</a></li>
-</ul>
-<!--
-io.js breaks 10,000 stars on GitHub
--->
-<h2 id="io-js-별-개수-10-000개-돌파"><a href="#io-js-별-개수-10-000개-돌파" class="headerlink" title="io.js 별 개수 10,000개 돌파"></a>io.js 별 개수 10,000개 돌파</h2><!--
-On Feb. 13, io.js reached the goal of 10,000 stars on GitHub. We couldn’t have done it without the support of the amazing community behind JavaScript. Thank you alll!
--->
-<p>2월 13일을 기준으로 io.js가 GitHub에서 받은 별의 개수가 10,000개를 돌파했습니다. 자바스크립트 커뮤니티의 지원이 없었더라면 이루지 못했을 것입니다. 여러분 모두에게 감사드립니다!</p>
-<!--
-io.js 1.2.0 released
-
-stream: Simpler stream construction.
-dns: lookup() now supports an ‘all’ boolean option, default to false but when turned on will cause the method to return an array of all resolved names for an address.
-assert: Remove prototype property comparison in deepEqual() introduced a deepStrictEqual() method to mirror deepEqual() but performs strict equality checks on primitives.
-tracing: Add LTTng (Linux Trace Toolkit Next Generation) when compiled with the —with-lttng option. Trace points match those available for DTrace and ETW.
-docs: Lots of doc updates, see individual commits; new Errors page discussing JavaScript errors, V8 specifics, and io.js specific error details.
-npm upgrade to 2.5.1
-libuv upgrade to 1.4.0, see libuv ChangeLog
-Add new collaborators: Aleksey Smolenchuk (@lxe) and Shigeki Ohtsu (@shigeki)
--->
-<h2 id="io-js-1-2-0-릴리스"><a href="#io-js-1-2-0-릴리스" class="headerlink" title="io.js 1.2.0 릴리스"></a>io.js 1.2.0 릴리스</h2><ul>
-<li><strong>stream</strong>: <a href="https://github.com/nodejs/readable-stream/issues/102" target="_blank" rel="external">더 간단한 스트림 생성</a></li>
-<li><strong>dns</strong>: <a href="https://github.com/nodejs/node/pull/744" target="_blank" rel="external">이제 lookup()에서 ‘all’이라는 불리언 옵션을 지원합니다. 이 옵션의 기본값은 false이며 켜져있으면 해당 주소에 대해 구해진 이름 전부를 배열로 반환합니다.</a></li>
-<li><strong>assert</strong>: <a href="https://github.com/nodejs/node/pull/636" target="_blank" rel="external">deepEqual()이 prototype 프로퍼티를 비교하지 않도록</a> 했습니다. deepEqual()과 비슷하지만 원시값을 엄격하게 확인하는 <a href="https://github.com/nodejs/node/pull/639" target="_blank" rel="external">deepStrictEqual() 메소드가 추가</a>되었습니다.</li>
-<li><strong>tracing</strong>: <a href="https://github.com/nodejs/node/pull/702" target="_blank" rel="external">–with-lttng 옵션과 함께 컴파일하면 LTTng (Linux Trace Toolkit Next Generation)를 추가합니다. 트레이스 포인트는 DTrace와 ETW 둘 다 가능합니다.</a></li>
-<li><strong>docs</strong>: 많은 문서가 업데이트되었습니다. 개별 커밋을 참조하세요. 자바스크립트 에러, V8 명세, io.js 명세 오류의 상세 내용을 보여주는 <a href="https://iojs.org/api/errors.html" target="_blank" rel="external">새로운 에러 페이지</a>가 추가됐습니다.</li>
-<li><strong>npm</strong>: 2.5.1로 업그레이드 했습니다.</li>
-<li><strong>libuv</strong>: 1.4.0으로 업그레이드 했습니다. libuv의 <a href="https://github.com/libuv/libuv/blob/v1.x/ChangeLog" target="_blank" rel="external">ChangeLog</a>를 참고하세요.</li>
-<li>새로운 협력자: Aleksey Smolenchuk (<a href="https://github.com/lxe" target="_blank" rel="external">@lxe</a>), Shigeki Ohtsu (<a href="https://github.com/shigeki" target="_blank" rel="external">@shigeki</a>)</li>
-</ul>
-<!--
-Opened our doors to the international community
--->
-<h2 id="전-세계-커뮤니티에-문을-열다"><a href="#전-세계-커뮤니티에-문을-열다" class="headerlink" title="전 세계 커뮤니티에 문을 열다"></a>전 세계 커뮤니티에 문을 열다</h2><!--
-View the original article on Medium.
-
-Added interested contributors to teams for their language.
-Teams registered Twitter accounts for their teams and other relevant social media accounts.
-Teams came up with their own ways of working together, and they became more of “community organizers,” as opposed to just “translators”
--->
-<p>Medium에 있는 <a href="https://medium.com/@mikeal/how-io-js-built-a-146-person-27-language-localization-effort-in-one-day-65e5b1c49a62" target="_blank" rel="external">원본 글</a>을 참고하세요.</p>
-<ul>
-<li>참여 의사가 있는 공헌자들을 자기 지역 언어 지역화팀에 추가했습니다.</li>
-<li>지역화팀이 각자 트위터를 비롯한 여러 소셜 미디어에 계정을 등록했습니다.</li>
-<li>지역화팀이 자신들에게 맞는 협업 방법을 모색했으며 “번역자”보다는 “커뮤니티 오거나이저”에 가까워졌습니다.</li>
-</ul>
-<!--
-Stats for Localizations
-
-146 people signed up to help with the localizations the first day (over 160 signed up now)
-27 languages communities created the first day (already up to 29)
--->
-<h3 id="지역화-통계"><a href="#지역화-통계" class="headerlink" title="지역화 통계"></a>지역화 통계</h3><ul>
-<li>첫 날 146명이 지역화를 돕기 위해 등록했습니다(현재는 160명 이상).</li>
-<li>첫 날 27개 언어 커뮤니티가 만들어졌습니다(현재는 29개).</li>
-</ul>
-<!--
-Language Communities
--->
-<h3 id="언어-커뮤니티"><a href="#언어-커뮤니티" class="headerlink" title="언어 커뮤니티"></a>언어 커뮤니티</h3><ul>
-<li><a href="https://github.com/nodejs/iojs-bn" target="_blank" rel="external">iojs-bn</a> 벵골어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-cn" target="_blank" rel="external">iojs-cn</a> 중국어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-cs" target="_blank" rel="external">iojs-cs</a> 체코어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-da" target="_blank" rel="external">iojs-da</a> 덴마크어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-de" target="_blank" rel="external">iojs-de</a> 독일어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-el" target="_blank" rel="external">iojs-el</a> 그리스어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-es" target="_blank" rel="external">iojs-es</a> 스페인어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-fa" target="_blank" rel="external">iojs-fa</a> 페르시아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-fi" target="_blank" rel="external">iojs-fi</a> 핀란드어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-fr" target="_blank" rel="external">iojs-fr</a> 프랑스어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-he" target="_blank" rel="external">iojs-he</a> 히브리어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-hi" target="_blank" rel="external">iojs-hi</a> 힌두어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-hu" target="_blank" rel="external">iojs-hu</a> 헝가리어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-id" target="_blank" rel="external">iojs-id</a> 인도네시아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-it" target="_blank" rel="external">iojs-it</a> 이탈리아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-ja" target="_blank" rel="external">iojs-ja</a> 일본어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-ka" target="_blank" rel="external">iojs-ka</a> 조지아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-ko" target="_blank" rel="external">iojs-ko</a> 한국어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-mk" target="_blank" rel="external">iojs-mk</a> 마케도니아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-nl" target="_blank" rel="external">iojs-nl</a> 네덜란드어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-no" target="_blank" rel="external">iojs-no</a> 노르웨이어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-pl" target="_blank" rel="external">iojs-pl</a> 폴란드어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-pt" target="_blank" rel="external">iojs-pt</a> 포르투갈어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-ro" target="_blank" rel="external">iojs-ro</a> 루마니아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-ru" target="_blank" rel="external">iojs-ru</a> 러시아어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-sv" target="_blank" rel="external">iojs-sv</a> 스웨덴어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-tr" target="_blank" rel="external">iojs-tr</a> 터키어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/iojs-tw" target="_blank" rel="external">iojs-tw</a> 대만어 커뮤니티</li>
-<li><a href="https://github.com/nodejs/nodejs-uk" target="_blank" rel="external">iojs-uk</a> 우크라이나어 커뮤니티</li>
-</ul>
-<!--
-io.js and node.js
-
-View the original article on Medium.
-Scott Hammond, CEO of Joyent, expressed his desire to bring io.js back to the node.js.
--->
-<h2 id="io-js와-node-js"><a href="#io-js와-node-js" class="headerlink" title="io.js와 node.js"></a>io.js와 node.js</h2><p>Medium에 있는 <a href="https://medium.com/@iojs_kr/io-js%EC%99%80-node-js-%EC%9E%AC%EB%8B%A8-9fb487312179" target="_blank" rel="external">원본 글</a>을 참고하세요.</p>
-<ul>
-<li>Joyent의 CEO인 Scott Hammond가 io.js를 다시 node.js로 가져오고 싶다는 의사를 밝혔습니다.</li>
-</ul>
-<!--
-In only a few months io.js…
-
-Has grown to 23 active core team members
-Has several working groups
-Has 29 language localization teams,
-Has drawn more contributors to the project than we’ve ever had in the history of node.js, and
-Has been able to release quality software at a good pace with the support of an exceptional community.
--->
-<h3 id="겨우-몇-개월-만에-io-js는…"><a href="#겨우-몇-개월-만에-io-js는…" class="headerlink" title="겨우 몇 개월 만에 io.js는…"></a>겨우 몇 개월 만에 io.js는…</h3><ul>
-<li>활동적인 코어 팀 멤버가 23명으로 늘었습니다.</li>
-<li>워킹 그룹을 여러 개 만들었습니다.</li>
-<li>29개 언어 지역화 팀이 생겼습니다.</li>
-<li>node.js 역사상 유례없이 많은 공헌자와 함께합니다.</li>
-<li>아주 뛰어난 커뮤니티의 지원 덕분에 좋은 페이스로 품질 좋은 소프트웨어를 릴리스 할 수 있게 되었습니다.</li>
-</ul>
-<!--
-We are eager to put this all behind us but we can’t sacrifice the progress we’ve made or the principles and open governance that got us here.
--->
-<blockquote>
-<p>여기에 머물지 않고 더 나아가고 싶은 마음은 강렬하지만 지금까지 이룩한 진척이나 우리를 여기에 있게 한 원칙과 오픈 거버넌스를 희생할 수는 없습니다.</p>
-</blockquote>
-<!--
-The Future
-
-Talks with the node.js foundation are ongoing.
-Once the foundation has a technical governance model you will see an issue on io.js’ GitHub about whether io.js should join. This will be discussed and voted on openly in a public TC meeting following the governance rules we’ve already built.
-
-For the community, nothing has changed.
--->
-<h3 id="미래"><a href="#미래" class="headerlink" title="미래"></a>미래</h3><ul>
-<li>node.js 재단과 대화를 계속 진행할 것입니다.</li>
-<li>node.js 재단이 기술 거버넌스 모델을 가진다면 io.js의 GitHub에서 io.js 참여 여부에 대한 이슈를 보게 될 것입니다. 여기에 대해서는 우리가 이미 이룩한 거버넌스 규칙에 따라 공개 TC 회의에서 논의하고 표결에 부칠 것입니다.</li>
-</ul>
-<blockquote>
-<p>커뮤니티에 달라지는 점은 없습니다.</p>
-</blockquote>
-<!--
-What you can do right now
-
-Continue to send your pull requests to io.js
-Join one of the 27 language localization teams
-Contribute to io.js’ working groups (streams, website, evangelism, tracing, build, roadmap) and
-Continue to adopt io.js in your applications.
--->
-<h3 id="여러분이-지금-당장-할-수-있는-것"><a href="#여러분이-지금-당장-할-수-있는-것" class="headerlink" title="여러분이 지금 당장 할 수 있는 것"></a>여러분이 지금 당장 할 수 있는 것</h3><ul>
-<li>io.js에 풀 리퀘스트 보내기</li>
-<li><a href="https://github.com/nodejs/website/issues/125" target="_blank" rel="external">29개 언어 지역화팀</a>의 일원으로 참여하기</li>
-<li>io.js의 워킹 그룹(<a href="https://github.com/nodejs/readable-stream" target="_blank" rel="external">스트림</a>, <a href="https://github.com/nodejs/website" target="_blank" rel="external">웹사이트</a>, <a href="https://github.com/nodejs/website/labels/evangelism" target="_blank" rel="external">에반젤리즘</a>, <a href="https://github.com/nodejs/tracing-wg" target="_blank" rel="external">트레이싱</a>, <a href="https://github.com/nodejs/build" target="_blank" rel="external">빌드</a>, <a href="https://github.com/nodejs/roadmap" target="_blank" rel="external">로드맵</a>)에 공헌하기</li>
-<li>자신의 애플리케이션에 io.js를 채용하기</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/13/weekly/" data-id="ciro32pfs0008k2m6qyu6lpkl" class="article-share-link">Share</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/20/weekly/" data-id="cirzbcmbn0008bum6c9idy9v9" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -1733,7 +1627,7 @@ Continue to adopt io.js in your applications.
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/nodejs-ko/page/15/">&laquo; Prev</a><a class="page-number" href="/nodejs-ko/">1</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/14/">14</a><a class="page-number" href="/nodejs-ko/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/17/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/nodejs-ko/page/15/">&laquo; Précédent</a><a class="page-number" href="/nodejs-ko/">1</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/14/">14</a><a class="page-number" href="/nodejs-ko/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/17/">Suivant &raquo;</a>
   </nav>
 
 </section>
@@ -1779,7 +1673,7 @@ Continue to adopt io.js in your applications.
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Node.js 한국어 번역팀<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
