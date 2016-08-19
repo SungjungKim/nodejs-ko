@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
@@ -68,6 +68,140 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/11/06/weekly/" class="article-date">
+    <time datetime="2015-11-05T15:00:00.000Z" itemprop="datePublished">2015-11-06</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/weekly/2015/11/06/weekly/">Node.js 주간 뉴스 2015년 11월 06일</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Minwoo Jung (@jmwsoft)</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-11-06/" taret="_blank">
+        Weekly Update - Nov 6th, 2015
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Node.js News — November 6th
+Node.js v4.2.2 (LTS) is released
+-->
+<h3 id="Node-js-뉴스-11월-6일"><a href="#Node-js-뉴스-11월-6일" class="headerlink" title="Node.js 뉴스 - 11월 6일"></a>Node.js 뉴스 - 11월 6일</h3><p>Node.js v4.2.2 (LTS) 릴리스</p>
+<!--
+### Node.js v4.2.2 (LTS) Releases
+
+This week we have one release: [Node.js v4.2.2 (LTS)](https://nodejs.org/en/blog/release/v4.2.2/). Complete changelog from previous releases can be found [on GitHub](https://github.com/nodejs/node/blob/master/CHANGELOG.md).
+-->
+<h3 id="Node-js-v4-2-2-LTS-릴리스"><a href="#Node-js-v4-2-2-LTS-릴리스" class="headerlink" title="Node.js v4.2.2 (LTS) 릴리스"></a>Node.js v4.2.2 (LTS) 릴리스</h3><p>이번 주에는 <a href="https://nodejs.org/en/blog/release/v4.2.2/" target="_blank" rel="external">Node.js v4.2.2 (LTS)</a> 릴리스가 있었습니다. 이전 버전의 전체 변경사항은 <a href="https://github.com/nodejs/node/blob/master/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 확인할 수 있습니다.</p>
+<!--
+### Notable changes
+
+This is an LTS maintenance release that addresses a number of issues:
+
+* [[`1d0f2cbf87`](https://github.com/nodejs/node/commit/1d0f2cbf87)] - **buffer**: fix value check for writeUInt{B,L}E (Trevor Norris) [#3500](https://github.com/nodejs/node/pull/3500)
+* [[`2a45b72b4a`](https://github.com/nodejs/node/commit/2a45b72b4a)] - **buffer**: don't CHECK on zero-sized realloc (Ben Noordhuis) [#3499](https://github.com/nodejs/node/pull/3499)
+-->
+<h3 id="주요-변경사항"><a href="#주요-변경사항" class="headerlink" title="주요 변경사항"></a>주요 변경사항</h3><p>이 릴리스는 장기 지원(LTS) 유지 버전이며 다음과 같은 이슈를 다루고 있습니다.</p>
+<ul>
+<li>[<a href="https://github.com/nodejs/node/commit/1d0f2cbf87" target="_blank" rel="external"><code>1d0f2cbf87</code></a>] - <strong>buffer</strong>: writeInt{B,L}E의 값 확인 부분을 수정했습니다 (Trevor Norris) <a href="https://github.com/nodejs/node/pull/3500" target="_blank" rel="external">#3500</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/2a45b72b4a" target="_blank" rel="external"><code>2a45b72b4a</code></a>] - <strong>buffer</strong>: 크기가 없는(zero-sized) realloc은 확인하지 않습니다 (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/3499" target="_blank" rel="external">#3499</a></li>
+</ul>
+<!--
+### NodeUp Podcast
+
+* NodeUp podcast episode 93, 94 were published this week: [http://nodeup.com/ninetythree](http://nodeup.com/ninetythree), [http://nodeup.com/ninetyfour](http://nodeup.com/ninetyfour).
+* The subjects of the podcast are "An LTS Show with Kat Marchán, James Snell, and Rich Trott", "A Node.js Interactive Show with Dan Shaw, Mikeal Rogers, and Kassandra Perch.".
+-->
+<h3 id="NodeUp-팟캐스트"><a href="#NodeUp-팟캐스트" class="headerlink" title="NodeUp 팟캐스트"></a>NodeUp 팟캐스트</h3><ul>
+<li>이번 주에는 NodeUp 팟캐스트 에피소드 93과 94가 나왔습니다. <a href="http://nodeup.com/ninetythree" target="_blank" rel="external">http://nodeup.com/ninetythree</a>, <a href="http://nodeup.com/ninetyfour" target="_blank" rel="external">http://nodeup.com/ninetyfour</a>.</li>
+<li>이번 팟캐스트의 주제는 “Kat Marchán, James Snell, Rich Trott과 함께하는 LTS 쇼”, “Dan Shaw, Mikeal Rogers, Kassandra Perch와 함께하는 Node.js 인터랙티브 쇼”입니다.</li>
+</ul>
+<!--
+### Community Updates
+
+* [Understanding Garbage Collection and hunting Memory Leaks in Node.js](http://apmblog.dynatrace.com/2015/11/04/understanding-garbage-collection-and-hunting-memory-leaks-in-node-js/), "Covers how Node.js manages memory and how to trace down memory-related problems"
+* [Node.js v4 gets an A+ for SSL Labs with no configuration](https://certsimple.com/blog/node-js-ssl-labs), "Node has one of the best out-of-the-box SSL setups of any web server."
+
+If you have spotted or written something about Node.js, do come over to our [Evangelism team repo](https://github.com/nodejs/evangelism) and suggest it on the [Issues page](https://github.com/nodejs/evangelism/issues/191), specifically the Weekly Updates issue.
+-->
+<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><ul>
+<li><a href="http://apmblog.dynatrace.com/2015/11/04/understanding-garbage-collection-and-hunting-memory-leaks-in-node-js/" target="_blank" rel="external">Node.js의 가비지 컬렉션에 대한 이해와 메모리 누수 해결하기</a>, “Node.js가 메모리를 관리하는 방법과 메모리 관련 문제를 추적하는 방법을 다룹니다”</li>
+<li><a href="https://certsimple.com/blog/node-js-ssl-labs" target="_blank" rel="external">Node.js v4가 별도 설정 없이 SSL 랩에서 A+ 등급을 획득하다</a>, “Node의 웹 서버는 SSL 설정이 가장 뛰어난 웹 서버 중 하나입니다”</li>
+</ul>
+<p>Node.js에 관한 글을 쓰거나 발견했다면, <a href="https://github.com/nodejs/evangelism" target="_blank" rel="external">Evangelism 팀 저장소</a>의 <a href="https://github.com/nodejs/evangelism/issues" target="_blank" rel="external">이슈 페이지</a>에 주간 업데이트 이슈로 알려주세요.</p>
+<!--
+### Upcoming Events
+
+* [NodeFest](http://nodefest.jp/2015/), November 7th at Tokyo, Japan
+* [Node Knockout](http://www.nodeknockout.com/), November 7th - 8th, Worldwide
+* [Node Girls London](https://nodegirls.typeform.com/to/atW4HR), November 7th at London, UK
+* [Playnode](http://playnode.io/), November 12nd at Seoul, South Korea
+* [Nodevember](http://nodevember.org/?utm_source=io.js+and+Node.js+News&utm_medium=article), November 14th - 15th at Nashville, Tennessee, US.
+* [JSConf.Asia](http://2015.jsconf.asia/), November 19th - 20th in Singapore.
+* [NodeConf Barcelona](https://ti.to/barcelonajs/nodeconf-barcelona-2015), November 21st at Barcelona, Spain
+* [CampJS VI](http://vi.campjs.com), November 20th – 23th at Queensland, Australia
+* [Node.js Interactive](http://events.linuxfoundation.org/events/node-interactive), December 8th - 9th at Portland, US.
+
+Have an event about Node.js coming up? You can put your events here through the [Evangelism team repo](https://github.com/nodejs/evangelism) and announce it in the [Issues page](https://github.com/nodejs/evangelism/issues/191), specifically the Weekly Updates issue.
+-->
+<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><ul>
+<li><a href="http://nodefest.jp/2015/" target="_blank" rel="external">NodeFest</a>, 11월 7일 일본 도쿄에서 열립니다.</li>
+<li><a href="http://www.nodeknockout.com/" target="_blank" rel="external">Node Knockout</a>, 11월 7일부터 8일까지 전 세계에서 열립니다.</li>
+<li><a href="https://nodegirls.typeform.com/to/atW4HR" target="_blank" rel="external">Node Girls London</a>, 11월 7일 영국 런던에서 열립니다.</li>
+<li><a href="http://playnode.io/" target="_blank" rel="external">Playnode</a>, 11월 12일 대한민국 서울에서 열립니다.</li>
+<li><a href="http://nodevember.org/?utm_source=io.js+and+Node.js+News&amp;utm_medium=article" target="_blank" rel="external">Nodevember</a>, 11월 14일부터 15일까지 미국 Tennessee의 Nashville에서 열립니다.</li>
+<li><a href="http://2015.jsconf.asia/" target="_blank" rel="external">JSConf.Asia</a>, 11월 19일부터 20일까지 싱가포르에서 열립니다.</li>
+<li><a href="https://ti.to/barcelonajs/nodeconf-barcelona-2015" target="_blank" rel="external">NodeConf Barcelona</a>, 11월 21일 스페인 바르셀로나에서 열립니다.</li>
+<li><a href="http://vi.campjs.com" target="_blank" rel="external">CampJS VI</a>, 11월 20일부터 23일까지 오스트레일리아 퀸즐랜드에서 열립니다.</li>
+<li><a href="http://events.linuxfoundation.org/events/node-interactive" target="_blank" rel="external">Node.js Interactive</a>, 12월 8일부터 9일까지 미국 포틀랜드에서 열립니다.</li>
+</ul>
+<p>계획 중인 Node.js 이벤트가 있나요? <a href="https://github.com/nodejs/evangelism" target="_blank" rel="external">Evangelism 팀 저장소</a>의 <a href="https://github.com/nodejs/evangelism/issues" target="_blank" rel="external">이슈 페이지</a>에 주간 업데이트 이슈를 통해 알릴 수 있습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/11/06/weekly/" data-id="cis1avskc003pn9m60tl0akam" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-individual-membership" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -184,7 +318,7 @@ After you've registered as a member follow the instructions [here](https://githu
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/11/04/individual-membership/" data-id="cirzbcmg6003qbum6pldst2f4" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/11/04/individual-membership/" data-id="cis1avska003nn9m6759b9wuh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,147 +511,7 @@ Documentation: <a href="https://nodejs.org/docs/v4.2.2/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/11/03/release-v4.2.2/" data-id="cirzbcmfz003kbum6ebqgy7zv" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/weekly/2015/10/30/weekly/" class="article-date">
-    <time datetime="2015-10-29T15:00:00.000Z" itemprop="datePublished">2015-10-30</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/weekly/2015/10/30/weekly/">Node.js 주간 뉴스 2015년 10월 30일</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Minwoo Jung (@jmwsoft)</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-10-30/" taret="_blank">
-        Weekly Update - Oct 30th, 2015
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/sungjungkim" target="_blank">SungjungKim</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-### Node.js News — October 30th
-Node.js v5.0.0 (Stable) is released
--->
-<h3 id="Node-js-뉴스-—-10월-30일"><a href="#Node-js-뉴스-—-10월-30일" class="headerlink" title="Node.js 뉴스 — 10월 30일"></a>Node.js 뉴스 — 10월 30일</h3><p>Node.js v5.0.0 (안정 버전) 릴리스</p>
-<!--
-### Node.js v5.0.0 (Stable) Releases
-
-This week we have one release: [Node.js v5.0.0 (Stable)](https://nodejs.org/en/blog/release/v5.0.0/). Complete changelog from previous releases can be found [on GitHub](https://github.com/nodejs/node/blob/master/CHANGELOG.md).
--->
-<h3 id="Node-js-v5-0-0-안정-버전-릴리스"><a href="#Node-js-v5-0-0-안정-버전-릴리스" class="headerlink" title="Node.js v5.0.0 (안정 버전) 릴리스"></a>Node.js v5.0.0 (안정 버전) 릴리스</h3><p>이번 주에는 <a href="https://nodejs.org/en/blog/release/v5.0.0/" target="_blank" rel="external">Node.js v5.0.0 (안정 버전)</a> 릴리스가 있었습니다. 이전 버전의 전체 변경사항은
-<a href="https://github.com/nodejs/node/blob/master/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 확인할 수 있습니다.</p>
-<!--
-### Notable changes : v5.0.0 (Stable)
-
-* **v8**: _(Breaking)_ Upgraded to 4.6.85.25 from 4.5.103.35  (Ali Ijaz Sheikh) [#3351](https://github.com/nodejs/node/pull/3351).
-  - Implements the spread operator, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator for further information.
-* **npm**: Upgraded to version 3.3.6 from 2.14.7, see https://github.com/npm/npm/releases/tag/v3.3.6 for more details. This is a major version bump for npm and it has seen a significant amount of change. Please see the original [npm v3.0.0 release notes](https://github.com/npm/npm/blob/master/CHANGELOG.md#v300-2015-06-25) for a list of major changes (Rebecca Turner) [#3310](https://github.com/nodejs/node/pull/3310).
--->
-<h3 id="주요-변경사항-v5-0-0-안정-버전"><a href="#주요-변경사항-v5-0-0-안정-버전" class="headerlink" title="주요 변경사항 : v5.0.0 (안정 버전)"></a>주요 변경사항 : v5.0.0 (안정 버전)</h3><ul>
-<li><strong>v8</strong>: <em>(호환성을 깨뜨림)</em> 4.5.103.35에서 4.6.85.25로 업그레이드 했습니다. (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/3351" target="_blank" rel="external">#3351</a>.<ul>
-<li>스프레드 연산자를 구현했습니다. 자세한 내용은 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator</a>를 참고하세요.</li>
-</ul>
-</li>
-<li><strong>npm</strong>: 버전 2.14.7에서 3.3.6로 업그레이드 했습니다. 자세한 내용은 <a href="https://github.com/npm/npm/releases/tag/v3.3.6" target="_blank" rel="external">릴리스 노트</a>를 참고하세요. npm의 주 버전이 올라가고 상당히 많은 변화가 있었습니다. 주요 변화 목록 을 확인하려면 원본 <a href="https://github.com/npm/npm/blob/master/CHANGELOG.md#v300-2015-06-25" target="_blank" rel="external">npm v3.0.0 릴리스 노트</a>를 참고하세요. (Rebecca Turner) <a href="https://github.com/nodejs/node/pull/3310" target="_blank" rel="external">#3310</a></li>
-</ul>
-<!--
-### Node.js foundation is considering an iteration on the official logo
-
-* [Please click here](https://github.com/nodejs/evangelism/issues/179) to post images and ideas.
-* The Marketing Committee will look over ideas at some point in the future and potentially select one or take some of the ideas/direction and handoff to a designer.
-* Final logo will have to be approved by the Board of Directors.
--->
-<h3 id="Node-js-재단이-공식-로고를-검토하고-있습니다"><a href="#Node-js-재단이-공식-로고를-검토하고-있습니다" class="headerlink" title="Node.js 재단이 공식 로고를 검토하고 있습니다."></a>Node.js 재단이 공식 로고를 검토하고 있습니다.</h3><ul>
-<li>사진과 아이디어를 게시하려면 <a href="https://github.com/nodejs/evangelism/issues/179" target="_blank" rel="external">여기를 눌러주세요</a>.</li>
-<li>마케팅 위원회는 미래의 어떤 시점에서 아이디어를 훑어 보고, 잠재적으로 하나를 선택하거나 몇몇 아이디어나 방향을 골라 디자이너에게 넘길 것입니다.</li>
-<li>최종 로고는 이사회의 승인을 받아야 합니다.</li>
-</ul>
-<!--
-### Community Updates
-
-* [NodeSource - Need to Node Ep.3: Office Hours with Rod Vagg](https://vimeo.com/143308094), "Rod answers questions about the Node.js TSC, discusses what is happening with Node.js, provides updates on how the reconciliation of Node.js & io.js is going and outlines what's coming up next with Node.js."
-* [Using Node.js for everything](https://codek.tv/2095), "Charlie Key, CEO at Modulus, covers how a fast-moving company can use Node.js and JavaScript for basically everything and succeed."
-* [Node.js Security Checklist](https://blog.risingstack.com/node-js-security-checklist/), "checklist to help you guide through the must have security checks before your application is enabled to thousands of users/customers."
-* [IBM acquires StrongLoop, helping clients extend their enterprise reach](http://www.thoughtsoncloud.com/2015/09/ibm-acquires-strongloop-helping-clients-extend-their-enterprise-reach/), "IBM announced that it acquired StrongLoop to help you accelerate your digital transformation."
-
-If you have spotted or written something about Node.js, do come over to our [Evangelism team repo](https://github.com/nodejs/evangelism) and suggest it on the [Issues page](https://github.com/nodejs/evangelism/issues), specifically the Weekly Updates issue.
--->
-<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><ul>
-<li><a href="https://vimeo.com/143308094" target="_blank" rel="external">NodeSource - 세 번째 노드 에피소드: Rod Vagg와 함께하는 질문을 받는 시간</a>, “Rod가 Node.js TSC에 대한 질문에 답하고, Node.js에 무슨 일이 일어나고 있는지를 설명하고,  Node.js와 io.js가 어떻게 서로 조정하고 있는지와 다가올 Node.js의 개요를 제공한다고 답했습니다.”</li>
-<li><a href="https://codek.tv/2095" target="_blank" rel="external">모든 곳에 Node.js 사용하기</a>, “Modulus의 CEO인 Charlie Key가 역동적인 회사가 기본적으로 모든 것을 위해 Node.js와 자바스크립트를 사용하여 성공할 수 있는 방법에 대해 설명했습니다.”</li>
-<li><a href="https://blog.risingstack.com/node-js-security-checklist/" target="_blank" rel="external">Node.js 보안 점검표</a>, “사용자나 고객이 응용 프로그램을 사용하기 전에 점검해야 할 보안 사항을 제공합니다.”</li>
-<li><a href="http://www.thoughtsoncloud.com/2015/09/ibm-acquires-strongloop-helping-clients-extend-their-enterprise-reach/" target="_blank" rel="external">IBM은 고객의 사업 범위를 확장하기 위해 StrongLoop를 인수했습니다</a>, “IBM이 디지털 변환을 가속하도록 도와주는 StrongLoop를 인수했다고 발표했습니다.”</li>
-</ul>
-<p>Node.js나 io.js에 관한 글을 쓰거나 발견했다면, <a href="https://github.com/nodejs/evangelism" target="_blank" rel="external">Evangelism 팀 저장소</a>에 와서 <a href="https://github.com/nodejs/evangelism/issues" target="_blank" rel="external">이슈 페이지</a>에 주간 업데이트 이슈로 알려주세요.</p>
-<!--
-### Upcoming Events
-
-* [NodeFest](http://nodefest.jp/2015/), November 7th at Tokyo, Japan
-* [Node Knockout](http://www.nodeknockout.com/), November 7 - 8th, Worldwide
-* [Node Girls London](https://nodegirls.typeform.com/to/atW4HR), November 7th at London, UK
-* [Playnode](http://playnode.io/), November 12nd at Seoul, South Korea
-* [Nodevember](http://nodevember.org/?utm_source=io.js+and+Node.js+News&utm_medium=article), November 14th - 15th at Nashville, Tennessee, US.
-* [NodeConf Barcelona](https://ti.to/barcelonajs/nodeconf-barcelona-2015), November 21st at Barcelona, Spain
-* [CampJS VI](http://vi.campjs.com), November 20 – 23th at Queensland, Australia
-* [Node.js Interactive](http://events.linuxfoundation.org/events/node-interactive), December 8-9th at Portland, US.
-
-Have an event about Node.js coming up? You can put your events here through the [Evangelism team repo](https://github.com/nodejs/evangelism) and announce it in the [Issues page](https://github.com/nodejs/evangelism/issues), specifically the Weekly Updates issue.
--->
-<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><ul>
-<li><a href="http://nodefest.jp/2015/" target="_blank" rel="external">NodeFest</a>, 11월 7일 일본 도쿄에서 열립니다.</li>
-<li><a href="http://www.nodeknockout.com/" target="_blank" rel="external">Node Knockout</a>, 11월 7일부터 8일까지 전 세계에서 열립니다.</li>
-<li><a href="https://nodegirls.typeform.com/to/atW4HR" target="_blank" rel="external">Node Girls London</a>, 11월 7일 영국 런던에서 열립니다.</li>
-<li><a href="http://playnode.io/" target="_blank" rel="external">Playnode</a>, 11월 12일 대한민국 서울에서 열립니다.</li>
-<li><a href="http://nodevember.org/?utm_source=io.js+and+Node.js+News&amp;utm_medium=article" target="_blank" rel="external">Nodevember</a>, 11월 14일부터 15일까지 미국 Tennessee의 Nashville에서 열립니다.</li>
-<li><a href="https://ti.to/barcelonajs/nodeconf-barcelona-2015" target="_blank" rel="external">NodeConf Barcelona</a>, 11월 21일 스페인 바르셀로나에서 열립니다.</li>
-<li><a href="http://vi.campjs.com" target="_blank" rel="external">CampJS VI</a>, 11월 20일부터 23일까지 오스트레일리아 퀸즐랜드에서 열립니다.</li>
-<li><a href="http://events.linuxfoundation.org/events/node-interactive" target="_blank" rel="external">Node.js Interactive</a>, 12월 8일부터 9일까지 미국 포틀랜드에서 열립니다.</li>
-</ul>
-<p>계획 중인 Node.js 이벤트가 있나요? <a href="https://github.com/nodejs/evangelism" target="_blank" rel="external">Evangelism 팀 저장소</a>와 <a href="https://github.com/nodejs/evangelism/issues" target="_blank" rel="external">이슈 페이지</a>의 주간 업데이트 이슈를 통해 알릴 수 있습니다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/10/30/weekly/" data-id="cirzbcmfv003gbum6w4oblcx4" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/11/03/release-v4.2.2/" data-id="cis1avsk4003hn9m6ouspdj2b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -664,7 +658,147 @@ If you have any questions you can always connect with us on our [help](https://g
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/30/node-v5/" data-id="cirzbcmfx003ibum6mgutz7ku" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/30/node-v5/" data-id="cis1avsk6003jn9m64bwsfhjn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/10/30/weekly/" class="article-date">
+    <time datetime="2015-10-29T15:00:00.000Z" itemprop="datePublished">2015-10-30</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/weekly/2015/10/30/weekly/">Node.js 주간 뉴스 2015년 10월 30일</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Minwoo Jung (@jmwsoft)</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/weekly-updates/weekly-update.2015-10-30/" taret="_blank">
+        Weekly Update - Oct 30th, 2015
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/sungjungkim" target="_blank">SungjungKim</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Node.js News — October 30th
+Node.js v5.0.0 (Stable) is released
+-->
+<h3 id="Node-js-뉴스-—-10월-30일"><a href="#Node-js-뉴스-—-10월-30일" class="headerlink" title="Node.js 뉴스 — 10월 30일"></a>Node.js 뉴스 — 10월 30일</h3><p>Node.js v5.0.0 (안정 버전) 릴리스</p>
+<!--
+### Node.js v5.0.0 (Stable) Releases
+
+This week we have one release: [Node.js v5.0.0 (Stable)](https://nodejs.org/en/blog/release/v5.0.0/). Complete changelog from previous releases can be found [on GitHub](https://github.com/nodejs/node/blob/master/CHANGELOG.md).
+-->
+<h3 id="Node-js-v5-0-0-안정-버전-릴리스"><a href="#Node-js-v5-0-0-안정-버전-릴리스" class="headerlink" title="Node.js v5.0.0 (안정 버전) 릴리스"></a>Node.js v5.0.0 (안정 버전) 릴리스</h3><p>이번 주에는 <a href="https://nodejs.org/en/blog/release/v5.0.0/" target="_blank" rel="external">Node.js v5.0.0 (안정 버전)</a> 릴리스가 있었습니다. 이전 버전의 전체 변경사항은
+<a href="https://github.com/nodejs/node/blob/master/CHANGELOG.md" target="_blank" rel="external">GitHub</a>에서 확인할 수 있습니다.</p>
+<!--
+### Notable changes : v5.0.0 (Stable)
+
+* **v8**: _(Breaking)_ Upgraded to 4.6.85.25 from 4.5.103.35  (Ali Ijaz Sheikh) [#3351](https://github.com/nodejs/node/pull/3351).
+  - Implements the spread operator, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator for further information.
+* **npm**: Upgraded to version 3.3.6 from 2.14.7, see https://github.com/npm/npm/releases/tag/v3.3.6 for more details. This is a major version bump for npm and it has seen a significant amount of change. Please see the original [npm v3.0.0 release notes](https://github.com/npm/npm/blob/master/CHANGELOG.md#v300-2015-06-25) for a list of major changes (Rebecca Turner) [#3310](https://github.com/nodejs/node/pull/3310).
+-->
+<h3 id="주요-변경사항-v5-0-0-안정-버전"><a href="#주요-변경사항-v5-0-0-안정-버전" class="headerlink" title="주요 변경사항 : v5.0.0 (안정 버전)"></a>주요 변경사항 : v5.0.0 (안정 버전)</h3><ul>
+<li><strong>v8</strong>: <em>(호환성을 깨뜨림)</em> 4.5.103.35에서 4.6.85.25로 업그레이드 했습니다. (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/3351" target="_blank" rel="external">#3351</a>.<ul>
+<li>스프레드 연산자를 구현했습니다. 자세한 내용은 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator</a>를 참고하세요.</li>
+</ul>
+</li>
+<li><strong>npm</strong>: 버전 2.14.7에서 3.3.6로 업그레이드 했습니다. 자세한 내용은 <a href="https://github.com/npm/npm/releases/tag/v3.3.6" target="_blank" rel="external">릴리스 노트</a>를 참고하세요. npm의 주 버전이 올라가고 상당히 많은 변화가 있었습니다. 주요 변화 목록 을 확인하려면 원본 <a href="https://github.com/npm/npm/blob/master/CHANGELOG.md#v300-2015-06-25" target="_blank" rel="external">npm v3.0.0 릴리스 노트</a>를 참고하세요. (Rebecca Turner) <a href="https://github.com/nodejs/node/pull/3310" target="_blank" rel="external">#3310</a></li>
+</ul>
+<!--
+### Node.js foundation is considering an iteration on the official logo
+
+* [Please click here](https://github.com/nodejs/evangelism/issues/179) to post images and ideas.
+* The Marketing Committee will look over ideas at some point in the future and potentially select one or take some of the ideas/direction and handoff to a designer.
+* Final logo will have to be approved by the Board of Directors.
+-->
+<h3 id="Node-js-재단이-공식-로고를-검토하고-있습니다"><a href="#Node-js-재단이-공식-로고를-검토하고-있습니다" class="headerlink" title="Node.js 재단이 공식 로고를 검토하고 있습니다."></a>Node.js 재단이 공식 로고를 검토하고 있습니다.</h3><ul>
+<li>사진과 아이디어를 게시하려면 <a href="https://github.com/nodejs/evangelism/issues/179" target="_blank" rel="external">여기를 눌러주세요</a>.</li>
+<li>마케팅 위원회는 미래의 어떤 시점에서 아이디어를 훑어 보고, 잠재적으로 하나를 선택하거나 몇몇 아이디어나 방향을 골라 디자이너에게 넘길 것입니다.</li>
+<li>최종 로고는 이사회의 승인을 받아야 합니다.</li>
+</ul>
+<!--
+### Community Updates
+
+* [NodeSource - Need to Node Ep.3: Office Hours with Rod Vagg](https://vimeo.com/143308094), "Rod answers questions about the Node.js TSC, discusses what is happening with Node.js, provides updates on how the reconciliation of Node.js & io.js is going and outlines what's coming up next with Node.js."
+* [Using Node.js for everything](https://codek.tv/2095), "Charlie Key, CEO at Modulus, covers how a fast-moving company can use Node.js and JavaScript for basically everything and succeed."
+* [Node.js Security Checklist](https://blog.risingstack.com/node-js-security-checklist/), "checklist to help you guide through the must have security checks before your application is enabled to thousands of users/customers."
+* [IBM acquires StrongLoop, helping clients extend their enterprise reach](http://www.thoughtsoncloud.com/2015/09/ibm-acquires-strongloop-helping-clients-extend-their-enterprise-reach/), "IBM announced that it acquired StrongLoop to help you accelerate your digital transformation."
+
+If you have spotted or written something about Node.js, do come over to our [Evangelism team repo](https://github.com/nodejs/evangelism) and suggest it on the [Issues page](https://github.com/nodejs/evangelism/issues), specifically the Weekly Updates issue.
+-->
+<h3 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h3><ul>
+<li><a href="https://vimeo.com/143308094" target="_blank" rel="external">NodeSource - 세 번째 노드 에피소드: Rod Vagg와 함께하는 질문을 받는 시간</a>, “Rod가 Node.js TSC에 대한 질문에 답하고, Node.js에 무슨 일이 일어나고 있는지를 설명하고,  Node.js와 io.js가 어떻게 서로 조정하고 있는지와 다가올 Node.js의 개요를 제공한다고 답했습니다.”</li>
+<li><a href="https://codek.tv/2095" target="_blank" rel="external">모든 곳에 Node.js 사용하기</a>, “Modulus의 CEO인 Charlie Key가 역동적인 회사가 기본적으로 모든 것을 위해 Node.js와 자바스크립트를 사용하여 성공할 수 있는 방법에 대해 설명했습니다.”</li>
+<li><a href="https://blog.risingstack.com/node-js-security-checklist/" target="_blank" rel="external">Node.js 보안 점검표</a>, “사용자나 고객이 응용 프로그램을 사용하기 전에 점검해야 할 보안 사항을 제공합니다.”</li>
+<li><a href="http://www.thoughtsoncloud.com/2015/09/ibm-acquires-strongloop-helping-clients-extend-their-enterprise-reach/" target="_blank" rel="external">IBM은 고객의 사업 범위를 확장하기 위해 StrongLoop를 인수했습니다</a>, “IBM이 디지털 변환을 가속하도록 도와주는 StrongLoop를 인수했다고 발표했습니다.”</li>
+</ul>
+<p>Node.js나 io.js에 관한 글을 쓰거나 발견했다면, <a href="https://github.com/nodejs/evangelism" target="_blank" rel="external">Evangelism 팀 저장소</a>에 와서 <a href="https://github.com/nodejs/evangelism/issues" target="_blank" rel="external">이슈 페이지</a>에 주간 업데이트 이슈로 알려주세요.</p>
+<!--
+### Upcoming Events
+
+* [NodeFest](http://nodefest.jp/2015/), November 7th at Tokyo, Japan
+* [Node Knockout](http://www.nodeknockout.com/), November 7 - 8th, Worldwide
+* [Node Girls London](https://nodegirls.typeform.com/to/atW4HR), November 7th at London, UK
+* [Playnode](http://playnode.io/), November 12nd at Seoul, South Korea
+* [Nodevember](http://nodevember.org/?utm_source=io.js+and+Node.js+News&utm_medium=article), November 14th - 15th at Nashville, Tennessee, US.
+* [NodeConf Barcelona](https://ti.to/barcelonajs/nodeconf-barcelona-2015), November 21st at Barcelona, Spain
+* [CampJS VI](http://vi.campjs.com), November 20 – 23th at Queensland, Australia
+* [Node.js Interactive](http://events.linuxfoundation.org/events/node-interactive), December 8-9th at Portland, US.
+
+Have an event about Node.js coming up? You can put your events here through the [Evangelism team repo](https://github.com/nodejs/evangelism) and announce it in the [Issues page](https://github.com/nodejs/evangelism/issues), specifically the Weekly Updates issue.
+-->
+<h3 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h3><ul>
+<li><a href="http://nodefest.jp/2015/" target="_blank" rel="external">NodeFest</a>, 11월 7일 일본 도쿄에서 열립니다.</li>
+<li><a href="http://www.nodeknockout.com/" target="_blank" rel="external">Node Knockout</a>, 11월 7일부터 8일까지 전 세계에서 열립니다.</li>
+<li><a href="https://nodegirls.typeform.com/to/atW4HR" target="_blank" rel="external">Node Girls London</a>, 11월 7일 영국 런던에서 열립니다.</li>
+<li><a href="http://playnode.io/" target="_blank" rel="external">Playnode</a>, 11월 12일 대한민국 서울에서 열립니다.</li>
+<li><a href="http://nodevember.org/?utm_source=io.js+and+Node.js+News&amp;utm_medium=article" target="_blank" rel="external">Nodevember</a>, 11월 14일부터 15일까지 미국 Tennessee의 Nashville에서 열립니다.</li>
+<li><a href="https://ti.to/barcelonajs/nodeconf-barcelona-2015" target="_blank" rel="external">NodeConf Barcelona</a>, 11월 21일 스페인 바르셀로나에서 열립니다.</li>
+<li><a href="http://vi.campjs.com" target="_blank" rel="external">CampJS VI</a>, 11월 20일부터 23일까지 오스트레일리아 퀸즐랜드에서 열립니다.</li>
+<li><a href="http://events.linuxfoundation.org/events/node-interactive" target="_blank" rel="external">Node.js Interactive</a>, 12월 8일부터 9일까지 미국 포틀랜드에서 열립니다.</li>
+</ul>
+<p>계획 중인 Node.js 이벤트가 있나요? <a href="https://github.com/nodejs/evangelism" target="_blank" rel="external">Evangelism 팀 저장소</a>와 <a href="https://github.com/nodejs/evangelism/issues" target="_blank" rel="external">이슈 페이지</a>의 주간 업데이트 이슈를 통해 알릴 수 있습니다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/10/30/weekly/" data-id="cis1avsk2003fn9m625slbj2d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -801,7 +935,7 @@ F6Z13Zr5Oph2fdobiuXYN1WSmrHX2kfy1B2WAt80vwwVzEiIQcSUhEU9qu8z9Qg=
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/29/release-v5.0.0/" data-id="cirzbcmfu003ebum6bpoxmqsr" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/29/release-v5.0.0/" data-id="cis1avsk8003ln9m629ue45ni" class="article-share-link">Share</a>
       
       
     </footer>
@@ -978,7 +1112,7 @@ Have an event about Node.js coming up? You can put your events here through the 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/10/23/weekly/" data-id="cirzbcmfq003abum61su5u7py" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/10/23/weekly/" data-id="cis1avsk0003dn9m61ebtfxpi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1114,7 +1248,7 @@ Thanks,
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/22/uncategorized-node-interactive-convince-boss/" data-id="cirzbcmfs003cbum6lvlf8izi" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/22/uncategorized-node-interactive-convince-boss/" data-id="cis1avsjz003bn9m6jqd0apa6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1317,7 +1451,7 @@ Node.js 재단은 Linux 재단 산하의 협업 프로젝트(Collaborative Proje
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/20/announcements-interactive-2015-programming/" data-id="cirzbcmfn0038bum6td0un5xp" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/20/announcements-interactive-2015-programming/" data-id="cis1avsjy0039n9m68xzqjezh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1461,120 +1595,7 @@ Have an event about Node.js coming up? You can put your events here through the 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/10/16/weekly/" data-id="cirzbcmfm0036bum6yggzrltc" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-release-v4.2.1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2015/10/13/release-v4.2.1/" class="article-date">
-    <time datetime="2015-10-12T15:00:00.000Z" itemprop="datePublished">2015-10-13</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2015/10/13/release-v4.2.1/">Node v4.2.1 (LTS)</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Node</strong></li>
-    <li>
-      원문: <strong><a href="http://nodejs.org/en/blog/release/v4.2.1/" taret="_blank">
-        Node v4.2.1 (LTS)
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/SungjungKim" target="_blank">SungjungKim</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-### Notable changes
-
-* Includes fixes for two regressions
-  - Assertion error in WeakCallback - see [#3329](https://github.com/nodejs/node/pull/3329)
-  - Undefined timeout regression - see [#3331](https://github.com/nodejs/node/pull/3331)
--->
-<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><ul>
-<li>두 개의 회귀에 대한 수정 사항이 포함되어 있습니다.<ul>
-<li>WeakCallback의 단언문 에러 - <a href="https://github.com/nodejs/node/pull/3329" target="_blank" rel="external">#3329</a>를 보세요.</li>
-<li>정의되지 않은 타임아웃 회귀 - <a href="https://github.com/nodejs/node/pull/3331" target="_blank" rel="external">#3331</a>을 보세요.</li>
-</ul>
-</li>
-</ul>
-<!--
-### Known issues
-
-* When a server queues a large amount of data to send to a client over a pipelined HTTP connection, the underlying socket may be destroyed. See [#3332](https://github.com/nodejs/node/issues/3332) and [#3342](https://github.com/nodejs/node/pull/3342).
-* Some problems with unreferenced timers running during `beforeExit` are still to be resolved. See [#1264](https://github.com/nodejs/node/issues/1264).
-* Surrogate pair in REPL can freeze terminal. [#690](https://github.com/nodejs/node/issues/690)
-* Calling `dns.setServers()` while a DNS query is in progress can cause the process to crash on a failed assertion. [#894](https://github.com/nodejs/node/issues/894)
-* `url.resolve` may transfer the auth portion of the url when resolving between two full hosts, see [#1435](https://github.com/nodejs/node/issues/1435).
--->
-<h3 id="알려진-이슈"><a href="#알려진-이슈" class="headerlink" title="알려진 이슈"></a>알려진 이슈</h3><ul>
-<li>서버에서 파이프라인 HTTP 연결을 통해 클라이언트에게 보낼 데이터가 많이 쌓일 때, 사용 중인 소켓이 파괴될 수 있습니다. <a href="https://github.com/nodejs/node/issues/3332" target="_blank" rel="external">#3332</a>와 <a href="https://github.com/nodejs/node/pull/3342" target="_blank" rel="external">#3342</a>.</li>
-<li><code>beforeExit</code> 중에 참조 해제된 타이머에 대한 문제가 아직 남아 있습니다. <a href="https://github.com/nodejs/node/issues/1264" target="_blank" rel="external">#1264</a>.</li>
-<li>REPL에 입력된 서로게이트 페어가 터미널을 얼릴 수 있습니다. <a href="https://github.com/nodejs/node/issues/690" target="_blank" rel="external">#690</a></li>
-<li>DNS 질의 진행 중에 호출된 <code>dns.setServers()</code>는 단언문 실패로 프로세스를 크래시시킬 수 있습니다. <a href="https://github.com/nodejs/node/issues/894" target="_blank" rel="external">#894</a></li>
-<li><code>url.resolve</code>는 두 호스트 사이를 분석할 때 URL의 인증 정보를 교환할 수 있습니다. <a href="https://github.com/nodejs/node/issues/1435" target="_blank" rel="external">#1435</a></li>
-</ul>
-<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
-<li>[<a href="https://github.com/nodejs/node/commit/b3cbd13340" target="_blank" rel="external"><code>b3cbd13340</code></a>] - <strong>buffer</strong>: fix assertion error in WeakCallback (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/3329" target="_blank" rel="external">#3329</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/102cb7288c" target="_blank" rel="external"><code>102cb7288c</code></a>] - <strong>doc</strong>: label v4.2.0 as LTS in changelog heading (Rod Vagg) <a href="https://github.com/nodejs/node/pull/3343" target="_blank" rel="external">#3343</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c245a199a7" target="_blank" rel="external"><code>c245a199a7</code></a>] - <strong>lib</strong>: fix undefined timeout regression (Ryan Graham) <a href="https://github.com/nodejs/node/pull/3331" target="_blank" rel="external">#3331</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/win-x86/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/win-x64/node.exe</a><br>
-Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1.pkg" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-darwin-x64.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-x86.tar.gz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-x64.tar.gz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-sunos-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-sunos-x86.tar.gz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-sunos-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-sunos-x64.tar.gz</a><br>
-ARMv6 32-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-armv6l.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-armv6l.tar.gz</a><br>
-ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-armv7l.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-armv7l.tar.gz</a><br>
-ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-arm64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1-linux-arm64.tar.gz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v4.2.1/node-v4.2.1.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/node-v4.2.1.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v4.2.1/" target="_blank" rel="external">https://nodejs.org/dist/v4.2.1/</a><br>
-Documentation: <a href="https://nodejs.org/docs/v4.2.1/api/" target="_blank" rel="external">https://nodejs.org/docs/v4.2.1/api/</a></p>
-<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA512</div><div class="line"></div><div class="line">658686795fac9669d411ac5c5be2da8159058e386767322d8d8151dcdb4810b9  node-v4.2.1-darwin-x64.tar.gz</div><div class="line">d2c1ffb5c9f1d24f1f49652600bb2056b13afe068ba7d80bfd1009423ead8941  node-v4.2.1-darwin-x64.tar.xz</div><div class="line">b242fd0fa83748d95cc3e68d14579b629960b0436d65da9d86907eef27b96fc1  node-v4.2.1-headers.tar.gz</div><div class="line">b1416eca3f1c56e049d924d31b343d57a735d4e422c4288bf4c2ca453cb6bcf2  node-v4.2.1-headers.tar.xz</div><div class="line">05df4aeb8a53798f8b10074600518040fc317f2919f9755aeab57b0aaf7227b0  node-v4.2.1-linux-arm64.tar.gz</div><div class="line">ba5c0705f0d69306d978faac14ed37725b71b4e2c41192019e8e4aae239b2683  node-v4.2.1-linux-arm64.tar.xz</div><div class="line">6f29286464efda4a362d9464d82733398b98882051c20c0f190004480b6e506a  node-v4.2.1-linux-armv6l.tar.gz</div><div class="line">5a99151840df5dc2f9ec4562f6174ad06d0d52949256610e89ee8272e643cf95  node-v4.2.1-linux-armv6l.tar.xz</div><div class="line">fb4fbef9306962e800804ab5ba615c06bba28deb4e7a3e945a291dba986ef816  node-v4.2.1-linux-armv7l.tar.gz</div><div class="line">7699ee39c9bc92208ef38ab6d61ddee46cad2978b06095b2ca54a7a116c47d9a  node-v4.2.1-linux-armv7l.tar.xz</div><div class="line">e766e387934e17daaad92d0460ed76f756655da62b627a5c9cc07faea4a0b824  node-v4.2.1-linux-x64.tar.gz</div><div class="line">346f6c1b96bd5fc0a2a100e78deceff9e1045f5ccf0ba66401cd8d37d78d1b23  node-v4.2.1-linux-x64.tar.xz</div><div class="line">97b5ccea7044073c87a21bcc4b0762f4a6bd77db9cc958206f684ecdfeb89b1f  node-v4.2.1-linux-x86.tar.gz</div><div class="line">2a7a16e6066ddd724400634ba80266d6994036d0772545bcedc81c80d2e84e2b  node-v4.2.1-linux-x86.tar.xz</div><div class="line">688df0a12461f378b296f69e8ae2c1cbb974b0216278624815bce7dcfea080c2  node-v4.2.1.pkg</div><div class="line">acec44790ff0069620c0fd03945d14b9f97c7ccb0a0450f766a5cbe4a906510b  node-v4.2.1-sunos-x64.tar.gz</div><div class="line">72d1cb21347af731f594f85fa177140b2c3e015b8c1cb65a63a082999cd390e8  node-v4.2.1-sunos-x64.tar.xz</div><div class="line">d7bf8dcf353115b5e55bf64d25c2c34fa2d237e201e46dab97ae3d8e3f051583  node-v4.2.1-sunos-x86.tar.gz</div><div class="line">fb047d9b3db08fba2c3021d574a3ffd6f0f3e0208735035ed245926f0977ab8a  node-v4.2.1-sunos-x86.tar.xz</div><div class="line">8861b9f4c3b4db380fcda19a710c0430c3d62d03ee176c64db63eef95a672663  node-v4.2.1.tar.gz</div><div class="line">0528c60cf75371314ad0e7b19f9fd586d98a220d307d03e163b323b67458b7be  node-v4.2.1.tar.xz</div><div class="line">e460a71ea9aa4d743387a20319042de203de837cb613be0737b6ca368480302d  node-v4.2.1-x64.msi</div><div class="line">df70335dc34d48cf03c9074d84ff330f4d1fa0eb12b5225da91ad4f7c1835318  node-v4.2.1-x86.msi</div><div class="line">92744bfa525cd51ea3bf5ac810a9e3e9306f6fe4ac44847a8aefdd674701e8e6  win-x64/node.exe</div><div class="line">d5369e749dc6181226f8a91c6c7d590596175943301fd92455dbea5de7c6b6f6  win-x64/node.lib</div><div class="line">c22fcbf2f1db7ff3cd71b4c771f277fe8d75caff8689a3be50aeee1a7682820e  win-x86/node.exe</div><div class="line">98f0b03cae561cb59fd602c51a35b326e561fe9bc8ad6cc9d5ec32aa2fe2acbd  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Comment: GPGTools - https://gpgtools.org</div><div class="line"></div><div class="line">iQEcBAEBCgAGBQJWHmkUAAoJEHNBsVwHCHesq4oH/1ghNOtL/4uVfHPeQtmAR/lW</div><div class="line">+IHOHno346EpZDR0afOCTDwB+GyY5gbDdmb1CEwmFN5IstRPM4Jow6W2JwDNwOYD</div><div class="line">QAIzzx/+sABFJZk3iuppIUbSA6ziP/L0B8dGxel96Iq02Zf9pv3NY5sxI744SMMF</div><div class="line">Mr5l7/FIyb4dd9H3QiX3mxvbVj8q7Oj5e2ROlqn5mKm5HszFVhDwu1PjR5/mjazC</div><div class="line">EB2rRJuIwzUO3VEe6ApmQCO26yLZA/CPwl41z9oQvF+j4lHHb6DkDDX7MQu3EWd7</div><div class="line">hqsK2xQ6oOAzcVOP5edwYgGVH4N8hlHaHTVfFezgcri83ruMxqmRA4cYdLb3yOk=</div><div class="line">=dRAV</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/10/13/release-v4.2.1/" data-id="cirzbcmfi0032bum6kmkvfv4e" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/10/16/weekly/" data-id="cis1avsjx0037n9m6dv8bxr87" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1587,7 +1608,7 @@ Documentation: <a href="https://nodejs.org/docs/v4.2.1/api/" target="_blank" rel
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/nodejs-ko/page/10/">&laquo; Précédent</a><a class="page-number" href="/nodejs-ko/">1</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/9/">9</a><a class="page-number" href="/nodejs-ko/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/nodejs-ko/page/12/">12</a><a class="page-number" href="/nodejs-ko/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/12/">Suivant &raquo;</a>
+    <a class="extend prev" rel="prev" href="/nodejs-ko/page/10/">&laquo; Prev</a><a class="page-number" href="/nodejs-ko/">1</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/9/">9</a><a class="page-number" href="/nodejs-ko/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/nodejs-ko/page/12/">12</a><a class="page-number" href="/nodejs-ko/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/12/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1633,7 +1654,7 @@ Documentation: <a href="https://nodejs.org/docs/v4.2.1/api/" target="_blank" rel
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Node.js 한국어 번역팀<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

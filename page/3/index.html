@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
@@ -68,6 +68,176 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-release-v4.4.5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/05/24/release-v4.4.5/" class="article-date">
+    <time datetime="2016-05-23T15:00:00.000Z" itemprop="datePublished">2016-05-24</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/articles/2016/05/24/release-v4.4.5/">Node v4.4.5(LTS)</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Myles Borins</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/release/v4.4.5/" taret="_blank">
+        Node v4.4.5 (LTS)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/kazikai" target="_blank">kazikai</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable Changes
+
+* **buffer**: Buffer no longer errors if you call lastIndexOf with a search term longer than the buffer (Anna Henningsen) [#6511](https://github.com/nodejs/node/pull/6511)
+* **contextify**: Context objects are now properly garbage collected, this solves a problem some individuals were experiencing with extreme memory growth (Ali Ijaz Sheikh) [#6871](https://github.com/nodejs/node/pull/6871)
+* **deps**: update npm to 2.15.5 (Rebecca Turner) [#6663](https://github.com/nodejs/node/pull/6663)
+* **http**: Invalid status codes can no longer be sent. Limited to 3 digit numbers between 100 - 999 (Brian White) [#6291](https://github.com/nodejs/node/pull/6291)
+-->
+<h3 id="주요-변경사항"><a href="#주요-변경사항" class="headerlink" title="주요 변경사항"></a>주요 변경사항</h3><ul>
+<li><strong>buffer</strong>: 버퍼는 버퍼보다 더 긴 검색어로 lastIndexOf를 호출할 때 발생했던 오류를 더는 발생시키지 않습니다. (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6511" target="_blank" rel="external">#6511</a></li>
+<li><strong>contextify</strong>: 이제 콘텍스트 객체가 제대로 가비지 컬렉션됩니다. 이것은 몇몇 개개인이 경험한 극단적인 메모리 사용량 증가를 해결합니다. (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/6871" target="_blank" rel="external">#6871</a></li>
+<li><strong>deps</strong>: npm이 2.15.5로 업데이트되었습니다. (Rebecca Turner) <a href="https://github.com/nodejs/node/pull/6663" target="_blank" rel="external">#6663</a></li>
+<li><strong>http</strong>: 유효하지 않은 상태 코드는 더는 전송되지 않습니다. 100에서 999 사이의 세 자리 아라비아 숫자로 제한됩니다. (Brian White) <a href="https://github.com/nodejs/node/pull/6291" target="_blank" rel="external">#6291</a></li>
+</ul>
+<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
+<li>[<a href="https://github.com/nodejs/node/commit/59a977dd22" target="_blank" rel="external"><code>59a977dd22</code></a>] - <strong>assert</strong>: respect assert.doesNotThrow message. (Ilya Shaisultanov) <a href="https://github.com/nodejs/node/pull/2407" target="_blank" rel="external">#2407</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/8b077faa82" target="_blank" rel="external"><code>8b077faa82</code></a>] - <strong>buffer</strong>: fix UCS2 indexOf for odd buffer length (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6511" target="_blank" rel="external">#6511</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/12a9699fcf" target="_blank" rel="external"><code>12a9699fcf</code></a>] - <strong>buffer</strong>: fix needle length misestimation for UCS2 (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6511" target="_blank" rel="external">#6511</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/292b1b733e" target="_blank" rel="external"><code>292b1b733e</code></a>] - <strong>build</strong>: fix make tar-headers for Linux (Gibson Fahnestock) <a href="https://github.com/nodejs/node/pull/5978" target="_blank" rel="external">#5978</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/918d33ad4b" target="_blank" rel="external"><code>918d33ad4b</code></a>] - <strong>build</strong>: add script to create Android .mk files (Robert Chiras) <a href="https://github.com/nodejs/node/pull/5544" target="_blank" rel="external">#5544</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/4ad71847bc" target="_blank" rel="external"><code>4ad71847bc</code></a>] - <strong>build</strong>: add suport for x86 architecture (Robert Chiras) <a href="https://github.com/nodejs/node/pull/5544" target="_blank" rel="external">#5544</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/6ad85914b1" target="_blank" rel="external"><code>6ad85914b1</code></a>] - <strong>child_process</strong>: add nullptr checks after allocs (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6256" target="_blank" rel="external">#6256</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/823f726f66" target="_blank" rel="external"><code>823f726f66</code></a>] - <strong>contextify</strong>: tie lifetimes of context &amp; sandbox (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/5800" target="_blank" rel="external">#5800</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9ddb44ba61" target="_blank" rel="external"><code>9ddb44ba61</code></a>] - <strong>contextify</strong>: cache sandbox and context in locals (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/5392" target="_blank" rel="external">#5392</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/8ebdcd65b0" target="_blank" rel="external"><code>8ebdcd65b0</code></a>] - <strong>contextify</strong>: replace deprecated SetWeak usage (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/5392" target="_blank" rel="external">#5392</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9e6d8170f7" target="_blank" rel="external"><code>9e6d8170f7</code></a>] - <strong>contextify</strong>: cleanup weak ref for sandbox (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/5392" target="_blank" rel="external">#5392</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/b6fc15347d" target="_blank" rel="external"><code>b6fc15347d</code></a>] - <strong>contextify</strong>: cleanup weak ref for global proxy (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/5392" target="_blank" rel="external">#5392</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/0dc875e2c7" target="_blank" rel="external"><code>0dc875e2c7</code></a>] - <strong>deps</strong>: upgrade npm in LTS to 2.15.5 (Rebecca Turner)</li>
+<li>[<a href="https://github.com/nodejs/node/commit/3c50350f41" target="_blank" rel="external"><code>3c50350f41</code></a>] - <strong>deps</strong>: fix null pointer checks in v8 (Michaël Zasso) <a href="https://github.com/nodejs/node/pull/6669" target="_blank" rel="external">#6669</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/a40730b4b4" target="_blank" rel="external"><code>a40730b4b4</code></a>] - <strong>deps</strong>: backport IsValid changes from 4e8736d in V8 (Michaël Zasso) <a href="https://github.com/nodejs/node/pull/6669" target="_blank" rel="external">#6669</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/855604c53a" target="_blank" rel="external"><code>855604c53a</code></a>] - <strong>deps</strong>: upgrade npm in LTS to 2.15.4 (Rebecca Turner) <a href="https://github.com/nodejs/node/pull/6663" target="_blank" rel="external">#6663</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/433fb9a968" target="_blank" rel="external"><code>433fb9a968</code></a>] - <strong>deps</strong>: cherry-pick 1383d00 from v8 upstream (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/6179" target="_blank" rel="external">#6179</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/d1fca27ef8" target="_blank" rel="external"><code>d1fca27ef8</code></a>] - <strong>deps</strong>: backport 125ac66 from v8 upstream (Myles Borins) <a href="https://github.com/nodejs/node/pull/6086" target="_blank" rel="external">#6086</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/df299019a0" target="_blank" rel="external"><code>df299019a0</code></a>] - <strong>deps</strong>: upgrade npm in LTS to 2.15.2 (Kat Marchán)</li>
+<li>[<a href="https://github.com/nodejs/node/commit/50f02bd8d6" target="_blank" rel="external"><code>50f02bd8d6</code></a>] - <strong>doc</strong>: update vm.runInDebugContext() example (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/6757" target="_blank" rel="external">#6757</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/b872feade3" target="_blank" rel="external"><code>b872feade3</code></a>] - <strong>doc</strong>: replace functions with arrow functions (abouthiroppy) <a href="https://github.com/nodejs/node/pull/6203" target="_blank" rel="external">#6203</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/7160229be4" target="_blank" rel="external"><code>7160229be4</code></a>] - <strong>doc</strong>: note that zlib.flush acts after pending writes (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6172" target="_blank" rel="external">#6172</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/d069f2de8c" target="_blank" rel="external"><code>d069f2de8c</code></a>] - <strong>doc</strong>: add full example for zlib.flush() (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6172" target="_blank" rel="external">#6172</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/59814acfef" target="_blank" rel="external"><code>59814acfef</code></a>] - <strong>doc</strong>: describe child.kill() pitfalls on linux (Robert Jefe Lindstaedt) <a href="https://github.com/nodejs/node/issues/2098" target="_blank" rel="external">#2098</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/840c09492d" target="_blank" rel="external"><code>840c09492d</code></a>] - <strong>doc</strong>: update openssl.org hash links (silverwind) <a href="https://github.com/nodejs/node/pull/6817" target="_blank" rel="external">#6817</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/126fdc3171" target="_blank" rel="external"><code>126fdc3171</code></a>] - <strong>doc</strong>: fix issues related to page scrolling (Roman Reiss)</li>
+<li>[<a href="https://github.com/nodejs/node/commit/29e25d8489" target="_blank" rel="external"><code>29e25d8489</code></a>] - <strong>doc</strong>: add steps for running addons + npm tests (Myles Borins) <a href="https://github.com/nodejs/node/pull/6231" target="_blank" rel="external">#6231</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/fcc6a347f7" target="_blank" rel="external"><code>fcc6a347f7</code></a>] - <strong>doc</strong>: get rid of sneaky hard tabs in CHANGELOG (Myles Borins) <a href="https://github.com/nodejs/node/pull/6608" target="_blank" rel="external">#6608</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/369569018e" target="_blank" rel="external"><code>369569018e</code></a>] - <strong>doc</strong>: revert backported commits (Myles Borins) <a href="https://github.com/nodejs/node/pull/6530" target="_blank" rel="external">#6530</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/4ec9ae8a1c" target="_blank" rel="external"><code>4ec9ae8a1c</code></a>] - <strong>doc</strong>: explain differences in console.assert between node and browsers (James M Snell) <a href="https://github.com/nodejs/node/pull/6169" target="_blank" rel="external">#6169</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/df5ce6fad4" target="_blank" rel="external"><code>df5ce6fad4</code></a>] - <strong>doc</strong>: native module reloading is not supported (Bryan English) <a href="https://github.com/nodejs/node/pull/6168" target="_blank" rel="external">#6168</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/30f354f72b" target="_blank" rel="external"><code>30f354f72b</code></a>] - <strong>doc</strong>: clarify fs.watch() and inodes on linux, os x (Joran Dirk Greef) <a href="https://github.com/nodejs/node/pull/6099" target="_blank" rel="external">#6099</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/29f821b73d" target="_blank" rel="external"><code>29f821b73d</code></a>] - <strong>doc</strong>: clarifies http.serverResponse implementation (Allen Hernandez) <a href="https://github.com/nodejs/node/pull/6072" target="_blank" rel="external">#6072</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/6d560094f4" target="_blank" rel="external"><code>6d560094f4</code></a>] - <strong>doc</strong>: minor argument formatting in stream.markdown (James M Snell) <a href="https://github.com/nodejs/node/pull/6016" target="_blank" rel="external">#6016</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/6a197ec617" target="_blank" rel="external"><code>6a197ec617</code></a>] - <strong>doc</strong>: fix http response event, Agent#getName (Matthew Douglass) <a href="https://github.com/nodejs/node/pull/5993" target="_blank" rel="external">#5993</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/620a261240" target="_blank" rel="external"><code>620a261240</code></a>] - <strong>http</strong>: disallow sending obviously invalid status codes (Brian White) <a href="https://github.com/nodejs/node/pull/6291" target="_blank" rel="external">#6291</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9a8b53124d" target="_blank" rel="external"><code>9a8b53124d</code></a>] - <strong>http</strong>: unref socket timer on parser execute (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/6286" target="_blank" rel="external">#6286</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/b28e44deb2" target="_blank" rel="external"><code>b28e44deb2</code></a>] - <strong>http</strong>: Corrects IPv6 address in Host header (Mihai Potra) <a href="https://github.com/nodejs/node/pull/5314" target="_blank" rel="external">#5314</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/2fac15ba94" target="_blank" rel="external"><code>2fac15ba94</code></a>] - <strong>src</strong>: fix FindFirstCharacter argument alignment (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6511" target="_blank" rel="external">#6511</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/2942cff069" target="_blank" rel="external"><code>2942cff069</code></a>] - <strong>src</strong>: add missing ‘inline’ keywords (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/6056" target="_blank" rel="external">#6056</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/e0eebf412e" target="_blank" rel="external"><code>e0eebf412e</code></a>] - <strong>src,tools</strong>: remove null sentinel from source array (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5418" target="_blank" rel="external">#5418</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/8f18414cd5" target="_blank" rel="external"><code>8f18414cd5</code></a>] - <strong>src,tools</strong>: drop nul byte from built-in source code (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5418" target="_blank" rel="external">#5418</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/d7a3ea457b" target="_blank" rel="external"><code>d7a3ea457b</code></a>] - <strong>src,tools</strong>: allow utf-8 in built-in js source code (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5418" target="_blank" rel="external">#5418</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/51c0808b55" target="_blank" rel="external"><code>51c0808b55</code></a>] - <strong>stream</strong>: Fix readableState.awaitDrain mechanism (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6023" target="_blank" rel="external">#6023</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/49a5941d30" target="_blank" rel="external"><code>49a5941d30</code></a>] - <strong>test</strong>: fix test-debug-port-cluster flakiness (Rich Trott) <a href="https://github.com/nodejs/node/pull/6769" target="_blank" rel="external">#6769</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/f8144e4c4a" target="_blank" rel="external"><code>f8144e4c4a</code></a>] - <strong>test</strong>: add logging for test-debug-port-cluster (Rich Trott) <a href="https://github.com/nodejs/node/pull/6769" target="_blank" rel="external">#6769</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/773ea20d0e" target="_blank" rel="external"><code>773ea20d0e</code></a>] - <strong>test</strong>: include component in tap output (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/6653" target="_blank" rel="external">#6653</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/333369e1ff" target="_blank" rel="external"><code>333369e1ff</code></a>] - <strong>test</strong>: increase the platform timeout for AIX (Michael Dawson) <a href="https://github.com/nodejs/node/pull/6342" target="_blank" rel="external">#6342</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/06e5fafe84" target="_blank" rel="external"><code>06e5fafe84</code></a>] - <strong>test</strong>: add tests for console.assert (Evan Lucas) <a href="https://github.com/nodejs/node/pull/6302" target="_blank" rel="external">#6302</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/f60ba54811" target="_blank" rel="external"><code>f60ba54811</code></a>] - <strong>test</strong>: add zlib close-after-error regression test (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6270" target="_blank" rel="external">#6270</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/24ac16f4be" target="_blank" rel="external"><code>24ac16f4be</code></a>] - <strong>test</strong>: fix flaky test-http-set-timeout-server (Santiago Gimeno) <a href="https://github.com/nodejs/node/pull/6248" target="_blank" rel="external">#6248</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/5002a71357" target="_blank" rel="external"><code>5002a71357</code></a>] - <strong>test</strong>: assert - fixed error messages to match the tests (surya panikkal) <a href="https://github.com/nodejs/node/pull/6241" target="_blank" rel="external">#6241</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/0f9405dd33" target="_blank" rel="external"><code>0f9405dd33</code></a>] - <strong>test</strong>: move more tests from sequential to parallel (Santiago Gimeno) <a href="https://github.com/nodejs/node/pull/6187" target="_blank" rel="external">#6187</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/37cc249218" target="_blank" rel="external"><code>37cc249218</code></a>] - <strong>test</strong>: fix test-net-settimeout flakiness (Santiago Gimeno) <a href="https://github.com/nodejs/node/pull/6166" target="_blank" rel="external">#6166</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/69dcbb642f" target="_blank" rel="external"><code>69dcbb642f</code></a>] - <strong>test</strong>: fix flaky test-child-process-fork-net (Rich Trott) <a href="https://github.com/nodejs/node/pull/6138" target="_blank" rel="external">#6138</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/a97a6a9d69" target="_blank" rel="external"><code>a97a6a9d69</code></a>] - <strong>test</strong>: fix issues for ESLint 2.7.0 (silverwind) <a href="https://github.com/nodejs/node/pull/6132" target="_blank" rel="external">#6132</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/a865975909" target="_blank" rel="external"><code>a865975909</code></a>] - <strong>test</strong>: fix flaky test-http-client-abort (Rich Trott) <a href="https://github.com/nodejs/node/pull/6124" target="_blank" rel="external">#6124</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/25d4b5b1e9" target="_blank" rel="external"><code>25d4b5b1e9</code></a>] - <strong>test</strong>: move some test from sequential to parallel (Santiago Gimeno) <a href="https://github.com/nodejs/node/pull/6087" target="_blank" rel="external">#6087</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/28040ccf49" target="_blank" rel="external"><code>28040ccf49</code></a>] - <strong>test</strong>: refactor test-file-write-stream3 (Rich Trott) <a href="https://github.com/nodejs/node/pull/6050" target="_blank" rel="external">#6050</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/3a67a05ed4" target="_blank" rel="external"><code>3a67a05ed4</code></a>] - <strong>test</strong>: enforce strict mode for test-domain-crypto (Rich Trott) <a href="https://github.com/nodejs/node/pull/6047" target="_blank" rel="external">#6047</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/0b376cb3f9" target="_blank" rel="external"><code>0b376cb3f9</code></a>] - <strong>test</strong>: fix pummel test failures (Rich Trott) <a href="https://github.com/nodejs/node/pull/6012" target="_blank" rel="external">#6012</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/7b60b8f8e9" target="_blank" rel="external"><code>7b60b8f8e9</code></a>] - <strong>test</strong>: fix flakiness of stringbytes-external (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/6705" target="_blank" rel="external">#6705</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/cc4c5187ed" target="_blank" rel="external"><code>cc4c5187ed</code></a>] - <strong>test</strong>: ensure test-npm-install uses correct node (Myles Borins) <a href="https://github.com/nodejs/node/pull/6658" target="_blank" rel="external">#6658</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/3d4d5777bc" target="_blank" rel="external"><code>3d4d5777bc</code></a>] - <strong>test</strong>: refactor http-end-throw-socket-handling (Santiago Gimeno) <a href="https://github.com/nodejs/node/pull/5676" target="_blank" rel="external">#5676</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/c76f214b90" target="_blank" rel="external"><code>c76f214b90</code></a>] - <strong>test,tools</strong>: enable linting for undefined vars (Rich Trott) <a href="https://github.com/nodejs/node/pull/6255" target="_blank" rel="external">#6255</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/9222689215" target="_blank" rel="external"><code>9222689215</code></a>] - <strong>test,vm</strong>: enable strict mode for vm tests (Rich Trott) <a href="https://github.com/nodejs/node/pull/6209" target="_blank" rel="external">#6209</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/b8c9d6b64e" target="_blank" rel="external"><code>b8c9d6b64e</code></a>] - <strong>tools</strong>: enable linting for v8_prof_processor.js (Rich Trott) <a href="https://github.com/nodejs/node/pull/6262" target="_blank" rel="external">#6262</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/8fa202947d" target="_blank" rel="external"><code>8fa202947d</code></a>] - <strong>tools</strong>: lint rule for assert.fail() (Rich Trott) <a href="https://github.com/nodejs/node/pull/6261" target="_blank" rel="external">#6261</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/1aa6c5b7a9" target="_blank" rel="external"><code>1aa6c5b7a9</code></a>] - <strong>tools</strong>: update ESLint to 2.7.0 (silverwind) <a href="https://github.com/nodejs/node/pull/6132" target="_blank" rel="external">#6132</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/68c7de4372" target="_blank" rel="external"><code>68c7de4372</code></a>] - <strong>tools</strong>: remove simplejson dependency (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/6101" target="_blank" rel="external">#6101</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/4fb4ba98a8" target="_blank" rel="external"><code>4fb4ba98a8</code></a>] - <strong>tools</strong>: remove disabling of already-disabled rule (Rich Trott) <a href="https://github.com/nodejs/node/pull/6013" target="_blank" rel="external">#6013</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/4e6ea7f01a" target="_blank" rel="external"><code>4e6ea7f01a</code></a>] - <strong>tools</strong>: remove obsolete npm test-legacy command (Kat Marchán)</li>
+<li>[<a href="https://github.com/nodejs/node/commit/4c73ab4302" target="_blank" rel="external"><code>4c73ab4302</code></a>] - <strong>tools,doc</strong>: fix json for grouped optional params (firedfox) <a href="https://github.com/nodejs/node/pull/5977" target="_blank" rel="external">#5977</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/c893cd33d1" target="_blank" rel="external"><code>c893cd33d1</code></a>] - <strong>tools,doc</strong>: parse types in braces everywhere (Alexander Makarenko) <a href="https://github.com/nodejs/node/pull/5329" target="_blank" rel="external">#5329</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/48684af55f" target="_blank" rel="external"><code>48684af55f</code></a>] - <strong>zlib</strong>: fix use after null when calling .close (James Lal) <a href="https://github.com/nodejs/node/pull/5982" target="_blank" rel="external">#5982</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-x86.msi</a><br>
+Windows 64-bit Installer: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-x64.msi</a><br>
+Windows 32-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/win-x86/node.exe</a><br>
+Windows 64-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/win-x64/node.exe</a><br>
+Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5.pkg" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5.pkg</a><br>
+Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-darwin-x64.tar.gz</a><br>
+Linux 32-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x86.tar.xz</a><br>
+Linux 64-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-x64.tar.xz</a><br>
+Linux PPC LE 64-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-ppc64le.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-ppc64le.tar.xz</a><br>
+SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-sunos-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-sunos-x86.tar.xz</a><br>
+SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-sunos-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-sunos-x64.tar.xz</a><br>
+ARMv6 32-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-armv6l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-armv6l.tar.xz</a><br>
+ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-armv7l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-armv7l.tar.xz</a><br>
+ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-arm64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5-linux-arm64.tar.xz</a><br>
+Source Code: <a href="https://nodejs.org/dist/v4.4.5/node-v4.4.5.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/node-v4.4.5.tar.gz</a><br>
+Other release files: <a href="https://nodejs.org/dist/v4.4.5/" target="_blank" rel="external">https://nodejs.org/dist/v4.4.5/</a><br>
+Documentation: <a href="https://nodejs.org/docs/v4.4.5/api/" target="_blank" rel="external">https://nodejs.org/docs/v4.4.5/api/</a></p>
+<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA1</div><div class="line"></div><div class="line">1e729f9836e7b543724ee0b2ac902b4dff4a6f7d91031d20314825b61e86127f  node-v4.4.5-darwin-x64.tar.gz</div><div class="line">ab00f874cf75d7504cc88bd99cf5f661aa0aa0d33eeecbfd5f8ef69ebc3a3e7f  node-v4.4.5-darwin-x64.tar.xz</div><div class="line">afd90e4b0ae408301facce1d4837c5f718a686d144bf624a53c55988a473601c  node-v4.4.5-headers.tar.gz</div><div class="line">d108e08fd83e5cf4d3a44cc799677ff6276450b5f601181733160358f230a060  node-v4.4.5-headers.tar.xz</div><div class="line">46c89b2cdb3d7f3e87ef1ed8e4d9ee07dcc603e42f3f86f831a6fd7c34be9404  node-v4.4.5-linux-arm64.tar.gz</div><div class="line">83c6a16989489908ea6be93f21a37316b4513d581875c3653ebeadd1c67d2e70  node-v4.4.5-linux-arm64.tar.xz</div><div class="line">8f6a09d7326c4a2570275519ae51bc2a9ba6b2809b5cc02658922368f0dc49b0  node-v4.4.5-linux-armv6l.tar.gz</div><div class="line">ae6a05b4dae19d31d2dd7de07c60ab4672d7aafacd0796974269432e451dd59b  node-v4.4.5-linux-armv6l.tar.xz</div><div class="line">2ce99cbfaef7a8a0e8119a3e1303015f5bed6e745c90a95b3dcd6658ad44035b  node-v4.4.5-linux-armv7l.tar.gz</div><div class="line">07f6610d91e4f03a28a97f1fd54a0b0547545fd5501657e30272a1a97604b709  node-v4.4.5-linux-armv7l.tar.xz</div><div class="line">a2f17bee90c650b30c90c3cd96118e7825eb1b1011c4c7584e60d1b36d9b6983  node-v4.4.5-linux-ppc64le.tar.gz</div><div class="line">d6d6331c1255307dd6cc9cfdba018afa6b35528cd8a293de2d89887b4d378119  node-v4.4.5-linux-ppc64le.tar.xz</div><div class="line">577688263d15b2d7f8004f99151c5d47e27b319510d501792cfd74f7c834caa4  node-v4.4.5-linux-ppc64.tar.gz</div><div class="line">0983e072d8101e7f274dc1403570636a5e12c0f56cfe3d891e379952dde0e619  node-v4.4.5-linux-ppc64.tar.xz</div><div class="line">15d57c4a3696df8d5ef1bba452d38e5d27fc3c963760eeb218533c48381e89d5  node-v4.4.5-linux-x64.tar.gz</div><div class="line">bd6505d8a350cd83907374ea98730b0ba99b97ec45cee418d453a0154384805a  node-v4.4.5-linux-x64.tar.xz</div><div class="line">447b17542981c20f6792a20c31eb946c786e2cbd3bd1459f85c2cd0eb400e009  node-v4.4.5-linux-x86.tar.gz</div><div class="line">354afb7fac8cb8dc3b926a4adb0901dd6ac42cb605f988f05f60f0bb8553a2c4  node-v4.4.5-linux-x86.tar.xz</div><div class="line">fc5688c7f649ea06ce21246c7aa795aa9100c9e90e4c3fe182bb8cc67435375a  node-v4.4.5.pkg</div><div class="line">75ebf346d29d441fbb32b177568f5727c357300406ea90b29c49a9e3bd89c506  node-v4.4.5-sunos-x64.tar.gz</div><div class="line">ebb5bc1fa1d165e5881dac470e260f1efb4303e122854c60633c9e097f2a977f  node-v4.4.5-sunos-x64.tar.xz</div><div class="line">181c092d49e2efc3ecd82806c9aa088ed1eda908671a5913cfa4704855ae288b  node-v4.4.5-sunos-x86.tar.gz</div><div class="line">f2ea7593bd245628a17477c61b30b6c145b2686d97f38052ac2d3cc18a87c0e5  node-v4.4.5-sunos-x86.tar.xz</div><div class="line">ea9c96ae4768feee4f18a26b819b9b4f6e49105ea0ee8c5c9d188dc8d49d4b77  node-v4.4.5.tar.gz</div><div class="line">eaec2cd3c26a1cc101b829d32fef392268285187d1d9eda3718db288e7be28c6  node-v4.4.5.tar.xz</div><div class="line">7b2409605c871a40d60c187bd24f6f6ddf10590df060b7d905ef46b3b3aa7f81  node-v4.4.5-x64.msi</div><div class="line">fa11aadbf769d2a307ba49fa8a7f6a52233e63cb44541207f31ceb30ecdd3bfa  node-v4.4.5-x86.msi</div><div class="line">0f9a6c4e340c45e0b32524b16f925099a79337281dd7fd982706e715634293da  win-x64/node.exe</div><div class="line">ec30b394f071612fa06781a0ffa757b6296287bfb4234054438c671af8fa99bf  win-x64/node.lib</div><div class="line">d423a134f376180939d55374aece4af1a66eb420e19f9fba2d882b000eeb01d8  win-x86/node.exe</div><div class="line">851793e06c47e87393fad249253d720f67111e8c34d9bf73e36fdbedecda9dc1  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line"></div><div class="line">iQEcBAEBAgAGBQJXRKDLAAoJEJM7AfQLXKlGBK8H/2Ohq5o2B6TBV4Z/tAn8N8Hs</div><div class="line">fbN/nGqLnKnnRPt5iXTeLQmcWx0bKNqwWq8PLo3EfaNiIC45GsS7/Jukdl6BhCvI</div><div class="line">BJ1DxYNnVrxyRm+IkddDwJAHMp25B8d8kSOgbO6iuYFc240ek+dWFhw60Kk68bs+</div><div class="line">elmOGCEFqempCCIg6rzliUSOBUOTu1c7axSy3Z6xzx0Ic9BRmsIwJzmL2RYZBEzn</div><div class="line">H1jbf4MoHpZvF+gdNStlsu9KE+6u4Bhy9DzJVkgcxoXU+Wikhe8x5n3I2blULSsl</div><div class="line">efqyCqM1GbKBZ2/wSj7KWEK1JhAJvPQnLuyERvUVYzc6nE6QGBpImen39tLjJxE=</div><div class="line">=DuAN</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/24/release-v4.4.5/" data-id="cis1avso40083n9m60tf9ztfe" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-release-v6.2.0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -300,7 +470,7 @@ Documentation: <a href="https://nodejs.org/docs/v6.2.0/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/17/release-v6.2.0/" data-id="cirzbcmjy0084bum6608k9fju" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/17/release-v6.2.0/" data-id="cis1avso80087n9m66yzymf2x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +575,110 @@ Documentation: <a href="https://nodejs.org/docs/v0.12.14/api/" target="_blank" r
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/06/release-v0.12.14/" data-id="cirzbcmjv007ybum66l9ba2is" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/06/release-v0.12.14/" data-id="cis1avsnv007zn9m69lt5tf7w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-release-v0.10.45" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/articles/2016/05/06/release-v0.10.45/" class="article-date">
+    <time datetime="2016-05-05T15:00:00.000Z" itemprop="datePublished">2016-05-06</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/articles/2016/05/06/release-v0.10.45/">Node v0.10.45(유지보수 버전)</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>Rod Vagg</strong></li>
+    <li>
+      원문: <strong><a href="https://nodejs.org/en/blog/release/v0.10.45/" taret="_blank">
+        Node v0.10.45 (Maintenance)
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+### Notable changes:
+
+* **npm**: Correct erroneous version number in v2.15.1 code (Forrest L Norvell) https://github.com/nodejs/node/pull/5987
+* **openssl**: Upgrade to v1.0.1t, addressing security vulnerabilities (Shigeki Ohtsu) https://github.com/nodejs/node/pull/6553
+  - Fixes CVE-2016-2107 "Padding oracle in AES-NI CBC MAC check"
+  - See https://nodejs.org/en/blog/vulnerability/openssl-may-2016/ for full details
+-->
+<h3 id="주요-변경사항"><a href="#주요-변경사항" class="headerlink" title="주요 변경사항"></a>주요 변경사항</h3><ul>
+<li><strong>npm</strong>: v2.15.1 코드에서 잘못된 버전 번호를 수정했습니다. (Forrest L Norvell) <a href="https://github.com/nodejs/node/pull/5987" target="_blank" rel="external">https://github.com/nodejs/node/pull/5987</a></li>
+<li><strong>openssl</strong>: 보안 취약점을 막기 위해 v1.0.1t로 업그레이드했습니다. (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">https://github.com/nodejs/node/pull/6553</a><ul>
+<li>CVE-2016-2107 “AES-NI CBC MAC 검사의 패딩 오라클”을 고쳤습니다.</li>
+<li>전체 내용은 <a href="http://nodejs.github.io/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/">http://nodejs.github.io/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/</a>를 참고하세요.</li>
+</ul>
+</li>
+</ul>
+<p>Commits:</p>
+<ul>
+<li>[<a href="https://github.com/nodejs/node/commit/3cff81c7d6" target="_blank" rel="external"><code>3cff81c7d6</code></a>] - <strong>deps</strong>: completely upgrade npm in LTS to 2.15.1 (Forrest L Norvell) <a href="https://github.com/nodejs/node/pull/5987" target="_blank" rel="external">#5987</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/7c22f19009" target="_blank" rel="external"><code>7c22f19009</code></a>] - <strong>deps</strong>: add -no_rand_screen to openssl s_client (Shigeki Ohtsu) <a href="https://github.com/joyent/node/pull/25368" target="_blank" rel="external">joyent/node#25368</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/5d78366937" target="_blank" rel="external"><code>5d78366937</code></a>] - <strong>deps</strong>: update openssl asm files (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">#6553</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/2bc2427cb7" target="_blank" rel="external"><code>2bc2427cb7</code></a>] - <strong>deps</strong>: fix openssl assembly error on ia32 win32 (Fedor Indutny) <a href="https://github.com/joyent/node/pull/25654" target="_blank" rel="external">joyent/node#25654</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/8df4b0914c" target="_blank" rel="external"><code>8df4b0914c</code></a>] - <strong>deps</strong>: separate sha256/sha512-x86_64.pl for openssl (Shigeki Ohtsu) <a href="https://github.com/joyent/node/pull/25654" target="_blank" rel="external">joyent/node#25654</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/11eefefb17" target="_blank" rel="external"><code>11eefefb17</code></a>] - <strong>deps</strong>: copy all openssl header files to include dir (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">#6553</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/61ccc27b54" target="_blank" rel="external"><code>61ccc27b54</code></a>] - <strong>deps</strong>: upgrade openssl sources to 1.0.1t (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">#6553</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/aa02438274" target="_blank" rel="external"><code>aa02438274</code></a>] - <strong>openssl</strong>: fix keypress requirement in apps on win32 (Shigeki Ohtsu) [joyent/node#25654](<a href="https://github.com/joyent/node/" target="_blank" rel="external">https://github.com/joyent/node/</a></li>
+</ul>
+<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-x86.msi</a><br>
+Windows 64-bit Installer: <a href="https://nodejs.org/dist/v0.10.45/x64/node-v0.10.45-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/x64/node-v0.10.45-x64.msi</a><br>
+Windows 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node.exe</a><br>
+Windows 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/x64/node.exe</a><br>
+Mac OS X Universal Installer: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45.pkg" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45.pkg</a><br>
+Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x64.tar.gz</a><br>
+Mac OS X 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x86.tar.gz</a><br>
+Linux 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x86.tar.gz</a><br>
+Linux 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x64.tar.gz</a><br>
+SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x86.tar.gz</a><br>
+SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x64.tar.gz</a><br>
+Source Code: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45.tar.gz</a><br>
+Other release files: <a href="https://nodejs.org/dist/v0.10.45" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45</a>/<br>
+Documentation: <a href="https://nodejs.org/docs/v0.10.45/api/" target="_blank" rel="external">https://nodejs.org/docs/v0.10.45/api/</a></p>
+<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA1</div><div class="line"></div><div class="line">5cfddcfcdb0e5a09c54ba1c52a935c43d182b54e013fc0d621d44a710222dc00  node.exe</div><div class="line">743c46a6145b25b088ff5a18e3403fa02c4ce9c033b284c762ccd1329de85c37  node.exp</div><div class="line">3c7b5f96e272d71b1eaca89a111d19f0e682193306c71687f63a695f40abff07  node.lib</div><div class="line">fc15a8a784db0f23617544f663130af8e9d1155eb2ad706fe8387de1d7b62719  node.pdb</div><div class="line">d1ab69f49365a0dc6b10a363965452f37f3589adee19974940cbd2b991965e70  node-v0.10.45-darwin-x64.tar.gz</div><div class="line">f8acb114faea28a6d58b35025e3fd37b5bb9e8fa9eac4a3796d225c16ba541de  node-v0.10.45-darwin-x64.tar.xz</div><div class="line">3db0e42736fbdedc8a985269595251d9c4e4860594ce1eee4a692f8621ee5918  node-v0.10.45-darwin-x86.tar.gz</div><div class="line">9544df4ab211e81601a02b681bf8fdec834efde4174ecf0a3f69fec9eab012eb  node-v0.10.45-darwin-x86.tar.xz</div><div class="line">94028ba548c1faabb6cb92143392784d3ad07829c16852f5404933eed7d73da7  node-v0.10.45-headers.tar.gz</div><div class="line">31d4d84a543bd60ca6c738e1ef243b2b04f87e41566349b8242933812107bcca  node-v0.10.45-headers.tar.xz</div><div class="line">54d095d12b6227460f08ec81e50f9db930ec51fa05af1b7722fa85bd2cabb5d7  node-v0.10.45-linux-x64.tar.gz</div><div class="line">2fd840bf79480863904860c63f615615077dbc88bd44669eb93c9bf216b4eaf0  node-v0.10.45-linux-x64.tar.xz</div><div class="line">0d21b8e9d4213021cd954908098d07407052da1b7a97d6c585f89752c49505b4  node-v0.10.45-linux-x86.tar.gz</div><div class="line">2e63e46a818777c3ba57a10406e6e1ab6ceee3b4b861eb195574659e5302ddae  node-v0.10.45-linux-x86.tar.xz</div><div class="line">39a4cea90fcd2564db4969a0dd6fe0d57c5593d1758796b8d41dfdda6597baca  node-v0.10.45.pkg</div><div class="line">019a1c40daff7b05efb2bd27c586d9ba9c5fe5048550b74e67e171d1495d4e30  node-v0.10.45-sunos-x64.tar.gz</div><div class="line">69197c4adf23ff4a3c6c8fa5c35b9ab4d9906015624ef7a8a37d6573535d6116  node-v0.10.45-sunos-x64.tar.xz</div><div class="line">39a0790a7e533dd77f473c009c11458a5205cfc438777139a5e9658be63dfee2  node-v0.10.45-sunos-x86.tar.gz</div><div class="line">b764e0ad9a80a4a02abcfd33565aaf49d0345c43d8ce7e00b35e8a82cfa1102c  node-v0.10.45-sunos-x86.tar.xz</div><div class="line">d184bb74758d4ac69826823934cda1d46e81402fc16ebdb2ecacdc1a8fe0b568  node-v0.10.45.tar.gz</div><div class="line">a71070ea7aece9c94450b45102f2d1be42f0add168dd9c9701e9032d363bd4fa  node-v0.10.45.tar.xz</div><div class="line">4c3e6c53fb65d789c522e0c4fe03341faae66707b436c389c5d5fd9298baa369  node-v0.10.45-x86.msi</div><div class="line">c17e3353d44951611f8929afcedcd3fc9237fe7672037efbbbaab7b1a2d2f007  openssl-cli.exe</div><div class="line">1897ea9e230f334a198f71526632a9c1ee16647fa94e6868cdd15ad9e6aa254f  openssl-cli.pdb</div><div class="line">949c8455152d1f217708cfcbbfc1be0c54f83b4e71d5cfa142f32d758587bbf6  x64/node.exe</div><div class="line">e62c0a6e0d2dd3cfbe5e6d99c71109b79ba72f328079a7d89c6994d71348d029  x64/node.exp</div><div class="line">ec4811d93e8508826d98de116bdf0dc858dda3c179c9333d6b5566e1e606c9e4  x64/node.lib</div><div class="line">303a39cdc16070aca53a6ab5e8064b6a57f2ac6813dfcd58d3770129d0900515  x64/node.pdb</div><div class="line">2f1e8d851bcaf5f1bc3e0498b241d0db53281223333b9a891b64818ab51a2044  x64/node-v0.10.45-x64.msi</div><div class="line">264166624c9bcc38fbed31da56ed86e8ba16238b81700f86f6f35d89cb039f21  x64/openssl-cli.exe</div><div class="line">0628dee6ddc474eca219a5d5069de1a6f2f3abcb3cd0eee06597e183672e6b5c  x64/openssl-cli.pdb</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Version: GnuPG v1</div><div class="line"></div><div class="line">iQEcBAEBAgAGBQJXLJomAAoJEMJzeS99g1Rdty4IANVJ53QRd5tUepWjxjIwZ6e7</div><div class="line">2r2oYSO6uihZkyddV+447KDzxYsGkdg0z4DS3BD7ym78hl4EEMlE/x8wPWBrZKAr</div><div class="line">yACZu2U/3ivXYyEOvdV0nlLeUNGMeugTtVxhxSMbf7fK22zeLvLCC9Q4735zhG37</div><div class="line">kAF7mw6Sszr+zCMV5eqh5MfYIwaCduck4TfG5ibc8fAQ4A4nUTF6jC0JRbcPXKku</div><div class="line">7oT7ol7u8w97Im3ZynvwZZ2yQPAqSxssKjWuLnSmt+Wng7bUregjK04QNCaa8HEV</div><div class="line">uPY0qIVSAS2rr1R12dOgqKhgO90gKoUa1qtWGivlvO2HH3JILWMjopb+mu0ZkIc=</div><div class="line">=HZGA</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/06/release-v0.10.45/" data-id="cis1avsnt007xn9m6dyidzarg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -511,7 +784,7 @@ Documentation: <a href="https://nodejs.org/docs/v4.4.4/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/06/release-v4.4.4/" data-id="cirzbcmjw0080bum61zqf7ow9" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/06/release-v4.4.4/" data-id="cis1avsnw0081n9m6sdw3kgch" class="article-share-link">Share</a>
       
       
     </footer>
@@ -521,11 +794,11 @@ Documentation: <a href="https://nodejs.org/docs/v4.4.4/api/" target="_blank" rel
 
 
   
-    <article id="post-release-v0.10.45" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-release-v5.11.1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-  <a href="/nodejs-ko/articles/2016/05/06/release-v0.10.45/" class="article-date">
-    <time datetime="2016-05-05T15:00:00.000Z" itemprop="datePublished">2016-05-06</time>
+  <a href="/nodejs-ko/articles/2016/05/05/release-v5.11.1/" class="article-date">
+    <time datetime="2016-05-04T15:00:00.000Z" itemprop="datePublished">2016-05-05</time>
   </a>
 
 
@@ -542,14 +815,14 @@ Documentation: <a href="https://nodejs.org/docs/v4.4.4/api/" target="_blank" rel
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/05/06/release-v0.10.45/">Node v0.10.45(유지보수 버전)</a>
+      <a class="article-title" href="/nodejs-ko/articles/2016/05/05/release-v5.11.1/">Node v5.11.1(안정 버전)</a>
     </h1>
   
   <ul>
-    <li>작성자: <strong>Rod Vagg</strong></li>
+    <li>작성자: <strong>Evan Lucas</strong></li>
     <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/release/v0.10.45/" taret="_blank">
-        Node v0.10.45 (Maintenance)
+      원문: <strong><a href="https://nodejs.org/en/blog/release/v5.11.1/" taret="_blank">
+        Node v5.11.1 (Stable)
       </a></strong>
     </li>
     <li>
@@ -568,53 +841,55 @@ Documentation: <a href="https://nodejs.org/docs/v4.4.4/api/" target="_blank" rel
     <div class="article-entry" itemprop="articleBody">
       
         <!--
-### Notable changes:
+Please see our [blog post](https://nodejs.org/en/blog/vulnerability/openssl-may-2016) for more info on the security contents of this release.
+-->
+<p>이번 릴리스의 보안에 관한 자세한 내용은 <a href="http://nodejs.github.io/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/">블로그 글</a>을 참고하세요.</p>
+<!--
+### Notable changes
 
-* **npm**: Correct erroneous version number in v2.15.1 code (Forrest L Norvell) https://github.com/nodejs/node/pull/5987
-* **openssl**: Upgrade to v1.0.1t, addressing security vulnerabilities (Shigeki Ohtsu) https://github.com/nodejs/node/pull/6553
-  - Fixes CVE-2016-2107 "Padding oracle in AES-NI CBC MAC check"
-  - See https://nodejs.org/en/blog/vulnerability/openssl-may-2016/ for full details
+* **buffer**: safeguard against accidental kNoZeroFill (Сковорода Никита Андреевич) [nodejs/node-private#35](https://github.com/nodejs/node-private/pull/35)
+* **deps**: upgrade openssl sources to 1.0.2h (Shigeki Ohtsu) [#6552](https://github.com/nodejs/node/pull/6552)
 -->
 <h3 id="주요-변경사항"><a href="#주요-변경사항" class="headerlink" title="주요 변경사항"></a>주요 변경사항</h3><ul>
-<li><strong>npm</strong>: v2.15.1 코드에서 잘못된 버전 번호를 수정했습니다. (Forrest L Norvell) <a href="https://github.com/nodejs/node/pull/5987" target="_blank" rel="external">https://github.com/nodejs/node/pull/5987</a></li>
-<li><strong>openssl</strong>: 보안 취약점을 막기 위해 v1.0.1t로 업그레이드했습니다. (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">https://github.com/nodejs/node/pull/6553</a><ul>
-<li>CVE-2016-2107 “AES-NI CBC MAC 검사의 패딩 오라클”을 고쳤습니다.</li>
-<li>전체 내용은 <a href="http://nodejs.github.io/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/">http://nodejs.github.io/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/</a>를 참고하세요.</li>
+<li><strong>buffer</strong>: 의도치 않은 kNoZeroFill을 보호 (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/node-private/pull/35" target="_blank" rel="external">nodejs/node-private#35</a></li>
+<li><strong>deps</strong>: openssl 소스를 1.0.2h로 업그레이드 (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
 </ul>
-</li>
+<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
+<li>[<a href="https://github.com/nodejs/node/commit/35f06df782" target="_blank" rel="external"><code>35f06df782</code></a>] - <strong>buffer</strong>: safeguard against accidental kNoZeroFill (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/node-private/pull/35" target="_blank" rel="external">nodejs/node-private#35</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/99920480ae" target="_blank" rel="external"><code>99920480ae</code></a>] - <strong>buffer</strong>: fix a typo in Buffer example code (Mr C0B) <a href="https://github.com/nodejs/node/pull/6361" target="_blank" rel="external">#6361</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/d9f7b025d4" target="_blank" rel="external"><code>d9f7b025d4</code></a>] - <strong>deps</strong>: update openssl asm and asm_obsolete files (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/f316fd20a0" target="_blank" rel="external"><code>f316fd20a0</code></a>] - <strong>deps</strong>: add -no_rand_screen to openssl s_client (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/1836" target="_blank" rel="external">#1836</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/263cc34657" target="_blank" rel="external"><code>263cc34657</code></a>] - <strong>deps</strong>: fix asm build error of openssl in x86_win32 (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/1389" target="_blank" rel="external">#1389</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/889d1151de" target="_blank" rel="external"><code>889d1151de</code></a>] - <strong>deps</strong>: fix openssl assembly error on ia32 win32 (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/1389" target="_blank" rel="external">#1389</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/ba49b636b8" target="_blank" rel="external"><code>ba49b636b8</code></a>] - <strong>deps</strong>: copy all openssl header files to include dir (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/cdad83a789" target="_blank" rel="external"><code>cdad83a789</code></a>] - <strong>deps</strong>: upgrade openssl sources to 1.0.2h (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/c1ddefdd79" target="_blank" rel="external"><code>c1ddefdd79</code></a>] - <strong>openssl</strong>: fix keypress requirement in apps on win32 (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/1389" target="_blank" rel="external">#1389</a></li>
+<li>[<a href="https://github.com/nodejs/node/commit/bec5d50f1e" target="_blank" rel="external"><code>bec5d50f1e</code></a>] - <strong>test</strong>: fix alpn tests for openssl1.0.2h (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
 </ul>
-<p>Commits:</p>
-<ul>
-<li>[<a href="https://github.com/nodejs/node/commit/3cff81c7d6" target="_blank" rel="external"><code>3cff81c7d6</code></a>] - <strong>deps</strong>: completely upgrade npm in LTS to 2.15.1 (Forrest L Norvell) <a href="https://github.com/nodejs/node/pull/5987" target="_blank" rel="external">#5987</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/7c22f19009" target="_blank" rel="external"><code>7c22f19009</code></a>] - <strong>deps</strong>: add -no_rand_screen to openssl s_client (Shigeki Ohtsu) <a href="https://github.com/joyent/node/pull/25368" target="_blank" rel="external">joyent/node#25368</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/5d78366937" target="_blank" rel="external"><code>5d78366937</code></a>] - <strong>deps</strong>: update openssl asm files (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">#6553</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2bc2427cb7" target="_blank" rel="external"><code>2bc2427cb7</code></a>] - <strong>deps</strong>: fix openssl assembly error on ia32 win32 (Fedor Indutny) <a href="https://github.com/joyent/node/pull/25654" target="_blank" rel="external">joyent/node#25654</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/8df4b0914c" target="_blank" rel="external"><code>8df4b0914c</code></a>] - <strong>deps</strong>: separate sha256/sha512-x86_64.pl for openssl (Shigeki Ohtsu) <a href="https://github.com/joyent/node/pull/25654" target="_blank" rel="external">joyent/node#25654</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/11eefefb17" target="_blank" rel="external"><code>11eefefb17</code></a>] - <strong>deps</strong>: copy all openssl header files to include dir (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">#6553</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/61ccc27b54" target="_blank" rel="external"><code>61ccc27b54</code></a>] - <strong>deps</strong>: upgrade openssl sources to 1.0.1t (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6553" target="_blank" rel="external">#6553</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/aa02438274" target="_blank" rel="external"><code>aa02438274</code></a>] - <strong>openssl</strong>: fix keypress requirement in apps on win32 (Shigeki Ohtsu) [joyent/node#25654](<a href="https://github.com/joyent/node/" target="_blank" rel="external">https://github.com/joyent/node/</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v0.10.45/x64/node-v0.10.45-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/x64/node-v0.10.45-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/x64/node.exe</a><br>
-Mac OS X Universal Installer: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45.pkg" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x64.tar.gz</a><br>
-Mac OS X 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-darwin-x86.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x86.tar.gz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-linux-x64.tar.gz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x86.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x86.tar.gz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45-sunos-x64.tar.gz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v0.10.45/node-v0.10.45.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45/node-v0.10.45.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v0.10.45" target="_blank" rel="external">https://nodejs.org/dist/v0.10.45</a>/<br>
-Documentation: <a href="https://nodejs.org/docs/v0.10.45/api/" target="_blank" rel="external">https://nodejs.org/docs/v0.10.45/api/</a></p>
+<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-x86.msi</a><br>
+Windows 64-bit Installer: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-x64.msi</a><br>
+Windows 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/win-x86/node.exe</a><br>
+Windows 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/win-x64/node.exe</a><br>
+Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1.pkg" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1.pkg</a><br>
+Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-darwin-x64.tar.gz</a><br>
+Linux 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x86.tar.xz</a><br>
+Linux 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x64.tar.xz</a><br>
+Linux PPC LE 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-ppc64le.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-ppc64le.tar.xz</a><br>
+SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x86.tar.xz</a><br>
+SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x64.tar.xz</a><br>
+ARMv6 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv6l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv6l.tar.xz</a><br>
+ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv7l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv7l.tar.xz</a><br>
+ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-arm64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-arm64.tar.xz</a><br>
+Source Code: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1.tar.gz</a><br>
+Other release files: <a href="https://nodejs.org/dist/v5.11.1" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1</a>/<br>
+Documentation: <a href="https://nodejs.org/docs/v5.11.1/api/" target="_blank" rel="external">https://nodejs.org/docs/v5.11.1/api/</a></p>
 <p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA1</div><div class="line"></div><div class="line">5cfddcfcdb0e5a09c54ba1c52a935c43d182b54e013fc0d621d44a710222dc00  node.exe</div><div class="line">743c46a6145b25b088ff5a18e3403fa02c4ce9c033b284c762ccd1329de85c37  node.exp</div><div class="line">3c7b5f96e272d71b1eaca89a111d19f0e682193306c71687f63a695f40abff07  node.lib</div><div class="line">fc15a8a784db0f23617544f663130af8e9d1155eb2ad706fe8387de1d7b62719  node.pdb</div><div class="line">d1ab69f49365a0dc6b10a363965452f37f3589adee19974940cbd2b991965e70  node-v0.10.45-darwin-x64.tar.gz</div><div class="line">f8acb114faea28a6d58b35025e3fd37b5bb9e8fa9eac4a3796d225c16ba541de  node-v0.10.45-darwin-x64.tar.xz</div><div class="line">3db0e42736fbdedc8a985269595251d9c4e4860594ce1eee4a692f8621ee5918  node-v0.10.45-darwin-x86.tar.gz</div><div class="line">9544df4ab211e81601a02b681bf8fdec834efde4174ecf0a3f69fec9eab012eb  node-v0.10.45-darwin-x86.tar.xz</div><div class="line">94028ba548c1faabb6cb92143392784d3ad07829c16852f5404933eed7d73da7  node-v0.10.45-headers.tar.gz</div><div class="line">31d4d84a543bd60ca6c738e1ef243b2b04f87e41566349b8242933812107bcca  node-v0.10.45-headers.tar.xz</div><div class="line">54d095d12b6227460f08ec81e50f9db930ec51fa05af1b7722fa85bd2cabb5d7  node-v0.10.45-linux-x64.tar.gz</div><div class="line">2fd840bf79480863904860c63f615615077dbc88bd44669eb93c9bf216b4eaf0  node-v0.10.45-linux-x64.tar.xz</div><div class="line">0d21b8e9d4213021cd954908098d07407052da1b7a97d6c585f89752c49505b4  node-v0.10.45-linux-x86.tar.gz</div><div class="line">2e63e46a818777c3ba57a10406e6e1ab6ceee3b4b861eb195574659e5302ddae  node-v0.10.45-linux-x86.tar.xz</div><div class="line">39a4cea90fcd2564db4969a0dd6fe0d57c5593d1758796b8d41dfdda6597baca  node-v0.10.45.pkg</div><div class="line">019a1c40daff7b05efb2bd27c586d9ba9c5fe5048550b74e67e171d1495d4e30  node-v0.10.45-sunos-x64.tar.gz</div><div class="line">69197c4adf23ff4a3c6c8fa5c35b9ab4d9906015624ef7a8a37d6573535d6116  node-v0.10.45-sunos-x64.tar.xz</div><div class="line">39a0790a7e533dd77f473c009c11458a5205cfc438777139a5e9658be63dfee2  node-v0.10.45-sunos-x86.tar.gz</div><div class="line">b764e0ad9a80a4a02abcfd33565aaf49d0345c43d8ce7e00b35e8a82cfa1102c  node-v0.10.45-sunos-x86.tar.xz</div><div class="line">d184bb74758d4ac69826823934cda1d46e81402fc16ebdb2ecacdc1a8fe0b568  node-v0.10.45.tar.gz</div><div class="line">a71070ea7aece9c94450b45102f2d1be42f0add168dd9c9701e9032d363bd4fa  node-v0.10.45.tar.xz</div><div class="line">4c3e6c53fb65d789c522e0c4fe03341faae66707b436c389c5d5fd9298baa369  node-v0.10.45-x86.msi</div><div class="line">c17e3353d44951611f8929afcedcd3fc9237fe7672037efbbbaab7b1a2d2f007  openssl-cli.exe</div><div class="line">1897ea9e230f334a198f71526632a9c1ee16647fa94e6868cdd15ad9e6aa254f  openssl-cli.pdb</div><div class="line">949c8455152d1f217708cfcbbfc1be0c54f83b4e71d5cfa142f32d758587bbf6  x64/node.exe</div><div class="line">e62c0a6e0d2dd3cfbe5e6d99c71109b79ba72f328079a7d89c6994d71348d029  x64/node.exp</div><div class="line">ec4811d93e8508826d98de116bdf0dc858dda3c179c9333d6b5566e1e606c9e4  x64/node.lib</div><div class="line">303a39cdc16070aca53a6ab5e8064b6a57f2ac6813dfcd58d3770129d0900515  x64/node.pdb</div><div class="line">2f1e8d851bcaf5f1bc3e0498b241d0db53281223333b9a891b64818ab51a2044  x64/node-v0.10.45-x64.msi</div><div class="line">264166624c9bcc38fbed31da56ed86e8ba16238b81700f86f6f35d89cb039f21  x64/openssl-cli.exe</div><div class="line">0628dee6ddc474eca219a5d5069de1a6f2f3abcb3cd0eee06597e183672e6b5c  x64/openssl-cli.pdb</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Version: GnuPG v1</div><div class="line"></div><div class="line">iQEcBAEBAgAGBQJXLJomAAoJEMJzeS99g1Rdty4IANVJ53QRd5tUepWjxjIwZ6e7</div><div class="line">2r2oYSO6uihZkyddV+447KDzxYsGkdg0z4DS3BD7ym78hl4EEMlE/x8wPWBrZKAr</div><div class="line">yACZu2U/3ivXYyEOvdV0nlLeUNGMeugTtVxhxSMbf7fK22zeLvLCC9Q4735zhG37</div><div class="line">kAF7mw6Sszr+zCMV5eqh5MfYIwaCduck4TfG5ibc8fAQ4A4nUTF6jC0JRbcPXKku</div><div class="line">7oT7ol7u8w97Im3ZynvwZZ2yQPAqSxssKjWuLnSmt+Wng7bUregjK04QNCaa8HEV</div><div class="line">uPY0qIVSAS2rr1R12dOgqKhgO90gKoUa1qtWGivlvO2HH3JILWMjopb+mu0ZkIc=</div><div class="line">=HZGA</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA512</div><div class="line"></div><div class="line">7a992f61dc535c696ba2e236e3664ba669680f7e1a204e42166412cc3476503a  node-v5.11.1-darwin-x64.tar.gz</div><div class="line">0fe7b4f9ad94777e642ba5efff0bd899e15fa9fb6799cd22794ac4bd5006cc23  node-v5.11.1-darwin-x64.tar.xz</div><div class="line">85072d2f231a947862984ec79f44b990287a6ba1589342c0ac4fea54d9ec88e2  node-v5.11.1-headers.tar.gz</div><div class="line">b2a607a0cfb1252014bc01007b7c4d7790c78ba9fbe009accf89c16c06257397  node-v5.11.1-headers.tar.xz</div><div class="line">8df5fa56ea1f79efc6f8baa9a6784bb1b0596fb7ef1d631694e35a89b3840de6  node-v5.11.1-linux-arm64.tar.gz</div><div class="line">cb09abcd897d44959069c17d29ce6361ad20bd15e94cf72c1c5cd0976a08fa91  node-v5.11.1-linux-arm64.tar.xz</div><div class="line">d6ffd43fd0546a5830117bb76979f074a04f9f2323bfc786ca5bd25f254149bc  node-v5.11.1-linux-armv6l.tar.gz</div><div class="line">a9f2c90cd7be087dff8f4fb15cf603c1bba9e95f23bd66958c41cbedc72e13a7  node-v5.11.1-linux-armv6l.tar.xz</div><div class="line">d69ebad9bb86e2d54b6c8774e5bfd055b507dfd4da4b4a0a9ad8543358fd57de  node-v5.11.1-linux-armv7l.tar.gz</div><div class="line">17db8b2a9221ea7455c4471198965a9b6d6bc0c97187265e64925826a072dcaa  node-v5.11.1-linux-armv7l.tar.xz</div><div class="line">a349b77703902702ec2ec35de27150d19f73ca44045577c577312a5bde9e0b04  node-v5.11.1-linux-ppc64le.tar.gz</div><div class="line">d0653882535519ddc6637a04eeb797b02a4ee708f14dd6cc4d84f44fcb65d0a3  node-v5.11.1-linux-ppc64le.tar.xz</div><div class="line">d8e30e79a1e4ad56f55ef59facdf913c950e9664528f59f4388e85fdd899dfde  node-v5.11.1-linux-x64.tar.gz</div><div class="line">35ffd25963254decbec1069da318597ed2fb032d2782f7cbdfdd41dc6af99ee9  node-v5.11.1-linux-x64.tar.xz</div><div class="line">5c8269b21400327eaae94f52d220127a90eca40ab7574f9da07811c48d25570f  node-v5.11.1-linux-x86.tar.gz</div><div class="line">01bcebec40d2030ebfd87fec82249fe1e2919bedcbc4998ee0b1c0365a33e7b4  node-v5.11.1-linux-x86.tar.xz</div><div class="line">f06c2d54057c55913749991a6636e78c4180b989a6ee67bdc0017252bfc6c9c9  node-v5.11.1.pkg</div><div class="line">65e80b25ba648b62faae99f4f4df86eeea6ed448c592cb638349a63eefcb5d0f  node-v5.11.1-sunos-x64.tar.gz</div><div class="line">61507107d14720f1dd24a25bea2bd626ebda63da5d495e5d8f2cdb1a5c03a696  node-v5.11.1-sunos-x64.tar.xz</div><div class="line">24e9095e7fdb1765d2acf569209a194b16c048374a804a97fc5fec123b1b9217  node-v5.11.1-sunos-x86.tar.gz</div><div class="line">c211f830ccb2198571f0e843101b7c9917ef0feae165c7e28a795b61798968a5  node-v5.11.1-sunos-x86.tar.xz</div><div class="line">be1211ce415ecc48412ce3e9d5b48cf9ec8e99b34f25b4e1909a02679cc72fab  node-v5.11.1.tar.gz</div><div class="line">f11bc3727e7ea74cffa940be258beaf1f81bee90537d13caa9e748ae6105661f  node-v5.11.1.tar.xz</div><div class="line">53c1744bfc845deb4c3a727d9e581f845c34652eb994a81f651a804f67ae749f  node-v5.11.1-x64.msi</div><div class="line">b7c6f647a037f17d1dbdb602af8c35934dd06fa4fb8b35108bb311cbddbcb2ab  node-v5.11.1-x86.msi</div><div class="line">df52219a3fde636f0fb73e065c85b28904eefd81c16c34ec5e6576b7fd0d886b  win-x64/node.exe</div><div class="line">fe0654ca23f0f3c5b290d76efd8f18ba6a6d60445257eb4d59641dc647d33770  win-x64/node.lib</div><div class="line">11160ea9fd4ae6db9c0fcee529cfae3d9fb3eed15a0428febbf6033c00494646  win-x86/node.exe</div><div class="line">fa3fa032d8b04e65ff20cd34bb0e690f5f88ca023d9783aa5672215f568117b1  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Comment: GPGTools - https://gpgtools.org</div><div class="line"></div><div class="line">iQIcBAEBCgAGBQJXK8+rAAoJELY7U1pMIGypxY8QANK8IsVkwb0u1ycZO65j+zIn</div><div class="line">ChB6k+0f5wTo8ueIrq8uGNKyvYJpGmqN0/a7C61OGizfDMQcEXts+S4uEDkYDKlC</div><div class="line">qR+TiwbKQBEE52T7+jcJOnXb2A1aJFNAItNEq/GVM6mjxgxNBA3gM/9PMEoBvfHI</div><div class="line">hp5jF8CgKmc4ZfrYWUuHuycfeyuCu0/99TV9nS8EDLyFpgovEBRngGOmWmn/xV0h</div><div class="line">Gv9bu0Ixih6oOEHBL3+dH9BJ6Fvf75gsazumKsQSXyoa7f/JfoLPbT8ecUvS9Mm/</div><div class="line">JX+sNiNw9iBbx0iFSHVh03b5CsH/ateFalSDjKhNqOMykniUNI+FELs5/1/wU+6B</div><div class="line">VzniJpbRR9tU2A0FdARvbnFMj1KJfUmsXGRlh399k2OmD6IoYkWtbsHcyFB6vGXE</div><div class="line">F8w8UihBHQ69GAzTltQnyn3QO7s/0kF9UqozAJ3ApvA8Sq9cSIXmE1s5+a5GD+Cc</div><div class="line">btrehhpUOgUZQ2ol4N2BOuKVc+svUWgiZ5QF1e2lNdOWnYCP+fSFqkf5PRRd4xW2</div><div class="line">oMwnFO3Ehc5VSGHzVwGKfltmot+vkGD9xbDJZH1vCzYuj9zf66TbduPdFk0Exf0f</div><div class="line">1gp5Na7EypJRgcLjLVSRriXVz6WYybgbVbA+7WcDw8jmKYwHdMUIRMRUFGMy/uts</div><div class="line">YkqY3iJ4b5wydOEg+0Jt</div><div class="line">=nE6V</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/06/release-v0.10.45/" data-id="cirzbcmju007wbum6j66u6fhs" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/05/release-v5.11.1/" data-id="cis1avsno007pn9m6620op2fb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -798,112 +1073,7 @@ Documentation: <a href="https://nodejs.org/docs/v6.1.0/api/" target="_blank" rel
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/05/release-v6.1.0/" data-id="cirzbcmjr007sbum6i25c59b8" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-release-v5.11.1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2016/05/05/release-v5.11.1/" class="article-date">
-    <time datetime="2016-05-04T15:00:00.000Z" itemprop="datePublished">2016-05-05</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/05/05/release-v5.11.1/">Node v5.11.1(안정 버전)</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>Evan Lucas</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/release/v5.11.1/" taret="_blank">
-        Node v5.11.1 (Stable)
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-Please see our [blog post](https://nodejs.org/en/blog/vulnerability/openssl-may-2016) for more info on the security contents of this release.
--->
-<p>이번 릴리스의 보안에 관한 자세한 내용은 <a href="http://nodejs.github.io/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/">블로그 글</a>을 참고하세요.</p>
-<!--
-### Notable changes
-
-* **buffer**: safeguard against accidental kNoZeroFill (Сковорода Никита Андреевич) [nodejs/node-private#35](https://github.com/nodejs/node-private/pull/35)
-* **deps**: upgrade openssl sources to 1.0.2h (Shigeki Ohtsu) [#6552](https://github.com/nodejs/node/pull/6552)
--->
-<h3 id="주요-변경사항"><a href="#주요-변경사항" class="headerlink" title="주요 변경사항"></a>주요 변경사항</h3><ul>
-<li><strong>buffer</strong>: 의도치 않은 kNoZeroFill을 보호 (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/node-private/pull/35" target="_blank" rel="external">nodejs/node-private#35</a></li>
-<li><strong>deps</strong>: openssl 소스를 1.0.2h로 업그레이드 (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
-</ul>
-<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><ul>
-<li>[<a href="https://github.com/nodejs/node/commit/35f06df782" target="_blank" rel="external"><code>35f06df782</code></a>] - <strong>buffer</strong>: safeguard against accidental kNoZeroFill (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/node-private/pull/35" target="_blank" rel="external">nodejs/node-private#35</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/99920480ae" target="_blank" rel="external"><code>99920480ae</code></a>] - <strong>buffer</strong>: fix a typo in Buffer example code (Mr C0B) <a href="https://github.com/nodejs/node/pull/6361" target="_blank" rel="external">#6361</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d9f7b025d4" target="_blank" rel="external"><code>d9f7b025d4</code></a>] - <strong>deps</strong>: update openssl asm and asm_obsolete files (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f316fd20a0" target="_blank" rel="external"><code>f316fd20a0</code></a>] - <strong>deps</strong>: add -no_rand_screen to openssl s_client (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/1836" target="_blank" rel="external">#1836</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/263cc34657" target="_blank" rel="external"><code>263cc34657</code></a>] - <strong>deps</strong>: fix asm build error of openssl in x86_win32 (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/1389" target="_blank" rel="external">#1389</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/889d1151de" target="_blank" rel="external"><code>889d1151de</code></a>] - <strong>deps</strong>: fix openssl assembly error on ia32 win32 (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/1389" target="_blank" rel="external">#1389</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ba49b636b8" target="_blank" rel="external"><code>ba49b636b8</code></a>] - <strong>deps</strong>: copy all openssl header files to include dir (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/cdad83a789" target="_blank" rel="external"><code>cdad83a789</code></a>] - <strong>deps</strong>: upgrade openssl sources to 1.0.2h (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c1ddefdd79" target="_blank" rel="external"><code>c1ddefdd79</code></a>] - <strong>openssl</strong>: fix keypress requirement in apps on win32 (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/1389" target="_blank" rel="external">#1389</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/bec5d50f1e" target="_blank" rel="external"><code>bec5d50f1e</code></a>] - <strong>test</strong>: fix alpn tests for openssl1.0.2h (Shigeki Ohtsu) <a href="https://github.com/nodejs/node/pull/6552" target="_blank" rel="external">#6552</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/win-x86/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/win-x64/node.exe</a><br>
-Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1.pkg" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-darwin-x64.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x86.tar.xz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-x64.tar.xz</a><br>
-Linux PPC LE 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-ppc64le.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-ppc64le.tar.xz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x86.tar.xz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-sunos-x64.tar.xz</a><br>
-ARMv6 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv6l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv6l.tar.xz</a><br>
-ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv7l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-armv7l.tar.xz</a><br>
-ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-arm64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1-linux-arm64.tar.xz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v5.11.1/node-v5.11.1.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1/node-v5.11.1.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v5.11.1" target="_blank" rel="external">https://nodejs.org/dist/v5.11.1</a>/<br>
-Documentation: <a href="https://nodejs.org/docs/v5.11.1/api/" target="_blank" rel="external">https://nodejs.org/docs/v5.11.1/api/</a></p>
-<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA512</div><div class="line"></div><div class="line">7a992f61dc535c696ba2e236e3664ba669680f7e1a204e42166412cc3476503a  node-v5.11.1-darwin-x64.tar.gz</div><div class="line">0fe7b4f9ad94777e642ba5efff0bd899e15fa9fb6799cd22794ac4bd5006cc23  node-v5.11.1-darwin-x64.tar.xz</div><div class="line">85072d2f231a947862984ec79f44b990287a6ba1589342c0ac4fea54d9ec88e2  node-v5.11.1-headers.tar.gz</div><div class="line">b2a607a0cfb1252014bc01007b7c4d7790c78ba9fbe009accf89c16c06257397  node-v5.11.1-headers.tar.xz</div><div class="line">8df5fa56ea1f79efc6f8baa9a6784bb1b0596fb7ef1d631694e35a89b3840de6  node-v5.11.1-linux-arm64.tar.gz</div><div class="line">cb09abcd897d44959069c17d29ce6361ad20bd15e94cf72c1c5cd0976a08fa91  node-v5.11.1-linux-arm64.tar.xz</div><div class="line">d6ffd43fd0546a5830117bb76979f074a04f9f2323bfc786ca5bd25f254149bc  node-v5.11.1-linux-armv6l.tar.gz</div><div class="line">a9f2c90cd7be087dff8f4fb15cf603c1bba9e95f23bd66958c41cbedc72e13a7  node-v5.11.1-linux-armv6l.tar.xz</div><div class="line">d69ebad9bb86e2d54b6c8774e5bfd055b507dfd4da4b4a0a9ad8543358fd57de  node-v5.11.1-linux-armv7l.tar.gz</div><div class="line">17db8b2a9221ea7455c4471198965a9b6d6bc0c97187265e64925826a072dcaa  node-v5.11.1-linux-armv7l.tar.xz</div><div class="line">a349b77703902702ec2ec35de27150d19f73ca44045577c577312a5bde9e0b04  node-v5.11.1-linux-ppc64le.tar.gz</div><div class="line">d0653882535519ddc6637a04eeb797b02a4ee708f14dd6cc4d84f44fcb65d0a3  node-v5.11.1-linux-ppc64le.tar.xz</div><div class="line">d8e30e79a1e4ad56f55ef59facdf913c950e9664528f59f4388e85fdd899dfde  node-v5.11.1-linux-x64.tar.gz</div><div class="line">35ffd25963254decbec1069da318597ed2fb032d2782f7cbdfdd41dc6af99ee9  node-v5.11.1-linux-x64.tar.xz</div><div class="line">5c8269b21400327eaae94f52d220127a90eca40ab7574f9da07811c48d25570f  node-v5.11.1-linux-x86.tar.gz</div><div class="line">01bcebec40d2030ebfd87fec82249fe1e2919bedcbc4998ee0b1c0365a33e7b4  node-v5.11.1-linux-x86.tar.xz</div><div class="line">f06c2d54057c55913749991a6636e78c4180b989a6ee67bdc0017252bfc6c9c9  node-v5.11.1.pkg</div><div class="line">65e80b25ba648b62faae99f4f4df86eeea6ed448c592cb638349a63eefcb5d0f  node-v5.11.1-sunos-x64.tar.gz</div><div class="line">61507107d14720f1dd24a25bea2bd626ebda63da5d495e5d8f2cdb1a5c03a696  node-v5.11.1-sunos-x64.tar.xz</div><div class="line">24e9095e7fdb1765d2acf569209a194b16c048374a804a97fc5fec123b1b9217  node-v5.11.1-sunos-x86.tar.gz</div><div class="line">c211f830ccb2198571f0e843101b7c9917ef0feae165c7e28a795b61798968a5  node-v5.11.1-sunos-x86.tar.xz</div><div class="line">be1211ce415ecc48412ce3e9d5b48cf9ec8e99b34f25b4e1909a02679cc72fab  node-v5.11.1.tar.gz</div><div class="line">f11bc3727e7ea74cffa940be258beaf1f81bee90537d13caa9e748ae6105661f  node-v5.11.1.tar.xz</div><div class="line">53c1744bfc845deb4c3a727d9e581f845c34652eb994a81f651a804f67ae749f  node-v5.11.1-x64.msi</div><div class="line">b7c6f647a037f17d1dbdb602af8c35934dd06fa4fb8b35108bb311cbddbcb2ab  node-v5.11.1-x86.msi</div><div class="line">df52219a3fde636f0fb73e065c85b28904eefd81c16c34ec5e6576b7fd0d886b  win-x64/node.exe</div><div class="line">fe0654ca23f0f3c5b290d76efd8f18ba6a6d60445257eb4d59641dc647d33770  win-x64/node.lib</div><div class="line">11160ea9fd4ae6db9c0fcee529cfae3d9fb3eed15a0428febbf6033c00494646  win-x86/node.exe</div><div class="line">fa3fa032d8b04e65ff20cd34bb0e690f5f88ca023d9783aa5672215f568117b1  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Comment: GPGTools - https://gpgtools.org</div><div class="line"></div><div class="line">iQIcBAEBCgAGBQJXK8+rAAoJELY7U1pMIGypxY8QANK8IsVkwb0u1ycZO65j+zIn</div><div class="line">ChB6k+0f5wTo8ueIrq8uGNKyvYJpGmqN0/a7C61OGizfDMQcEXts+S4uEDkYDKlC</div><div class="line">qR+TiwbKQBEE52T7+jcJOnXb2A1aJFNAItNEq/GVM6mjxgxNBA3gM/9PMEoBvfHI</div><div class="line">hp5jF8CgKmc4ZfrYWUuHuycfeyuCu0/99TV9nS8EDLyFpgovEBRngGOmWmn/xV0h</div><div class="line">Gv9bu0Ixih6oOEHBL3+dH9BJ6Fvf75gsazumKsQSXyoa7f/JfoLPbT8ecUvS9Mm/</div><div class="line">JX+sNiNw9iBbx0iFSHVh03b5CsH/ateFalSDjKhNqOMykniUNI+FELs5/1/wU+6B</div><div class="line">VzniJpbRR9tU2A0FdARvbnFMj1KJfUmsXGRlh399k2OmD6IoYkWtbsHcyFB6vGXE</div><div class="line">F8w8UihBHQ69GAzTltQnyn3QO7s/0kF9UqozAJ3ApvA8Sq9cSIXmE1s5+a5GD+Cc</div><div class="line">btrehhpUOgUZQ2ol4N2BOuKVc+svUWgiZ5QF1e2lNdOWnYCP+fSFqkf5PRRd4xW2</div><div class="line">oMwnFO3Ehc5VSGHzVwGKfltmot+vkGD9xbDJZH1vCzYuj9zf66TbduPdFk0Exf0f</div><div class="line">1gp5Na7EypJRgcLjLVSRriXVz6WYybgbVbA+7WcDw8jmKYwHdMUIRMRUFGMy/uts</div><div class="line">YkqY3iJ4b5wydOEg+0Jt</div><div class="line">=nE6V</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/05/release-v5.11.1/" data-id="cirzbcmjp007qbum6ed1x6bib" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/05/release-v6.1.0/" data-id="cis1avsns007vn9m6537kx1a6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1017,7 +1187,7 @@ Learn more about N\|Solid v1.3
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/04/nsolid-v1-3/" data-id="cirzbcmjn007mbum6r73fq64m" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/04/nsolid-v1-3/" data-id="cis1avsnr007tn9m6lw5oz61c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1230,7 +1400,7 @@ The OpenSSL project has labelled this vulnerability _low severity_.
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/" data-id="cirzbcmjo007obum6hcm5xxjh" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/05/02/vulnerability-openssl-may-2016/" data-id="cis1avsnj007jn9m6a6ruww1o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1343,609 +1513,7 @@ Have an event about Node.js coming up? You can put your events here through the 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2016/04/29/weekly/" data-id="cirzbcmjm007kbum6jvt9ierc" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-release-v6.0.0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/articles/2016/04/26/release-v6.0.0/" class="article-date">
-    <time datetime="2016-04-25T15:00:00.000Z" itemprop="datePublished">2016-04-26</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/articles/">articles</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/articles/2016/04/26/release-v6.0.0/">Node v6.0.0(최신 버전)</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>James M Snell</strong></li>
-    <li>
-      원문: <strong><a href="https://nodejs.org/en/blog/release/v6.0.0/" taret="_blank">
-        Node v6.0.0 (Current)
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/outsideris" target="_blank">Outsider</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-It's here! Just three days shy of exactly six months after we released v5.0.0, the Node.js Foundation is happy to announce that Node.js v6 is available and ready for use!
--->
-<p>v5.0.0을 릴리스한 뒤 정확히 6개월에서 3일 모자란 날에 Node.js 재단은 Node.js v6을 발표하게
-되었습니다.</p>
-<!--
-This new major version of Node.js delivers significant improvements in performance, reliability, usability and security. Module loading is nearly four times faster than in Node.js v4, tests and documentation have seen significant improvements, usability of the Buffer and File System APIs have been improved, and Node.js now supports [93% of ES6 language features](http://node.green), thanks to V8 version 5.0.
--->
-<p>이 Node.js 새로운 주 버전은 성능, 신뢰성, 사용성, 보안성에서 충분한 개선을 이룬 버전입니다. 모듈
-로딩은 Node.js v4보다 4배 가까이 빨라졌고 테스트와 문서도 많이 개선되었으며 Buffer와 파일
-시스템 API의 사용성도 개선되었습니다. V8 5.0 덕분에 Node.js는 이제
-<a href="http://node.green" target="_blank" rel="external">ES6 언어 기능의 93%</a>를 지원합니다.</p>
-<!--
-In accordance with our [Long Term Support plan](https://github.com/nodejs/LTS/), Node.js v4 'Argon' will continue to be supported as an *Active* Long Term Support stream until April of 2017, after which it will transition into what we call *Maintenance* LTS. The new Node.js v6 branch will become the new *Active* Long Term Support stream in October of this year, and will continue to be supported actively until April of 2018. If our LTS plan is new to you, [read more](https://medium.com/@nodesource/essential-steps-long-term-support-for-node-js-8ecf7514dbd#.z6bzdfogi) about how it works so that you can make a properly informed decision regarding which version of Node.js to adopt.
--->
-<p><a href="https://github.com/nodejs/LTS/" target="_blank" rel="external">장기지원 계획</a>에 따라 Node.js v4 ‘Argon’은 2017년
-4월까지 <em>활성</em> 장기지원을 할 것이고 그 이후부터는 <em>유지보수</em> LTS라고 부르는 단계에 들어갈 것입니다.
-새로운 Node.js v6 브랜치는 올해 10월에 새로운 <em>활성</em> 장기지원에 들어갈 것이고 2018년 4월까지
-지원을 받을 것입니다. LTS 계획에 대해서 잘 모른다면 어떤 버전의 Node.js를 사용할지 제대로 결정하기
-위해 LTS가 어떻게 동작하는지에 대한
-<a href="https://medium.com/@nodesource/essential-steps-long-term-support-for-node-js-8ecf7514dbd#.z6bzdfogi" target="_blank" rel="external">문서를 읽어 보세요</a>.</p>
-<!--
-The general rule for deciding which version of Node.js to use is:
-
-* Stay on or upgrade to Node.js v4 (currently at v4.4.3) if you need stability and have a complex production environment.
-* Upgrade to Node.js v6 if you have the ability to upgrade versions quickly and want to play with the latest features as they arrive.
--->
-<p>사용할 Node.js 버전을 결정할 때의 일반적인 규칙은 다음과 같습니다.</p>
-<ul>
-<li>안정성이 중요하거나 프로덕션 환경이 복잡하다면 Node.js v4(현재는 v4.4.3)로 업그레이드하거나 유지하세요.</li>
-<li>최신 기능이 도입되는 대로 빨리 사용해보고 싶고 최신 버전으로 업그레이드할 수 있다면 Node.js v6로 업그레이드하세요.</li>
-</ul>
-<!--
-Note that while v6 will eventually transition into LTS, until it does, we will still be actively landing new features (semver-minor). This means that there is an increased chance for regressions to be introduced..
-
-The release notes below are annotated with the main breaking changes that warrant the jump to v6. Note that because this new version of Node.js is shipping with a new version of V8, you will need to recompile any native addons you have already installed or you will receive a runtime error when trying to load them. Use `npm rebuild` or simply remove your *node_modules* directory and `npm install` from scratch.
--->
-<p>v6가 결국에는 LTS에 들어갈 것이지만 그 전까지는 새로운 기능을 적극적으로 도입할 것입니다.(semver의
-마이너 버전으로) 이는 회귀가 발생할 수 있다는 의미입니다.</p>
-<p>아래 릴리스 노트에는 v6로 변경할 이유를 보여주는 주요 변경사항이 나와 있습니다. 새로운 버전의
-Node.js가 새로운 버전의 V8을 포함하고 있으므로 이미 설치한 네이티브 애드온은 모두 다시 컴파일을
-해야 하고 그렇지 않다면 이러한 모듈을 불러올 때 런타임 오류가 발생할 것입니다. <code>npm rebuild</code>를
-사용하거나 <em>node_modules</em> 디렉터리를 제거하고 <code>npm install</code>로 재설치 하세요.</p>
-<!--
-### What about Node.js v5?
-
-Node.js v5 will continue to be supported for the next two months in order to give developers currently using v5 time to transition to Node.js v6.
--->
-<h3 id="Node-js-v5는-어떻게-되는가"><a href="#Node-js-v5는-어떻게-되는가" class="headerlink" title="Node.js v5는 어떻게 되는가?"></a>Node.js v5는 어떻게 되는가?</h3><p>현재 Node.js v5를 사용하고 있는 개발자들이 Node.js v6로 업그레이드할 시간을 가질 수 있도록
-앞으로 두 달 동안 Node.js v5도 계속 지원할 것입니다.</p>
-<!--
-### What about Node.js v0.10 and v0.12?
-
-If you're still currently using Node.js v0.10 or v0.12, it is time to begin the transition to v4 or v6. Both v0.10 and v0.12 are considered to be in *Maintenance* mode currently and will fall off our support plan completely later this year.
--->
-<h3 id="Node-js-v0-10과-v0-12는-어떻게-되는가"><a href="#Node-js-v0-10과-v0-12는-어떻게-되는가" class="headerlink" title="Node.js v0.10과 v0.12는 어떻게 되는가?"></a>Node.js v0.10과 v0.12는 어떻게 되는가?</h3><p>아직 Node.js v0.10나 v0.12를 사용하고 있다면 v4나 v6로 바꿀 때입니다. 현재 v0.10과
-v0.12 모두 <em>유지보수</em> 단계에 있고 올해 말에는 지원을 완전히 멈출 예정입니다.</p>
-<!--
-### Current? What happened to Stable?
-
-You may have noticed that the v6 release uses the label `Current` instead of `Stable`. This name change has been made in order to better differentiate the Long Term Support releases from the current active development branches. We
-will be using the `Current` label from here-on instead of `Stable`.
--->
-<h3 id="최신-버전-Current-안정-버전-Stable-은-어떻게-되는가"><a href="#최신-버전-Current-안정-버전-Stable-은-어떻게-되는가" class="headerlink" title="최신 버전(Current)? 안정 버전(Stable)은 어떻게 되는가?"></a>최신 버전(Current)? 안정 버전(Stable)은 어떻게 되는가?</h3><p>v6 릴리스가 <code>안정 버전</code> 대신 <code>최신 버전</code>이라는 레이블을 사용하는 것을 눈치챘을 겁니다. 장기지원
-릴리스와 현재 주도적으로 개발하고 있는 브랜치를 더 명확하게 구별하기 위해서 이름을 변경했습니다.
-이제 <code>안정 버전</code> 대신 <code>최신 버전</code>이라는 레이블을 사용할 것입니다.</p>
-<!--
-### Notable changes
-
-The following significant changes have been made since the previous Node.js
-v5.0.0 release.
-
-* Buffer
-  * New Buffer constructors have been added
-    [#4682](https://github.com/nodejs/node/pull/4682) and
-    [#5833](https://github.com/nodejs/node/pull/5833).
-  * Existing `Buffer()` and `SlowBuffer()` constructors have been deprecated
-    in docs [#4682](https://github.com/nodejs/node/pull/4682) and
-    [#5833](https://github.com/nodejs/node/pull/5833).
-  * Previously deprecated Buffer APIs are removed
-    [#5048](https://github.com/nodejs/node/pull/5048),
-    [#4594](https://github.com/nodejs/node/pull/4594).
-  * Improved error handling [#4514](https://github.com/nodejs/node/pull/4514).
-  * The `Buffer.prototype.lastIndexOf()` method has been added
-    [#4846](https://github.com/nodejs/node/pull/4846).
-* Cluster
-  * Worker emitted as first argument in 'message' event
-    [#5361](https://github.com/nodejs/node/pull/5361).
-  * The `worker.exitedAfterDisconnect` property replaces `worker.suicide`
-    [#3743](https://github.com/nodejs/node/pull/3743).
-* Console
-  * Calling `console.timeEnd()` with an unknown label now emits a process
-    warning rather than throwing
-    [#5901](https://github.com/nodejs/node/pull/5901).
-* Crypto
-  * Improved error handling [#3100](https://github.com/nodejs/node/pull/3100),
-    [#5611](https://github.com/nodejs/node/pull/5611).
-  * Simplified Certificate class bindings
-    [#5382](https://github.com/nodejs/node/pull/5382).
-  * Improved control over FIPS mode
-    [#5181](https://github.com/nodejs/node/pull/5181).
-  * pbkdf2 digest overloading is deprecated
-    [#4047](https://github.com/nodejs/node/pull/4047).
-* Dependencies
-  * Reintroduce shared c-ares build support
-    [#5775](https://github.com/nodejs/node/pull/5775).
-  * V8 updated to 5.0.71.35 [#6372](https://github.com/nodejs/node/pull/6372).
-* DNS
-  * Add `dns.resolvePtr()` API to query plain DNS PTR records
-    [#4921](https://github.com/nodejs/node/pull/4921).
-* Domains
-  * Clear stack when no error handler
-  [#4659](https://github.com/nodejs/node/pull/4659).
-* Events
-  * The `EventEmitter.prototype._events` object no longer inherits from
-    Object.prototype [#6092](https://github.com/nodejs/node/pull/6092).
-  * The `EventEmitter.prototype.prependListener()` and
-    `EventEmitter.prototype.prependOnceListener()` methods have been added
-    [#6032](https://github.com/nodejs/node/pull/6032).
-* File System
-  * The `fs.realpath()` and `fs.realpathSync()` methods have been updated
-    to use a more efficient libuv-based implementation. This change includes
-    the removal of the `cache` argument and the method can throw new errors
-    [#3594](https://github.com/nodejs/node/pull/3594).
-  * FS apis can now accept and return paths as Buffers
-    [#5616](https://github.com/nodejs/node/pull/5616).
-  * Error handling and type checking improvements
-    [#5616](https://github.com/nodejs/node/pull/5616),
-    [#5590](https://github.com/nodejs/node/pull/5590),
-    [#4518](https://github.com/nodejs/node/pull/4518),
-    [#3917](https://github.com/nodejs/node/pull/3917).
-  * fs.read's string interface is deprecated
-    [#4525](https://github.com/nodejs/node/pull/4525).
-* HTTP
-  * 'clientError' can now be used to return custom errors from an
-    HTTP server [#4557](https://github.com/nodejs/node/pull/4557).
-* Modules
-  * Current directory is now prioritized for local lookups
-    [#5689](https://github.com/nodejs/node/pull/5689).
-  * Symbolic links are preserved when requiring modules
-    [#5950](https://github.com/nodejs/node/pull/5950).
-* Net
-  * DNS hints no longer implicitly set
-    [#6021](https://github.com/nodejs/node/pull/6021).
-  * Improved error handling and type checking
-    [#5981](https://github.com/nodejs/node/pull/5981),
-    [#5733](https://github.com/nodejs/node/pull/5733),
-    [#2904](https://github.com/nodejs/node/pull/2904).
-* OS X
-  * MACOSX_DEPLOYMENT_TARGET has been bumped up to 10.7
-    [#6402](https://github.com/nodejs/node/pull/6402).
-* Path
-  * Improved type checking [#5348](https://github.com/nodejs/node/pull/5348).
-* Process
-  * Introduce process warnings API
-    [#4782](https://github.com/nodejs/node/pull/4782).
-  * Throw exception when non-function passed to nextTick
-    [#3860](https://github.com/nodejs/node/pull/3860).
-* Querystring
-  * The object returned by `querystring.parse()` no longer inherits from
-    Object.prototype [#6055](https://github.com/nodejs/node/pull/6055).
-* Readline
-  * Key info is emitted unconditionally
-    [#6024](https://github.com/nodejs/node/pull/6024).
-  * History can now be explicitly disabled
-    [#6352](https://github.com/nodejs/node/pull/6352).
-* REPL
-  * Assignment to `_` will emit a warning
-    [#5535](https://github.com/nodejs/node/pull/5535).
-  * Expressions will no longer be completed when eval fails
-    [#6328](https://github.com/nodejs/node/pull/6328).
-* Timers
-  * Fail early when callback is not a function
-    [#4362](https://github.com/nodejs/node/pull/4362).
-* Streams
-  * `null` is now an invalid chunk to write in object mode
-    [#6170](https://github.com/nodejs/node/pull/6170).
-* TLS
-  * Rename 'clientError' to 'tlsClientError'
-    [#4557](https://github.com/nodejs/node/pull/4557).
-  * SHA1 used for sessionIdContext
-    [#3866](https://github.com/nodejs/node/pull/3866).
-* TTY
-  * Previously deprecated setRawMode wrapper is removed
-    [#2528](https://github.com/nodejs/node/pull/2528).
-* URL
-  * Username and password will be dropped by `url.resolve()` if the host
-    changes [#1480](https://github.com/nodejs/node/pull/1480).
-* Util
-  * Changes to Error object formatting
-    [#4582](https://github.com/nodejs/node/pull/4582).
-  * The `util._extend()` method has been deprecated
-    [#4903](https://github.com/nodejs/node/pull/4903)
-  * The `util.log()` method has been deprecated
-    [#6161](https://github.com/nodejs/node/pull/6161).
-* Windows
-  * Windows XP and Vista are no longer supported
-    [#5167](https://github.com/nodejs/node/pull/5167).
-* Zlib
-  * Multiple improvements have been made to Zlib processing
-    [#5883](https://github.com/nodejs/node/pull/5883) and
-    [#5707](https://github.com/nodejs/node/pull/5707).
--->
-<h3 id="주요-변경사항"><a href="#주요-변경사항" class="headerlink" title="주요 변경사항"></a>주요 변경사항</h3><p>이전의 Node.js v5.0.0 릴리스 이후 다음과 같은 많은 변경사항이 있습니다.</p>
-<ul>
-<li>Buffer<ul>
-<li>새로운 Buffer 생성자가 추가되었습니다.
-<a href="https://github.com/nodejs/node/pull/4682" target="_blank" rel="external">#4682</a>와
-<a href="https://github.com/nodejs/node/pull/5833" target="_blank" rel="external">#5833</a></li>
-<li>기존의 <code>Buffer()</code>와 <code>SlowBuffer()</code> 생성자는 폐기됨으로 문서에 표시했습니다.
-<a href="https://github.com/nodejs/node/pull/4682" target="_blank" rel="external">#4682</a>와
-<a href="https://github.com/nodejs/node/pull/5833" target="_blank" rel="external">#5833</a></li>
-<li>이전에 폐기된 Buffer API는 삭제되었습니다.
-<a href="https://github.com/nodejs/node/pull/5048" target="_blank" rel="external">#5048</a>,
-<a href="https://github.com/nodejs/node/pull/4594" target="_blank" rel="external">#4594</a></li>
-<li>오류 처리가 개선되었습니다. <a href="https://github.com/nodejs/node/pull/4514" target="_blank" rel="external">#4514</a></li>
-<li><code>Buffer.prototype.lastIndexOf()</code> 메소드가 추가되었습니다.
-<a href="https://github.com/nodejs/node/pull/4846" target="_blank" rel="external">#4846</a></li>
-</ul>
-</li>
-<li>Cluster<ul>
-<li>워커는 ‘message’ 이벤트의 첫 번째 인자로 발생합니다.
-<a href="https://github.com/nodejs/node/pull/5361" target="_blank" rel="external">#5361</a></li>
-<li><code>worker.exitedAfterDisconnect</code> 프로퍼티가 <code>worker.suicide</code>를 대체합니다.
-<a href="https://github.com/nodejs/node/pull/3743" target="_blank" rel="external">#3743</a></li>
-</ul>
-</li>
-<li>Console<ul>
-<li><code>console.timeEnd()</code>를 알지 못하는 레이블로 호출하면 이제 오류를 던지는 대신 프로세스 경고를
-발생시킵니다.
-<a href="https://github.com/nodejs/node/pull/5901" target="_blank" rel="external">#5901</a></li>
-</ul>
-</li>
-<li>Crypto<ul>
-<li>오류 처리가 개선되었습니다. <a href="https://github.com/nodejs/node/pull/3100" target="_blank" rel="external">#3100</a>,
-<a href="https://github.com/nodejs/node/pull/5611" target="_blank" rel="external">#5611</a></li>
-<li>인증서 클래스 바인딩을 간소화했습니다.
-<a href="https://github.com/nodejs/node/pull/5382" target="_blank" rel="external">#5382</a></li>
-<li>FIPS 모드의 제어가 개선되었습니다.
-<a href="https://github.com/nodejs/node/pull/5181" target="_blank" rel="external">#5181</a></li>
-<li>pbkdf2 다이제스트 오버로딩이 폐기되었습니다.
-<a href="https://github.com/nodejs/node/pull/4047" target="_blank" rel="external">#4047</a></li>
-</ul>
-</li>
-<li>의존성<ul>
-<li>공유된 c-ares 빌드 지원을 다시 추가했습니다.
-<a href="https://github.com/nodejs/node/pull/5775" target="_blank" rel="external">#5775</a></li>
-<li>V8을 5.0.71.35로 업데이트했습니다. <a href="https://github.com/nodejs/node/pull/6372" target="_blank" rel="external">#6372</a></li>
-</ul>
-</li>
-<li>DNS<ul>
-<li>평문 DNS PTR 레코드를 질의하는 <code>dns.resolvePtr()</code> API를 추가했습니다.
-<a href="https://github.com/nodejs/node/pull/4921" target="_blank" rel="external">#4921</a></li>
-</ul>
-</li>
-<li>Domains<ul>
-<li>오류 핸들러가 없을 때는 스택을 제거합니다.
-<a href="https://github.com/nodejs/node/pull/4659" target="_blank" rel="external">#4659</a></li>
-</ul>
-</li>
-<li>Events<ul>
-<li><code>EventEmitter.prototype._events</code> 객체는 더는 Object.prototype를 상속하지
-않습니다. <a href="https://github.com/nodejs/node/pull/6092" target="_blank" rel="external">#6092</a></li>
-<li><code>EventEmitter.prototype.prependListener()</code>와
-<code>EventEmitter.prototype.prependOnceListener()</code> 메소드를 추가했습니다.
-<a href="https://github.com/nodejs/node/pull/6032" target="_blank" rel="external">#6032</a></li>
-</ul>
-</li>
-<li>File System<ul>
-<li><code>fs.realpath()</code>와 <code>fs.realpathSync()</code> 메소드는 더 효율적인 libuv에 기반을 둔
-구현체를 사용하도록 수정되었습니다. 이 변경으로 <code>cache</code> 인자가 없어지고 이 메드에서
-새로운 오류를 던질 수 있게 되었습니다.
-<a href="https://github.com/nodejs/node/pull/3594" target="_blank" rel="external">#3594</a></li>
-<li>FS API는 이제 path로 Buffer를 받고 반환할 수 있습니다.
-<a href="https://github.com/nodejs/node/pull/5616" target="_blank" rel="external">#5616</a></li>
-<li>오류 처리와 타입 검사가 개선되었습니다.
-<a href="https://github.com/nodejs/node/pull/5616" target="_blank" rel="external">#5616</a>,
-<a href="https://github.com/nodejs/node/pull/5590" target="_blank" rel="external">#5590</a>,
-<a href="https://github.com/nodejs/node/pull/4518" target="_blank" rel="external">#4518</a>,
-<a href="https://github.com/nodejs/node/pull/3917" target="_blank" rel="external">#3917</a></li>
-<li>fs.read의 문자열 인터페이스는 폐기되었습니다.
-<a href="https://github.com/nodejs/node/pull/4525" target="_blank" rel="external">#4525</a></li>
-</ul>
-</li>
-<li>HTTP<ul>
-<li>HTTP 서버에서 커스텀 오류를 반환하는데 ‘clientError’를 사용할 수 있습니다.
-<a href="https://github.com/nodejs/node/pull/4557" target="_blank" rel="external">#4557</a></li>
-</ul>
-</li>
-<li>Modules<ul>
-<li>로컬 검색 시에 이제 현재 디렉터리를 우선시합니다.
-<a href="https://github.com/nodejs/node/pull/5689" target="_blank" rel="external">#5689</a></li>
-<li>모듈을 require 할 때 심볼릭 링크를 유지합니다.
-<a href="https://github.com/nodejs/node/pull/5950" target="_blank" rel="external">#5950</a></li>
-</ul>
-</li>
-<li>Net<ul>
-<li>더는 DNS 힌트를 묵시적으로 설정하지 않습니다.
-<a href="https://github.com/nodejs/node/pull/6021" target="_blank" rel="external">#6021</a></li>
-<li>오류 처리와 타입 검사가 개선되었습니다.
-<a href="https://github.com/nodejs/node/pull/5981" target="_blank" rel="external">#5981</a>,
-<a href="https://github.com/nodejs/node/pull/5733" target="_blank" rel="external">#5733</a>,
-<a href="https://github.com/nodejs/node/pull/2904" target="_blank" rel="external">#2904</a></li>
-</ul>
-</li>
-<li>OS X<ul>
-<li><code>MACOSX_DEPLOYMENT_TARGET</code>이 10.7로 바뀌었습니다.
-<a href="https://github.com/nodejs/node/pull/6402" target="_blank" rel="external">#6402</a></li>
-</ul>
-</li>
-<li>Path<ul>
-<li>타입 검사가 개선되었습니다. <a href="https://github.com/nodejs/node/pull/5348" target="_blank" rel="external">#5348</a></li>
-</ul>
-</li>
-<li>Process<ul>
-<li>프로세스 경고 API가 도입되었습니다.
-<a href="https://github.com/nodejs/node/pull/4782" target="_blank" rel="external">#4782</a></li>
-<li>nextTick에 함수가 아닌 인자를 전달하면 예외를 던집니다.
-<a href="https://github.com/nodejs/node/pull/3860" target="_blank" rel="external">#3860</a></li>
-</ul>
-</li>
-<li>Querystring<ul>
-<li><code>querystring.parse()</code>가 반환하는 객체는 더는 Object.prototype를 상속받지 않습니다.
-<a href="https://github.com/nodejs/node/pull/6055" target="_blank" rel="external">#6055</a>.</li>
-</ul>
-</li>
-<li>Readline<ul>
-<li>무조건 Key 정보가 발생합니다.
-<a href="https://github.com/nodejs/node/pull/6024" target="_blank" rel="external">#6024</a></li>
-<li>히스토리 기능을 명시적으로 비활성화할 수 있습니다.
-<a href="https://github.com/nodejs/node/pull/6352" target="_blank" rel="external">#6352</a></li>
-</ul>
-</li>
-<li>REPL<ul>
-<li><code>_</code>에 대입하면 경고가 발생합니다.
-<a href="https://github.com/nodejs/node/pull/5535" target="_blank" rel="external">#5535</a></li>
-<li>eval을 실패했을 때 표현식이 더는 완료되지 않습니다.
-<a href="https://github.com/nodejs/node/pull/6328" target="_blank" rel="external">#6328</a>.</li>
-</ul>
-</li>
-<li>Timers<ul>
-<li>콜백이 함수가 아닐 때 빨리 실패합니다.
-<a href="https://github.com/nodejs/node/pull/4362" target="_blank" rel="external">#4362</a></li>
-</ul>
-</li>
-<li>Streams<ul>
-<li>object 모드에서 작성을 할 때 <code>null</code>은 이제 유효하지 않은 청크입니다.
-<a href="https://github.com/nodejs/node/pull/6170" target="_blank" rel="external">#6170</a></li>
-</ul>
-</li>
-<li>TLS<ul>
-<li>‘clientError’을 ‘tlsClientError’로 변경했습니다.
-<a href="https://github.com/nodejs/node/pull/4557" target="_blank" rel="external">#4557</a></li>
-<li>sessionIdContext에 SHA1을 사용합니다.
-<a href="https://github.com/nodejs/node/pull/3866" target="_blank" rel="external">#3866</a></li>
-</ul>
-</li>
-<li>TTY<ul>
-<li>전에 폐기했던 setRawMode 래퍼를 제거했습니다.
-<a href="https://github.com/nodejs/node/pull/2528" target="_blank" rel="external">#2528</a></li>
-</ul>
-</li>
-<li>URL<ul>
-<li>호스트가 바뀌었다면 <code>url.resolve()</code>에서 사용자명과 비밀번호를 버립니다.
-<a href="https://github.com/nodejs/node/pull/1480" target="_blank" rel="external">#1480</a></li>
-</ul>
-</li>
-<li>Util<ul>
-<li>오류 객체 포맷이 변경되었습니다.
-<a href="https://github.com/nodejs/node/pull/4582" target="_blank" rel="external">#4582</a></li>
-<li><code>util._extend()</code> 메소드는 폐기되었습니다.
-<a href="https://github.com/nodejs/node/pull/4903" target="_blank" rel="external">#4903</a></li>
-<li><code>util.log()</code> 메소드는 폐기되었습니다.
-<a href="https://github.com/nodejs/node/pull/6161" target="_blank" rel="external">#6161</a></li>
-</ul>
-</li>
-<li>Windows<ul>
-<li>Windows XP와 Vista는 더는 지원하지 않습니다.
-<a href="https://github.com/nodejs/node/pull/5167" target="_blank" rel="external">#5167</a>.</li>
-</ul>
-</li>
-<li>Zlib<ul>
-<li>Zlib 처리와 관련해서 다양한 개선이 이루어졌습니다.
-<a href="https://github.com/nodejs/node/pull/5883" target="_blank" rel="external">#5883</a>,
-<a href="https://github.com/nodejs/node/pull/5707" target="_blank" rel="external">#5707</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="Commits"><a href="#Commits" class="headerlink" title="Commits"></a>Commits</h3><!--
-Semver-major Changes since v5.0.0
--->
-<p>v5.0.0 이후의 SEMVER-MAJOR 변경사항</p>
-<ul>
-<li>[<a href="https://github.com/nodejs/node/commit/85ab4a5f12" target="_blank" rel="external"><code>85ab4a5f12</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>buffer</strong>: add .from(), .alloc() and .allocUnsafe() (James M Snell) <a href="https://github.com/nodejs/node/pull/4682" target="_blank" rel="external">#4682</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2c55cc2d2c" target="_blank" rel="external"><code>2c55cc2d2c</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>buffer</strong>: remove deprecated Buffer.write branch (dcposch@dcpos.ch) <a href="https://github.com/nodejs/node/pull/5048" target="_blank" rel="external">#5048</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/101bca988c" target="_blank" rel="external"><code>101bca988c</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>buffer</strong>: remove deprecated buffer.get/.set methods (Feross Aboukhadijeh) <a href="https://github.com/nodejs/node/pull/4594" target="_blank" rel="external">#4594</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3b27dd5ce1" target="_blank" rel="external"><code>3b27dd5ce1</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>buffer</strong>: throw if both length and enc are passed (Mathias Buus) <a href="https://github.com/nodejs/node/pull/4514" target="_blank" rel="external">#4514</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3fe204c700" target="_blank" rel="external"><code>3fe204c700</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>buffer</strong>: docs-only deprecate SlowBuffer (James M Snell) <a href="https://github.com/nodejs/node/pull/5833" target="_blank" rel="external">#5833</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/627524973a" target="_blank" rel="external"><code>627524973a</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>buffer</strong>: add Buffer.allocUnsafeSlow(size) (James M Snell) <a href="https://github.com/nodejs/node/pull/5833" target="_blank" rel="external">#5833</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/204f3a8a0b" target="_blank" rel="external"><code>204f3a8a0b</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>build</strong>: Bump MACOSX_DEPLOYMENT_TARGET to 10.7 (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/node/pull/6402" target="_blank" rel="external">#6402</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/90a5fc20be" target="_blank" rel="external"><code>90a5fc20be</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>build</strong>: remove lint/dotfiles from release tarball (Johan Bergström) <a href="https://github.com/nodejs/node/pull/5695" target="_blank" rel="external">#5695</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/66f4586dd0" target="_blank" rel="external"><code>66f4586dd0</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>cluster</strong>: emit worker as first ‘message’ event arg (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/5361" target="_blank" rel="external">#5361</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/4f619bde4c" target="_blank" rel="external"><code>4f619bde4c</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>cluster</strong>: migrate from worker.suicide (Evan Lucas) <a href="https://github.com/nodejs/node/pull/3743" target="_blank" rel="external">#3743</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a5cce79ec3" target="_blank" rel="external"><code>a5cce79ec3</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>console</strong>: delete timers that have ended (Vladimir Varankin) <a href="https://github.com/nodejs/node/pull/3562" target="_blank" rel="external">#3562</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1c84579031" target="_blank" rel="external"><code>1c84579031</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>console</strong>: timeEnd() with no label emits warning (Eugene Obrezkov) <a href="https://github.com/nodejs/node/pull/5901" target="_blank" rel="external">#5901</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/41feaa89e0" target="_blank" rel="external"><code>41feaa89e0</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto</strong>: improve error messages (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/3100" target="_blank" rel="external">#3100</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f429fe1b88" target="_blank" rel="external"><code>f429fe1b88</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto</strong>: fail early when loading crypto without openssl (James M Snell) <a href="https://github.com/nodejs/node/pull/5611" target="_blank" rel="external">#5611</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a37401e061" target="_blank" rel="external"><code>a37401e061</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto</strong>: simplify Certificate class bindings (Alexander Makarenko) <a href="https://github.com/nodejs/node/pull/5382" target="_blank" rel="external">#5382</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/7c48cb5601" target="_blank" rel="external"><code>7c48cb5601</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto</strong>: Improve control of FIPS mode (Stefan Budeanu) <a href="https://github.com/nodejs/node/pull/5181" target="_blank" rel="external">#5181</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a1163582c5" target="_blank" rel="external"><code>a1163582c5</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto</strong>: pbkdf2 deprecate digest overload. (Tom Gallacher) <a href="https://github.com/nodejs/node/pull/4047" target="_blank" rel="external">#4047</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/b010c87164" target="_blank" rel="external"><code>b010c87164</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto, string_bytes</strong>: treat <code>buffer</code> str as <code>utf8</code> (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/5522" target="_blank" rel="external">#5522</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1d9451bb5a" target="_blank" rel="external"><code>1d9451bb5a</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>crypto</strong>: better error message for createHash (Calvin Metcalf) <a href="https://github.com/nodejs/node/pull/6042" target="_blank" rel="external">#6042</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/52af5c4eeb" target="_blank" rel="external"><code>52af5c4eeb</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>deps</strong>: upgrade V8 to 5.0.71.32 (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/6111" target="_blank" rel="external">#6111</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2253be95d0" target="_blank" rel="external"><code>2253be95d0</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>deps</strong>: reintroduce supporting shared c-ares builds (Johan Bergström) <a href="https://github.com/nodejs/node/pull/5775" target="_blank" rel="external">#5775</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/4bc1cccb22" target="_blank" rel="external"><code>4bc1cccb22</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>dgram</strong>: pass null as error on successful send() (cjihrig) <a href="https://github.com/nodejs/node/pull/5929" target="_blank" rel="external">#5929</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/dbdbdd4998" target="_blank" rel="external"><code>dbdbdd4998</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>dns</strong>: add resolvePtr to query plain DNS PTR records (Daniel Turing) <a href="https://github.com/nodejs/node/pull/4921" target="_blank" rel="external">#4921</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c4ab861a49" target="_blank" rel="external"><code>c4ab861a49</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>dns</strong>: add failure test for dns.resolveXXX (Daniel Turing) <a href="https://github.com/nodejs/node/pull/4921" target="_blank" rel="external">#4921</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f3be421c1c" target="_blank" rel="external"><code>f3be421c1c</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>dns</strong>: coerce port to number in lookupService (Evan Lucas) <a href="https://github.com/nodejs/node/pull/4883" target="_blank" rel="external">#4883</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/4d4f3535a9" target="_blank" rel="external"><code>4d4f3535a9</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>doc</strong>: general improvements to fs.markdown (James M Snell) <a href="https://github.com/nodejs/node/pull/5616" target="_blank" rel="external">#5616</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d8290286b3" target="_blank" rel="external"><code>d8290286b3</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>doc</strong>: document deprecation of util._extend (Benjamin Gruenbaum) <a href="https://github.com/nodejs/node/pull/4903" target="_blank" rel="external">#4903</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/236b7e8dd1" target="_blank" rel="external"><code>236b7e8dd1</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>doc</strong>: doc-only deprecation for util.log() (Jackson Tian) <a href="https://github.com/nodejs/node/pull/6161" target="_blank" rel="external">#6161</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/90204cc468" target="_blank" rel="external"><code>90204cc468</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>domains</strong>: clear stack when no error handler (Julien Gilli) <a href="https://github.com/nodejs/node/pull/4659" target="_blank" rel="external">#4659</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e38bade828" target="_blank" rel="external"><code>e38bade828</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>events</strong>: don’t inherit from Object.prototype (Brian White) <a href="https://github.com/nodejs/node/pull/6092" target="_blank" rel="external">#6092</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/53a95a5b12" target="_blank" rel="external"><code>53a95a5b12</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: make fs.watch error message more useful (James M Snell) <a href="https://github.com/nodejs/node/pull/5616" target="_blank" rel="external">#5616</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/060e5f0c00" target="_blank" rel="external"><code>060e5f0c00</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: Buffer and encoding enhancements to fs API (James M Snell) <a href="https://github.com/nodejs/node/pull/5616" target="_blank" rel="external">#5616</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/8bb60e3c8d" target="_blank" rel="external"><code>8bb60e3c8d</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: improve error message for invalid flag (James M Snell) <a href="https://github.com/nodejs/node/pull/5590" target="_blank" rel="external">#5590</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1124de2d76" target="_blank" rel="external"><code>1124de2d76</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: deprecate fs.read’s string interface (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/4525" target="_blank" rel="external">#4525</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2b15e68bbe" target="_blank" rel="external"><code>2b15e68bbe</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: fs.read into zero buffer should not throw exception (Feross Aboukhadijeh) <a href="https://github.com/nodejs/node/pull/4518" target="_blank" rel="external">#4518</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/8b97249893" target="_blank" rel="external"><code>8b97249893</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: fix the error report on fs.link(Sync) (yorkie) <a href="https://github.com/nodejs/node/pull/3917" target="_blank" rel="external">#3917</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/b488b19eaf" target="_blank" rel="external"><code>b488b19eaf</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>fs</strong>: optimize realpath using uv_fs_realpath() (Yuval Brik) <a href="https://github.com/nodejs/node/pull/3594" target="_blank" rel="external">#3594</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/5f76b24e5e" target="_blank" rel="external"><code>5f76b24e5e</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>http</strong>: overridable <code>clientError</code> (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/4557" target="_blank" rel="external">#4557</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d01eb6882f" target="_blank" rel="external"><code>d01eb6882f</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>lib</strong>: add ‘pid’ prefix in <code>internal/util</code> (Minwoo Jung) <a href="https://github.com/nodejs/node/pull/3878" target="_blank" rel="external">#3878</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/20285ad177" target="_blank" rel="external"><code>20285ad177</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>lib</strong>: Consistent error messages in all modules (micnic) <a href="https://github.com/nodejs/node/pull/3374" target="_blank" rel="external">#3374</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/94b9948d63" target="_blank" rel="external"><code>94b9948d63</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>lib,src</strong>: ensure ‘(node:pid)’ prefix for stdout logging (Minwoo Jung) <a href="https://github.com/nodejs/node/pull/3833" target="_blank" rel="external">#3833</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/b70dc67828" target="_blank" rel="external"><code>b70dc67828</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>lib,test</strong>: remove publicly exposed freelist (cjihrig) <a href="https://github.com/nodejs/node/pull/3738" target="_blank" rel="external">#3738</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d38503ab01" target="_blank" rel="external"><code>d38503ab01</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>module</strong>: prioritize current dir for local lookups (Phillip Johnsen) <a href="https://github.com/nodejs/node/pull/5689" target="_blank" rel="external">#5689</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/71470a8e45" target="_blank" rel="external"><code>71470a8e45</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>module</strong>: pass v8::Object to linked module initialization function (Phillip Kovalev) <a href="https://github.com/nodejs/node/pull/4771" target="_blank" rel="external">#4771</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/18490d3d5a" target="_blank" rel="external"><code>18490d3d5a</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>module</strong>: always decorate thrown errors (Brian White) <a href="https://github.com/nodejs/node/pull/4287" target="_blank" rel="external">#4287</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/de1dc0ae2e" target="_blank" rel="external"><code>de1dc0ae2e</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>module</strong>: preserve symlinks when requiring (Alex Lamar) <a href="https://github.com/nodejs/node/pull/5950" target="_blank" rel="external">#5950</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/b85a50b6da" target="_blank" rel="external"><code>b85a50b6da</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>net</strong>: remove implicit setting of DNS hints (cjihrig) <a href="https://github.com/nodejs/node/pull/6021" target="_blank" rel="external">#6021</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ec49fc8229" target="_blank" rel="external"><code>ec49fc8229</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>net</strong>: improve socket.write() error message (Phillip Johnsen) <a href="https://github.com/nodejs/node/pull/5981" target="_blank" rel="external">#5981</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d0edabecbf" target="_blank" rel="external"><code>d0edabecbf</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>net</strong>: strict checking for internal/net isLegalPort (James M Snell) <a href="https://github.com/nodejs/node/pull/5733" target="_blank" rel="external">#5733</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a78b3344f8" target="_blank" rel="external"><code>a78b3344f8</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>net</strong>: type check createServer options object (Sam Roberts) <a href="https://github.com/nodejs/node/pull/2904" target="_blank" rel="external">#2904</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/02ac302b6d" target="_blank" rel="external"><code>02ac302b6d</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>net</strong>: Validate port in createServer().listen() (Dirceu Pereira Tiegs) <a href="https://github.com/nodejs/node/pull/5732" target="_blank" rel="external">#5732</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/25751bedfe" target="_blank" rel="external"><code>25751bedfe</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>node</strong>: deprecate process.EventEmitter (Evan Lucas) <a href="https://github.com/nodejs/node/pull/5049" target="_blank" rel="external">#5049</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/08085c49b6" target="_blank" rel="external"><code>08085c49b6</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>path</strong>: assert inputs are strings (Brian White) <a href="https://github.com/nodejs/node/pull/5348" target="_blank" rel="external">#5348</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d1000b4137" target="_blank" rel="external"><code>d1000b4137</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>path</strong>: make format() consistent and more functional (Nathan Woltman) <a href="https://github.com/nodejs/node/pull/2408" target="_blank" rel="external">#2408</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c6656db352" target="_blank" rel="external"><code>c6656db352</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>process</strong>: add ‘warning’ event and process.emitWarning() (James M Snell) <a href="https://github.com/nodejs/node/pull/4782" target="_blank" rel="external">#4782</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/72e3dd9f43" target="_blank" rel="external"><code>72e3dd9f43</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>process</strong>: throw on non-function to nextTick() (yorkie) <a href="https://github.com/nodejs/node/pull/3860" target="_blank" rel="external">#3860</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/5dafb435d8" target="_blank" rel="external"><code>5dafb435d8</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>querystring</strong>: using toString for objects on querystring.escape (Igor Kalashnikov) <a href="https://github.com/nodejs/node/pull/5341" target="_blank" rel="external">#5341</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/dba245f796" target="_blank" rel="external"><code>dba245f796</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>querystring</strong>: don’t inherit from Object.prototype (Brian White) <a href="https://github.com/nodejs/node/pull/6055" target="_blank" rel="external">#6055</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/0a62f929da" target="_blank" rel="external"><code>0a62f929da</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>readline</strong>: emit key info unconditionally (cjihrig) <a href="https://github.com/nodejs/node/pull/6024" target="_blank" rel="external">#6024</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3de9bc9429" target="_blank" rel="external"><code>3de9bc9429</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>readline</strong>: document emitKeypressEvents() (cjihrig) <a href="https://github.com/nodejs/node/pull/6024" target="_blank" rel="external">#6024</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ca2e8b292f" target="_blank" rel="external"><code>ca2e8b292f</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>readline</strong>: deprecate undocumented exports (cjihrig) <a href="https://github.com/nodejs/node/pull/3862" target="_blank" rel="external">#3862</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/0303a2552e" target="_blank" rel="external"><code>0303a2552e</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>readline</strong>: allow history to be disabled (surya panikkal) <a href="https://github.com/nodejs/node/pull/6352" target="_blank" rel="external">#6352</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ad8257fa5b" target="_blank" rel="external"><code>ad8257fa5b</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>repl</strong>: Assignment of _ allowed with warning (Lance Ball) <a href="https://github.com/nodejs/node/pull/5535" target="_blank" rel="external">#5535</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/3ee68f794f" target="_blank" rel="external"><code>3ee68f794f</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>repl</strong>: don’t complete expressions when eval fails (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6328" target="_blank" rel="external">#6328</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/757fbac64b" target="_blank" rel="external"><code>757fbac64b</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>src</strong>: remove deprecated internal functions (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/6053" target="_blank" rel="external">#6053</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/4e46931406" target="_blank" rel="external"><code>4e46931406</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>src</strong>: deprecate undocumented variables (Jackson Tian) <a href="https://github.com/nodejs/node/pull/1838" target="_blank" rel="external">#1838</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/57003520f8" target="_blank" rel="external"><code>57003520f8</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>src</strong>: attach error to stack on displayErrors (cjihrig) <a href="https://github.com/nodejs/node/pull/4874" target="_blank" rel="external">#4874</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e7c077c610" target="_blank" rel="external"><code>e7c077c610</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>stream</strong>: make null an invalid chunk to write in object mode (Calvin Metcalf) <a href="https://github.com/nodejs/node/pull/6170" target="_blank" rel="external">#6170</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/cc0342a517" target="_blank" rel="external"><code>cc0342a517</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>streams</strong>: update .readable/.writable to false (Brian White) <a href="https://github.com/nodejs/node/pull/4083" target="_blank" rel="external">#4083</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/652782d137" target="_blank" rel="external"><code>652782d137</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>test</strong>: update test-repl-require for local paths (Myles Borins) <a href="https://github.com/nodejs/node/pull/5689" target="_blank" rel="external">#5689</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a5aa7c1713" target="_blank" rel="external"><code>a5aa7c1713</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>test</strong>: expand test case for unknown file open flags (James M Snell) <a href="https://github.com/nodejs/node/pull/5590" target="_blank" rel="external">#5590</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2c33819370" target="_blank" rel="external"><code>2c33819370</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>test</strong>: fix tests that check error messages (cjihrig) <a href="https://github.com/nodejs/node/pull/3727" target="_blank" rel="external">#3727</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ac153bd2a6" target="_blank" rel="external"><code>ac153bd2a6</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>timers</strong>: fail early when callback is not a function (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/4362" target="_blank" rel="external">#4362</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1ab6b21360" target="_blank" rel="external"><code>1ab6b21360</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>tls</strong>: rename <code>clientError</code> to <code>tlsClientError</code> (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/4557" target="_blank" rel="external">#4557</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/df268f97bc" target="_blank" rel="external"><code>df268f97bc</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>tls</strong>: use SHA1 for sessionIdContext (Stefan Budeanu) <a href="https://github.com/nodejs/node/pull/3866" target="_blank" rel="external">#3866</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/8ffa20c495" target="_blank" rel="external"><code>8ffa20c495</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>tools</strong>: do not rewrite npm shebang in install.py (Evan Lucas) <a href="https://github.com/nodejs/node/pull/6098" target="_blank" rel="external">#6098</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a2c0aa84e0" target="_blank" rel="external"><code>a2c0aa84e0</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>tty</strong>: Remove deprecated setRawMode wrapper (Wyatt Preul) <a href="https://github.com/nodejs/node/pull/2528" target="_blank" rel="external">#2528</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/eb4201f07a" target="_blank" rel="external"><code>eb4201f07a</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>url</strong>: drop auth in <code>url.resolve()</code> if host changes (Alex Kocharin) <a href="https://github.com/nodejs/node/pull/1480" target="_blank" rel="external">#1480</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e2f47f5698" target="_blank" rel="external"><code>e2f47f5698</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>util</strong>: Change how Error objects are formatted (Mudit Ameta) <a href="https://github.com/nodejs/node/pull/4582" target="_blank" rel="external">#4582</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/93d6b5fb68" target="_blank" rel="external"><code>93d6b5fb68</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>util</strong>: use consistent Dates in inspect() (Xotic750) <a href="https://github.com/nodejs/node/pull/4318" target="_blank" rel="external">#4318</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/24012a879d" target="_blank" rel="external"><code>24012a879d</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>util</strong>: make inspect more reliable (Evan Lucas) <a href="https://github.com/nodejs/node/pull/4098" target="_blank" rel="external">#4098</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/007cfea308" target="_blank" rel="external"><code>007cfea308</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>util</strong>: remove pump (Wyatt Preul) <a href="https://github.com/nodejs/node/pull/2531" target="_blank" rel="external">#2531</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/4cf19ad1bb" target="_blank" rel="external"><code>4cf19ad1bb</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>util</strong>: Remove exec, has been deprecated for years (Wyatt Preul) <a href="https://github.com/nodejs/node/pull/2530" target="_blank" rel="external">#2530</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/34a35919e1" target="_blank" rel="external"><code>34a35919e1</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>util</strong>: improve typed array formatting (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/3793" target="_blank" rel="external">#3793</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1cf26c036d" target="_blank" rel="external"><code>1cf26c036d</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>win</strong>: prevent node from running on Windows Vista or earlier (Alexis Campailla) <a href="https://github.com/nodejs/node/pull/5167" target="_blank" rel="external">#5167</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/55db19074d" target="_blank" rel="external"><code>55db19074d</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>win,msi</strong>: prevent from installing on Windows Vista or earlier (Alexis Campailla) <a href="https://github.com/nodejs/node/pull/5167" target="_blank" rel="external">#5167</a></li>
-<li><a href="https://github.com/nodejs/node/commit/54a5287e3e" target="_blank" rel="external">[‘54a5287e3e’]</a> -
-<strong>(SEMVER-MAJOR)</strong> <strong>zlib</strong>: fix gzip member head/buffer boundary issue (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/5883" target="_blank" rel="external">#5883</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/8b43d3f52d" target="_blank" rel="external"><code>8b43d3f52d</code></a>] - <strong>(SEMVER-MAJOR)</strong> <strong>zlib</strong>: do not emit event on *Sync() methods (Rich Trott) <a href="https://github.com/nodejs/node/pull/5707" target="_blank" rel="external">#5707</a></li>
-</ul>
-<p>Semver-minor and patch commits since v5.11.0</p>
-<ul>
-<li>[<a href="https://github.com/nodejs/node/commit/6c1e5ad3ab" target="_blank" rel="external"><code>6c1e5ad3ab</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>buffer</strong>: add Buffer.prototype.lastIndexOf() (dcposch@dcpos.ch) <a href="https://github.com/nodejs/node/pull/4846" target="_blank" rel="external">#4846</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/dd67608bfd" target="_blank" rel="external"><code>dd67608bfd</code></a>] - <strong>buffer</strong>: safeguard against accidental kNoZeroFill (Сковорода Никита Андреевич) <a href="https://github.com/nodejs/node-private/pull/30" target="_blank" rel="external">nodejs/node-private#30</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a4b8000029" target="_blank" rel="external"><code>a4b8000029</code></a>] - <strong>build</strong>: update android-configure script for npm (Robert Chiras) <a href="https://github.com/nodejs/node/pull/6349" target="_blank" rel="external">#6349</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/40ede46690" target="_blank" rel="external"><code>40ede46690</code></a>] - <strong>cares</strong>: Support malloc(0) scenarios for AIX (Gireesh Punathil) <a href="https://github.com/nodejs/node/pull/6305" target="_blank" rel="external">#6305</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e5f1e2c1df" target="_blank" rel="external"><code>e5f1e2c1df</code></a>] - <strong>deps</strong>: upgrade to V8 5.0.71.35 (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/6372" target="_blank" rel="external">#6372</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/49e42c530b" target="_blank" rel="external"><code>49e42c530b</code></a>] - <strong>deps</strong>: upgrade to V8 5.0.71.34 (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/6320" target="_blank" rel="external">#6320</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2011f2c6dc" target="_blank" rel="external"><code>2011f2c6dc</code></a>] - <strong>doc</strong>: fix position of <code>fs.readSync()</code> (Jeremiah Senkpiel) <a href="https://github.com/nodejs/node/pull/6399" target="_blank" rel="external">#6399</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/29a6c7c1f0" target="_blank" rel="external"><code>29a6c7c1f0</code></a>] - <strong>doc</strong>: change references to Stable to Current (Myles Borins) <a href="https://github.com/nodejs/node/pull/6318" target="_blank" rel="external">#6318</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a026cd0fa5" target="_blank" rel="external"><code>a026cd0fa5</code></a>] - <strong>doc</strong>: update authors (James M Snell) <a href="https://github.com/nodejs/node/pull/6373" target="_blank" rel="external">#6373</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/92a02d51dc" target="_blank" rel="external"><code>92a02d51dc</code></a>] - <strong>doc</strong>: add JacksonTian to collaborators (Jackson Tian) <a href="https://github.com/nodejs/node/pull/6388" target="_blank" rel="external">#6388</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/879aeb5e49" target="_blank" rel="external"><code>879aeb5e49</code></a>] - <strong>doc</strong>: add Minqi Pan to collaborators (Minqi Pan) <a href="https://github.com/nodejs/node/pull/6387" target="_blank" rel="external">#6387</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/be5d699055" target="_blank" rel="external"><code>be5d699055</code></a>] - <strong>doc</strong>: add eljefedelrodeodeljefe to collaborators (Robert Jefe Lindstaedt) <a href="https://github.com/nodejs/node/pull/6389" target="_blank" rel="external">#6389</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/916b1a1d44" target="_blank" rel="external"><code>916b1a1d44</code></a>] - <strong>doc</strong>: add ronkorving to collaborators (ronkorving) <a href="https://github.com/nodejs/node/pull/6385" target="_blank" rel="external">#6385</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c7066fb853" target="_blank" rel="external"><code>c7066fb853</code></a>] - <strong>doc</strong>: add estliberitas to collaborators (Alexander Makarenko) <a href="https://github.com/nodejs/node/pull/6386" target="_blank" rel="external">#6386</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/983a809456" target="_blank" rel="external"><code>983a809456</code></a>] - <strong>doc</strong>: fix broken references (Alexander Gromnitsky) <a href="https://github.com/nodejs/node/pull/6350" target="_blank" rel="external">#6350</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/ae991e7577" target="_blank" rel="external"><code>ae991e7577</code></a>] - <strong>doc</strong>: add note for platform specific flags <code>fs.open()</code> (Robert Jefe Lindstaedt) <a href="https://github.com/nodejs/node/pull/6136" target="_blank" rel="external">#6136</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f85412d49b" target="_blank" rel="external"><code>f85412d49b</code></a>] - <strong>doc</strong>: improvements to child_process, process docs (Alexander Makarenko)</li>
-<li>[<a href="https://github.com/nodejs/node/commit/f6d90a912b" target="_blank" rel="external"><code>f6d90a912b</code></a>] - <strong>doc</strong>: fix a typo in the CONTRIBUTING.md (vsemozhetbyt) <a href="https://github.com/nodejs/node/pull/6343" target="_blank" rel="external">#6343</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/6815a3b7f9" target="_blank" rel="external"><code>6815a3b7f9</code></a>] - <strong>doc</strong>: add vm example, be able to require modules (Robert Jefe Lindstaedt) <a href="https://github.com/nodejs/node/pull/5323" target="_blank" rel="external">#5323</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/7f11634a46" target="_blank" rel="external"><code>7f11634a46</code></a>] - <strong>doc</strong>: note that process.config can and will be changed (James M Snell) <a href="https://github.com/nodejs/node/pull/6266" target="_blank" rel="external">#6266</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/0e7d57af35" target="_blank" rel="external"><code>0e7d57af35</code></a>] - <strong>(SEMVER-MINOR)</strong> <strong>events</strong>: add prependListener() and prependOnceListener() (James M Snell) <a href="https://github.com/nodejs/node/pull/6032" target="_blank" rel="external">#6032</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/c1cd64481f" target="_blank" rel="external"><code>c1cd64481f</code></a>] - <strong>events</strong>: make eventNames() use Reflect.ownKeys() (Luigi Pinca) <a href="https://github.com/nodejs/node/pull/5822" target="_blank" rel="external">#5822</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/f1294f5bfd" target="_blank" rel="external"><code>f1294f5bfd</code></a>] - <strong>gyp</strong>: inherit parent for <code>*.host</code> (Johan Bergström) <a href="https://github.com/nodejs/node/pull/6173" target="_blank" rel="external">#6173</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/d5922bd7a9" target="_blank" rel="external"><code>d5922bd7a9</code></a>] - <strong>querystring</strong>: fix comments (Brian White) <a href="https://github.com/nodejs/node/pull/6365" target="_blank" rel="external">#6365</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2c480bdae6" target="_blank" rel="external"><code>2c480bdae6</code></a>] - <strong>src</strong>: fix check-imports.py linter errors (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/6105" target="_blank" rel="external">#6105</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/5eb4ec090d" target="_blank" rel="external"><code>5eb4ec090d</code></a>] - <strong>src</strong>: squelch -Wunused-variable in non-icu builds (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/6351" target="_blank" rel="external">#6351</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a3b5b9cbf2" target="_blank" rel="external"><code>a3b5b9cbf2</code></a>] - <strong>src</strong>: fix out-of-bounds write in TwoByteValue (Anna Henningsen) <a href="https://github.com/nodejs/node/pull/6330" target="_blank" rel="external">#6330</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/cdba9a6c02" target="_blank" rel="external"><code>cdba9a6c02</code></a>] - <strong>src</strong>: add intl and icu configs to process.binding(‘config’) (James M Snell) <a href="https://github.com/nodejs/node/pull/6266" target="_blank" rel="external">#6266</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/2e974cdd8c" target="_blank" rel="external"><code>2e974cdd8c</code></a>] - <strong>src</strong>: add process.binding(‘config’) (James M Snell) <a href="https://github.com/nodejs/node/pull/6266" target="_blank" rel="external">#6266</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/75e073f2b2" target="_blank" rel="external"><code>75e073f2b2</code></a>] - <strong>test</strong>: increase the platform timeout for AIX (Michael Dawson) <a href="https://github.com/nodejs/node/pull/6342" target="_blank" rel="external">#6342</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/84ebf2b40d" target="_blank" rel="external"><code>84ebf2b40d</code></a>] - <strong>test</strong>: add tests for console.assert (Evan Lucas) <a href="https://github.com/nodejs/node/pull/6302" target="_blank" rel="external">#6302</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a770a163ab" target="_blank" rel="external"><code>a770a163ab</code></a>] - <strong>test</strong>: v8-flags is sensitive to script caching (Ali Ijaz Sheikh) <a href="https://github.com/nodejs/node/pull/6316" target="_blank" rel="external">#6316</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/1e4d053e6b" target="_blank" rel="external"><code>1e4d053e6b</code></a>] - <strong>test</strong>: don’t assume IPv6 in test-regress-GH-5727 (cjihrig) <a href="https://github.com/nodejs/node/pull/6319" target="_blank" rel="external">#6319</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/a7335bd1f0" target="_blank" rel="external"><code>a7335bd1f0</code></a>] - <strong>test,benchmark</strong>: use deepStrictEqual() (Rich Trott) <a href="https://github.com/nodejs/node/pull/6213" target="_blank" rel="external">#6213</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/6781d917f4" target="_blank" rel="external"><code>6781d917f4</code></a>] - <strong>tools</strong>: rewrite check-install.sh in python (Sakthipriyan Vairamani) <a href="https://github.com/nodejs/node/pull/6105" target="_blank" rel="external">#6105</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/e84c69310f" target="_blank" rel="external"><code>e84c69310f</code></a>] - <strong>tools</strong>: enforce deepStrictEqual over deepEqual (Rich Trott) <a href="https://github.com/nodejs/node/pull/6213" target="_blank" rel="external">#6213</a></li>
-<li>[<a href="https://github.com/nodejs/node/commit/7940ecfa00" target="_blank" rel="external"><code>7940ecfa00</code></a>] - <strong>v8</strong>: warn in Template::Set() on improper use (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/6277" target="_blank" rel="external">#6277</a></li>
-</ul>
-<p>Windows 32-bit Installer: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-x86.msi" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-x86.msi</a><br>
-Windows 64-bit Installer: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-x64.msi" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-x64.msi</a><br>
-Windows 32-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/win-x86/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/win-x86/node.exe</a><br>
-Windows 64-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/win-x64/node.exe" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/win-x64/node.exe</a><br>
-Mac OS X 64-bit Installer: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0.pkg" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0.pkg</a><br>
-Mac OS X 64-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-darwin-x64.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-darwin-x64.tar.gz</a><br>
-Linux 32-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-x86.tar.xz</a><br>
-Linux 64-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-x64.tar.xz</a><br>
-Linux PPC LE 64-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-ppc64le.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-ppc64le.tar.xz</a><br>
-SunOS 32-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-sunos-x86.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-sunos-x86.tar.xz</a><br>
-SunOS 64-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-sunos-x64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-sunos-x64.tar.xz</a><br>
-ARMv6 32-bit Binary: <em>Coming soon</em><br>
-ARMv7 32-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-armv7l.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-armv7l.tar.xz</a><br>
-ARMv8 64-bit Binary: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-arm64.tar.xz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0-linux-arm64.tar.xz</a><br>
-Source Code: <a href="https://nodejs.org/dist/v6.0.0/node-v6.0.0.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/node-v6.0.0.tar.gz</a><br>
-Other release files: <a href="https://nodejs.org/dist/v6.0.0/" target="_blank" rel="external">https://nodejs.org/dist/v6.0.0/</a><br>
-Documentation: <a href="https://nodejs.org/docs/v6.0.0/api/" target="_blank" rel="external">https://nodejs.org/docs/v6.0.0/api/</a></p>
-<p>Shasums (GPG signing hash: SHA512, file hash: SHA256):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">-----BEGIN PGP SIGNED MESSAGE-----</div><div class="line">Hash: SHA512</div><div class="line"></div><div class="line">5be18c5571ce2b33918a3dd0be2f18d2a6939a60754026fb7e7967bec09d9e5e  node-v6.0.0-darwin-x64.tar.gz</div><div class="line">9da8c11bf45f8b6b8c6a720cfaa37624d18d6972d8670c565b6e005e643b572a  node-v6.0.0-darwin-x64.tar.xz</div><div class="line">f72de0e9403dd4ab7b6eec7266a498ba561afe5d5c7aff77b83894b43c959beb  node-v6.0.0-headers.tar.gz</div><div class="line">8b6c5a315fefa7b873cbedd8daf75ee928646df2f05efa60c9c7d3a488851bd1  node-v6.0.0-headers.tar.xz</div><div class="line">c4d7da92f76e77d27ef5650ad01085baad74439fab15e5143a8e9fc6cad13101  node-v6.0.0-linux-arm64.tar.gz</div><div class="line">68d31984e304e5840591331bdd3eaa375fe07fa96307eb7d4681cea5ccb4e669  node-v6.0.0-linux-arm64.tar.xz</div><div class="line">7a29af935545c07ea2eb5bbf6b6fb643765d50ee69d1b4193345a50fb8cb1093  node-v6.0.0-linux-armv7l.tar.gz</div><div class="line">5a9b4c275313c1335819924c5028241cf2ee107032c530836b41938916090bd6  node-v6.0.0-linux-armv7l.tar.xz</div><div class="line">7044f1049d6d8673cff7b0d38cd8c606be56ba149d3d32b34ca3f017df731a2a  node-v6.0.0-linux-ppc64le.tar.gz</div><div class="line">65e208fb8189b264f6e66d0d4974485b5eb83cae2db34cc7d09464cb43142354  node-v6.0.0-linux-ppc64le.tar.xz</div><div class="line">78fa76c77a1168095cf5b8a5018e00e7212d11e485cf10c77ce1c8af4955cdd3  node-v6.0.0-linux-x64.tar.gz</div><div class="line">1e7aa64e28f26887810df74ca4bb0f3c37c332e866aefd16c23daedfcf67935b  node-v6.0.0-linux-x64.tar.xz</div><div class="line">51321999e9706d9c24ea3689a03d049ad96657933228d3ed25d7710bc5d9e9bc  node-v6.0.0-linux-x86.tar.gz</div><div class="line">5b1cbe9a5af935619b7d4a36d09cc3b73ea2605a1bd3ab9121920caba6f95a5e  node-v6.0.0-linux-x86.tar.xz</div><div class="line">6f2114f02252c40304e3951b058ddababfe94b86e25cd8b3dddbf6aaa295ce71  node-v6.0.0.pkg</div><div class="line">dc1345210205380af8fa16a63dca996803af105d7b0e5aa4160df7ed88523f08  node-v6.0.0-sunos-x64.tar.gz</div><div class="line">0f69caa00c56e21c44c849e3e82e2fa3c775f441326f2668ac9503bc349eac03  node-v6.0.0-sunos-x64.tar.xz</div><div class="line">61259a9794d2ed7b0e5331d5d2158da06f6ed5d31cbeae6d71da4d5e941a7754  node-v6.0.0-sunos-x86.tar.gz</div><div class="line">822bd48f5443cc45513747b4ce3aa337ff98e27e8f4c63e6bbba23f7b57d2aa3  node-v6.0.0-sunos-x86.tar.xz</div><div class="line">6db56d81a4e07ff4017809ad4ee49a5256fad804cd8527f8724f8e149e3dfc32  node-v6.0.0.tar.gz</div><div class="line">f0e5bdc3cf4af85b8a24bdbebed81e1a9f7fda91cab8a9475737940aa90da617  node-v6.0.0.tar.xz</div><div class="line">933a15791a67a2740cbd082a8d9aebc43162ec6d4db335abf62121a9561c57d4  node-v6.0.0-x64.msi</div><div class="line">614380711039b7cc23db8d8cbf42ed9f4a6f0501eb8a143490f7ece952037bc9  node-v6.0.0-x86.msi</div><div class="line">e2e434c5d63d684f0f0f074ee97b5a79fd0d9fbb340bac658f325239aec2589f  win-x64/node.exe</div><div class="line">b1c9f9d58ef1fd684f0d136cce002e800c852203f876606b1b641692171783c3  win-x64/node.lib</div><div class="line">675199b7db04f95545d8ca650b87b1cc6616e5e6638b854cd7f2bbabb050d533  win-x86/node.exe</div><div class="line">c2b83ffce6edfdfee450f07fab28d299b99a1046a5ba9452830126303a0739b6  win-x86/node.lib</div><div class="line">-----BEGIN PGP SIGNATURE-----</div><div class="line">Comment: GPGTools - https://gpgtools.org</div><div class="line"></div><div class="line">iQEbBAEBCgAGBQJXH8kkAAoJEHNBsVwHCHesjyEH+NCanRJnIPn6HnO7U26Zjht4</div><div class="line">FdNURcOs4ILB+R9vOS0G5OpU5fL8u1PVpPMGhkdOcvV7Xv1Nh1Vm67alOzAFv1Id</div><div class="line">pmepNbT/hA5BGmZvt9K/Pp0+LXKXLaRStooof0QMxR8My/M65V1VNsU1CEY2ffSK</div><div class="line">oNRf6roxvNPE0JcMmwEBDXnrEZ+hi/8R0hIms6zt6tzUcHmvzkdQ+5sGU07kKRdU</div><div class="line">6Ez/0raEteAfzXoUoyerHTzERGP9lE8Gz7TA2vEa2Wz30brBF+FcGw+T+H/nn41N</div><div class="line">WHZwA/fyoZo25rPzpXWygG63u7e/2OUv1pUdYp1tjkTJ+ytdb8l4RX/oOGCM4A==</div><div class="line">=XFwg</div><div class="line">-----END PGP SIGNATURE-----</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2016/04/26/release-v6.0.0/" data-id="cirzbcmjt007ubum6nco88zat" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2016/04/29/weekly/" data-id="cis1avsnm007nn9m6agw84aqe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1958,7 +1526,7 @@ Documentation: <a href="https://nodejs.org/docs/v6.0.0/api/" target="_blank" rel
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/nodejs-ko/page/2/">&laquo; Précédent</a><a class="page-number" href="/nodejs-ko/">1</a><a class="page-number" href="/nodejs-ko/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/nodejs-ko/page/4/">4</a><a class="page-number" href="/nodejs-ko/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/4/">Suivant &raquo;</a>
+    <a class="extend prev" rel="prev" href="/nodejs-ko/page/2/">&laquo; Prev</a><a class="page-number" href="/nodejs-ko/">1</a><a class="page-number" href="/nodejs-ko/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/nodejs-ko/page/4/">4</a><a class="page-number" href="/nodejs-ko/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/4/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -2004,7 +1572,7 @@ Documentation: <a href="https://nodejs.org/docs/v6.0.0/api/" target="_blank" rel
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Node.js 한국어 번역팀<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

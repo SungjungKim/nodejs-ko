@@ -55,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/nodejs-ko/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://nodejs.github.io/nodejs-ko"></form>
@@ -68,6 +68,126 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <a href="/nodejs-ko/weekly/2015/04/17/weekly/" class="article-date">
+    <time datetime="2015-04-16T15:00:00.000Z" itemprop="datePublished">2015-04-17</time>
+  </a>
+
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nodejs-ko/weekly/2015/04/17/weekly/">io.js 주간 뉴스 2015년 4월 17일</a>
+    </h1>
+  
+  <ul>
+    <li>작성자: <strong>iojs</strong></li>
+    <li>
+      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-april-17th-e4c6f2db7659" taret="_blank">
+        io.js Week of April 17th — Node &amp;amp; JavaScript
+      </a></strong>
+    </li>
+    <li>
+      번역:
+      
+        
+          <strong><a href="https://github.com/taggon" target="_blank">taggon</a></strong>
+        
+      
+    </li>
+  </ul>
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!--
+io.js 1.7 release, community updates and events, and many more
+-->
+<p>io.js 1.7 릴리스, 커뮤니티 업데이트와 이벤트 등</p>
+<!--
+io.js 1.7 releases
+
+This week we had two io.js releases [v1.7.0](https://iojs.org/dist/v1.7.0/) and [v1.7.1](https://iojs.org/dist/v1.7.1/), complete changelog can be found [on GitHub](https://github.com/nodejs/node/blob/v1.x/CHANGELOG.md).
+-->
+<h2 id="io-js-1-7-릴리스"><a href="#io-js-1-7-릴리스" class="headerlink" title="io.js 1.7 릴리스"></a>io.js 1.7 릴리스</h2><p>이번 주에 io.js <a href="https://iojs.org/dist/v1.7.0/" target="_blank" rel="external">v1.7.0</a>과 <a href="https://iojs.org/dist/v1.7.1/" target="_blank" rel="external">v1.7.1</a>을 릴리스했습니다. 전체 변경사항은 <a href="https://github.com/nodejs/node/blob/v1.x/CHANGELOG.md" target="_blank" rel="external">GitHub에서</a> 볼 수 있습니다.</p>
+<h3 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h3><!--
+* **build**: A syntax error in the Makefile for release builds caused 1.7.0 to be DOA and unreleased. (Rod Vagg) [#1421](https://github.com/nodejs/node/pull/1421).
+* **C++ API**: Fedor Indutny contributed a feature to V8 which has been backported to the V8 bundled in io.js. SealHandleScope allows a C++ add-on author to *seal* a HandleScope to prevent further, unintended allocations within it. Currently only enabled for debug builds of io.js. This feature helped detect the leak in [#1075](https://github.com/nodejs/node/issues/1075) and is now activated on the root HandleScope in io.js. (Fedor Indutny) [#1395](https://github.com/nodejs/node/pull/1395).
+* **ARM**: This release includes significant work to improve the state of ARM support for builds and tests. The io.js CI cluster’s ARMv6, ARMv7 and ARMv8 build servers are now all (mostly) reporting passing builds and tests.
+* ARMv8 64-bit (AARCH64) is now properly supported, including a backported fix in libuv that was mistakenly detecting the existence of epoll_wait(). (Ben Noordhuis) [#1365](https://github.com/nodejs/node/pull/1365). ARMv6: [#1376](https://github.com/nodejs/node/issues/1376) reported a problem with Math.exp() on ARMv6 (including Raspberry Pi). The culprit is erroneous codegen for ARMv6 when using the “fast math” feature of V8. — nofast_math has been turned on for all ARMv6 variants by default to avoid this, fast math can be turned back on with — fast_math. (Ben Noordhuis) [#1398](https://github.com/nodejs/node/pull/1398). Tests: timeouts have been tuned specifically for slower platforms, detected as ARMv6 and ARMv7. (Roman Reiss) [#1366](https://github.com/nodejs/node/pull/1366).
+* **npm**: Upgrade npm to 2.7.6. See the [release notes](https://github.com/npm/npm/releases/tag/v2.7.6) for details.
+-->
+<ul>
+<li><strong>빌드</strong>: 1.7.0을 출시할 수 없게 만든 Makefile의 문법 에러를 수정했습니다. (Rod Vagg) <a href="https://github.com/nodejs/node/pull/1421" target="_blank" rel="external">#1421</a>.</li>
+<li><strong>C++ API</strong>: Fedor Indutny가 io.js에 포함된 V8에 있던 기능을 V8로 포팅했습니다. <code>SealHandleScope</code>를 사용하면 C++ 애드온 제작자가 <code>HandleScope</code>를 <em>봉인(seal)</em> 하여 애드온에서 발생하는 일어날 수 있는 의도하지 않은 할당을 방지할 수 있습니다. 현재는 io.js의 디버그 빌드에서만 사용가능합니다. 이 기능을 사용하면 <a href="https://github.com/nodejs/node/issues/1075" target="_blank" rel="external">#1075</a>의 메모리 누수를 탐지할 수 있으며 현재는 io.js의 루트 HandleScope에서 활성화되어 있습니다. (Fedor Indutny) <a href="https://github.com/nodejs/node/pull/1395" target="_blank" rel="external">#1395</a>.</li>
+<li><strong>ARM</strong>: 이번 릴리스에는 빌드와 테스트에 있어 ARM에 대한 지원이 대폭 개선되었습니다. io.js CI 클러스터의 ARMv6, ARMv7, ARMv8 빌드 서버가 (거의) 모든 빌드와 테스트를 통과했다고 보고하고 있습니다.</li>
+<li>ARMv8 64비트 (AARCH64)를 이제 제대로 지원합니다. libuv에서 <code>epoll_wait()</code>의 존재 여부를 오판하던 문제에 대한 수정사항도 포함되었습니다. (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/1365" target="_blank" rel="external">#1365</a>. ARMv6: <a href="https://github.com/nodejs/node/issues/1376" target="_blank" rel="external">#1376</a>(라스베리 파이 포함)에서 <code>Math.exp()</code>를 사용할 때 문제가 발생한다는 보고가 있습니다. V8의 “fast math” 기능을 사용할 때 ARMv6의 잘못된 코드 생성기가 범인이었습니다.  이 문제를 피하기 위해 ARMv6에서는 <code>—nofast_math</code>를 기본값으로 사용하도록 했습니다. <code>—fast_math</code>를 사용하면 fast math 기능을 사용할 수 있습니다. (Ben Noordhuis) <a href="https://github.com/nodejs/node/pull/1398" target="_blank" rel="external">#1398</a>. 테스트: ARMv6, ARMv7과 같은 느린 플랫폼에서 타임아웃 시간을 조정했습니다. (Roman Reiss) <a href="https://github.com/nodejs/node/pull/1366" target="_blank" rel="external">#1366</a>.</li>
+<li><strong>npm</strong>: npm을 2.7.6으로 업그레이드 했습니다. 자세한 사항은 <a href="https://github.com/npm/npm/releases/tag/v2.7.6" target="_blank" rel="external">릴리스 노트</a>를 참고하세요.</li>
+</ul>
+<h3 id="알려진-이슈"><a href="#알려진-이슈" class="headerlink" title="알려진 이슈"></a>알려진 이슈</h3><!--
+* Some problems with unreferenced timers running during beforeExit are still to be resolved. See [#1264](https://github.com/nodejs/node/issues/1264).
+* Surrogate pair in REPL can freeze terminal [#690](https://github.com/nodejs/node/issues/690)
+* process.send() is not synchronous as the docs suggest, a regression introduced in 1.0.2, see [#760](https://github.com/nodejs/node/issues/760) and fix in [#774](https://github.com/nodejs/node/issues/774)
+* Calling dns.setServers() while a DNS query is in progress can cause the process to crash on a failed assertion [#894](https://github.com/nodejs/node/issues/894)
+* readline: split escapes are processed incorrectly, see [#1403](https://github.com/nodejs/node/issues/1403)
+-->
+<ul>
+<li><code>beforeExit</code> 실행 중에 참조되지 않은 타이머가 실행되는 문제점이 있습니다. <a href="https://github.com/nodejs/node/issues/1264" target="_blank" rel="external">#1264</a> 참고.</li>
+<li>대화형 셸에서 서러게이트 페어(Surrogate pair)가 터미널을 정지시킬 수 있습니다. <a href="https://github.com/nodejs/node/issues/690" target="_blank" rel="external">#690</a></li>
+<li><code>process.send()</code>는 문서에서 설명된 바와는 다르게 동기적이지 않습니다. 이 버그는 1.0.2에서 나타났었습니다. 문제에 대해서는 <a href="https://github.com/nodejs/node/issues/760" target="_blank" rel="external">#760</a>에서 확인 가능하며  <a href="https://github.com/nodejs/node/issues/774" target="_blank" rel="external">#774</a>에서 수정하고 있습니다.</li>
+<li>DNS 쿼리 중에 <code>dns.setServers()</code>를 호출하면 실패한 단언문 때문에 프로세스가 중단될 수 있습니다. <a href="https://github.com/nodejs/node/issues/894" target="_blank" rel="external">#894</a>.</li>
+<li><code>readline</code>: 분할 이스케이프가 올바르게 처리되지 않습니다. <a href="https://github.com/nodejs/node/issues/1403" target="_blank" rel="external">#1403</a>.</li>
+</ul>
+<h2 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h2><!--
+* Difference between io.js and The Node Foundation [iojs/io.js#1416](https://github.com/nodejs/node/issues/1416).
+* NPM launches private modules and npm inc [raises](http://techcrunch.com/2015/04/14/popular-javascript-package-manager-npm-raises-8m-launches-private-modules/).
+* Thoughts of Node.js Foundation on [Medium](https://medium.com/@programmer/thoughts-on-node-foundation-abcf86c72786).
+* io.js v1.8.0 crypto performance on [io.js wiki](https://github.com/nodejs/node/wiki/Crypto-Performance-Notes-for-OpenSSL-1.0.2a-on-iojs-v1.8.0).
+* io.js mention on [Oracle’s blog](https://blogs.oracle.com/java-platform-group/entry/node_js_and_io_js).
+* State of the io.js Build [April 2015](https://github.com/nodejs/build/issues/77)
+-->
+<ul>
+<li>io.js와 노드 재단의 차이점 <a href="https://github.com/nodejs/node/issues/1416" target="_blank" rel="external">iojs/io.js#1416</a>.</li>
+<li>NPM에 비공개 모듈이 공개되었으며 npm 주식회사는 <a href="http://techcrunch.com/2015/04/14/popular-javascript-package-manager-npm-raises-8m-launches-private-modules/" target="_blank" rel="external">추가 투자</a>를 받았습니다.</li>
+<li><a href="https://medium.com/@programmer/thoughts-on-node-foundation-abcf86c72786" target="_blank" rel="external">Medium</a>에 Node.js 재단에 대한 생각이라는 글이 게시되었습니다.</li>
+<li><a href="https://github.com/nodejs/node/wiki/Crypto-Performance-Notes-for-OpenSSL-1.0.2a-on-iojs-v1.8.0" target="_blank" rel="external">io.js 위키</a>에 io.js v1.8.0의 crypto 성능에 대한 글을 게시했습니다.</li>
+<li><a href="https://blogs.oracle.com/java-platform-group/entry/node_js_and_io_js" target="_blank" rel="external">오라클 블로그</a>에 io.js가 언급되었습니다.</li>
+<li><a href="https://github.com/nodejs/build/issues/77" target="_blank" rel="external">2015년 4월</a>의 io.js 빌드 현황입니다.</li>
+</ul>
+<h2 id="다가오는-이벤트"><a href="#다가오는-이벤트" class="headerlink" title="다가오는 이벤트"></a>다가오는 이벤트</h2><!--
+* [JSConf Uruguay](http://jsconf.uy/) tickets are on sale, April 24th & 25th at Montevideo, Uruguay
+-->
+<ul>
+<li><a href="http://jsconf.uy/" target="_blank" rel="external">JSConf Uruguay</a> 입장권을 판매하고 있습니다. 4월 24일과 25일, 우르과이 몬테비데오에서 열립니다.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/17/weekly/" data-id="cis1avshb000xn9m68h58lz9u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -175,7 +295,7 @@ This week we had one io.js release [v1.6.4](https://iojs.org/dist/v1.6.4/), comp
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/10/weekly/" data-id="cirzbcmck000ubum6ifs6wegg" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/10/weekly/" data-id="cis1avsh8000tn9m6j8hp3omu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +444,7 @@ This week we had one io.js release [v1.6.3](https://iojs.org/dist/v1.6.3/), comp
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/03/weekly/" data-id="cirzbcmci000sbum6juapd1e5" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/04/03/weekly/" data-id="cis1avsha000vn9m69pze0z8o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -428,7 +548,7 @@ Certain matters are not left to the TSC (like legal issues) and are handled by t
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/04/02/help-us-reconcile-node-js-and-io-js/" data-id="cirzbcmcg000qbum6osbgfvyb" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/04/02/help-us-reconcile-node-js-and-io-js/" data-id="cis1avsh7000rn9m69shheqx2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -540,7 +660,7 @@ This week we had one io.js releases [v1.6.2](https://iojs.org/dist/v1.6.2/), com
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/27/weekly/" data-id="cirzbcmc6000mbum63lcy9wrc" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/27/weekly/" data-id="cis1avsh5000pn9m6qb6cmiiv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -684,7 +804,7 @@ This week we had a two io.js releases [v1.6.1](https://iojs.org/dist/v1.6.1/) an
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/20/weekly/" data-id="cirzbcmcd000obum6n9ac0yja" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/20/weekly/" data-id="cis1avsgz000mn9m6c4kq9ttl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -816,7 +936,7 @@ On Monday, March 9th, [@rvagg](https://github.com/rvagg) released io.js [v1.5.1]
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/13/weekly/" data-id="cirzbcmc5000kbum6ma0lrlnk" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/13/weekly/" data-id="cis1avsgt000hn9m6gvyumptg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -978,154 +1098,7 @@ On Friday, March 6th, [@rvagg](https://github.com/rvagg) released io.js [**v1.5.
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/06/weekly/" data-id="cirzbcmc2000hbum6mlb2ijh3" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <a href="/nodejs-ko/weekly/2015/02/27/weekly/" class="article-date">
-    <time datetime="2015-02-26T15:00:00.000Z" itemprop="datePublished">2015-02-27</time>
-  </a>
-
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/nodejs-ko/categories/weekly/">weekly</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/weekly/2015/02/27/weekly/">io.js 주간 뉴스 2015년 2월 27일</a>
-    </h1>
-  
-  <ul>
-    <li>작성자: <strong>iojs</strong></li>
-    <li>
-      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-february-17th-9422a589302a" taret="_blank">
-        io.js Week of February 27th — Node &amp;amp; JavaScript
-      </a></strong>
-    </li>
-    <li>
-      번역:
-      
-        
-          <strong><a href="https://github.com/marocchino" target="_blank">marocchino</a></strong>
-        
-      
-    </li>
-  </ul>
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--
-# io.js 1.4.1 Release
-
-_Note: version **1.4.0** was tagged and built but not released. A libuv bug was discovered in the process so the release was aborted. We have jumped to 1.4.1 to avoid confusion._
--->
-<h1 id="io-js-1-4-1-릴리스"><a href="#io-js-1-4-1-릴리스" class="headerlink" title="io.js 1.4.1 릴리스"></a>io.js 1.4.1 릴리스</h1><p><em>주의: <strong>1.4.0</strong> 버전은 태깅하고 빌드는 했지만 릴리스하지는 않았다. 도중 libuv 버그를 발견해서 릴리스를 취소했다. 혼동을 피하고자 바로 1.4.1 버전으로 건너뛰었다.</em></p>
-<!--
-## Notable changes
-
-* **process** / **promises**: An`'unhandledRejection'` event is now emitted on `process` whenever a `Promise` is rejected and no error handler is attached to the `Promise` within a turn of the event loop. A `'rejectionHandled'` event is now emitted whenever a `Promise` was rejected and an error handler was attached to it later than after an event loop turn.  [#758](https://github.com/nodejs/node/pull/758) (Petka Antonov)
-* **streams**: you can now use regular streams as an underlying socket for `tls.connect()` [#926](https://github.com/nodejs/node/pull/926) (Fedor Indutny)
-* **http**: A new `'abort'` event emitted when a `http.ClientRequest` is aborted by the client. [#945](https://github.com/nodejs/node/pull/945) (Evan Lucas)
-* **V8**: Upgrade V8 to 4.1.0.21. Includes an embargoed fix, details should be available when embargo is lifted. A breaking ABI change has been held back from this upgrade, possibly to be included when io.js merges V8 4.2. See [#952](https://github.com/nodejs/node/pull/952) for discussion.
-* **npm**: Upgrade npm to 2.6.0. Includes features to support the new registry and to prepare for `npm@3`. See [npm CHANGELOG.md](https://github.com/npm/npm/blob/master/CHANGELOG.md#v260-2015-02-12) for details. Summary:
-  * [#5068](https://github.com/npm/npm/issues/5068) Add new logout command, and make it do something useful on both bearer-based and basic-based authed clients.
-  * [#6565](https://github.com/npm/npm/issues/6565) Warn that `peerDependency` behavior is changing and add a note to the docs.
-  * [#7171](https://github.com/npm/npm/issues/7171) Warn that `engineStrict` in `package.json` will be going away in the next major version of npm (coming soon!)
-* **libuv**: Upgrade to 1.4.2. See [libuv ChangeLog](https://github.com/libuv/libuv/blob/v1.x/ChangeLog) for details of fixes.
--->
-<h2 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h2><ul>
-<li><strong>process</strong> / <strong>promises</strong>: 이제 에러 핸들러가 이벤트 루프에서 차례가 돌아왔을 때 <code>Promise</code>가 거부되었지만 <code>Promise</code>에 연결된 에러 핸들러가 없을 때 <code>process</code>에서 <code>&#39;unhandledRejection&#39;</code> 이벤트가 발생한다. <a href="https://github.com/nodejs/node/pull/758" target="_blank" rel="external">#758</a> (Petka Antonov)</li>
-<li><strong>streams</strong>: 이제 <code>tls.connect()</code>를 사용할 때 기반 소켓으로 일반 스트림을 사용할 수 있다. <a href="https://github.com/nodejs/node/pull/926" target="_blank" rel="external">#926</a> (Fedor Indutny)</li>
-<li><strong>http</strong>: 클라이언트가 <code>http.ClientRequest</code>를 중지했을 때 새로운 <code>&#39;abort&#39;</code> 이벤트가 발생한다. <a href="https://github.com/nodejs/node/pull/945" target="_blank" rel="external">#945</a> (Evan Lucas)</li>
-<li><strong>V8</strong>: 버전을 4.1.0.21로 업그레이드했다. 여기엔 금지된(embargoed) 수정이 포함된다. 세부사항은 금지가 해제될 때 사용할 수 있다. 호환성이 깨진 ABI 변경사항은 이번 업드레이드에는 포함되지 않았지만 io.js에 V8 4.2를 합칠 때 포함할 수도 있다. 논의는 <a href="https://github.com/nodejs/node/pull/952" target="_blank" rel="external">#952</a>를 참조.</li>
-<li><strong>npm</strong>: 2.6.0으로 업그레이드했다. 새로운 저장소와 <code>npm@3</code>를 준비하는 기능이 포함된다. 자세한 것은 <a href="https://github.com/npm/npm/blob/master/CHANGELOG.md#v260-2015-02-12" target="_blank" rel="external">npm CHANGELOG.md</a>를 참조. 요약:<ul>
-<li><a href="https://github.com/npm/npm/issues/5068" target="_blank" rel="external">#5068</a> 새로운 logout 명령어가 추가되어서 bearer-based와 basic-based에서 인증되는 클라이언트 모두에서 편리해졌다.</li>
-<li><a href="https://github.com/npm/npm/issues/6565" target="_blank" rel="external">#6565</a> <code>peerDependency</code> 동작이 변경되었다는 경고가 나오고 문서에도 추가된다.</li>
-<li><a href="https://github.com/npm/npm/issues/7171" target="_blank" rel="external">#7171</a> npm의 다음 major 버전(곧 릴리스!)에 <code>package.json</code>의 <code>engineStrict</code>가 삭제될 예정이다.</li>
-</ul>
-</li>
-<li><strong>libuv</strong>: 1.4.2로 업그레이드했다. 자세한 수정 내용은 <a href="https://github.com/libuv/libuv/blob/v1.x/ChangeLog" target="_blank" rel="external">libuv ChangeLog</a>를 확인하라.</li>
-</ul>
-<!--
-# ARM offers support for io.js on ARMv8
-
-ARM contacted Rod Vagg, lead of the io.js Build Working Group, to offer their support to the io.js project. ARM and their hardware partners are on track to make ARMv8 a viable server platform and the nimble nature of server-side JavaScript make it a perfect fit to run on the new ARM.
-
-Since ARMv8 is already being adopted by mobile device manufacturers, newer versions of V8 already have good support. Because of V8's pivotal role in Android, io.js is perfectly suited to track that support, and even contribute to it given our new relationships with the V8 team.
-
-From the beginning of the io.js project, Rod has championed the role of ARM for io.js, for IoT, hobbyist, and server use. We already have ARMv6 builds of each release for devices such as Raspberry Pi. and ARMv7 builds for many more popular devices (including the Online Labs ARM-based cloud platform, who have also offered help to io.js). ARMv8 is the logical extension of this, but also has exciting potential for server-side applications, particularly given the new 64-bit support.
-
-The build team is in the process of being given access to the Linaro ARMv8 Server Cluster for integration with the io.js CI platform, which should eventually lead to regular ARMv8 binary releases.
--->
-<h1 id="ARM사-ARMv8부터-io-js-지원-의향"><a href="#ARM사-ARMv8부터-io-js-지원-의향" class="headerlink" title="ARM사, ARMv8부터 io.js 지원 의향"></a>ARM사, ARMv8부터 io.js 지원 의향</h1><p>ARM에서 빌드 워킹그룹의 리더인 Rod Vagg에게 io.js 프로젝트를 지원 하고 싶다는 연락이 왔다. ARM과 ARM의 하드웨어 파트너는 ARMv8를 발전적인 서버 플랫폼으로 만들고 싶어 하고, 실행 속도가 빠른 서버 사이드 JavaScript는 새로운 ARM에서 실행하기 최적이다.</p>
-<p>ARMv8가 이미 모바일 디바이스 제조에 도입 되었으므로 새로운 버전의 V8도 이미 지원하고 있다. V8은 이미 Android에서 중추적인 역할을 하고 있으므로, io.js는 이 지원에 따라가기만 하면 되고 V8 팀과의 새로운 관계에도 도움이 된다.</p>
-<p>io.js 프로젝트를 시작할 때부터, Rod는 IoT, 취미용, 서버로서의 ARM의 역할에 기대를 하고 있었다. 이미 Raspberry Pi 같은 디바이스에 각 릴리스의 ARMv6 빌드를 가지고 있고 더 많은 유명한 디바이스에 (io.js를 지원하기로 한 Online Labs의 ARM 기반 클라우드 플랫폼을 포함) ARMv7 빌드를 가지고 있다. ARMv8은 이것의 논리적 확장이지만, 서버 사이드 애플리케이션에 놀라운 잠재력이 있고, 특히 새로운 64 비트 지원이 주어진다.</p>
-<p>빌드 팀은 io.js CI 플랫폼과 통합용의 Linaro ARMv8 Server Cluster에의 접근 권한을 얻을 예정이며, 이로 인해 매 릴리스에 ARMv8 바이너리의 배포가 가능해진다.</p>
-<!--
-# Community Updates
-* [**Reconciliation Proposal**](https://github.com/nodejs/node/issues/978): The io.js project is preparing a plan for reconciliation that can be brought to The Node.js Foundation. Input from the community is very important at this early stage so please leave a comment. 
-* **New internal C++ Streams API**: A [fresh C++ Streams API](https://github.com/nodejs/node/commit/b9686233fc0be679d7ba1262b611711629ee334e) landed in io.js this week, allowing you to wrap a TLS stream into another TLS stream. 
-* **io.js Roadmap**: [The Roadmap](https://github.com/nodejs/node/blob/v1.x/ROADMAP.md) is the plan for the future of io.js. It presents the plans for the stability policy, and lists what the immediate priorities for io.js as a whole are.
-* **Roadmap Slides Finished and Ready for Translation**: The set of introductory slides for the Roadmap of io.js [have been finished, and are ready for translation](https://github.com/nodejs/roadmap/issues/18). Do you think you could present them to a group near you? Comment and we'll work with you to prepare you to present! 
-* **Microsoft io.js How-To for Azure Websites**: Microsoft [published a how-to](http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-iojs/) tutorial for their Azure platform that describes how to use io.js with Azure Websites.
-* **Floobits moves to io.js**: The code pairing software Floobits [converted their platform to io.js](https://news.floobits.com/2015/02/23/on-moving-to-io.js/), in part because of frustration with Node's slower release cycle, because the inclusion of more ES6 features without the need for the `- -harmony` flag, and because they felt changes from 0.10.0 to 0.12.0 weren't very big.
-* **Anand Mani Sankar's _Node.js vs io.js: Why the fork?!?_**: Anand wrote a good, for the most part objective, [post about the recent history of io.js](http://anandmanisankar.com/posts/nodejs-iojs-why-the-fork/#.VO82hE60PVw.twitter), and what we hope to achieve with it. A good read for people who aren't engaged in the community to catch up with.
-* **iojs-jp - New io.js Japanese Blog**: The iojs-jp community has created a [localized io.js related blog](http://blog.iojs.jp/) to disseminate content in their language. If you're interested, take a look!
-* **iojs-cn - New io.js Chinese Blog**: Similarly to the iojs-jp community, the iojs-cn community created a [localized blog](http://cn.iojs.org/) to publish posts about io.js to in their language. Make sure to visit if you're curious about iojs-cn or Chinese news about io.js!
-* **[Roadmap Slides Review](https://www.youtube.com/watch?v=etI_UD4wXlo)** - A review of the roadmap slides before they were released to ensure they met with the message the project upholds.
--->
-<h1 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h1><ul>
-<li><a href="https://github.com/nodejs/node/issues/978" target="_blank" rel="external"><strong>화해 제안</strong></a>: io.js 프로젝트는 Node.js 재단과의 화해를 계획하는 중이다. 초기 단계이므로 커뮤니티로부터의 의견은 매우 중요하다. 의견을 남겨달라.</li>
-<li><strong>새 내부 C++ 스트림 API</strong>: <a href="https://github.com/nodejs/node/commit/b9686233fc0be679d7ba1262b611711629ee334e" target="_blank" rel="external">새로운 C++ 스트림 API</a>가 이번 주에 io.js에 추가되어, TLS 스트림을 다른 TLS 스트림으로 감싸는 것이 가능해졌다.</li>
-<li><strong>io.js 로드맵</strong>: <a href="https://github.com/nodejs/node/blob/v1.x/ROADMAP.md" target="_blank" rel="external">로드맵</a>은 io.js의 미래를 위한 계획이다. 여기에는 안정성 규정과 즉시 해결해야할 우선순위 목록이 있다.</li>
-<li><strong>로드맵 슬라이드 완성, 번역 준비 완료</strong>: io.js의 로드맵의 소개 슬라이드가 <a href="https://github.com/nodejs/roadmap/issues/18" target="_blank" rel="external">완성되었고 번역 준비가 완료 되었다.</a>. 지역 모임에서 발표할 수 있을 것 같으면, 댓글을 남겨달라. 우리가 준비를 도와주겠다!</li>
-<li><strong>Microsoft Azure 웹사이트를 위한 io.js 해설</strong>: Microsoft는 Azure 플랫폼을 위해 어떻게 Azure 웹사이트에서 io.js를 사용하는지에 대한 <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-iojs/" target="_blank" rel="external">튜토리얼을 출간</a>했다.</li>
-<li><strong>Floobits가 io.js로 이동</strong>: 페어 프로그래밍 소프트웨어 Floobits가 <a href="https://news.floobits.com/2015/02/23/on-moving-to-io.js/" target="_blank" rel="external">플랫폼을 io.js로 이전했다.</a> 이 결정은 Node의 느린 릴리스 주기, <code>--harmony</code> 플래그 없이 사용할 수 있는 더 많은 ES6 기능, 0.10.0에서 0.12.0에의 변경이 크게 느껴지지 않았기 때문이다.</li>
-<li><strong>Anand Mani Sankar의 <em>Node.js vs io.js: Why the fork?!?</em></strong>: Anand가 최대한 객관적인 좋은 <a href="http://anandmanisankar.com/posts/nodejs-iojs-why-the-fork/#.VO82hE60PVw.twitter" target="_blank" rel="external">io.js의 최근 역사와 달성 목표에 관한 글을 썼다</a>. 최근의 흐름에 따라오지 못한 사람들을 위해 추천한다.</li>
-<li><strong>iojs-jp - 새 io.js 일본어 블로그</strong>: iojs-jp 커뮤니티는 일어로 자료를 배포하기 위한 <a href="http://blog.iojs.jp/" target="_blank" rel="external">지역화된 io.js 관련 블로그</a>를 만들었다. 관심이 있다면 살펴보라.</li>
-<li><strong>iojs-cn - 새 io.js 중국어 블로그</strong>: iojs-jp 커뮤니티와 비슷하게, iojs-cn 커뮤니티는 io.js 관련 글을 중국어로 게시하기 위한 <a href="http://cn.iojs.org/" target="_blank" rel="external">지역화 블로그</a>를 만들었다. iojs-cn이나 io.js의 중국어 뉴스에 관심이 있다면 방문해 보라!</li>
-<li><strong><a href="https://www.youtube.com/watch?v=etI_UD4wXlo" target="_blank" rel="external">로드맵 슬라이드 리뷰</a></strong> - 릴리스 전에 로드맵 슬라이드가 프로젝트가 지지하는 방향과 맞는지 확인하기 위한 리뷰다.</li>
-</ul>
-<!--
-# io.js Support Added
-* **[Wallby.js](http://wallabyjs.com/)**, a while-you-write testing library for JavaScript, hit version 1.0 and [added support for io.js](http://dm.gl/2015/02/23/wallaby-version-one/)!
-* **[jsdom](https://github.com/tmpvar/jsdom)**, an implementation of the WHATWG DOM and HTML standards, just hit [version 4.0.0](https://github.com/tmpvar/jsdom/blob/master/Changelog.md#400), which added a _requirement_ of io.js.
-* **[give](https://github.com/mmalecki/give)**'s creator [tweeted](https://twitter.com/maciejmalecki/status/569629100215816192) that newer versions of give support io.js. Give is a git-based node.js/io.js version manager.
-* The **Firebase Realtime Client**, the official web/node.js JavaScript client for Firebase, [tweeted](https://twitter.com/FirebaseRelease/status/570000737343647744) that they added support for io.js in [version 2.2.1](https://www.firebase.com/docs/web/changelog.html#section-realtime-client)
-* **Semaphore**, a hosted continuous integrations service, [tweeted](https://twitter.com/semaphoreapp/status/570987355005431809) about added io.js support in their [Platform update on February 24th, 2015](https://semaphoreapp.com/blog/2015/02/17/platform-update-on-february-24th.html?utm_source=twitter&utm_medium=social&utm_content=platform_update_launch&utm_campaign=platformupdate). 
--->
-<h1 id="io-js-지원-추가"><a href="#io-js-지원-추가" class="headerlink" title="io.js 지원 추가"></a>io.js 지원 추가</h1><ul>
-<li><strong><a href="http://wallabyjs.com/" target="_blank" rel="external">Wallby.js</a></strong>는 적으면서 테스트하는 JavaScript용 라이브러리이다. 1.0 버전이 되었고 <a href="http://dm.gl/2015/02/23/wallaby-version-one/" target="_blank" rel="external">io.js 지원이 추가되었다</a>!</li>
-<li><strong><a href="https://github.com/tmpvar/jsdom" target="_blank" rel="external">jsdom</a></strong>은 WHATWG DOM과 HTML 표준의 구현체이다. 이제 막 <a href="https://github.com/tmpvar/jsdom/blob/master/Changelog.md#400" target="_blank" rel="external">4.0.0 버전</a>되었고 io.js가 <em>요구사항</em>으로 추가되었다</li>
-<li><strong><a href="https://github.com/mmalecki/give" target="_blank" rel="external">give</a></strong>의 저자가 give의 새로운 버전에는 io.js 지원이 추가될 것이라 <a href="https://twitter.com/maciejmalecki/status/569629100215816192" target="_blank" rel="external">트윗했다</a>. Give는 git 기반의 node.js/io.js 버전 관리자이다.</li>
-<li><strong>Firebase Realtime Client</strong>는 Firebase용 공식 웹/node.js JavaScript 클라이언트이다. <a href="https://www.firebase.com/docs/web/changelog.html#section-realtime-client" target="_blank" rel="external">2.2.1 버전</a>에 io.js 지원이 추가될 것이라 <a href="https://twitter.com/FirebaseRelease/status/570000737343647744" target="_blank" rel="external">트윗했다</a>.</li>
-<li><strong>Semaphore</strong>는 호스팅되는 지속적인 통합 서비스이다. <a href="https://semaphoreapp.com/blog/2015/02/17/platform-update-on-february-24th.html?utm_source=twitter&amp;utm_medium=social&amp;utm_content=platform_update_launch&amp;utm_campaign=platformupdate" target="_blank" rel="external">2015년 2월 24일에 플랫폼 업데이트</a>에 io.js의 지원이 추가된다고 <a href="https://twitter.com/semaphoreapp/status/570987355005431809" target="_blank" rel="external">트윗했다</a>.</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/27/weekly/" data-id="cirzbcmc1000fbum6028rs3of" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/03/06/weekly/" data-id="cis1avsgx000kn9m6hbp3oa37" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1479,7 +1452,7 @@ maintain and improve the build infrastructure and produce Node builds.
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/02/27/reconciliation-proposal/" data-id="cirzbcmbx000cbum6nz1rhp4v" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/articles/2015/02/27/reconciliation-proposal/" data-id="cis1avsgq000cn9m6dupy1s0f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1492,8 +1465,8 @@ maintain and improve the build infrastructure and produce Node builds.
     <article id="post-weekly" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
-  <a href="/nodejs-ko/weekly/2015/02/20/weekly/" class="article-date">
-    <time datetime="2015-02-19T15:00:00.000Z" itemprop="datePublished">2015-02-20</time>
+  <a href="/nodejs-ko/weekly/2015/02/27/weekly/" class="article-date">
+    <time datetime="2015-02-26T15:00:00.000Z" itemprop="datePublished">2015-02-27</time>
   </a>
 
 
@@ -1510,21 +1483,21 @@ maintain and improve the build infrastructure and produce Node builds.
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/nodejs-ko/weekly/2015/02/20/weekly/">io.js 주간 뉴스 2015년 2월 20일</a>
+      <a class="article-title" href="/nodejs-ko/weekly/2015/02/27/weekly/">io.js 주간 뉴스 2015년 2월 27일</a>
     </h1>
   
   <ul>
-    <li>작성자: <strong>io.js</strong></li>
+    <li>작성자: <strong>iojs</strong></li>
     <li>
-      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-february-20th-2015-48486615980" taret="_blank">
-        io.js Week of February 20th 2015
+      원문: <strong><a href="https://medium.com/node-js-javascript/io-js-week-of-february-17th-9422a589302a" taret="_blank">
+        io.js Week of February 27th — Node &amp;amp; JavaScript
       </a></strong>
     </li>
     <li>
       번역:
       
         
-          <strong><a href="https://github.com/hibiyasleep" target="_blank">Kuriyama hibiya</a></strong>
+          <strong><a href="https://github.com/marocchino" target="_blank">marocchino</a></strong>
         
       
     </li>
@@ -1536,85 +1509,97 @@ maintain and improve the build infrastructure and produce Node builds.
     <div class="article-entry" itemprop="articleBody">
       
         <!--
-*1.3.0 release, MongoDB, the roadmap and more.*
+# io.js 1.4.1 Release
+
+_Note: version **1.4.0** was tagged and built but not released. A libuv bug was discovered in the process so the release was aborted. We have jumped to 1.4.1 to avoid confusion._
 -->
-<p><em>1.3.0 릴리스, MongoDB, 로드맵 등</em></p>
+<h1 id="io-js-1-4-1-릴리스"><a href="#io-js-1-4-1-릴리스" class="headerlink" title="io.js 1.4.1 릴리스"></a>io.js 1.4.1 릴리스</h1><p><em>주의: <strong>1.4.0</strong> 버전은 태깅하고 빌드는 했지만 릴리스하지는 않았다. 도중 libuv 버그를 발견해서 릴리스를 취소했다. 혼동을 피하고자 바로 1.4.1 버전으로 건너뛰었다.</em></p>
 <!--
-## 1.3.0 Release
+## Notable changes
+
+* **process** / **promises**: An`'unhandledRejection'` event is now emitted on `process` whenever a `Promise` is rejected and no error handler is attached to the `Promise` within a turn of the event loop. A `'rejectionHandled'` event is now emitted whenever a `Promise` was rejected and an error handler was attached to it later than after an event loop turn.  [#758](https://github.com/nodejs/node/pull/758) (Petka Antonov)
+* **streams**: you can now use regular streams as an underlying socket for `tls.connect()` [#926](https://github.com/nodejs/node/pull/926) (Fedor Indutny)
+* **http**: A new `'abort'` event emitted when a `http.ClientRequest` is aborted by the client. [#945](https://github.com/nodejs/node/pull/945) (Evan Lucas)
+* **V8**: Upgrade V8 to 4.1.0.21. Includes an embargoed fix, details should be available when embargo is lifted. A breaking ABI change has been held back from this upgrade, possibly to be included when io.js merges V8 4.2. See [#952](https://github.com/nodejs/node/pull/952) for discussion.
+* **npm**: Upgrade npm to 2.6.0. Includes features to support the new registry and to prepare for `npm@3`. See [npm CHANGELOG.md](https://github.com/npm/npm/blob/master/CHANGELOG.md#v260-2015-02-12) for details. Summary:
+  * [#5068](https://github.com/npm/npm/issues/5068) Add new logout command, and make it do something useful on both bearer-based and basic-based authed clients.
+  * [#6565](https://github.com/npm/npm/issues/6565) Warn that `peerDependency` behavior is changing and add a note to the docs.
+  * [#7171](https://github.com/npm/npm/issues/7171) Warn that `engineStrict` in `package.json` will be going away in the next major version of npm (coming soon!)
+* **libuv**: Upgrade to 1.4.2. See [libuv ChangeLog](https://github.com/libuv/libuv/blob/v1.x/ChangeLog) for details of fixes.
 -->
-<h2 id="1-3-0-릴리스"><a href="#1-3-0-릴리스" class="headerlink" title="1.3.0 릴리스"></a>1.3.0 릴리스</h2><!--
-Notable changes include:
--->
-<p>다음 변경 사항을 포함합니다:</p>
-<!--
-- **url**: `url.resolve(‘/path/to/file’, ‘.’)` now returns `/path/to/` with the trailing slash, `url.resolve(‘/’, ‘.’)` returns `/` #278 (Amir Saboury)
-- **tls**: The default cipher suite used by tls and https has been changed to one that achieves Perfect Forward Secrecy with all modern browsers. Additionally, insecure RC4 ciphers have been excluded. If you absolutely require RC4, please specify your own cipher suites. #826 (Roman Reiss)
--->
-<ul>
-<li><strong>url</strong>: <code>url.resolve(&#39;/path/to/file&#39;, &#39;.&#39;)</code>는 이제 맨 끝에 붙은 슬래시와 함께 <code>/path/to/</code>를 리턴합니다. <code>url.resolve(&#39;/&#39;, &#39;.&#39;)</code>는 <code>/</code>를 리턴합니다. <a href="https://github.com/nodejs/node/pull/278" target="_blank" rel="external">#278</a> (Amir Saboury)</li>
-<li><strong>tls</strong>: tls와 https에 사용되는 기본 암호(cipher) 모음이 모든 최신 브라우저에서 Perfect Forward Secrecy를 달성할 수 있도록 변경되었습니다. 추가로, 안전하지 않은 RC4 암호는 제외되었습니다. RC4가 정말 필요하다면 당신의 암호 모음을 직접 지정하시기 바랍니다. <a href="https://github.com/nodejs/node/pull/826" target="_blank" rel="external">#826</a> (Roman Reiss)</li>
+<h2 id="주요-변경-사항"><a href="#주요-변경-사항" class="headerlink" title="주요 변경 사항"></a>주요 변경 사항</h2><ul>
+<li><strong>process</strong> / <strong>promises</strong>: 이제 에러 핸들러가 이벤트 루프에서 차례가 돌아왔을 때 <code>Promise</code>가 거부되었지만 <code>Promise</code>에 연결된 에러 핸들러가 없을 때 <code>process</code>에서 <code>&#39;unhandledRejection&#39;</code> 이벤트가 발생한다. <a href="https://github.com/nodejs/node/pull/758" target="_blank" rel="external">#758</a> (Petka Antonov)</li>
+<li><strong>streams</strong>: 이제 <code>tls.connect()</code>를 사용할 때 기반 소켓으로 일반 스트림을 사용할 수 있다. <a href="https://github.com/nodejs/node/pull/926" target="_blank" rel="external">#926</a> (Fedor Indutny)</li>
+<li><strong>http</strong>: 클라이언트가 <code>http.ClientRequest</code>를 중지했을 때 새로운 <code>&#39;abort&#39;</code> 이벤트가 발생한다. <a href="https://github.com/nodejs/node/pull/945" target="_blank" rel="external">#945</a> (Evan Lucas)</li>
+<li><strong>V8</strong>: 버전을 4.1.0.21로 업그레이드했다. 여기엔 금지된(embargoed) 수정이 포함된다. 세부사항은 금지가 해제될 때 사용할 수 있다. 호환성이 깨진 ABI 변경사항은 이번 업드레이드에는 포함되지 않았지만 io.js에 V8 4.2를 합칠 때 포함할 수도 있다. 논의는 <a href="https://github.com/nodejs/node/pull/952" target="_blank" rel="external">#952</a>를 참조.</li>
+<li><strong>npm</strong>: 2.6.0으로 업그레이드했다. 새로운 저장소와 <code>npm@3</code>를 준비하는 기능이 포함된다. 자세한 것은 <a href="https://github.com/npm/npm/blob/master/CHANGELOG.md#v260-2015-02-12" target="_blank" rel="external">npm CHANGELOG.md</a>를 참조. 요약:<ul>
+<li><a href="https://github.com/npm/npm/issues/5068" target="_blank" rel="external">#5068</a> 새로운 logout 명령어가 추가되어서 bearer-based와 basic-based에서 인증되는 클라이언트 모두에서 편리해졌다.</li>
+<li><a href="https://github.com/npm/npm/issues/6565" target="_blank" rel="external">#6565</a> <code>peerDependency</code> 동작이 변경되었다는 경고가 나오고 문서에도 추가된다.</li>
+<li><a href="https://github.com/npm/npm/issues/7171" target="_blank" rel="external">#7171</a> npm의 다음 major 버전(곧 릴리스!)에 <code>package.json</code>의 <code>engineStrict</code>가 삭제될 예정이다.</li>
+</ul>
+</li>
+<li><strong>libuv</strong>: 1.4.2로 업그레이드했다. 자세한 수정 내용은 <a href="https://github.com/libuv/libuv/blob/v1.x/ChangeLog" target="_blank" rel="external">libuv ChangeLog</a>를 확인하라.</li>
 </ul>
 <!--
-## Notable Events in the Community
+# ARM offers support for io.js on ARMv8
+
+ARM contacted Rod Vagg, lead of the io.js Build Working Group, to offer their support to the io.js project. ARM and their hardware partners are on track to make ARMv8 a viable server platform and the nimble nature of server-side JavaScript make it a perfect fit to run on the new ARM.
+
+Since ARMv8 is already being adopted by mobile device manufacturers, newer versions of V8 already have good support. Because of V8's pivotal role in Android, io.js is perfectly suited to track that support, and even contribute to it given our new relationships with the V8 team.
+
+From the beginning of the io.js project, Rod has championed the role of ARM for io.js, for IoT, hobbyist, and server use. We already have ARMv6 builds of each release for devices such as Raspberry Pi. and ARMv7 builds for many more popular devices (including the Online Labs ARM-based cloud platform, who have also offered help to io.js). ARMv8 is the logical extension of this, but also has exciting potential for server-side applications, particularly given the new 64-bit support.
+
+The build team is in the process of being given access to the Linaro ARMv8 Server Cluster for integration with the io.js CI platform, which should eventually lead to regular ARMv8 binary releases.
 -->
-<h2 id="커뮤니티의-주목할-만한-이벤트"><a href="#커뮤니티의-주목할-만한-이벤트" class="headerlink" title="커뮤니티의 주목할 만한 이벤트"></a>커뮤니티의 주목할 만한 이벤트</h2><!--
-- **Node Governance** — [William Bert](https://twitter.com/williamjohnbert) created [http://nodegovernance.io/](http://nodegovernance.io/) to alert Scott Hammond, CEO of Joyent, of the desire of the community for the io.js open-governance model to be the base upon which the Node Foundation’s Technical Committee. The response from the community was *fantastic*!
-- Node.js and io.js Performance Improves — Raygun.io did performance tests with both Node.js and io.js recently, and both are improving performance with each release! Read the full article.
-- **LTTng Basics** — [LTTng Basics](http://asciinema.org/a/16785) with io.js by user jgalar on asciinema
-- **[io.js Roadmap Slides](http://roadmap.iojs.org/)** — Slide deck for the current roadmap of io.js up.
+<h1 id="ARM사-ARMv8부터-io-js-지원-의향"><a href="#ARM사-ARMv8부터-io-js-지원-의향" class="headerlink" title="ARM사, ARMv8부터 io.js 지원 의향"></a>ARM사, ARMv8부터 io.js 지원 의향</h1><p>ARM에서 빌드 워킹그룹의 리더인 Rod Vagg에게 io.js 프로젝트를 지원 하고 싶다는 연락이 왔다. ARM과 ARM의 하드웨어 파트너는 ARMv8를 발전적인 서버 플랫폼으로 만들고 싶어 하고, 실행 속도가 빠른 서버 사이드 JavaScript는 새로운 ARM에서 실행하기 최적이다.</p>
+<p>ARMv8가 이미 모바일 디바이스 제조에 도입 되었으므로 새로운 버전의 V8도 이미 지원하고 있다. V8은 이미 Android에서 중추적인 역할을 하고 있으므로, io.js는 이 지원에 따라가기만 하면 되고 V8 팀과의 새로운 관계에도 도움이 된다.</p>
+<p>io.js 프로젝트를 시작할 때부터, Rod는 IoT, 취미용, 서버로서의 ARM의 역할에 기대를 하고 있었다. 이미 Raspberry Pi 같은 디바이스에 각 릴리스의 ARMv6 빌드를 가지고 있고 더 많은 유명한 디바이스에 (io.js를 지원하기로 한 Online Labs의 ARM 기반 클라우드 플랫폼을 포함) ARMv7 빌드를 가지고 있다. ARMv8은 이것의 논리적 확장이지만, 서버 사이드 애플리케이션에 놀라운 잠재력이 있고, 특히 새로운 64 비트 지원이 주어진다.</p>
+<p>빌드 팀은 io.js CI 플랫폼과 통합용의 Linaro ARMv8 Server Cluster에의 접근 권한을 얻을 예정이며, 이로 인해 매 릴리스에 ARMv8 바이너리의 배포가 가능해진다.</p>
+<!--
+# Community Updates
+* [**Reconciliation Proposal**](https://github.com/nodejs/node/issues/978): The io.js project is preparing a plan for reconciliation that can be brought to The Node.js Foundation. Input from the community is very important at this early stage so please leave a comment. 
+* **New internal C++ Streams API**: A [fresh C++ Streams API](https://github.com/nodejs/node/commit/b9686233fc0be679d7ba1262b611711629ee334e) landed in io.js this week, allowing you to wrap a TLS stream into another TLS stream. 
+* **io.js Roadmap**: [The Roadmap](https://github.com/nodejs/node/blob/v1.x/ROADMAP.md) is the plan for the future of io.js. It presents the plans for the stability policy, and lists what the immediate priorities for io.js as a whole are.
+* **Roadmap Slides Finished and Ready for Translation**: The set of introductory slides for the Roadmap of io.js [have been finished, and are ready for translation](https://github.com/nodejs/roadmap/issues/18). Do you think you could present them to a group near you? Comment and we'll work with you to prepare you to present! 
+* **Microsoft io.js How-To for Azure Websites**: Microsoft [published a how-to](http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-iojs/) tutorial for their Azure platform that describes how to use io.js with Azure Websites.
+* **Floobits moves to io.js**: The code pairing software Floobits [converted their platform to io.js](https://news.floobits.com/2015/02/23/on-moving-to-io.js/), in part because of frustration with Node's slower release cycle, because the inclusion of more ES6 features without the need for the `- -harmony` flag, and because they felt changes from 0.10.0 to 0.12.0 weren't very big.
+* **Anand Mani Sankar's _Node.js vs io.js: Why the fork?!?_**: Anand wrote a good, for the most part objective, [post about the recent history of io.js](http://anandmanisankar.com/posts/nodejs-iojs-why-the-fork/#.VO82hE60PVw.twitter), and what we hope to achieve with it. A good read for people who aren't engaged in the community to catch up with.
+* **iojs-jp - New io.js Japanese Blog**: The iojs-jp community has created a [localized io.js related blog](http://blog.iojs.jp/) to disseminate content in their language. If you're interested, take a look!
+* **iojs-cn - New io.js Chinese Blog**: Similarly to the iojs-jp community, the iojs-cn community created a [localized blog](http://cn.iojs.org/) to publish posts about io.js to in their language. Make sure to visit if you're curious about iojs-cn or Chinese news about io.js!
+* **[Roadmap Slides Review](https://www.youtube.com/watch?v=etI_UD4wXlo)** - A review of the roadmap slides before they were released to ensure they met with the message the project upholds.
 -->
-<ul>
-<li><strong>Node 거버넌스</strong> — <a href="https://twitter.com/williamjohnbert" target="_blank" rel="external">William Bert</a>는 Joyent의 CEO인 Scott Hammond에게 Node 재단 TC의 기반이 될 io.js 오픈 거버넌스 모델에 대한 커뮤니티의 바람을 전하기 위해 <a href="http://nodegovernance.io/" target="_blank" rel="external">http://nodegovernance.io/</a>를 만들었습니다. 커뮤니티의 반응은 <em>환상적이었습니다</em>!</li>
-<li><strong>Node.js와 io.js 성능 향상</strong> — Raygun.io에서 최근 Node.js와 io.js로 성능 테스트를 진행하였고, 양쪽 모두 매 릴리스마다 성능이 향상되고 있습니다! <a href="https://raygun.io/blog/2015/02/node-js-performance-node-js-vs-io-js/" target="_blank" rel="external">원문 읽기</a>.</li>
-<li><strong>LTTng 기초</strong> — jgalar의 asciinema: io.js <a href="https://asciinema.org/a/16785" target="_blank" rel="external">LTTng 기초</a></li>
-<li><strong><a href="http://roadmap.iojs.org/" target="_blank" rel="external">io.js 로드맵 슬라이드</a></strong> — io.js의 현재 로드맵에 대한 슬라이드입니다.</li>
+<h1 id="커뮤니티-업데이트"><a href="#커뮤니티-업데이트" class="headerlink" title="커뮤니티 업데이트"></a>커뮤니티 업데이트</h1><ul>
+<li><a href="https://github.com/nodejs/node/issues/978" target="_blank" rel="external"><strong>화해 제안</strong></a>: io.js 프로젝트는 Node.js 재단과의 화해를 계획하는 중이다. 초기 단계이므로 커뮤니티로부터의 의견은 매우 중요하다. 의견을 남겨달라.</li>
+<li><strong>새 내부 C++ 스트림 API</strong>: <a href="https://github.com/nodejs/node/commit/b9686233fc0be679d7ba1262b611711629ee334e" target="_blank" rel="external">새로운 C++ 스트림 API</a>가 이번 주에 io.js에 추가되어, TLS 스트림을 다른 TLS 스트림으로 감싸는 것이 가능해졌다.</li>
+<li><strong>io.js 로드맵</strong>: <a href="https://github.com/nodejs/node/blob/v1.x/ROADMAP.md" target="_blank" rel="external">로드맵</a>은 io.js의 미래를 위한 계획이다. 여기에는 안정성 규정과 즉시 해결해야할 우선순위 목록이 있다.</li>
+<li><strong>로드맵 슬라이드 완성, 번역 준비 완료</strong>: io.js의 로드맵의 소개 슬라이드가 <a href="https://github.com/nodejs/roadmap/issues/18" target="_blank" rel="external">완성되었고 번역 준비가 완료 되었다.</a>. 지역 모임에서 발표할 수 있을 것 같으면, 댓글을 남겨달라. 우리가 준비를 도와주겠다!</li>
+<li><strong>Microsoft Azure 웹사이트를 위한 io.js 해설</strong>: Microsoft는 Azure 플랫폼을 위해 어떻게 Azure 웹사이트에서 io.js를 사용하는지에 대한 <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-nodejs-iojs/" target="_blank" rel="external">튜토리얼을 출간</a>했다.</li>
+<li><strong>Floobits가 io.js로 이동</strong>: 페어 프로그래밍 소프트웨어 Floobits가 <a href="https://news.floobits.com/2015/02/23/on-moving-to-io.js/" target="_blank" rel="external">플랫폼을 io.js로 이전했다.</a> 이 결정은 Node의 느린 릴리스 주기, <code>--harmony</code> 플래그 없이 사용할 수 있는 더 많은 ES6 기능, 0.10.0에서 0.12.0에의 변경이 크게 느껴지지 않았기 때문이다.</li>
+<li><strong>Anand Mani Sankar의 <em>Node.js vs io.js: Why the fork?!?</em></strong>: Anand가 최대한 객관적인 좋은 <a href="http://anandmanisankar.com/posts/nodejs-iojs-why-the-fork/#.VO82hE60PVw.twitter" target="_blank" rel="external">io.js의 최근 역사와 달성 목표에 관한 글을 썼다</a>. 최근의 흐름에 따라오지 못한 사람들을 위해 추천한다.</li>
+<li><strong>iojs-jp - 새 io.js 일본어 블로그</strong>: iojs-jp 커뮤니티는 일어로 자료를 배포하기 위한 <a href="http://blog.iojs.jp/" target="_blank" rel="external">지역화된 io.js 관련 블로그</a>를 만들었다. 관심이 있다면 살펴보라.</li>
+<li><strong>iojs-cn - 새 io.js 중국어 블로그</strong>: iojs-jp 커뮤니티와 비슷하게, iojs-cn 커뮤니티는 io.js 관련 글을 중국어로 게시하기 위한 <a href="http://cn.iojs.org/" target="_blank" rel="external">지역화 블로그</a>를 만들었다. iojs-cn이나 io.js의 중국어 뉴스에 관심이 있다면 방문해 보라!</li>
+<li><strong><a href="https://www.youtube.com/watch?v=etI_UD4wXlo" target="_blank" rel="external">로드맵 슬라이드 리뷰</a></strong> - 릴리스 전에 로드맵 슬라이드가 프로젝트가 지지하는 방향과 맞는지 확인하기 위한 리뷰다.</li>
 </ul>
 <!--
-## io.js Support Added
+# io.js Support Added
+* **[Wallby.js](http://wallabyjs.com/)**, a while-you-write testing library for JavaScript, hit version 1.0 and [added support for io.js](http://dm.gl/2015/02/23/wallaby-version-one/)!
+* **[jsdom](https://github.com/tmpvar/jsdom)**, an implementation of the WHATWG DOM and HTML standards, just hit [version 4.0.0](https://github.com/tmpvar/jsdom/blob/master/Changelog.md#400), which added a _requirement_ of io.js.
+* **[give](https://github.com/mmalecki/give)**'s creator [tweeted](https://twitter.com/maciejmalecki/status/569629100215816192) that newer versions of give support io.js. Give is a git-based node.js/io.js version manager.
+* The **Firebase Realtime Client**, the official web/node.js JavaScript client for Firebase, [tweeted](https://twitter.com/FirebaseRelease/status/570000737343647744) that they added support for io.js in [version 2.2.1](https://www.firebase.com/docs/web/changelog.html#section-realtime-client)
+* **Semaphore**, a hosted continuous integrations service, [tweeted](https://twitter.com/semaphoreapp/status/570987355005431809) about added io.js support in their [Platform update on February 24th, 2015](https://semaphoreapp.com/blog/2015/02/17/platform-update-on-february-24th.html?utm_source=twitter&utm_medium=social&utm_content=platform_update_launch&utm_campaign=platformupdate). 
 -->
-<h2 id="io-js-지원-추가"><a href="#io-js-지원-추가" class="headerlink" title="io.js 지원 추가"></a>io.js 지원 추가</h2><!--
-* [TravisCI](https://travis-ci.org/) added io.js. The day the last Weekly Update was posted, Hiro Asari (あさり) [tweeted](https://twitter.com/hiro_asari/status/566268486012633088) that about 10% of Node projects were running io.js.
-* [@thlorenz](https://github.com/thlorenz) updated [nad](https://github.com/thlorenz/nad), Node Addon Developer, to [support io.js](https://twitter.com/thlorenz/status/566328088121081856).
-* Official MongoDB node module supports io.js in [v. 2.0.16 2015–02–16](https://github.com/mongodb/node-mongodb-native/blob/2.0/HISTORY.md).
-* [The Native Web](http://www.thenativeweb.io/) now has a [io.js Docker container](https://registry.hub.docker.com/u/thenativeweb/iojs/).
-* [DNSChain](https://github.com/okTurtles/dnschain) by [okTurtles](https://okturtles.com/) added support for io.js.
-* [TDPAHACLPlugin](https://github.com/neilstuartcraig/TDPAHACLPlugin) and [TDPAHAuthPlugin](https://github.com/neilstuartcraig/TDPAHAuthPlugin) for [actionHero](http://www.actionherojs.com/) now support io.js.
-* [node-sass](https://npmjs.org/package/node-sass) added support for io.js 1.2 in node-sass [v. 2.0.1](https://github.com/sass/node-sass/issues/655)
-* [total.js](https://www.totaljs.com/) added support for io.js in [v. 1.7.1](https://github.com/totaljs/framework/releases/tag/v1.7.1)
-* [Clever Cloud](https://www.clever-cloud.com/) added [support for io.js](https://www.clever-cloud.com/blog/features/2015/01/23/introducing-io.js/)
--->
-<ul>
-<li><a href="https://travis-ci.org/" target="_blank" rel="external">Travis CI</a>가 io.js를 추가했습니다. 마지막 주간 뉴스를 올린 날, Hiro Asari가 Node.js 프로젝트 중 10%가 io.js에서 동작한다고 <a href="https://twitter.com/hiro_asari/status/566268486012633088" target="_blank" rel="external">트윗하였습니다</a>.</li>
-<li><a href="https://github.com/thlorenz" target="_blank" rel="external">@thlorenz</a>가 <a href="https://github.com/thlorenz/nad" target="_blank" rel="external">nad (Node Addon Developer)</a>를 업데이트 하여 이제 <a href="https://twitter.com/thlorenz/status/566328088121081856" target="_blank" rel="external">io.js를 지원</a>합니다.</li>
-<li><a href="https://github.com/catberry/catberry" target="_blank" rel="external">Catberry.js</a>가 io.js를 지원합니다.</li>
-<li>공식 MongoDB node 모듈이 <a href="https://github.com/mongodb/node-mongodb-native/blob/2.0/HISTORY.md" target="_blank" rel="external">v. 2.0.16 2015–02–16</a>부터 io.js를 지원합니다.</li>
-<li><a href="http://www.thenativeweb.io/" target="_blank" rel="external">The Native Web</a>이 <a href="https://registry.hub.docker.com/u/thenativeweb/iojs/" target="_blank" rel="external">io.js Docker 컨테이너</a>를 추가했습니다.</li>
-<li><a href="https://okturtles.com/" target="_blank" rel="external">okTurtles</a>의 <a href="https://github.com/okTurtles/dnschain" target="_blank" rel="external">DNSChain</a>이 io.js를 지원합니다.</li>
-<li><a href="http://www.actionherojs.com/" target="_blank" rel="external">actionHero</a>를 위한 <a href="https://github.com/neilstuartcraig/TDPAHACLPlugin" target="_blank" rel="external">TDPAHACLPlugin</a>과 <a href="https://github.com/neilstuartcraig/TDPAHAuthPlugin" target="_blank" rel="external">TDPAHAuthPlugin</a>이 이제 io.js를 지원합니다.</li>
-<li><a href="https://npmjs.org/package/node-sass" target="_blank" rel="external">node-sass</a>가 <a href="https://github.com/sass/node-sass/issues/655" target="_blank" rel="external">v. 2.0.1</a>에서 io.js 1.2를 지원합니다.</li>
-<li><a href="https://www.totaljs.com/" target="_blank" rel="external">total.js</a>가 <a href="https://github.com/totaljs/framework/releases/tag/v1.7.1" target="_blank" rel="external">v1.7.1</a>에서 io.js를 지원합니다.</li>
-<li><a href="https://www.clever-cloud.com/" target="_blank" rel="external">Clever Cloud</a>가 <a href="https://www.clever-cloud.com/blog/features/2015/01/23/introducing-io.js/" target="_blank" rel="external">io.js를 지원합니다</a>.</li>
-</ul>
-<!--
-## io.js Working Group Meetings
--->
-<h2 id="io-js-워킹-그룹-회의"><a href="#io-js-워킹-그룹-회의" class="headerlink" title="io.js 워킹 그룹 회의"></a>io.js 워킹 그룹 회의</h2><!--
-* io.js Tracing Working Group Meeting — Feb 15, 2015: [YouTube](https://www.youtube.com/watch?v=wvBVjg8jkv0) — [SoundCloud](https://soundcloud.com/iojs/iojs-tracing-wg-meeting-2015-02-19) — [Minutes](https://docs.google.com/document/d/1_ApOMt03xHVkaGpTEPMDIrtkjXOzg3Hh4ZcyfhvMHx4/edit)
-* io.js Build Working Group Meeting — Feb 19, 2015: [YouTube](https://www.youtube.com/watch?v=OKQi3pTF7fs) — [SoundCloud](https://soundcloud.com/iojs/iojs-build-wg-meeting-2015-02-19) — [Minutes](https://docs.google.com/document/d/1vRhsYBs4Hw6vRu55h5eWTwDzS1NctxdTvMMEnCbDs14/edit)
-* io.js Technical Committee Meeting — Feb 18, 2015: [YouTube](https://www.youtube.com/watch?v=jeBPYLJ2_Yc) — [SoundCloud](https://soundcloud.com/iojs/iojs-tc-meeting-2015–02–18) — [Minutes](https://docs.google.com/document/d/1JnujRu6Rfnp6wvbvwCfxXnsjLySunQ_yah91pkvSFdQ/edit)
-* io.js Website Working Group Meeting — Feb 16, 2015: [YouTube](https://www.youtube.com/watch?v=UKDKhFV61ZA) — [SoundCloud](https://soundcloud.com/iojs/iojs-website-wg-meeting-2015-02-16) — [Minutes](https://docs.google.com/document/d/1R8JmOoyr64tt-QOj27bD19ZOWg63CujW7GeaAHIIkUs/edit)
--->
-<ul>
-<li>io.js 트레이싱 워킹 그룹 회의 — 2015년 2월 19일: <a href="https://www.youtube.com/watch?v=wvBVjg8jkv0" target="_blank" rel="external">YouTube</a> — <a href="https://soundcloud.com/iojs/iojs-tracing-wg-meeting-2015-02-19" target="_blank" rel="external">SoundCloud</a> — <a href="https://docs.google.com/document/d/1_ApOMt03xHVkaGpTEPMDIrtkjXOzg3Hh4ZcyfhvMHx4/edit" target="_blank" rel="external">Minutes</a></li>
-<li>io.js 빌드 워킹 그룹 회의 — 2015년 2월 19일: <a href="https://www.youtube.com/watch?v=OKQi3pTF7fs" target="_blank" rel="external">YouTube</a> — <a href="https://soundcloud.com/iojs/iojs-build-wg-meeting-2015-02-19" target="_blank" rel="external">SoundCloud</a> — <a href="https://docs.google.com/document/d/1vRhsYBs4Hw6vRu55h5eWTwDzS1NctxdTvMMEnCbDs14/edit" target="_blank" rel="external">Minutes</a></li>
-<li>io.js TC 회의 — 2015년 2월 18일: <a href="https://www.youtube.com/watch?v=jeBPYLJ2_Yc" target="_blank" rel="external">YouTube</a> — <a href="https://soundcloud.com/iojs/iojs-tc-meeting-2015–02–18" target="_blank" rel="external">SoundCloud</a> — <a href="https://docs.google.com/document/d/1JnujRu6Rfnp6wvbvwCfxXnsjLySunQ_yah91pkvSFdQ/edit" target="_blank" rel="external">Minutes</a></li>
-<li>io.js 웹사이트 워킹 그룹 회의 — 2015년 2월 16일: <a href="https://www.youtube.com/watch?v=UKDKhFV61ZA" target="_blank" rel="external">YouTube</a> — <a href="https://soundcloud.com/iojs/iojs-website-wg-meeting-2015-02-16" target="_blank" rel="external">SoundCloud</a> — <a href="https://docs.google.com/document/d/1R8JmOoyr64tt-QOj27bD19ZOWg63CujW7GeaAHIIkUs/edit" target="_blank" rel="external">Minutes</a></li>
+<h1 id="io-js-지원-추가"><a href="#io-js-지원-추가" class="headerlink" title="io.js 지원 추가"></a>io.js 지원 추가</h1><ul>
+<li><strong><a href="http://wallabyjs.com/" target="_blank" rel="external">Wallby.js</a></strong>는 적으면서 테스트하는 JavaScript용 라이브러리이다. 1.0 버전이 되었고 <a href="http://dm.gl/2015/02/23/wallaby-version-one/" target="_blank" rel="external">io.js 지원이 추가되었다</a>!</li>
+<li><strong><a href="https://github.com/tmpvar/jsdom" target="_blank" rel="external">jsdom</a></strong>은 WHATWG DOM과 HTML 표준의 구현체이다. 이제 막 <a href="https://github.com/tmpvar/jsdom/blob/master/Changelog.md#400" target="_blank" rel="external">4.0.0 버전</a>되었고 io.js가 <em>요구사항</em>으로 추가되었다</li>
+<li><strong><a href="https://github.com/mmalecki/give" target="_blank" rel="external">give</a></strong>의 저자가 give의 새로운 버전에는 io.js 지원이 추가될 것이라 <a href="https://twitter.com/maciejmalecki/status/569629100215816192" target="_blank" rel="external">트윗했다</a>. Give는 git 기반의 node.js/io.js 버전 관리자이다.</li>
+<li><strong>Firebase Realtime Client</strong>는 Firebase용 공식 웹/node.js JavaScript 클라이언트이다. <a href="https://www.firebase.com/docs/web/changelog.html#section-realtime-client" target="_blank" rel="external">2.2.1 버전</a>에 io.js 지원이 추가될 것이라 <a href="https://twitter.com/FirebaseRelease/status/570000737343647744" target="_blank" rel="external">트윗했다</a>.</li>
+<li><strong>Semaphore</strong>는 호스팅되는 지속적인 통합 서비스이다. <a href="https://semaphoreapp.com/blog/2015/02/17/platform-update-on-february-24th.html?utm_source=twitter&amp;utm_medium=social&amp;utm_content=platform_update_launch&amp;utm_campaign=platformupdate" target="_blank" rel="external">2015년 2월 24일에 플랫폼 업데이트</a>에 io.js의 지원이 추가된다고 <a href="https://twitter.com/semaphoreapp/status/570987355005431809" target="_blank" rel="external">트윗했다</a>.</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/20/weekly/" data-id="cirzbcmbn0008bum6c9idy9v9" class="article-share-link">Partager</a>
+      <a data-url="https://nodejs.github.io/nodejs-ko/nodejs-ko/weekly/2015/02/27/weekly/" data-id="cis1avsgs000fn9m6vcd347sr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1627,7 +1612,7 @@ Notable changes include:
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/nodejs-ko/page/15/">&laquo; Précédent</a><a class="page-number" href="/nodejs-ko/">1</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/14/">14</a><a class="page-number" href="/nodejs-ko/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/17/">Suivant &raquo;</a>
+    <a class="extend prev" rel="prev" href="/nodejs-ko/page/15/">&laquo; Prev</a><a class="page-number" href="/nodejs-ko/">1</a><span class="space">&hellip;</span><a class="page-number" href="/nodejs-ko/page/14/">14</a><a class="page-number" href="/nodejs-ko/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/nodejs-ko/page/17/">17</a><a class="extend next" rel="next" href="/nodejs-ko/page/17/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1673,7 +1658,7 @@ Notable changes include:
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Node.js 한국어 번역팀<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
